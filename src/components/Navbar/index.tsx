@@ -8,8 +8,10 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { LandingMenu } from "@/src/constants";
+import { useTranslations } from "next-intl";
 
 const Navbar = () => {
+  const t = useTranslations("navbar");
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
@@ -18,7 +20,7 @@ const Navbar = () => {
             {item.items ? (
               <>
                 <NavigationMenuTrigger className="text-[#2B593A] font-semibold">
-                  {item.title}
+                  {t(item.title)}
                 </NavigationMenuTrigger>
 
                 <NavigationMenuContent className="flex flex-col w-100 gap-2 md:w-125 md:flex-cols-2 lg:w-72">
@@ -28,7 +30,7 @@ const Navbar = () => {
                         href="#"
                         className="leading-none font-medium w-full block"
                       >
-                        {sub.sub}
+                        {t(sub.sub)}
                       </Link>
                     </div>
                   ))}
@@ -37,7 +39,7 @@ const Navbar = () => {
             ) : (
               <NavigationMenuLink asChild>
                 <Link href="/docs" className="text-[#2B593A] font-semibold">
-                  {item.title}
+                  {t(item.title)}
                 </Link>
               </NavigationMenuLink>
             )}

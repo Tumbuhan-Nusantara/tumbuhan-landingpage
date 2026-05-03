@@ -1,5 +1,25 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "navbar": {
+    "home": "Home",
+    "profile": "Profile",
+    "history": "History",
+    "visi": "Vision, Mission and Goals",
+    "structure": "Our Team" ,
+    "publication": "Publication",
+    "article": "Articles",
+    "digitalFlora": "Digital Flora of Indonesia",
+    "activity": "Activities",
+    "research": "Research and Exploration",
+    "education": "Education",
+    "restoration": "Restoration and Monitoring",
+    "news": "News",
+    "contact": "Contact Us"
+  },
+  
+  "hero": {
+    "title": "Recognize and preserve our plants!",
+    "desc": "aims to become one of the leading institutions in studying and conserving plant biodiversity in Indonesia.",
+    "about": "About Us"
   }
 }
+

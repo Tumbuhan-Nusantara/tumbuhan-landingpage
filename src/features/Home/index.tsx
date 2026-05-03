@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+"use client";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,8 +13,13 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 import Navbar from "@/src/components/Navbar";
 import { LandingMenu } from "@/src/constants";
+import { useLocale, useTranslations } from "next-intl";
+import Switcher from "@/src/components/Switcher";
 
 const HomePage = () => {
+  const t = useTranslations("navbar");
+  useLocale();
+  console.log("LOCALE:", useLocale());
   return (
     <div className="bg-linear-to-l from-[#C7FCDC] to-white ">
       <div className="container mx-auto">
@@ -31,56 +36,36 @@ const HomePage = () => {
               Tumbuhan Asli Nusantara
             </h1>
           </div>
-          <Navbar />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild >
-              <Menu className="block md:hidden"/>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 z-50 bg-white">
-              {LandingMenu.map((item) => (
-                <div key={item.id}>
-                  {item.items ? (
-                    <DropdownMenuGroup>
-                      <DropdownMenuLabel>{item.title}</DropdownMenuLabel>
+          <div className="flex items-center gap-2">
+            <Navbar />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Menu className="block md:hidden" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 z-50 bg-white">
+                {LandingMenu.map((item) => (
+                  <div key={item.id}>
+                    {item.items ? (
+                      <DropdownMenuGroup>
+                        <DropdownMenuLabel>{t(item.title)}</DropdownMenuLabel>
+                        {item.items.map((sub) => (
+                          <DropdownMenuItem key={sub.id}>
+                            {t(sub.sub)}
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuGroup>
+                    ) : (
+                      <DropdownMenuItem>{t(item.title)}</DropdownMenuItem>
+                    )}
 
-                      {item.items.map((sub) => (
-                        <DropdownMenuItem key={sub.id}>
-                          {sub.sub}
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuGroup>
-                  ) : (
-                    <DropdownMenuItem>{item.title}</DropdownMenuItem>
-                  )}
-
-                  <DropdownMenuSeparator />
-                </div>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+                    <DropdownMenuSeparator />
+                  </div>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Switcher />
+          </div>
         </div>
-
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
         <Hero />
       </div>
     </div>

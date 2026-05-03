@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import {NextIntlClientProvider} from 'next-intl';
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -32,10 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="id"
       className={`${poppins.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col"><NextIntlClientProvider>{children}</NextIntlClientProvider></body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
