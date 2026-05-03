@@ -8,7 +8,7 @@ const middleware = createMiddleware({
 });
 
 export default function tes (req: NextRequest) {
-  console.log("🔥 MIDDLEWARE JALAN");
+  console.log("MIDDLEWARE JALAN");
   return middleware(req);
 }
 
