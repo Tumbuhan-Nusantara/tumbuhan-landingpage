@@ -1,0 +1,23 @@
+{
+  "navbar": {
+    "home": "Beranda",
+    "profile": "Profil",
+    "history": "Sejarah",
+    "visi": "Visi Misi dan Tujuan",
+    "structure": "Struktur Organisasi" ,
+    "publication": "Publikasi",
+    "article": "Artikel Ilmiah",
+    "digitalFlora": "Digital Flora of Indonesia",
+    "activity": "Kegiatan",
+    "research": "Riset dan Eksplorasi",
+    "education": "Edukasi",
+    "restoration": "Restorasi dan Monitoring",
+    "news": "Berita",
+    "contact": "Kontak Kami"
+  },
+  "hero": {
+    "title": "Kenali dan lestarikan tumbuhan kita!",
+    "desc":"memiliki cita-cita untuk menjadi salah satu lembaga terdepan dalam mempelajari dan melestarikan keragaman hayati tumbuhan di Indonesia",
+    "about": "Tentang Kami"
+  }
+}
