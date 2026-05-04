@@ -1,9 +1,13 @@
-import HomePage from '@/src/features/Home'
+import DampakFeat from "@/src/features/Dampak";
+import HomeFeat from "@/src/features/Home";
 
 const page = () => {
   return (
-    <HomePage />
-  )
-}
+    <>
+      <HomeFeat />
+      <DampakFeat />
+    </>
+  );
+};
 
-export default page
+export default page;
