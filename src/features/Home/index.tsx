@@ -16,7 +16,7 @@ import { LandingMenu } from "@/src/constants";
 import { useLocale, useTranslations } from "next-intl";
 import Switcher from "@/src/components/Switcher";
 
-const HomePage = () => {
+const HomeFeat = () => {
   const t = useTranslations("navbar");
   useLocale();
   console.log("LOCALE:", useLocale());
@@ -72,4 +72,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomeFeat;
