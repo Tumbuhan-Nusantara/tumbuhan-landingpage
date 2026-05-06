@@ -43,6 +43,10 @@
     "card1": {"title": "Research", "desc": "Research is one of YTAN’s main objectives, with a primary focus on studying the diversity of flora in Indonesia." },
     "card2": {"title": "Conversation", "desc": "Conservation serves as a means to preserve plant species in Indonesia, particularly those that are rare and endangered." },
     "card3": {"title": "Education", "desc": "YTAN is committed to providing and widely disseminating information about the diversity of plant species in Indonesia." }
+  },
+   "berita": {
+    "title": "News and Recent Activities",
+    "button": "View All News"
   }
 }
 

@@ -42,5 +42,9 @@
     "card1": {"title": "Penelitian", "desc": "Penelitian menjadi salah satu tujuan utama YTAN, dengan target utama mengkaji keragaman flora yang ada di Indonesia." },
     "card2": {"title": "Konversi", "desc": "Konservasi merupakan sarana untuk menjaga kelestarian spesies tumbuhan di Indonesia, terkhusus spesies yang langka dan terancam punah." },
     "card3": {"title": "Edukasi", "desc": "YTAN berkomitmen untuk menyediakan dan menyebarkan seluas-luasnya informasi terkait keragaman tumbuhan yang ada di Indonesia." }
+  },
+  "berita": {
+    "title": "Berita dan Aktivitas Terbaru",
+    "button": "Lihat Semua Berita"
   }
 }
