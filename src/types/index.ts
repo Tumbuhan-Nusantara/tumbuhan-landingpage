@@ -9,3 +9,8 @@ export interface SubMenuType{
   id: number;
   sub: string;
 }
+
+export interface CarouselType{
+  key: string;
+  image: string
+}

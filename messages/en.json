@@ -32,6 +32,17 @@
     "nilaiPenelitian" : "33",
     "edukasi": "Education",
     "nilaiEdukasi": "7"
+  },
+  "botani": {
+    "title": "Botany for Everyone",
+    "desc": "aims to encourage Indonesian botany enthusiasts to actively contribute to the advancement of plant research and conservation.",
+    "desc-2": " Various initiatives have been carried out to enhance the capacity of local botanists beyond academic and research circles, enabling them to recognize and maximize their local potential.",
+    "button": "Learn More"
+  },
+  "cards": {
+    "card1": {"title": "Research", "desc": "Research is one of YTAN’s main objectives, with a primary focus on studying the diversity of flora in Indonesia." },
+    "card2": {"title": "Conversation", "desc": "Conservation serves as a means to preserve plant species in Indonesia, particularly those that are rare and endangered." },
+    "card3": {"title": "Education", "desc": "YTAN is committed to providing and widely disseminating information about the diversity of plant species in Indonesia." }
   }
 }
 
