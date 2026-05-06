@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface LandingMenuType {
   id: number;
   title: string;
@@ -13,4 +15,10 @@ export interface SubMenuType{
 export interface CarouselType{
   key: string;
   image: string
+}
+
+export interface LogoContacs{
+  id: number;
+  icon: string;
+  alt: string
 }
