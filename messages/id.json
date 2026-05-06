@@ -31,5 +31,16 @@
     "nilaiPenelitian" : "33",
     "edukasi": "Edukasi",
     "nilaiEdukasi": "7"
+  },
+  "botani": {
+    "title": "Botani untuk Semua",
+    "desc": "memiliki visi untuk menjadikan para peminat botani Indonesia untuk sama-sama berkontribusi secara nyata dalam perkembangan penelitian dan konservasi tumbuhan.",
+    "desc-2": " Berbagai kegiatan telah dilakukan dengan meningkatkan kapasitas botanis-botanis lokal di luar kalangan akademisi dan peneliti sehingga mereka mampu mengenali dan memaksimalkan potensi lokal mereka.",
+    "button": "Selengkapnya"
+  },
+   "cards": {
+    "card1": {"title": "Penelitian", "desc": "Penelitian menjadi salah satu tujuan utama YTAN, dengan target utama mengkaji keragaman flora yang ada di Indonesia." },
+    "card2": {"title": "Konversi", "desc": "Konservasi merupakan sarana untuk menjaga kelestarian spesies tumbuhan di Indonesia, terkhusus spesies yang langka dan terancam punah." },
+    "card3": {"title": "Edukasi", "desc": "YTAN berkomitmen untuk menyediakan dan menyebarkan seluas-luasnya informasi terkait keragaman tumbuhan yang ada di Indonesia." }
   }
 }

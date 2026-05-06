@@ -21,7 +21,7 @@ const DampakFeat = () => {
   ];
 
   return (
-    <div className="bg-linear-to-l from-[#C7FCDC] to-white h-75">
+    <div className="bg-linear-to-l from-[#C7FCDC] to-white">
       <div className="container mx-auto">
         <div className="flex flex-col items-center px-8 md:px-6 lg:px-96 gap-2">
           <h1 className="text-[#2B593A] text-4xl font-semibold text-center">
@@ -33,13 +33,22 @@ const DampakFeat = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-8 md:px-10 lg:px-24 gap-4 py-12 justify-items-center sm:justify-items-stretch">
           {dataCard.map((item) => (
-            <Card key={item.key} className="w-full max-w-sm shadow-2xl py-8 hover:scale-100 transition duration-300 hover:shadow-[#b9fad3]">
+            <Card
+              key={item.key}
+              className="w-full max-w-sm shadow-2xl py-8 hover:scale-100 transition duration-300 hover:shadow-[#b9fad3]"
+            >
               <CardHeader>
-                <CardTitle className="font-medium text-xl text-[#2B593A] text-center">{t(item.key)}</CardTitle>
-                <CardDescription className="text-center">(Est. 2023)</CardDescription>
+                <CardTitle className="font-medium text-xl text-[#2B593A] text-center">
+                  {t(item.key)}
+                </CardTitle>
+                <CardDescription className="text-center">
+                  (Est. 2023)
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <h1 className="font-bold text-4xl text-[#2B593A] text-center">22</h1>
+                <h1 className="font-bold text-4xl text-[#2B593A] text-center">
+                  22
+                </h1>
               </CardContent>
             </Card>
           ))}
