@@ -13,10 +13,10 @@ const KontakFeat = () => {
     <div className="container mx-auto my-12">
       <div className="grid gap-12 justify-center">
         <div className="grid gap-2 text-center">
-          <h1 className="font-bold text-2xl text-[#2B593A]">
+          <h1 className="font-bold sm:text-md md:text-2xl text-[#2B593A]">
             {k('title')}
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground sm:text-sm md:text-lg">
             {k('desc')}
           </p>
         </div>
@@ -26,7 +26,7 @@ const KontakFeat = () => {
         </div>
       </div>
       <Separator className="my-12"/>
-      <div className="flex justify-center items-center gap-6 my-12">
+      <div className="flex justify-center items-center gap-2 md:gap-8 lg:gap-8">
         {Contacts.map((logo) => (
           <div
             key={logo.id}
