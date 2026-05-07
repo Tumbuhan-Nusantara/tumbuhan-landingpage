@@ -47,6 +47,11 @@
    "berita": {
     "title": "News and Recent Activities",
     "button": "View All News"
+  },
+  "contact": {
+    "title": "Have ideas, suggestions, or feedback for YTAN?",
+    "desc": "We’d love to hear your thoughts and grow together in preserving Indonesia’s plant diversity.",
+    "button": "Contact Us"
   }
 }
 

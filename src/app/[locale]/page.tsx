@@ -2,6 +2,7 @@ import BeritaFeat from "@/src/features/Berita";
 import BotaniFeat from "@/src/features/Botani";
 import DampakFeat from "@/src/features/Dampak";
 import HomeFeat from "@/src/features/Home";
+import KontakFeat from "@/src/features/Kontak";
 
 const page = () => {
   return (
@@ -10,6 +11,7 @@ const page = () => {
       <DampakFeat />
       <BotaniFeat/>
       <BeritaFeat/>
+      <KontakFeat/>
     </>
   );
 };

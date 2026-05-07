@@ -46,5 +46,10 @@
   "berita": {
     "title": "Berita dan Aktivitas Terbaru",
     "button": "Lihat Semua Berita"
+  },
+  "contact": {
+    "title": "Ingin sampaikan ide atau saran dan masukan untuk kami?",
+    "desc": "Setiap masukan yang kalian berikan akan sangat berarti bagi pengembangan program dan kegiatan YTAN.",
+    "button": "Hubungi Kami"
   }
 }
