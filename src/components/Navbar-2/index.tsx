@@ -46,7 +46,7 @@ const Nav = () => {
                   <DropdownMenuGroup>
                     <DropdownMenuLabel>{t(item.title)}</DropdownMenuLabel>
                     {item.items.map((sub) => (
-                      <DropdownMenuItem key={sub.id}>
+                      <DropdownMenuItem key={sub.id} className="transition duration-300 cursor-pointer">
                         {t(sub.sub)}
                       </DropdownMenuItem>
                     ))}

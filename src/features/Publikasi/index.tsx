@@ -4,7 +4,7 @@ import FooterFeat from "@/src/components/Footer";
 import Nav from "@/src/components/Navbar-2";
 import { Articles } from "@/src/constants";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/src/i18n/navigation";
 
 const PublikasiFeat = () => {
   return (
@@ -145,7 +145,7 @@ const PublikasiFeat = () => {
           ))}
           <div className="flex justify-center">
             <Button className="bg-[#1A4D2E] text-white p-6 rounded-full my-8">
-              Tampilkan Semua Artikel 2024
+              <Link href="/publikasi/2024">Tampilkan Semua Artikel 2024</Link>
             </Button>
           </div>
         </div>
@@ -184,7 +184,7 @@ const PublikasiFeat = () => {
           ))}
           <div className="flex justify-center">
             <Button className="bg-[#1A4D2E] text-white p-6 rounded-full my-8">
-              Tampilkan Semua Artikel 2023
+              <Link href="/publikasi/2023">Tampilkan Semua Artikel 2023</Link>
             </Button>
           </div>
         </div>

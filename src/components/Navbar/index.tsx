@@ -27,8 +27,8 @@ const Navbar = () => {
                   {item.items.map((sub) => (
                     <div key={sub.id}>
                       <Link
-                        href="#"
-                        className="leading-none font-medium w-full block"
+                        href={sub.path || "#"}
+                        className="leading-none text-muted-foreground hover:text-[#2B593A] text-sm w-full block rounded-md bg-white hover:bg-[#C7FCDC] transition duration-500 p-2"
                       >
                         {t(sub.sub)}
                       </Link>
