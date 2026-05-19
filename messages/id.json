@@ -5,7 +5,7 @@
     "history": "Sejarah",
     "team": "Tim YTAN",
     "visi": "Visi Misi dan Tujuan",
-    "structure": "Struktur Organisasi" ,
+    "structure": "Struktur Organisasi",
     "publication": "Publikasi",
     "article": "Artikel Ilmiah",
     "digitalFlora": "Digital Flora of Indonesia",
@@ -18,7 +18,7 @@
   },
   "hero": {
     "title": "Kenali dan lestarikan tumbuhan kita!",
-    "desc":"memiliki cita-cita untuk menjadi salah satu lembaga terdepan dalam mempelajari dan melestarikan keragaman hayati tumbuhan di Indonesia",
+    "desc": "memiliki cita-cita untuk menjadi salah satu lembaga terdepan dalam mempelajari dan melestarikan keragaman hayati tumbuhan di Indonesia",
     "about": "Tentang Kami"
   },
   "dampak": {
@@ -29,7 +29,7 @@
     "baru": "Spesies Baru",
     "nilaiBaru": "22",
     "penelitian": "Penelitian",
-    "nilaiPenelitian" : "33",
+    "nilaiPenelitian": "33",
     "edukasi": "Edukasi",
     "nilaiEdukasi": "7"
   },
@@ -39,10 +39,19 @@
     "desc-2": " Berbagai kegiatan telah dilakukan dengan meningkatkan kapasitas botanis-botanis lokal di luar kalangan akademisi dan peneliti sehingga mereka mampu mengenali dan memaksimalkan potensi lokal mereka.",
     "button": "Selengkapnya"
   },
-   "cards": {
-    "card1": {"title": "Penelitian", "desc": "Penelitian menjadi salah satu tujuan utama YTAN, dengan target utama mengkaji keragaman flora yang ada di Indonesia." },
-    "card2": {"title": "Konversi", "desc": "Konservasi merupakan sarana untuk menjaga kelestarian spesies tumbuhan di Indonesia, terkhusus spesies yang langka dan terancam punah." },
-    "card3": {"title": "Edukasi", "desc": "YTAN berkomitmen untuk menyediakan dan menyebarkan seluas-luasnya informasi terkait keragaman tumbuhan yang ada di Indonesia." }
+  "cards": {
+    "card1": {
+      "title": "Penelitian",
+      "desc": "Penelitian menjadi salah satu tujuan utama YTAN, dengan target utama mengkaji keragaman flora yang ada di Indonesia."
+    },
+    "card2": {
+      "title": "Konversi",
+      "desc": "Konservasi merupakan sarana untuk menjaga kelestarian spesies tumbuhan di Indonesia, terkhusus spesies yang langka dan terancam punah."
+    },
+    "card3": {
+      "title": "Edukasi",
+      "desc": "YTAN berkomitmen untuk menyediakan dan menyebarkan seluas-luasnya informasi terkait keragaman tumbuhan yang ada di Indonesia."
+    }
   },
   "berita": {
     "title": "Berita dan Aktivitas Terbaru",
@@ -52,5 +61,30 @@
     "title": "Ingin sampaikan ide atau saran dan masukan untuk kami?",
     "desc": "Setiap masukan yang kalian berikan akan sangat berarti bagi pengembangan program dan kegiatan YTAN.",
     "button": "Hubungi Kami"
+  },
+  "kedukasi": {
+    "items": {
+      "ed1": {
+        "title": "Instagram",
+        "desc": "YTAN secara rutin menyajikan berbagai informasi seperti fakta menarik, infografis, statistik flora Indonesia, dan beberapa info relevan di media sosial.",
+        "cat": "Media Sosial",
+        "link": "Ikuti di Instagram"
+      },
+      "ed2": {
+        "title": "Edukasi Botani",
+        "desc": "Dalam rangka pengenalan dan penyelamatan tumbuhan, tim dari YTAN secara rutin terlibat dalam berbagai pelatihan, webinar, dan acara lainnya.",
+        "cat": "Pelatihan"
+      },
+      "ed3": {
+        "title": "Plants Community",
+        "desc": "Para peminat flora Indonesia jumlahnya cukup banyak. Salah satu kendala dalam mempelajari flora adalah informasi identifikasi yang cukup rumit. Oleh karena itu, YTAN aktif berperan dalam membina forum identifikasi di media sosial. ",
+        "cat": "Forum Identifikasi",
+        "link": "Ikuti di Instagram"
+      }
+    }
+  },
+  "edukasi":{
+    "title": "Edukasi",
+    "desc": "YTAN berkomitmen dalam menyebarluaskan pengetahuan mengenai keanekaragaman hayati tumbuhan dan konservasinya kepada khalayak yang seluas-luasnya. Hal ini kami lakukan agar terjadi keanekaragaman hayati dapat menjadi bagian penting dalam kehidupan sehari-hari masyarakat Indonesia."
   }
 }

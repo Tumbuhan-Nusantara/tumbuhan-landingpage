@@ -5,7 +5,7 @@
     "history": "History",
     "team": "Our Team",
     "visi": "Vision, Mission and Goals",
-    "structure": "Our Team" ,
+    "structure": "Our Team",
     "publication": "Publication",
     "article": "Articles",
     "digitalFlora": "Digital Flora of Indonesia",
@@ -16,7 +16,7 @@
     "news": "News",
     "contact": "Contact Us"
   },
-  
+
   "hero": {
     "title": "Recognize and preserve our plants!",
     "desc": "aims to become one of the leading institutions in studying and conserving plant biodiversity in Indonesia.",
@@ -30,7 +30,7 @@
     "baru": "New Species",
     "nilaiBaru": "22",
     "penelitian": "Research",
-    "nilaiPenelitian" : "33",
+    "nilaiPenelitian": "33",
     "edukasi": "Education",
     "nilaiEdukasi": "7"
   },
@@ -41,11 +41,20 @@
     "button": "Learn More"
   },
   "cards": {
-    "card1": {"title": "Research", "desc": "Research is one of YTAN’s main objectives, with a primary focus on studying the diversity of flora in Indonesia." },
-    "card2": {"title": "Conversation", "desc": "Conservation serves as a means to preserve plant species in Indonesia, particularly those that are rare and endangered." },
-    "card3": {"title": "Education", "desc": "YTAN is committed to providing and widely disseminating information about the diversity of plant species in Indonesia." }
+    "card1": {
+      "title": "Research",
+      "desc": "Research is one of YTAN’s main objectives, with a primary focus on studying the diversity of flora in Indonesia."
+    },
+    "card2": {
+      "title": "Conversation",
+      "desc": "Conservation serves as a means to preserve plant species in Indonesia, particularly those that are rare and endangered."
+    },
+    "card3": {
+      "title": "Education",
+      "desc": "YTAN is committed to providing and widely disseminating information about the diversity of plant species in Indonesia."
+    }
   },
-   "berita": {
+  "berita": {
     "title": "News and Recent Activities",
     "button": "View All News"
   },
@@ -53,6 +62,30 @@
     "title": "Have ideas, suggestions, or feedback for YTAN?",
     "desc": "We’d love to hear your thoughts and grow together in preserving Indonesia’s plant diversity.",
     "button": "Contact Us"
+  },
+  "kedukasi": {
+    "items": {
+      "ed1": {
+        "title": "Instagram",
+        "desc": "YTAN regularly shares a variety of information through its social media platforms, including interesting facts, infographics, statistics on Indonesian flora, and other relevant insights.",
+        "cat": "Media Sosial",
+        "link": "Follow us on Instagram"
+      },
+      "ed2": {
+        "title": "Botanical Education",
+        "desc": "To support plant awareness and conservation efforts, the YTAN team regularly participates in various training programs, webinars, and other educational events.",
+        "cat": "Pelatihan"
+      },
+      
+      "ed3": {
+        "title": "Plants Community",
+        "desc": "Indonesia has a growing community of flora enthusiasts. However, one of the main challenges in studying plants is the complexity of identification information. Therefore, YTAN actively contributes to facilitating plant identification discussions and forums through social media platforms. ",
+        "cat": "Forum Identifikasi"
+      }
+    }
+  },
+  "edukasi":{
+    "title": "Education",
+    "desc": "YTAN is committed to spreading knowledge about plant biodiversity and its conservation to a wider audience. Through this effort, we hope biodiversity awareness can become an important part of everyday life for the people of Indonesia."
   }
 }
-
