@@ -1,4 +1,5 @@
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "@/src/i18n/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -38,7 +39,7 @@ const Navbar = () => {
               </>
             ) : (
               <NavigationMenuLink asChild>
-                <Link href="/docs" className="text-[#2B593A] font-semibold">
+                <Link href={item.path || "#"} className="text-[#2B593A] font-semibold">
                   {t(item.title)}
                 </Link>
               </NavigationMenuLink>

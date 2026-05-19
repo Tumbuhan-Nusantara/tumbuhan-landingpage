@@ -4,7 +4,7 @@ export interface LandingMenuType {
   id: number;
   title: string;
   items?: SubMenuType[];
-  path?: string;
+  path?: string
 }
 
 export interface SubMenuType {
