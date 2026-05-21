@@ -1,12 +1,18 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import FooterFeat from "@/src/components/Footer";
-import Nav from "@/src/components/Navbar-2";
 import { Articles } from "@/src/constants";
 import Image from "next/image";
 import { Link } from "@/src/i18n/navigation";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const PublikasiFeat = () => {
+  useEffect(() => {
+    Aos.init()
+  }, [])
   return (
     <div>
       <div className=" h-full overflow-hidden">
@@ -25,8 +31,14 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2026).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article) => (
-                <Card key={article.id} className="mx-14 md:mx-24 lg:mx-30">
+              {item.items.slice(0, 3).map((article, index) => (
+                <Card
+                  key={article.id}
+                  className="mx-14 md:mx-24 lg:mx-30"
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                  data-aos-delay={index * 150}
+                >
                   <CardHeader className="flex items-start gap-4">
                     <Image
                       src="/artikel/newspaper.png"
@@ -64,8 +76,10 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2025).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article) => (
-                <Card key={article.id} className="mx-14 md:mx-24 lg:mx-30">
+              {item.items.slice(0, 3).map((article, index) => (
+                <Card key={article.id} className="mx-14 md:mx-24 lg:mx-30" data-aos="fade-up"
+                  data-aos-duration="800"
+                  data-aos-delay={index * 150}>
                   <CardHeader className="flex items-start gap-4">
                     <Image
                       src="/artikel/newspaper.png"
@@ -103,8 +117,10 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2024).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article) => (
-                <Card key={article.id} className="mx-14 md:mx-24 lg:mx-30">
+              {item.items.slice(0, 3).map((article, index) => (
+                <Card key={article.id} className="mx-14 md:mx-24 lg:mx-30" data-aos="fade-up"
+                  data-aos-duration="800"
+                  data-aos-delay={index * 150}>
                   <CardHeader className="flex items-start gap-4">
                     <Image
                       src="/artikel/newspaper.png"
@@ -142,8 +158,10 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2023).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article) => (
-                <Card key={article.id} className="mx-14 md:mx-24 lg:mx-30">
+              {item.items.slice(0, 3).map((article, index) => (
+                <Card key={article.id} className="mx-14 md:mx-24 lg:mx-30" data-aos="fade-up"
+                  data-aos-duration="800"
+                  data-aos-delay={index * 150}>
                   <CardHeader className="flex items-start gap-4">
                     <Image
                       src="/artikel/newspaper.png"

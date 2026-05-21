@@ -1,5 +1,3 @@
-import { LucideIcon } from "lucide-react";
-
 export interface LandingMenuType {
   id: number;
   title: string;

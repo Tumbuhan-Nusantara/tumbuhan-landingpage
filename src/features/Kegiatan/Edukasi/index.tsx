@@ -19,8 +19,10 @@ const KegiatanEdukasi = () => {
           <p>{e("desc")}</p>
         </div>
         <div className="flex  flex-col md:flex-row mx-8 md:mx-16 lg:mx-20 gap-2 md:gap-8 lg:gap-8 justify-center">
-          {edukasiItems.map((item) => (
-            <Card key={item} className="w-90 md:w-200 my-2 md:-my-8 lg:my-10">
+          {edukasiItems.map((item, index) => (
+            <Card key={item} className="w-90 md:w-200 my-2 md:-my-8 lg:my-10" data-aos="fade-up"
+                  data-aos-duration="800"
+                  data-aos-delay={index * 150}>
               <CardHeader>
                 GAMBAR (coming soon)
                 <Badge className="bg-[#1A4D2E]">{k(`${item}.cat`)}</Badge>

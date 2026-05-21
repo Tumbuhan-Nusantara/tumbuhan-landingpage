@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { CarouselType } from "@/src/types";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -19,12 +20,15 @@ const BotaniFeat = () => {
   return (
     <div className="container mx-auto">
       <div className="grid md:grid-cols-1 lg:grid-cols-2 px-8 md:px-12 lg:px-25 py-12 md:py-20 lg:my-18 gap-10 md:gap-20 lg:gap-8">
-        <Image
-          height={600}
-          width={600}
-          src="/botani/botani.jpeg"
-          alt="Botani Untuk Semua"
-        />
+          <Image
+            height={600}
+            width={600}
+            src="/botani/botani.jpeg"
+            alt="Botani Untuk Semua"
+            className="rounded-2xl shadow-xl  transition duration-300 hover:shadow-[#b9fad3]"
+            data-aos="fade-right" data-aos-duration="1000"
+          />
+
         <div className="flex flex-col gap-12">
           <h1 className="text-[#2B593A] text-3xl font-semibold">
             {b("title")}
