@@ -1,7 +1,9 @@
+import { CirclePile, Landmark, NotebookText, Users } from "lucide-react";
 import {
   ArticleGroup,
   LandingMenuType,
   LogoContacs,
+  SejarahType,
 } from "../types";
 
 export const LandingMenu: LandingMenuType[] = [
@@ -293,3 +295,10 @@ export const Articles: ArticleGroup[] = [
     ],
   }
 ];
+
+export const SejarahItem: SejarahType[] = [
+  {id: 1, title: "Sejarah", src: Landmark },
+  {id: 2, title: "Tim YTAN", src: Users },
+  {id: 3, title: "Visi, Misi dan Tujuan", src: NotebookText },
+  {id: 4, title: "Struktur Organisasi", src: CirclePile},
+]

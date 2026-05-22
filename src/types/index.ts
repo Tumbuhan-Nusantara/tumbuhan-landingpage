@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface LandingMenuType {
   id: number;
   title: string;
@@ -30,4 +32,10 @@ export interface ArticleType {
 export interface ArticleGroup {
   year: number;
   items: ArticleType[];
+}
+
+export interface SejarahType{
+  id: number
+  title: string
+  src: LucideIcon
 }
