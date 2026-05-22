@@ -12,7 +12,7 @@ export const LandingMenu: LandingMenuType[] = [
     id: 2,
     title: "profile",
     items: [
-      { id: 1, sub: "history" },
+      { id: 1, sub: "history", path:"/profile/sejarah" },
       { id: 2, sub: "team" },
       { id: 3, sub: "visi" },
       { id: 4, sub: "structure" },
