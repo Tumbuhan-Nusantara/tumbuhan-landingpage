@@ -87,5 +87,11 @@
   "edukasi":{
     "title": "Education",
     "desc": "YTAN is committed to spreading knowledge about plant biodiversity and its conservation to a wider audience. Through this effort, we hope biodiversity awareness can become an important part of everyday life for the people of Indonesia."
+  },
+  "visimisi": {
+    "misi1": "To increase the number and quality of research on Indonesian native plants",
+    "misi2": "Build and strengthening collaborations among enthusiasts, academicians, plant scientists, and stakeholders with either government or non-government institutions",
+    "misi3": "Preserving the Indonesian native plant through conservation and ecosystem restoration",
+    "misi4": "Increasing and spread the understanding and society's interest to Indonesian native plants"
   }
 }

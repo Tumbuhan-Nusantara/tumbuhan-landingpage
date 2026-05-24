@@ -86,5 +86,11 @@
   "edukasi":{
     "title": "Edukasi",
     "desc": "YTAN berkomitmen dalam menyebarluaskan pengetahuan mengenai keanekaragaman hayati tumbuhan dan konservasinya kepada khalayak yang seluas-luasnya. Hal ini kami lakukan agar terjadi keanekaragaman hayati dapat menjadi bagian penting dalam kehidupan sehari-hari masyarakat Indonesia."
+  },
+  "visimisi": {
+    "misi1": "Meningkatkan jumlah dan kualitas penelitian mengenai tumbuhan asli Indonesia",
+    "misi2": "Membangun serta memperkuat jaringan kerjasama sesama pegiat, pecinta, akademisi, dan para ilmuan tumbuhan, pemangku kepentingan dan pemegang kebijakan, baik itu bersama pemerintah maupun lembaga-lembaga non-pemerintahan lainnya.",
+    "misi3": "Turut berupaya melestarikan keanekaragaman spesies tumbuhan asli Indonesia dengan upaya konservasi spesies dan restorasi hutan.",
+    "misi4": "Meningkatkan, menyebarluaskan pemahaman dan kecintaan masyarakat pada tumbuhan asli Indonesia"
   }
 }
