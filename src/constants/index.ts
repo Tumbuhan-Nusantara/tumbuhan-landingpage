@@ -4,6 +4,7 @@ import {
   LandingMenuType,
   LogoContacs,
   SejarahType,
+  VisiMisiType,
 } from "../types";
 
 export const LandingMenu: LandingMenuType[] = [
@@ -14,7 +15,7 @@ export const LandingMenu: LandingMenuType[] = [
     items: [
       { id: 1, sub: "history", path:"/profile/sejarah" },
       { id: 2, sub: "team" },
-      { id: 3, sub: "visi" },
+      { id: 3, sub: "visi", path: "/profile/visi-misi" },
       { id: 4, sub: "structure" },
     ],
   },
@@ -302,3 +303,11 @@ export const SejarahItem: SejarahType[] = [
   {id: 3, title: "Visi, Misi dan Tujuan", src: NotebookText },
   {id: 4, title: "Struktur Organisasi", src: CirclePile},
 ]
+
+export const VisiMisiItem: VisiMisiType[] = [
+  { id: 1, desc: "misi1", src: "/profile/visimisi/wheat.png" },
+  { id: 2, desc: "misi2", src: "/profile/visimisi/deal.png" },
+  { id: 3, desc: "misi3", src: "/profile/visimisi/replant.png" },
+  { id: 4, desc: "misi4", src: "/profile/visimisi/overpopulation.png" },
+  
+];

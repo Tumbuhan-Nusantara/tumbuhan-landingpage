@@ -39,3 +39,9 @@ export interface SejarahType{
   title: string
   src: LucideIcon
 }
+
+export  interface VisiMisiType{
+  id: number;
+  desc: string
+  src: string
+}

@@ -1,8 +1,8 @@
-import React from 'react'
+import VisiMisiFeat from '@/src/features/Profile/VisiMisi'
 
 const VisionMission = () => {
   return (
-    <div>VisionMission</div>
+    <VisiMisiFeat/>
   )
 }
 

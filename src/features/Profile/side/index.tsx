@@ -12,7 +12,7 @@ const SideProfile = () => {
   }, [])
   return (
     <div>
-      <Card className="w-100 h-max shadow-xl" data-aos="fade-up" data-aos-duration="900">
+      <Card className="w-90 md:w-100 lg:w-100 h-max shadow-xl" data-aos="fade-up" data-aos-duration="900">
         <div className="mx-6 grid gap-4">
           <h1 className="font-bold text-xl text-[#1A4D2E]">Tentang Kami</h1>
           <div className="grid gap-2">
