@@ -1,8 +1,9 @@
-import React from 'react'
+import LoginFeat from '@/src/features/Admin/Login'
+
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <LoginFeat/>
   )
 }
 
