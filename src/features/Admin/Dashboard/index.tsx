@@ -17,9 +17,9 @@ const DashboardFeat = () => {
           Selamat datang, Muty
         </p>
       </Card>
-      <div className="flex justify-between my-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
         {DashMainMenu.map((item) => (
-          <Card key={item.id} className="w-100 h-30">
+          <Card key={item.id} className="h-30">
             <div className="flex justify-between mx-2">
               <h1>{dash(item.title)}</h1>
               <div className="p-1 bg-[#dcf4e4] rounded-lg">
