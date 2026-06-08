@@ -45,3 +45,25 @@ export  interface VisiMisiType{
   desc: string
   src: string
 }
+
+export interface SidebarType{
+  id: number;
+  title: string;
+  isActive?: boolean;
+  icon: LucideIcon
+  items?: SideMenuType[];
+  path?: string
+}
+
+export interface SideMenuType {
+  id: number;
+  sub: string;
+  icon: LucideIcon;
+  path?: string;
+}
+
+export interface DashMain{
+  id: number;
+  title: string;
+  logo: LucideIcon;
+}

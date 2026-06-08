@@ -93,5 +93,26 @@
     "misi3": "Turut berupaya melestarikan keanekaragaman spesies tumbuhan asli Indonesia dengan upaya konservasi spesies dan restorasi hutan.",
     "misi4": "Meningkatkan, menyebarluaskan pemahaman dan kecintaan masyarakat pada tumbuhan asli Indonesia",
     "tujuan": "Lembaga ini bertujuan untuk mencatat, mempublikasi, menyebarluaskan keragaman spesies tumbuhan asli Indonesia, serta membantu dalam mengawasi peredaran dan transaksi tumbuhan asli Indonesia yang bekerjasama dengan instansi-instansi otoritas, serta mengupayakan konservasi dan restorasi spesies tumbuhan asli dan hutan secara umum."
+  },
+  "dash": {
+    "beranda": "Beranda",
+    "hero": "Hero",
+    "user": "Pengguna",
+    "role": "Peran Pengguna",
+    "profile": "Profil",
+    "tim": "Tim YTAN",
+    "vismis": "Visi dan Misi",
+    "struktur": "Struktur Organisasi",
+    "kegiatan": "Kegiatan",
+    "publikasi": "Publikasi Ilmiah",
+    "riset": "Riset dan Eksplorasi",
+    "edukasi": "Edukasi",
+    "konservasi": "Konservasi dan Restorasi",
+    "berita": "Berita"
+  },
+  "dashmain": {
+    "user": "Total Pengguna",
+    "kegiatan": "Total Kegiatan",
+    "berita": "Total Berita"
   }
 }
