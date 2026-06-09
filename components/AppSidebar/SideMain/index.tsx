@@ -16,7 +16,7 @@ import {
 import { SidebarItems } from "@/src/constants";
 import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/src/i18n/navigation";
 
 const SideMain = () => {
       const dash = useTranslations("dash");
@@ -46,7 +46,7 @@ const SideMain = () => {
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.id}>
                       <SidebarMenuSubButton asChild>
-                        <Link href={subItem.path}>
+                        <Link href={subItem.path || '#'}>
                           {subItem.icon && <subItem.icon />}
 
                           <span>{dash(subItem.sub)}</span>
