@@ -329,14 +329,14 @@ export const SidebarItems: SidebarType[] = [
     title: "beranda",
     icon: House,
     isActive: true,
-    items: [{ id: 1, sub: "hero", icon: House, path: "#" }],
+    items: [{ id: 1, sub: "hero", icon: House, path: "/admin/dashboard/hero" }],
   },
   {
     id: 2,
     title: "user",
     icon: UserRoundCog,
     isActive: true,
-    items: [{ id: 1, sub: "role", icon: UserRoundCog, path: "#" }],
+    items: [{ id: 1, sub: "role", icon: UserRoundCog, path: "/admin/dashboard/user" }],
   },
   {
     id: 3,
@@ -372,6 +372,6 @@ export const SidebarItems: SidebarType[] = [
 
 export const DashMainMenu: DashMain[] = [
   {id: 1, title: "user", logo: Users},
-  {id: 2, title: "kegiatan", logo: Users},
-  {id: 3, title: "berita", logo: Users},
+  {id: 2, title: "kegiatan", logo: Newspaper},
+  {id: 3, title: "berita", logo: Mails},
 ]
