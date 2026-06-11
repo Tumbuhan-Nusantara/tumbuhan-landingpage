@@ -67,3 +67,8 @@ export interface DashMain{
   title: string;
   logo: LucideIcon;
 }
+
+export interface DashMisi{
+  id: number;
+  misi: string
+}
