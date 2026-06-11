@@ -13,7 +13,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { PencilLine, Trash2 } from "lucide-react";
+import { PencilLine, Plus, Trash2 } from "lucide-react";
 import { DashMisiItem } from "@/src/constants";
 import { Separator } from "@/components/ui/separator";
 
@@ -39,7 +39,14 @@ const DashVisiFeat = () => {
 
             <div className="space-y-4">
               <div className="grid gap-2">
-                <Label>Misi</Label>
+                <div className="flex justify-between items-center">
+                  <Label>Misi</Label>
+                  <Button className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer">
+                    <Plus />
+                  Tambah Misi
+                  </Button>
+                </div>
+
                 <Card>
                   <div>
                     {DashMisiItem.map((misi) => (
@@ -115,7 +122,6 @@ const DashVisiFeat = () => {
                 <Textarea />
               </div>
             </div>
-
           </CardContent>
 
           <CardFooter className="justify-end">
