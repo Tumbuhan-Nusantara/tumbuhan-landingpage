@@ -1,4 +1,4 @@
-import Nav from "@/src/components/Navbar-2";
+import Nav from "@/components/Navbar-2";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PublikasiFeat from "./Publikasi";
 import KegiatanRiset from "./RisetEksplorasi";
@@ -50,7 +50,7 @@ const KegiatanFeat = () => {
             <KegiatanRiset />
           </TabsContent>
           <TabsContent value="Konservasi dan Restorasi">
-           <KegiatanKonservasi/>
+            <KegiatanKonservasi />
           </TabsContent>
           <TabsContent value="Edukasi">
             <KegiatanEdukasi />

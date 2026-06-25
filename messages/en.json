@@ -5,7 +5,7 @@
     "history": "History",
     "team": "Our Team",
     "visi": "Vision, Mission and Goals",
-    "structure": "Our Team",
+    "structure": "Organizational Structure",
     "publication": "Publication",
     "article": "Articles",
     "digitalFlora": "Digital Flora of Indonesia",
@@ -76,7 +76,7 @@
         "desc": "To support plant awareness and conservation efforts, the YTAN team regularly participates in various training programs, webinars, and other educational events.",
         "cat": "Pelatihan"
       },
-      
+
       "ed3": {
         "title": "Plants Community",
         "desc": "Indonesia has a growing community of flora enthusiasts. However, one of the main challenges in studying plants is the complexity of identification information. Therefore, YTAN actively contributes to facilitating plant identification discussions and forums through social media platforms. ",
@@ -84,7 +84,7 @@
       }
     }
   },
-  "edukasi":{
+  "edukasi": {
     "title": "Education",
     "desc": "YTAN is committed to spreading knowledge about plant biodiversity and its conservation to a wider audience. Through this effort, we hope biodiversity awareness can become an important part of everyday life for the people of Indonesia."
   },
@@ -94,5 +94,26 @@
     "misi3": "Preserving the Indonesian native plant through conservation and ecosystem restoration",
     "misi4": "Increasing and spread the understanding and society's interest to Indonesian native plants",
     "tujuan": "This organization aims to document, publish, and disseminate information on the diversity of Indonesia’s native plant species, as well as to support the monitoring of the distribution and trade of native plants in collaboration with relevant authorities and institutions. In addition, the organization is committed to promoting the conservation and restoration of native plant species and forest ecosystems in general."
+  },
+  "dash": {
+    "beranda": "Home",
+    "hero": "Hero",
+    "user": "User",
+    "role": "Role",
+    "profile": "Profile",
+    "tim": "Our Team",
+    "vismis": "Vision & Mission",
+    "struktur": "Organizational Structure",
+    "kegiatan": "Activites",
+    "publikasi": "Publications",
+    "riset": "Research and Exploration",
+    "edukasi": "Education",
+    "konservasi": "Conservation and Restoration",
+    "berita": "News"
+  },
+  "dashmain": {
+    "user": "Total Users",
+    "kegiatan": "Total Activities",
+    "berita": "Total News"
   }
 }

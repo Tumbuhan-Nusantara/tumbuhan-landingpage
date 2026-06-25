@@ -1,9 +1,25 @@
-import { CirclePile, Landmark, NotebookText, Users } from "lucide-react";
+import {
+  CirclePile,
+  FileStack,
+  House,
+  Landmark,
+  Library,
+  Mails,
+  Newspaper,
+  NotebookPen,
+  NotebookText,
+  School,
+  UserRoundCog,
+  Users,
+} from "lucide-react";
 import {
   ArticleGroup,
+  DashMain,
+  DashMisi,
   LandingMenuType,
   LogoContacs,
   SejarahType,
+  SidebarType,
   VisiMisiType,
 } from "../types";
 
@@ -13,7 +29,7 @@ export const LandingMenu: LandingMenuType[] = [
     id: 2,
     title: "profile",
     items: [
-      { id: 1, sub: "history", path:"/profile/sejarah" },
+      { id: 1, sub: "history", path: "/profile/sejarah" },
       { id: 2, sub: "team" },
       { id: 3, sub: "visi", path: "/profile/visi-misi" },
       { id: 4, sub: "structure" },
@@ -22,7 +38,7 @@ export const LandingMenu: LandingMenuType[] = [
   {
     id: 3,
     title: "activity",
-    path: "/kegiatan"
+    path: "/kegiatan",
   },
   { id: 5, title: "news" },
   { id: 6, title: "contact" },
@@ -63,8 +79,7 @@ export const Articles: ArticleGroup[] = [
       },
       {
         id: 4,
-        title:
-          "Checklist of the flora of Kabaena Island, Sulawesi.",
+        title: "Checklist of the flora of Kabaena Island, Sulawesi.",
         desc: "Arman, Mustaqim WA. 2026. Checklist of the flora of Kabaena Island, Sulawesi.",
         src: "-",
       },
@@ -138,8 +153,7 @@ export const Articles: ArticleGroup[] = [
       },
       {
         id: 5,
-        title:
-          "The revision of the genus Pterisanthes (Vitaceae) in Sumatra.",
+        title: "The revision of the genus Pterisanthes (Vitaceae) in Sumatra.",
         desc: "Trias-Blasi A, Damit A, Wambrauw HL, Ahmad RPP, Warseno T, Hussin Z. 2025.The revision of the genus Pterisanthes (Vitaceae) in Sumatra. Reinwardtia Vol. 24. No. 2. pp: 161‒184.",
         src: "https://biologyjournal.brin.go.id/index.php/reinwardtia/article/view/622",
       },
@@ -192,8 +206,7 @@ export const Articles: ArticleGroup[] = [
       },
       {
         id: 3,
-        title:
-          "Sistematika Tumbuhan.",
+        title: "Sistematika Tumbuhan.",
         desc: "Mustaqim WA, Nikmah IA. 2024. Sistematika Tumbuhan. UI Publishing.",
         src: "-",
       },
@@ -294,20 +307,79 @@ export const Articles: ArticleGroup[] = [
         src: "https://polite-rock-04df9d810.2.azurestaticapps.net/Bioone/index.html",
       },
     ],
-  }
+  },
 ];
 
 export const SejarahItem: SejarahType[] = [
-  {id: 1, title: "Sejarah", src: Landmark },
-  {id: 2, title: "Tim YTAN", src: Users },
-  {id: 3, title: "Visi, Misi dan Tujuan", src: NotebookText },
-  {id: 4, title: "Struktur Organisasi", src: CirclePile},
-]
+  { id: 1, title: "Sejarah", src: Landmark },
+  { id: 2, title: "Tim YTAN", src: Users },
+  { id: 3, title: "Visi, Misi dan Tujuan", src: NotebookText },
+  { id: 4, title: "Struktur Organisasi", src: CirclePile },
+];
 
 export const VisiMisiItem: VisiMisiType[] = [
   { id: 1, desc: "misi1", src: "/profile/visimisi/wheat.png" },
   { id: 2, desc: "misi2", src: "/profile/visimisi/deal.png" },
   { id: 3, desc: "misi3", src: "/profile/visimisi/replant.png" },
   { id: 4, desc: "misi4", src: "/profile/visimisi/overpopulation.png" },
-  
 ];
+
+export const SidebarItems: SidebarType[] = [
+  {
+    id: 1,
+    title: "beranda",
+    icon: House,
+    isActive: true,
+    items: [{ id: 1, sub: "hero", icon: House, path: "/admin/dashboard/hero" }],
+  },
+  {
+    id: 2,
+    title: "user",
+    icon: UserRoundCog,
+    isActive: true,
+    items: [{ id: 1, sub: "role", icon: UserRoundCog, path: "/admin/dashboard/user" }],
+  },
+  {
+    id: 3,
+    title: "profile",
+    isActive: true,
+    icon: Users,
+    items: [
+      { id: 1, sub: "tim", icon: Users, path: "/admin/dashboard/our-team" },
+      { id: 2, sub: "vismis", icon: FileStack, path: "/admin/dashboard/visi-misi" },
+      { id: 3, sub: "struktur", icon: Landmark, path: "#" },
+    ],
+  },
+  {
+    id: 4,
+    title: "kegiatan",
+    isActive: true,
+    icon: Newspaper,
+    items: [
+      { id: 1, sub: "publikasi", icon: Newspaper, path: "/admin/dashboard/publikasi" },
+      { id: 2, sub: "riset", icon: NotebookPen, path: "#" },
+      { id: 3, sub: "edukasi", icon: School, path: "#" },
+      { id: 4, sub: "konservasi", icon: Library, path: "#" },
+    ],
+  },
+   {
+    id: 5,
+    title: "berita",
+    icon: Mails,
+    isActive: true,
+    items:  [{ id: 1, sub: "berita", icon: Mails, path: "#" }]
+  },
+];
+
+export const DashMainMenu: DashMain[] = [
+  {id: 1, title: "user", logo: Users},
+  {id: 2, title: "kegiatan", logo: Newspaper},
+  {id: 3, title: "berita", logo: Mails},
+]
+
+export const DashMisiItem: DashMisi[] = [
+  {id: 1, misi: "Meningkatkan jumlah dan kualitas penelitian mengenai tumbuhan asli Indonesia"},
+  {id: 2, misi: "Membangun serta memperkuat jaringan kerjasama sesama pegiat, pecinta, akademisi, dan para ilmuan tumbuhan, pemangku kepentingan dan pemegang kebijakan, baik itu bersama pemerintah maupun lembaga-lembaga non-pemerintahan lainnya."},
+  {id: 3, misi: "Turut berupaya melestarikan keanekaragaman spesies tumbuhan asli Indonesia dengan upaya konservasi spesies dan restorasi hutan."},
+  {id: 4, misi: "Meningkatkan, menyebarluaskan pemahaman dan kecintaan masyarakat pada tumbuhan asli Indonesia"},
+]

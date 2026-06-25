@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import FooterFeat from "@/src/components/Footer";
+import FooterFeat from "@/components/Footer";
 import { useLocale, useTranslations } from "next-intl";
 
 const KegiatanEdukasi = () => {
@@ -20,13 +20,19 @@ const KegiatanEdukasi = () => {
         </div>
         <div className="flex  flex-col md:flex-row mx-8 md:mx-16 lg:mx-20 gap-2 md:gap-8 lg:gap-8 justify-center">
           {edukasiItems.map((item, index) => (
-            <Card key={item} className="w-90 md:w-200 my-2 md:-my-8 lg:my-10" data-aos="fade-up"
-                  data-aos-duration="800"
-                  data-aos-delay={index * 150}>
+            <Card
+              key={item}
+              className="w-90 md:w-200 my-2 md:-my-8 lg:my-10"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay={index * 150}
+            >
               <CardHeader>
                 GAMBAR (coming soon)
                 <Badge className="bg-[#1A4D2E]">{k(`${item}.cat`)}</Badge>
-                <CardTitle className="text-2xl font-bold  text-[#1A4D2E]">{k(`${item}.title`)}</CardTitle>
+                <CardTitle className="text-2xl font-bold  text-[#1A4D2E]">
+                  {k(`${item}.title`)}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{k(`${item}.desc`)}</p>
@@ -35,7 +41,7 @@ const KegiatanEdukasi = () => {
           ))}
         </div>
       </div>
-      <FooterFeat/>
+      <FooterFeat />
     </div>
   );
 };
