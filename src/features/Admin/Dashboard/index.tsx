@@ -27,7 +27,7 @@ const DashboardFeat = () => {
         ))}
       </div>
       <Card className="bg-[url('/image.png')] bg-cover">
-        <h1 className="mx-6 text-[#1A4D2E] font-semibold">Daftar Pengguna YTAN</h1>
+        <h1 className="mx-6 text-[#1A4D2E] font-semibold">Daftar Pengguna Dashboard YTAN</h1>
         <Card className="mx-6">
           <div className="flex items-center mx-4 gap-4">
             <Avatar className="h-12 w-12 rounded-lg">
@@ -53,7 +53,7 @@ const DashboardFeat = () => {
             </div>
           </div>
         </Card>
-        
+
         <Card className="mx-6">
           <div className="flex items-center mx-4 gap-4">
             <Avatar className="h-12 w-12 rounded-lg">

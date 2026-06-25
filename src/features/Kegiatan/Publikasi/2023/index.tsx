@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import FooterFeat from '@/src/components/Footer'
-import Nav from '@/src/components/Navbar-2'
-import { Articles } from '@/src/constants'
-import Image from 'next/image'
-import Link from 'next/link'
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import FooterFeat from "@/components/Footer";
+import Nav from "@/components/Navbar-2";
+import { Articles } from "@/src/constants";
+import Image from "next/image";
+import Link from "next/link";
 
 const Article23Feat = () => {
   return (
@@ -69,7 +69,7 @@ const Article23Feat = () => {
       </div>
       <FooterFeat />
     </div>
-  )
-}
+  );
+};
 
-export default Article23Feat
+export default Article23Feat;

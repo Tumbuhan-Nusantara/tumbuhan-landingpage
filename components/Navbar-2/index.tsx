@@ -1,8 +1,8 @@
 "use client";
-import Switcher from "@/src/components/Switcher";
+import Switcher from "@/components/Switcher";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-import Navbar from "@/src/components/Navbar";
+import Navbar from "@/components/Navbar";
 import { LandingMenu } from "@/src/constants";
 import {
   DropdownMenu,
