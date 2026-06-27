@@ -1,11 +1,13 @@
 "use client";
+import { columns } from "@/components/TableArticle/columns";
+import { DataTable } from "@/components/TableArticle/data-table";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { axiosInstance } from "@/lib/axios";
 import { CreateArticleDashType } from "@/src/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DashPublikasiFeat = () => {
   const [formData, setFormData] = useState<CreateArticleDashType>({
@@ -15,6 +17,7 @@ const DashPublikasiFeat = () => {
     volume: "",
     link: "",
   });
+  const [articles, setArticles] = useState<CreateArticleDashType[]>([]);
 
   const createArticle = async () => {
     try {
@@ -50,6 +53,21 @@ const DashPublikasiFeat = () => {
       [name]: name === "tahun" ? (value === "" ? null : Number(value)) : value,
     }));
   };
+
+  useEffect(() => {
+    const getDataArticle = async () => {
+      try {
+        const response = await axiosInstance.get(`/api/v1/articles`);
+        const data = response.data.data;
+        setArticles(data);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getDataArticle();
+  }, []);
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
@@ -150,6 +168,9 @@ const DashPublikasiFeat = () => {
             </CardFooter>
           </Card>
         </Card>
+      </div>
+      <div className="max-w-4xl my-4">
+        <DataTable columns={columns} data={articles} />
       </div>
     </div>
   );
