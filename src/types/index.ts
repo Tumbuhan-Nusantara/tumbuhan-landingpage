@@ -72,3 +72,10 @@ export interface DashMisi{
   id: number;
   misi: string
 }
+
+//api
+export interface HeroType{
+  id: number;
+  beranda: string;
+  deskripsi: string;
+}
