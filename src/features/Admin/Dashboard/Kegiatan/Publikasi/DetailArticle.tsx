@@ -1,18 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/axios";
+import { CreateArticleDashType } from "@/src/types";
 
-const DetailArticle = ({ articleId }) => {
-  const [article, setArticle] = useState({});
+
+const DetailArticle = ({ articleId }: { articleId: number }) => {
+  const [article, setArticle] = useState<CreateArticleDashType>({});
 
   useEffect(() => {
-    const getArticle = async (id) => {
-      console.log(id);
+    const getArticle = async (id: number) => {
       try {
         const response = await axiosInstance.get(`/api/v1/articles/${id}`);
         const art = response.data;
         setArticle(art);
-        console.log("get article", art);
       } catch (error) {
         throw error;
       }
