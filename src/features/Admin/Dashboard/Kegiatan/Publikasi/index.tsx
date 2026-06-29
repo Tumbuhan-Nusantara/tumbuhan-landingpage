@@ -76,9 +76,9 @@ const DashPublikasiFeat = () => {
       <div>
         <Card className="bg-[url('/image.png')] bg-cover">
           <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-            Kelola Publikasi Ilmiah Terbaru
+            Tambah Publikasi Ilmiah Terbaru
           </h1>
-          <Card className="max-w-4xl m-4">
+          <Card className="max-w-4xl mx-4">
             <CardContent className="flex flex-col gap-6">
               <div className="space-y-4">
                 <div className="grid gap-2">
@@ -167,10 +167,13 @@ const DashPublikasiFeat = () => {
               </Button>
             </CardFooter>
           </Card>
+          <div className="max-w-4xl my-4">
+            <h1 className="mx-6 text-[#1A4D2E] font-semibold">
+            Kelola Publikasi Ilmiah Terbaru
+          </h1>
+            <DataTable columns={columns} data={articles} />
+          </div>
         </Card>
-      </div>
-      <div className="max-w-4xl my-4">
-        <DataTable columns={columns} data={articles} />
       </div>
     </div>
   );

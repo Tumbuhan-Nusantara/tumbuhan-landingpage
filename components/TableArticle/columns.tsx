@@ -1,27 +1,56 @@
-"use client"
+"use client";
 
-import { CreateArticleDashType } from "@/src/types"
-import { ColumnDef } from "@tanstack/react-table"
+import { CreateArticleDashType } from "@/src/types";
+import { ColumnDef } from "@tanstack/react-table";
+import { Button } from "../ui/button";
+import { Eye, Pencil, Trash2 } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import DetailArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DetailArticle"
 
 export const columns: ColumnDef<CreateArticleDashType>[] = [
   {
     accessorKey: "judul",
-    header: "Judul",
+    header: () => <div className="text-left">Judul</div>,
+    cell: ({ row }) => (
+      <div className="text-left ">{row.getValue("judul")}</div>
+    ),
   },
   {
-    accessorKey: "doi",
-    header: "Penulis",
+    accessorKey: "aksi",
+    header: () => <div className="text-center">Aksi</div>,
+    cell: ({row}) => {
+      const article = row.original
+      return (
+        <div className="flex justify-center gap-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="icon" variant="outline">
+                <Eye className="h-4 w-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="text-gray-500 text-md">
+                  Detail Artikel
+                </DialogTitle>
+                <DialogDescription asChild>
+                  <div aria-describedby="Detail Artikel">
+                    <DetailArticle articleId={article.id}/>
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+
+          <Button size="icon" variant="secondary">
+            <Pencil className="h-4 w-4" />
+          </Button>
+
+          <Button size="icon" variant="destructive">
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        </div>
+      );
+    },
   },
-  {
-    accessorKey: "tahun",
-    header: "Tahun",
-  },
-  {
-    accessorKey: "link",
-    header: "DOI/ Link Artikel",
-  },
-  {
-    accessorKey: "volume",
-    header: "Nama Jurnal / Volume",
-  },
-]
+];
