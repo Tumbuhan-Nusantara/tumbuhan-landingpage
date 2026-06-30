@@ -4,8 +4,16 @@ import { CreateArticleDashType } from "@/src/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "../ui/button";
 import { Eye, Pencil, Trash2 } from "lucide-react";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
-import DetailArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DetailArticle"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import DetailArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DetailArticle";
+import EditArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/EditArticle";
 
 export const columns: ColumnDef<CreateArticleDashType>[] = [
   {
@@ -18,8 +26,8 @@ export const columns: ColumnDef<CreateArticleDashType>[] = [
   {
     accessorKey: "aksi",
     header: () => <div className="text-center">Aksi</div>,
-    cell: ({row}) => {
-      const article = row.original
+    cell: ({ row }) => {
+      const article = row.original;
       return (
         <div className="flex justify-center gap-2">
           <Dialog>
@@ -35,16 +43,32 @@ export const columns: ColumnDef<CreateArticleDashType>[] = [
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">
-                    <DetailArticle articleId={article.id}/>
+                    <DetailArticle articleId={article.id} />
                   </div>
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
           </Dialog>
 
-          <Button size="icon" variant="secondary">
-            <Pencil className="h-4 w-4" />
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="icon" variant="secondary">
+                <Pencil className="h-4 w-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="text-gray-500 text-md">
+                  Ubah Artikel
+                </DialogTitle>
+                <DialogDescription asChild>
+                  <div aria-describedby="Detail Artikel">
+                    <EditArticle articleId={article.id}/>
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
 
           <Button size="icon" variant="destructive">
             <Trash2 className="h-4 w-4" />
