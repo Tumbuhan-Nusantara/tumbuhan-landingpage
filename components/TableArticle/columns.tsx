@@ -1,9 +1,9 @@
 "use client";
 
-import { CreateArticleDashType } from "@/src/types";
+import { ArticleDashType } from "@/src/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "../ui/button";
-import { Eye, Pencil, Trash2 } from "lucide-react";
+import { Eye, Pencil } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -14,8 +14,11 @@ import {
 } from "../ui/dialog";
 import DetailArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DetailArticle";
 import EditArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/EditArticle";
+import DeleteArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DeleteArticle";
 
-export const columns: ColumnDef<CreateArticleDashType>[] = [
+export const columns = (
+  onSuccess: () => void,
+): ColumnDef<ArticleDashType>[] => [
   {
     accessorKey: "judul",
     header: () => <div className="text-left">Judul</div>,
@@ -63,16 +66,16 @@ export const columns: ColumnDef<CreateArticleDashType>[] = [
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">
-                    <EditArticle articleId={article.id}/>
+                    <EditArticle articleId={article.id} onSuccess={onSuccess} />
                   </div>
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
           </Dialog>
 
-          <Button size="icon" variant="destructive">
-            <Trash2 className="h-4 w-4" />
-          </Button>
+          <div>
+            <DeleteArticle articleId={article.id} onSuccess={onSuccess} />
+          </div>
         </div>
       );
     },

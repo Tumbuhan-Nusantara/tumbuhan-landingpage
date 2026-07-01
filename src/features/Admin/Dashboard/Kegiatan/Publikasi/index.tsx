@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
-import { CreateArticleDashType } from "@/src/types";
+import { ArticleDashType, CreateArticleDashType } from "@/src/types";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const DashPublikasiFeat = () => {
   const [formData, setFormData] = useState<CreateArticleDashType>({
@@ -17,7 +19,7 @@ const DashPublikasiFeat = () => {
     volume: "",
     link: "",
   });
-  const [articles, setArticles] = useState<CreateArticleDashType[]>([]);
+  const [articles, setArticles] = useState<ArticleDashType[]>([]);
 
   const createArticle = async () => {
     try {
@@ -33,6 +35,9 @@ const DashPublikasiFeat = () => {
       const result = response.data;
       setFormData(result);
       console.log("hasil post article", result);
+
+      toast.success("Berhasil ditambahkan");
+
       setFormData({
         judul: "",
         doi: "",
@@ -40,6 +45,7 @@ const DashPublikasiFeat = () => {
         volume: "",
         link: "",
       });
+      await getDataArticle();
     } catch (error) {
       throw error;
     }
@@ -54,22 +60,24 @@ const DashPublikasiFeat = () => {
     }));
   };
 
+  const getDataArticle = async () => {
+    try {
+      const response = await axiosInstance.get(`/api/v1/articles`);
+      const data = response.data.data;
+      setArticles(data);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
-    const getDataArticle = async () => {
-      try {
-        const response = await axiosInstance.get(`/api/v1/articles`);
-        const data = response.data.data;
-        setArticles(data);
-        console.log(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     getDataArticle();
   }, []);
 
   return (
     <div className="p-8">
+      <Toaster position="top-center" richColors />
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
         Publikasi Ilmiah
       </h1>
@@ -169,9 +177,9 @@ const DashPublikasiFeat = () => {
           </Card>
           <div className="max-w-4xl my-4">
             <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-            Kelola Publikasi Ilmiah Terbaru
-          </h1>
-            <DataTable columns={columns} data={articles} />
+              Kelola Publikasi Ilmiah Terbaru
+            </h1>
+            <DataTable columns={columns(getDataArticle)} data={articles} />
           </div>
         </Card>
       </div>

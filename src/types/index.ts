@@ -87,3 +87,15 @@ export interface CreateArticleDashType{
   volume: string;
   link: string;
 }
+export interface ArticleDashType{
+  id: number;
+  judul: string;
+  doi: string;
+  tahun: number | null;
+  volume: string;
+  link: string;
+}
+export interface ArticlePropsType{
+  articleId: number;
+  onSuccess: () => void;
+}

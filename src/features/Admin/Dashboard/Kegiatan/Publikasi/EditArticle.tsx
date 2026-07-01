@@ -4,11 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
-import { ArticleDashType } from "@/src/types";
+import { ArticleDashType, ArticlePropsType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const EditArticle = ({ articleId }: { articleId: number }) => {
+const EditArticle = ({ articleId, onSuccess }:  ArticlePropsType ) => {
   const [art, setArt] = useState<ArticleDashType| null>(null);
   useEffect(() => {
     const getArticle = async (id: number) => {
@@ -35,6 +35,9 @@ const EditArticle = ({ articleId }: { articleId: number }) => {
         link: art.link,
       });
       toast.success("Artikel berhasil diperbarui");
+
+      onSuccess()
+      
     } catch (err) {
       console.error(err);
     }
