@@ -367,7 +367,7 @@ export const SidebarItems: SidebarType[] = [
     title: "berita",
     icon: Mails,
     isActive: true,
-    items:  [{ id: 1, sub: "berita", icon: Mails, path: "#" }]
+    items:  [{ id: 1, sub: "berita", icon: Mails, path: "/admin/dashboard/berita" }]
   },
 ];
 
