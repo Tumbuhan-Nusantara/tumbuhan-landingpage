@@ -1,6 +1,6 @@
 "use client";
-import { columns } from "@/components/TableArticle/columns";
-import { DataTable } from "@/components/TableArticle/data-table";
+import { columns } from "@/components/Data Table/articlecolumns";
+import { DataTable } from "@/components/Data Table/data-table";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";

@@ -99,3 +99,31 @@ export interface ArticlePropsType{
   articleId: number;
   onSuccess: () => void;
 }
+
+export interface NewsDashType{
+  id: number;
+  news_name: string;
+  deskripsi: string;
+  tanggal_berita: string;
+  tempat: string;
+  photo_url: string;
+  video_link: string
+}
+
+export interface CreateNewsDashType{
+  news_name: string;
+  deskripsi: string;
+  tanggal_berita: string;
+  tempat: string;
+  photo_url: File | null;
+  video_link: string
+}
+
+export interface NewsPropsType{
+  newsId: number;
+}
+
+export interface DeleteNewsProps {
+  newsId: number;
+  onSuccess: () => void;
+}
