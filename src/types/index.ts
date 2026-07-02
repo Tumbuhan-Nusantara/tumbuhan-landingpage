@@ -122,3 +122,8 @@ export interface CreateNewsDashType{
 export interface NewsPropsType{
   newsId: number;
 }
+
+export interface DeleteNewsProps {
+  newsId: number;
+  onSuccess: () => void;
+}

@@ -15,6 +15,7 @@ import {
 import DetailNews from "@/src/features/Admin/Dashboard/Berita/DetailNews";
 import { useParams } from "next/navigation";
 import { useRouter } from "@/src/i18n/navigation";
+import DeleteNews from "@/src/features/Admin/Dashboard/Berita/DeleteNews";
 
 export const columns = (onSuccess: () => void): ColumnDef<NewsDashType>[] => [
   {
@@ -31,9 +32,6 @@ export const columns = (onSuccess: () => void): ColumnDef<NewsDashType>[] => [
       const news = row.original;
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const router = useRouter();
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const params = useParams();
-      const locale = params.locale;
       return (
         <div className="flex justify-center gap-2">
           <Dialog>
@@ -69,7 +67,7 @@ export const columns = (onSuccess: () => void): ColumnDef<NewsDashType>[] => [
           </Button>
 
           <div>
-            {/* <DeleteArticle articleId={article.id} onSuccess={onSuccess} /> */}
+            <DeleteNews newsId={news.id} onSuccess={onSuccess} />
           </div>
         </div>
       );
