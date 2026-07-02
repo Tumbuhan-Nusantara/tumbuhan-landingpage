@@ -121,5 +121,4 @@ export interface CreateNewsDashType{
 
 export interface NewsPropsType{
   newsId: number;
-  onSuccess: () => void;
 }

@@ -13,11 +13,10 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import DetailNews from "@/src/features/Admin/Dashboard/Berita/DetailNews";
+import { useParams } from "next/navigation";
+import { useRouter } from "@/src/i18n/navigation";
 
-
-export const columns = (
-  onSuccess: () => void,
-): ColumnDef<NewsDashType>[] => [
+export const columns = (onSuccess: () => void): ColumnDef<NewsDashType>[] => [
   {
     accessorKey: "news_name",
     header: () => <div className="text-left">Judul</div>,
@@ -30,6 +29,11 @@ export const columns = (
     header: () => <div className="text-center">Aksi</div>,
     cell: ({ row }) => {
       const news = row.original;
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const router = useRouter();
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const params = useParams();
+      const locale = params.locale;
       return (
         <div className="flex justify-center gap-2">
           <Dialog>
@@ -45,32 +49,24 @@ export const columns = (
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">
-                    <DetailNews newsId={news.id}/>
+                    <DetailNews newsId={news.id} />
                   </div>
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
           </Dialog>
 
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button size="icon" variant="secondary">
-                <Pencil className="h-4 w-4" />
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle className="text-gray-500 text-md">
-                  Ubah Artikel
-                </DialogTitle>
-                <DialogDescription asChild>
-                  <div aria-describedby="Detail Artikel">
-                    {/* <EditArticle articleId={article.id} onSuccess={onSuccess} /> */}
-                  </div>
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
+          <Button
+            size="icon"
+            variant="secondary"
+            onClick={() =>
+              router.push(
+                `/admin/dashboard/berita/edit/${row.original.id}`,
+              )
+            }
+          >
+            <Pencil className="h-4 w-4" />
+          </Button>
 
           <div>
             {/* <DeleteArticle articleId={article.id} onSuccess={onSuccess} /> */}
