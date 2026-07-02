@@ -118,3 +118,8 @@ export interface CreateNewsDashType{
   photo_url: File | null;
   video_link: string
 }
+
+export interface NewsPropsType{
+  newsId: number;
+  onSuccess: () => void;
+}

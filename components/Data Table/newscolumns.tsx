@@ -12,6 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+import DetailNews from "@/src/features/Admin/Dashboard/Berita/DetailNews";
 
 
 export const columns = (
@@ -28,7 +29,7 @@ export const columns = (
     accessorKey: "aksi",
     header: () => <div className="text-center">Aksi</div>,
     cell: ({ row }) => {
-      // const article = row.original;
+      const news = row.original;
       return (
         <div className="flex justify-center gap-2">
           <Dialog>
@@ -44,7 +45,7 @@ export const columns = (
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">
-                    {/* <DetailArticle articleId={article.id} /> */}
+                    <DetailNews newsId={news.id}/>
                   </div>
                 </DialogDescription>
               </DialogHeader>
