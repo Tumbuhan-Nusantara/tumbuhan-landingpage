@@ -4,11 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
-import { ArticleDashType, ArticlePropsType } from "@/src/types";
+import { ArticleDashType, PropsType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const EditArticle = ({ articleId, onSuccess }:  ArticlePropsType ) => {
+const EditArticle = ({ idCode, onSuccess }:  PropsType ) => {
   const [art, setArt] = useState<ArticleDashType| null>(null);
   useEffect(() => {
     const getArticle = async (id: number) => {
@@ -21,8 +21,8 @@ const EditArticle = ({ articleId, onSuccess }:  ArticlePropsType ) => {
         throw error;
       }
     };
-    getArticle(articleId);
-  }, [articleId]);
+    getArticle(idCode);
+  }, [idCode]);
 
   const handleUpdate = async () => {
     if (!art) return;
