@@ -66,7 +66,7 @@ export const columns = (
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">
-                    <EditArticle articleId={article.id} onSuccess={onSuccess} />
+                    <EditArticle idCode={article.id} onSuccess={onSuccess} />
                   </div>
                 </DialogDescription>
               </DialogHeader>
@@ -74,7 +74,7 @@ export const columns = (
           </Dialog>
 
           <div>
-            <DeleteArticle articleId={article.id} onSuccess={onSuccess} />
+            <DeleteArticle idCode={article.id} onSuccess={onSuccess} />
           </div>
         </div>
       );

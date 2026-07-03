@@ -13,34 +13,35 @@ import {
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
-import { NewsDashType, PropsType } from "@/src/types";
+import { ActivityDashType, PropsType } from "@/src/types";
 import { Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const DeleteNews = ({ idCode, onSuccess }: PropsType) => {
-  const [news, setNews] = useState<NewsDashType | null>(null);
+const DeleteActivity = ({ idCode, onSuccess }: PropsType) => {
+  const [act, setAct] = useState<ActivityDashType | null>(null);
   useEffect(() => {
-    const getNews = async (id: number) => {
+    const getActivity = async (id: number) => {
       console.log(id);
       try {
-        const response = await axiosInstance.get(`/api/v1/news/${id}`);
-        const news = response.data;
-        setNews(news);
+        const response = await axiosInstance.get(`/api/v1/activities/${id}`);
+        const activity = response.data;
+        setAct(activity);
       } catch (error) {
         throw error;
       }
     };
-    getNews(idCode);
+    getActivity(idCode);
   }, [idCode]);
 
   const handleDelete = async () => {
-    if (!news) return;
+    if (!act) return;
     try {
-      await axiosInstance.delete(`/api/v1/news/${news.id}`);
+      await axiosInstance.delete(`/api/v1/activities/${act.id}`);
 
-      toast.warning("Berita berhasil dihapus");
-      onSuccess()
+      toast.warning("Kegiatan berhasil dihapus");
+
+      onSuccess();
     } catch (error) {
       throw error;
     }
@@ -79,4 +80,4 @@ const DeleteNews = ({ idCode, onSuccess }: PropsType) => {
   );
 };
 
-export default DeleteNews;
+export default DeleteActivity;

@@ -13,7 +13,6 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import DetailNews from "@/src/features/Admin/Dashboard/Berita/DetailNews";
-import { useParams } from "next/navigation";
 import { useRouter } from "@/src/i18n/navigation";
 import DeleteNews from "@/src/features/Admin/Dashboard/Berita/DeleteNews";
 
@@ -67,7 +66,7 @@ export const columns = (onSuccess: () => void): ColumnDef<NewsDashType>[] => [
           </Button>
 
           <div>
-            <DeleteNews newsId={news.id} onSuccess={onSuccess} />
+            <DeleteNews idCode={news.id} onSuccess={onSuccess} />
           </div>
         </div>
       );

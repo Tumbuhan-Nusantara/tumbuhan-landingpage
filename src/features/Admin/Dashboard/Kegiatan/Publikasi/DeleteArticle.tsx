@@ -13,12 +13,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
-import { ArticleDashType, ArticlePropsType } from "@/src/types";
+import { ArticleDashType, PropsType } from "@/src/types";
 import { Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const DeleteArticle = ({ articleId, onSuccess }: ArticlePropsType) => {
+const DeleteArticle = ({ idCode, onSuccess }: PropsType) => {
   const [art, setArt] = useState<ArticleDashType | null>(null);
   useEffect(() => {
     const getArticle = async (id: number) => {
@@ -31,8 +31,8 @@ const DeleteArticle = ({ articleId, onSuccess }: ArticlePropsType) => {
         throw error;
       }
     };
-    getArticle(articleId);
-  }, [articleId]);
+    getArticle(idCode);
+  }, [idCode]);
 
   const handleDelete = async () => {
     if (!art) return;
