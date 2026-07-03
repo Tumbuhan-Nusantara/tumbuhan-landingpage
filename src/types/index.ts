@@ -95,8 +95,8 @@ export interface ArticleDashType{
   volume: string;
   link: string;
 }
-export interface ArticlePropsType{
-  articleId: number;
+export interface PropsType{
+  idCode: number;
   onSuccess: () => void;
 }
 
@@ -123,12 +123,6 @@ export interface NewsPropsType{
   newsId: number;
 }
 
-export interface DeleteNewsProps {
-  newsId: number;
-  onSuccess: () => void;
-}
-
-
 export interface CreateActivityDashType {
   activity_name: string;
   deskripsi: string;
@@ -151,4 +145,8 @@ export interface ActivityDashType {
 export interface TypesDashType{
   id: number;
   nama_tipe: string;
+}
+
+export interface ActivityPropsType{
+  activityId: number;
 }

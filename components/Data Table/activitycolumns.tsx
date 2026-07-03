@@ -14,8 +14,13 @@ import {
 } from "../ui/dialog";
 import { useRouter } from "@/src/i18n/navigation";
 import DetailActivity from "@/src/features/Admin/Dashboard/Kegiatan/RisetKonservasiEdukasi/DetailActivity";
+import EditActivity from "@/src/features/Admin/Dashboard/Kegiatan/RisetKonservasiEdukasi/EditActivity";
+import DeleteActivity from "@/src/features/Admin/Dashboard/Kegiatan/RisetKonservasiEdukasi/DeleteActivity";
+import { act } from "react";
 
-export const columns = (onSuccess: () => void): ColumnDef<ActivityDashType>[] => [
+export const columns = (
+  onSuccess: () => void,
+): ColumnDef<ActivityDashType>[] => [
   {
     accessorKey: "nama_tipe",
     header: () => <div className="text-left">Jenis Kegiatan</div>,
@@ -59,20 +64,40 @@ export const columns = (onSuccess: () => void): ColumnDef<ActivityDashType>[] =>
             </DialogContent>
           </Dialog>
 
-          {/* <Button
+          {/* <Dialog>
+            <DialogTrigger asChild>
+              <Button size="icon" variant="secondary">
+                <Pencil className="h-4 w-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="text-gray-500 text-md">
+                  Ubah Kegiatan
+                </DialogTitle>
+                <DialogDescription asChild>
+                  <div aria-describedby="Detail Artikel">
+                    <EditActivity activityId={activities.id} onSuccess={onSuccess} />
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog> */}
+
+          <Button
             size="icon"
             variant="secondary"
             onClick={() =>
               router.push(
-                `/admin/dashboard/berita/edit/${row.original.id}`,
+                `/admin/dashboard/kegiatan/edit/${row.original.id}`,
               )
             }
           >
             <Pencil className="h-4 w-4" />
-          </Button> */}
+          </Button>
 
-            {/* <DeleteNews newsId={news.id} onSuccess={onSuccess} /> */}
-          </div>
+          <DeleteActivity idCode={activities.id} onSuccess={onSuccess} />
+        </div>
       );
     },
   },
