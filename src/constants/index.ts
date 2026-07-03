@@ -357,9 +357,7 @@ export const SidebarItems: SidebarType[] = [
     icon: Newspaper,
     items: [
       { id: 1, sub: "publikasi", icon: Newspaper, path: "/admin/dashboard/publikasi" },
-      { id: 2, sub: "riset", icon: NotebookPen, path: "#" },
-      { id: 3, sub: "edukasi", icon: School, path: "#" },
-      { id: 4, sub: "konservasi", icon: Library, path: "#" },
+      { id: 2, sub: "kegiatans", icon: Library, path: "/admin/dashboard/kegiatan" },
     ],
   },
    {
