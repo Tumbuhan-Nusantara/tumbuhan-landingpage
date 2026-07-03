@@ -128,18 +128,24 @@ export interface DeleteNewsProps {
   onSuccess: () => void;
 }
 
-export interface ActivityDashType{
-  id: number;
-  activity_name: string;
-}
 
-export interface CreateActivityType {
+export interface CreateActivityDashType {
   activity_name: string;
   deskripsi: string;
   tanggal_kegiatan: string;
   tempat: string;
   photo_url: File | null;
   tipe_kegiatan_id: number | null;
+}
+export interface ActivityDashType {
+  id: number;
+  activity_name: string;
+  deskripsi: string;
+  tanggal_kegiatan: string;
+  tempat: string;
+  photo_url: string;
+  tipe_kegiatan_id: number | null;
+  nama_tipe: string
 }
 
 export interface TypesDashType{

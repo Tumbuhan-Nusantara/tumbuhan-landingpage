@@ -1,4 +1,6 @@
 "use client";
+import { columns } from "@/components/Data Table/activitycolumns";
+import { DataTable } from "@/components/Data Table/data-table";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -31,7 +33,7 @@ const DashKegiatanFeat = () => {
   const [activity, setActivity] = useState<ActivityDashType[]>([]);
   const getActivities = async () => {
     try {
-      const response = await axiosInstance.get(`/api/v1/activities/`);
+      const response = await axiosInstance.get(`/api/v1/activities`);
       const result = response.data.data;
       setActivity(result);
       console.log("cek kegiatan", result);
@@ -243,7 +245,7 @@ const DashKegiatanFeat = () => {
             <h1 className="mx-6 text-[#1A4D2E] font-semibold">
               Kelola Kegiatan YTAN Terbaru
             </h1>
-            {/* <DataTable columns={columns(getDataArticle)} data={articles} /> */}
+            <DataTable columns={columns(getActivities)} data={activity} />
           </div>
         </Card>
       </div>
