@@ -64,6 +64,18 @@ const DashUserRoleFeat = () => {
     }
   };
 
+  const handleDelete = async (id: number) => {
+    if (!users) return;
+    try {
+      await axiosInstance.delete(`/api/v1/auth/${id}`);
+
+      toast.warning("Pengguna berhasil dihapus");
+      await getUsers()
+    } catch (error) {
+      throw error;
+    }
+  };
+
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getUsers();
@@ -139,7 +151,7 @@ const DashUserRoleFeat = () => {
                       <AlertDialogFooter>
                         <AlertDialogCancel>Batal</AlertDialogCancel>
                         <AlertDialogAction
-                          // onClick={() => onDelete(userId)}
+                          onClick={() => handleDelete(user.id)}
                           className="bg-red-700 hover:bg-red-500"
                         >
                           Hapus
