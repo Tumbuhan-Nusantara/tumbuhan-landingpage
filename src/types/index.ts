@@ -161,3 +161,7 @@ export interface UserDashType {
   is_active: boolean;
   role: "admin" | "user";
 }
+
+export interface TeamPropsType{
+  teamId: number;
+}
