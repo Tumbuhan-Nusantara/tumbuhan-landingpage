@@ -13,6 +13,7 @@ import {
 } from "../ui/dialog";
 import DetailTeam from "@/src/features/Admin/Dashboard/Profile/OurTeam/DetailTeam";
 import { useRouter } from "@/src/i18n/navigation";
+import DeleteTeam from "@/src/features/Admin/Dashboard/Profile/OurTeam/DeleteTeam";
 
 export const columns = (onSuccess: () => void): ColumnDef<UserDashType>[] => [
   {
@@ -68,7 +69,7 @@ export const columns = (onSuccess: () => void): ColumnDef<UserDashType>[] => [
           </Button>
 
           <div>
-            {/* <DeleteArticle idCode={article.id} onSuccess={onSuccess} /> */}
+            <DeleteTeam idCode={user.id} onSuccess={onSuccess} />
           </div>
         </div>
       );
