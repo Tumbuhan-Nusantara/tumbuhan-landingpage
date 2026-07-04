@@ -150,3 +150,18 @@ export interface TypesDashType{
 export interface ActivityPropsType{
   activityId: number;
 }
+
+export interface UserDashType {
+  id: number;
+  username: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  is_active: boolean;
+  role: "admin" | "user";
+}
+
+export interface TeamPropsType{
+  teamId: number;
+}
