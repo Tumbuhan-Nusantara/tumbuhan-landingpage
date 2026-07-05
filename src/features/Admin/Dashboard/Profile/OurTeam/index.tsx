@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
+import { useRouter } from "@/src/i18n/navigation";
 import { UserDashType } from "@/src/types";
 
 import { Plus } from "lucide-react";
@@ -23,10 +24,12 @@ const DashOurTeamFeat = () => {
     }
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    getUsers()
-  }, [])
+    getUsers();
+  }, []);
+
+  const router = useRouter()
   return (
     <div className="p-8">
       <Toaster />
@@ -39,13 +42,18 @@ const DashOurTeamFeat = () => {
           <h1 className=" text-[#1A4D2E] font-semibold">
             Pengguna Dashboard YTAN
           </h1>
-          <Button className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer">
+          <Button
+            onClick={() =>
+              router.push(`/admin/dashboard/our-team/create`)
+            }
+            className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
+          >
             <Plus />
             Tambah Anggota Tim YTAN
           </Button>
         </div>
         <div>
-          <DataTable columns={columns(getUsers)} data={users}/>
+          <DataTable columns={columns(getUsers)} data={users} />
         </div>
       </Card>
     </div>

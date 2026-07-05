@@ -161,7 +161,14 @@ export interface UserDashType {
   is_active: boolean;
   role: "admin" | "user";
 }
-
+export interface CreateUserDashType {
+  username: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  role: "admin" | "user";
+}
 export interface TeamPropsType{
   teamId: number;
 }
