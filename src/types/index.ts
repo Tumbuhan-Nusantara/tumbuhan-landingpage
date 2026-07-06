@@ -172,3 +172,8 @@ export interface CreateUserDashType {
 export interface TeamPropsType{
   teamId: number;
 }
+
+export interface VisiType{
+  id: number;
+  visi: string;
+}
