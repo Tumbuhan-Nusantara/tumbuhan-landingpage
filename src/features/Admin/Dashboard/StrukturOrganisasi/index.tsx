@@ -1,14 +1,10 @@
 "use client";
 import { DataTable } from "@/components/Data Table/data-table";
 import { columns } from "@/components/Data Table/strukturcolumns";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
 import { StrukturDashType } from "@/src/types";
-import { Pencil } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const StrukturOrgDash = () => {
