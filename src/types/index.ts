@@ -183,6 +183,7 @@ export interface MisiDashType{
   content: string;
 }
 
-export interface Props2Type{
-  onSuccess: () => void;
+export interface TujuanDashType{
+  id: number;
+  goal: string;
 }

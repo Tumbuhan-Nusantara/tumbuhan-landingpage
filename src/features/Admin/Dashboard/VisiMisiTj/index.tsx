@@ -17,7 +17,7 @@ import {
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import { DashMisiItem } from "@/src/constants";
 import { useEffect, useState } from "react";
-import { MisiDashType, VisiDashType } from "@/src/types";
+import { MisiDashType, TujuanDashType, VisiDashType } from "@/src/types";
 import { axiosInstance } from "@/lib/axios";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
@@ -36,6 +36,7 @@ import DeleteMisi from "./DeleteMisi";
 const DashVisiMisiTjFeat = () => {
   const [visi, setVisi] = useState<VisiDashType | null>(null);
   const [misi, setMisi] = useState<MisiDashType[]>([]);
+  const [tujuan, setTujuan] = useState<TujuanDashType| null>(null)
   const [edit, setEdit] = useState<number | null>(null);
 
   const getVission = async () => {
@@ -55,6 +56,28 @@ const DashVisiMisiTjFeat = () => {
       console.log(result);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const getTujuan = async () => {
+    try {
+      const response = await axiosInstance.get(`/api/v1/goal`);
+      setTujuan(response.data.data[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUpdateTujuan = async () => {
+    if (!tujuan) return;
+
+    try {
+      await axiosInstance.put(`/api/v1/goal/${tujuan.id}`, {
+        goal: tujuan.goal,
+      });
+      toast.success("Tujuan berhasil diperbarui");
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -93,6 +116,7 @@ const DashVisiMisiTjFeat = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getVission();
     getMission();
+    getTujuan()
   }, []);
 
   return (
@@ -228,16 +252,28 @@ const DashVisiMisiTjFeat = () => {
             <div className="space-y-4">
               <div className="grid gap-2">
                 <Label>Tujuan</Label>
-                <Textarea />
+                <Textarea value={tujuan?.goal}
+                  onChange={(e) =>
+                    setTujuan((prev) =>
+                      prev
+                        ? {
+                            ...prev,
+                            goal: e.target.value,
+                          }
+                        : null,
+                    )
+                  }/>
               </div>
+               <Button
+                onClick={handleUpdateTujuan}
+                className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
+                size="sm"
+              >
+                <Pencil /> Simpan Perubahan Tujuan
+              </Button>
             </div>
           </CardContent>
 
-          <CardFooter className="justify-end">
-            <Button className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer">
-              Simpan Perubahan
-            </Button>
-          </CardFooter>
         </Card>
       </Card>
     </div>
