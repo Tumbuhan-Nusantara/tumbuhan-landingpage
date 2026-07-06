@@ -187,3 +187,9 @@ export interface TujuanDashType{
   id: number;
   goal: string;
 }
+
+export interface StrukturDashType {
+  id: number;
+  position: string;
+  name: string;
+}
