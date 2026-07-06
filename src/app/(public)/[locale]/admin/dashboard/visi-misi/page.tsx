@@ -1,9 +1,9 @@
-import DashVisiFeat from '@/src/features/Admin/Dashboard/VisiMisi'
+import DashVisiMisiTjFeat from "@/src/features/Admin/Dashboard/VisiMisiTj"
 
-const DashVisiPage = () => {
+const DashVisiMisiTjPage = () => {
   return (
-    <DashVisiFeat/>
+    <DashVisiMisiTjFeat/>
   )
 }
 
-export default DashVisiPage
+export default DashVisiMisiTjPage
