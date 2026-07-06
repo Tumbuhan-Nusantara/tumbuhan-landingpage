@@ -1,21 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Pencil, Plus, Trash2 } from "lucide-react";
-import { DashMisiItem } from "@/src/constants";
+import { Pencil, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { MisiDashType, TujuanDashType, VisiDashType } from "@/src/types";
 import { axiosInstance } from "@/lib/axios";

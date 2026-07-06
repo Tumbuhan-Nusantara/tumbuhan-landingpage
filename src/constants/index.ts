@@ -374,10 +374,3 @@ export const DashMainMenu: DashMain[] = [
   {id: 2, title: "kegiatan", logo: Newspaper},
   {id: 3, title: "berita", logo: Mails},
 ]
-
-export const DashMisiItem: DashMisi[] = [
-  {id: 1, misi: "Meningkatkan jumlah dan kualitas penelitian mengenai tumbuhan asli Indonesia"},
-  {id: 2, misi: "Membangun serta memperkuat jaringan kerjasama sesama pegiat, pecinta, akademisi, dan para ilmuan tumbuhan, pemangku kepentingan dan pemegang kebijakan, baik itu bersama pemerintah maupun lembaga-lembaga non-pemerintahan lainnya."},
-  {id: 3, misi: "Turut berupaya melestarikan keanekaragaman spesies tumbuhan asli Indonesia dengan upaya konservasi spesies dan restorasi hutan."},
-  {id: 4, misi: "Meningkatkan, menyebarluaskan pemahaman dan kecintaan masyarakat pada tumbuhan asli Indonesia"},
-]
