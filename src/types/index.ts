@@ -177,3 +177,12 @@ export interface VisiDashType{
   id: number;
   visi: string;
 }
+
+export interface MisiDashType{
+  id: number;
+  content: string;
+}
+
+export interface Props2Type{
+  onSuccess: () => void;
+}

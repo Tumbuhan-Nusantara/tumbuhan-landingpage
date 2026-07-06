@@ -17,7 +17,7 @@ import {
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import { DashMisiItem } from "@/src/constants";
 import { useEffect, useState } from "react";
-import { VisiDashType } from "@/src/types";
+import { MisiDashType, VisiDashType } from "@/src/types";
 import { axiosInstance } from "@/lib/axios";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
@@ -30,13 +30,29 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import CreateMisi from "./CreateMisi";
+import { Separator } from "@/components/ui/separator";
+import DeleteMisi from "./DeleteMisi";
 
 const DashVisiMisiTjFeat = () => {
   const [visi, setVisi] = useState<VisiDashType | null>(null);
-  const getVisi = async () => {
+  const [misi, setMisi] = useState<MisiDashType[]>([]);
+  const [edit, setEdit] = useState<number | null>(null);
+
+  const getVission = async () => {
     try {
       const response = await axiosInstance.get(`/api/v1/vission`);
       setVisi(response.data.data[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getMission = async () => {
+    try {
+      const response = await axiosInstance.get(`/api/v1/missions`);
+      const result = response.data.data;
+      setMisi(result);
+      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -55,9 +71,28 @@ const DashVisiMisiTjFeat = () => {
     }
   };
 
+  const handleUpdateMisi = async (item: MisiDashType) => {
+    try {
+      const response = await axiosInstance.put(`/api/v1/missions/${item.id}`, {
+        content: item.content,
+      });
+      console.log(response.data);
+      toast.success("Misi berhasil diperbarui");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleChangeMisi = (id: number, value: string) => {
+    setMisi((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, content: value } : item)),
+    );
+  };
+
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    getVisi();
+    getVission();
+    getMission();
   }, []);
 
   return (
@@ -71,13 +106,13 @@ const DashVisiMisiTjFeat = () => {
         <h1 className=" text-[#1A4D2E] font-semibold mx-6">
           Kelola informasi Visi, Misi, dan Tujuan
         </h1>
-        <Card className="max-w-4xl m-4 ">
+        <Card className="mx-2 my-4 md:mx-4 max-w-4xl">
           <CardContent className="grid gap-6">
             <div className="space-y-4">
               <div className="grid gap-2">
                 <Label>Visi</Label>
                 <Textarea
-                  defaultValue={visi?.visi}
+                  value={visi?.visi}
                   onChange={(e) =>
                     setVisi((prev) =>
                       prev
@@ -99,10 +134,11 @@ const DashVisiMisiTjFeat = () => {
                 <Pencil /> Simpan Perubahan Visi
               </Button>
             </div>
+            <Separator className="px-8" />
 
             <div className="space-y-8">
               <div className="grid gap-2">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <Label>Misi</Label>
                   <Dialog>
                     <DialogTrigger asChild>
@@ -120,7 +156,11 @@ const DashVisiMisiTjFeat = () => {
                         </DialogTitle>
                         <DialogDescription asChild>
                           <div aria-describedby="Tambah Misi">
-                            <CreateMisi/>
+                            <CreateMisi
+                              onSuccess={() => {
+                                getMission();
+                              }}
+                            />
                           </div>
                         </DialogDescription>
                       </DialogHeader>
@@ -129,66 +169,53 @@ const DashVisiMisiTjFeat = () => {
                 </div>
 
                 <div>
-                  {DashMisiItem.map((misi) => (
+                  {misi.map((misi) => (
                     <div key={misi.id}>
-                      <div className="flex justify-between">
-                        <Textarea
-                          defaultValue={misi.misi}
-                          className="w-2xl my-2"
-                        />
-                        <div className="flex items-center gap-2">
-                          <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                              <Button size="icon" variant="secondary">
-                                <Pencil className="h-4 w-4" />
-                              </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle className="text-red-700">
-                                  Apakah Anda yakin?
-                                </AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  Tindakan ini tidak dapat dibatalkan.
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel>Batal</AlertDialogCancel>
-                                <AlertDialogAction
-                                  // onClick={() => onDelete(userId)}
-                                  className="bg-red-700 hover:bg-red-500"
-                                >
-                                  Hapus
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          </AlertDialog>
-                          <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                              <Button size="icon" variant="destructive">
-                                <Trash2 className="h-4 w-4" />
-                              </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                              <AlertDialogHeader>
-                                <AlertDialogTitle className="text-red-700">
-                                  Apakah Anda yakin?
-                                </AlertDialogTitle>
-                                <AlertDialogDescription>
-                                  Tindakan ini tidak dapat dibatalkan.
-                                </AlertDialogDescription>
-                              </AlertDialogHeader>
-                              <AlertDialogFooter>
-                                <AlertDialogCancel>Batal</AlertDialogCancel>
-                                <AlertDialogAction
-                                  // onClick={() => onDelete(userId)}
-                                  className="bg-red-700 hover:bg-red-500"
-                                >
-                                  Hapus
-                                </AlertDialogAction>
-                              </AlertDialogFooter>
-                            </AlertDialogContent>
-                          </AlertDialog>
+                      <div className="flex flex-col gap-2 my-4 md:flex-row md:justify-between">
+                        {edit !== misi.id ? (
+                          <Textarea
+                            value={misi.content}
+                            className="w-full md:flex-1"
+                            onChange={(e) =>
+                              handleChangeMisi(misi.id, e.target.value)
+                            }
+                            readOnly
+                          />
+                        ) : (
+                          <Textarea
+                            value={misi.content}
+                            className="w-full md:flex-1"
+                            onChange={(e) =>
+                              handleChangeMisi(misi.id, e.target.value)
+                            }
+                          />
+                        )}
+
+                        <div className="flex justify-end md:justify-start gap-2">
+                          {edit !== misi.id ? (
+                            <Button
+                              onClick={() => setEdit(misi.id)}
+                              size="icon"
+                              variant="secondary"
+                            >
+                              <Pencil className="h-4 w-4" />
+                            </Button>
+                          ) : (
+                            <Button
+                              onClick={() => {
+                                handleUpdateMisi(misi);
+                                setEdit(null);
+                              }}
+                              size="sm"
+                              variant="secondary"
+                            >
+                              Simpan Perubahan
+                            </Button>
+                          )}
+
+                          <div>
+                            <DeleteMisi idCode={misi.id} onSuccess={getMission}/>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -196,6 +223,7 @@ const DashVisiMisiTjFeat = () => {
                 </div>
               </div>
             </div>
+            <Separator className="px-8" />
 
             <div className="space-y-4">
               <div className="grid gap-2">

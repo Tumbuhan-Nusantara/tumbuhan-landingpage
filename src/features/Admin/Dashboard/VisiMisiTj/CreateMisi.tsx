@@ -6,10 +6,15 @@ import { axiosInstance } from "@/lib/axios";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
-const CreateMisi = () => {
+interface Props {
+  onSuccess: () => void;
+}
+
+const CreateMisi = ({ onSuccess }: Props) => {
   const [misi, setMisi] = useState({
     content: "",
   });
+
 
   const createMisi = async () => {
     if (!misi.content.trim()) {
@@ -24,6 +29,7 @@ const CreateMisi = () => {
       setMisi({
         content: "",
       });
+      onSuccess();
     } catch (err) {
       console.error(err);
       toast.error("Gagal menambah misi");
