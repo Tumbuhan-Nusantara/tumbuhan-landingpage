@@ -347,7 +347,7 @@ export const SidebarItems: SidebarType[] = [
     items: [
       { id: 1, sub: "tim", icon: Users, path: "/admin/dashboard/our-team" },
       { id: 2, sub: "vismis", icon: FileStack, path: "/admin/dashboard/visi-misi" },
-      { id: 3, sub: "struktur", icon: Landmark, path: "#" },
+      { id: 3, sub: "struktur", icon: Landmark, path: "/admin/dashboard/struktur-org " },
     ],
   },
   {
