@@ -173,7 +173,7 @@ export interface TeamPropsType{
   teamId: number;
 }
 
-export interface VisiType{
+export interface VisiDashType{
   id: number;
   visi: string;
 }
