@@ -172,3 +172,18 @@ export interface CreateUserDashType {
 export interface TeamPropsType{
   teamId: number;
 }
+
+export interface VisiDashType{
+  id: number;
+  visi: string;
+}
+
+export interface MisiDashType{
+  id: number;
+  content: string;
+}
+
+export interface TujuanDashType{
+  id: number;
+  goal: string;
+}
