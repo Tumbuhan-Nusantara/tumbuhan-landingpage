@@ -1,6 +1,7 @@
 "use client";
 import { DataTable } from "@/components/Data Table/data-table";
 import { columns } from "@/components/Data Table/strukturcolumns";
+import StructureSkeleton from "@/components/Skeletons/StructureSk";
 import { Card, CardContent } from "@/components/ui/card";
 import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
@@ -9,13 +10,17 @@ import { useEffect, useState } from "react";
 
 const StrukturOrgDash = () => {
   const [struktur, setStruktur] = useState<StrukturDashType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
   const getData = async () => {
+    setLoading(true);
     try {
       const response = await axiosInstance.get(`/api/v1/struktur`);
       const result = response.data.data;
 
       setStruktur(result);
-      console.log("cek isinya", result);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
     } catch (error) {
       throw error;
     }
@@ -25,6 +30,14 @@ const StrukturOrgDash = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getData();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="p-8">
+        <StructureSkeleton />
+      </div>
+    );
+  }
   return (
     <div className="p-8">
       <Toaster position="top-center" richColors />

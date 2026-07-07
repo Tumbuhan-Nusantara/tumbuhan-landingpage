@@ -1,6 +1,7 @@
 "use client";
 import { DataTable } from "@/components/Data Table/data-table";
 import { columns } from "@/components/Data Table/newscolumns";
+import FormSkeleton from "@/components/Skeletons/FormSk";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,13 +16,16 @@ import { toast } from "sonner";
 const BeritaDashboard = () => {
   const [news, setNews] = useState<NewsDashType[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [loading, setLoading] = useState<boolean>(true)
   const getNews = async () => {
+    setLoading(true)
     try {
       const resp = await axiosInstance.get(`/api/v1/news`);
       const result = resp.data.data;
 
       setNews(result);
-      console.log(result);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
     } catch (error) {
       throw error;
     }
@@ -100,6 +104,14 @@ const BeritaDashboard = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getNews();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="p-8">
+        <FormSkeleton />
+      </div>
+    );
+  }
   return (
     <div className="p-8">
       <Toaster position="top-center" richColors />

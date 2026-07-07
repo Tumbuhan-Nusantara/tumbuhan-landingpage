@@ -1,4 +1,5 @@
 "use client";
+import CreateEditSkeleton from "@/components/Skeletons/CreateEditSk";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,7 @@ import { toast } from "sonner";
 
 const EditTeam = ({ teamId }: TeamPropsType) => {
   const [team, setTeam] = useState<UserDashType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true)
 
   const router = useRouter();
 
@@ -64,6 +66,18 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
       };
     });
   };
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, []);
+
+if (loading) {
+  return <CreateEditSkeleton />;
+}
 
   return (
     <div className="p-8">

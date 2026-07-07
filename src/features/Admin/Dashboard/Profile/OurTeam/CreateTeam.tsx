@@ -1,5 +1,5 @@
 "use client";
-
+import CreateEditSkeleton from "@/components/Skeletons/CreateEditSk";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,7 +8,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { axiosInstance } from "@/lib/axios";
 import { useRouter } from "@/src/i18n/navigation";
 import { CreateUserDashType } from "@/src/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const CreateTeam = () => {
@@ -20,6 +20,7 @@ const CreateTeam = () => {
     phone_number: "",
     role: "user",
   });
+  const [loading, setLoading] = useState<boolean>(true)
 
   const router = useRouter()
 
@@ -53,6 +54,17 @@ const CreateTeam = () => {
       toast.error("Gagal membuat user");
     }
   };
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, []);
+
+if (loading) {
+  return <CreateEditSkeleton />;
+}
 
   return (
     <div className="p-8">

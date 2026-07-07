@@ -1,6 +1,7 @@
 "use client";
 import { columns } from "@/components/Data Table/articlecolumns";
 import { DataTable } from "@/components/Data Table/data-table";
+import FormSkeleton from "@/components/Skeletons/FormSk";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,6 +21,7 @@ const DashPublikasiFeat = () => {
     link: "",
   });
   const [articles, setArticles] = useState<ArticleDashType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true)
 
   const createArticle = async () => {
     try {
@@ -61,11 +63,13 @@ const DashPublikasiFeat = () => {
   };
 
   const getDataArticle = async () => {
+    setLoading(true)
     try {
       const response = await axiosInstance.get(`/api/v1/articles`);
       const data = response.data.data;
       setArticles(data);
-      console.log(data);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -74,6 +78,14 @@ const DashPublikasiFeat = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getDataArticle();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="p-8">
+        <FormSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className="p-8">
