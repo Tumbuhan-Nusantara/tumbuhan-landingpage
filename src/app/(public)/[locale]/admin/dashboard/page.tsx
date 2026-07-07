@@ -2,8 +2,9 @@ import DashboardFeat from "@/src/features/Admin/Dashboard";
 
 const DashboardPage = () => {
   return (
-    <div className="bg-[#f3fff7]">
+    <div className="">
       <DashboardFeat />
+      {/* bg-[#f3fff7] */}
     </div>
   );
 };

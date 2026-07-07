@@ -46,7 +46,7 @@ export default function DashboardWrapper({
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden md:block" />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                     <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
@@ -54,7 +54,7 @@ export default function DashboardWrapper({
           </div>
         </header>
         <main>{children}</main>
-        <footer className="bg-[#f3fff7] text-muted-foreground text-xs p-6 text-center">
+        <footer className="text-muted-foreground text-xs p-6 text-center">
           © 2026 Yayasan Tumbuhan Asli Nusantara • v1.0.0
         </footer>
       </SidebarInset>
