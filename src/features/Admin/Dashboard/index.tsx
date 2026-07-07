@@ -1,10 +1,26 @@
+'use client'
+import DashboardSkeleton from "@/components/Skeletons/DashboardSk";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import { DashMainMenu } from "@/src/constants";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 const DashboardFeat = () => {
   const dash = useTranslations("dashmain");
+  const [loading, setLoading] = useState<boolean>(true)
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, []);
+
+if (loading) {
+  return <DashboardSkeleton />;
+}
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
