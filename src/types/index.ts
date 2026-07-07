@@ -169,6 +169,15 @@ export interface CreateUserDashType {
   phone_number: string;
   role: "admin" | "user";
 }
+
+export interface LoginUserDashType{
+  email: string;
+  password: string
+}
+
+export interface ChangePasswordType {
+  password: string;
+}
 export interface TeamPropsType{
   teamId: number;
 }
