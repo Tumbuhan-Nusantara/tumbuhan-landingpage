@@ -20,17 +20,25 @@ import {
 import CreateMisi from "./CreateMisi";
 import { Separator } from "@/components/ui/separator";
 import DeleteMisi from "./DeleteMisi";
+import DashVisiMisiSkeleton from "@/components/Skeletons/DashVisiMisiSk";
 
 const DashVisiMisiTjFeat = () => {
   const [visi, setVisi] = useState<VisiDashType | null>(null);
   const [misi, setMisi] = useState<MisiDashType[]>([]);
-  const [tujuan, setTujuan] = useState<TujuanDashType| null>(null)
+  const [tujuan, setTujuan] = useState<TujuanDashType | null>(null);
   const [edit, setEdit] = useState<number | null>(null);
+  const [editVisi, setEditVisi] = useState(false);
+  const [editTujuan, setEditTujuan] = useState(false);
+  const [originalVisi, setOriginalVisi] = useState("");
+  const [originalTujuan, setOriginalTujuan] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const getVission = async () => {
     try {
       const response = await axiosInstance.get(`/api/v1/vission`);
-      setVisi(response.data.data[0]);
+      const result = response.data.data[0];
+      setVisi(result);
+      setOriginalVisi(result.visi);
     } catch (error) {
       console.log(error);
     }
@@ -50,9 +58,22 @@ const DashVisiMisiTjFeat = () => {
   const getTujuan = async () => {
     try {
       const response = await axiosInstance.get(`/api/v1/goal`);
-      setTujuan(response.data.data[0]);
+      const result = response.data.data[0];
+      setTujuan(result);
+      setOriginalTujuan(result.goal);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      setLoading(true);
+
+      await Promise.all([getVission(), getMission(), getTujuan()]);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -101,15 +122,20 @@ const DashVisiMisiTjFeat = () => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    getVission();
-    getMission();
-    getTujuan()
+    getData();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="p-8">
+        <Toaster position="top-center" richColors />
+        <DashVisiMisiSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className="p-8">
-      <Toaster position="top-center" richColors />
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
         Visi, Misi & Tujuan
       </h1>
@@ -123,28 +149,59 @@ const DashVisiMisiTjFeat = () => {
             <div className="space-y-4">
               <div className="grid gap-2">
                 <Label>Visi</Label>
-                <Textarea
-                  value={visi?.visi}
-                  onChange={(e) =>
-                    setVisi((prev) =>
-                      prev
-                        ? {
-                            ...prev,
-                            visi: e.target.value,
-                          }
-                        : null,
-                    )
-                  }
-                />
+                {!editVisi ? (
+                  <Textarea
+                    value={visi?.visi}
+                    onChange={(e) =>
+                      setVisi((prev) =>
+                        prev
+                          ? {
+                              ...prev,
+                              visi: e.target.value,
+                            }
+                          : null,
+                      )
+                    }
+                    readOnly
+                  />
+                ) : (
+                  <Textarea
+                    value={visi?.visi}
+                    onChange={(e) =>
+                      setVisi((prev) =>
+                        prev
+                          ? {
+                              ...prev,
+                              visi: e.target.value,
+                            }
+                          : null,
+                      )
+                    }
+                  />
+                )}
               </div>
 
-              <Button
-                onClick={handleUpdateVisi}
-                className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
-                size="sm"
-              >
-                <Pencil /> Simpan Perubahan Visi
-              </Button>
+              {!editVisi ? (
+                <Button
+                  onClick={() => setEditVisi(true)}
+                  className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
+                  size="sm"
+                >
+                  <Pencil /> Ubah Visi
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => {
+                    handleUpdateVisi();
+                    setEditVisi(false);
+                  }}
+                  disabled={visi?.visi === originalVisi}
+                  className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
+                  size="sm"
+                >
+                  <Pencil /> Simpan Perubahan Visi
+                </Button>
+              )}
             </div>
             <Separator className="px-8" />
 
@@ -226,7 +283,10 @@ const DashVisiMisiTjFeat = () => {
                           )}
 
                           <div>
-                            <DeleteMisi idCode={misi.id} onSuccess={getMission}/>
+                            <DeleteMisi
+                              idCode={misi.id}
+                              onSuccess={getMission}
+                            />
                           </div>
                         </div>
                       </div>
@@ -240,7 +300,8 @@ const DashVisiMisiTjFeat = () => {
             <div className="space-y-4">
               <div className="grid gap-2">
                 <Label>Tujuan</Label>
-                <Textarea value={tujuan?.goal}
+                <Textarea
+                  value={tujuan?.goal}
                   onChange={(e) =>
                     setTujuan((prev) =>
                       prev
@@ -250,18 +311,35 @@ const DashVisiMisiTjFeat = () => {
                           }
                         : null,
                     )
-                  }/>
+                  }
+                  readOnly={!editTujuan}
+                />
               </div>
-               <Button
-                onClick={handleUpdateTujuan}
-                className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
-                size="sm"
-              >
-                <Pencil /> Simpan Perubahan Tujuan
-              </Button>
+              <div className="flex justify-end md:justify-start gap-2">
+                {!editTujuan ? (
+                  <Button
+                    onClick={() => setEditTujuan(true)}
+                    size="icon"
+                    variant="secondary"
+                  >
+                    <Pencil className="h-4 w-4" />
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => {
+                      handleUpdateTujuan();
+                      setEditTujuan(false);
+                    }}
+                    disabled={tujuan?.goal === originalTujuan}
+                    size="sm"
+                    className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
+                  >
+                    Simpan Perubahan
+                  </Button>
+                )}
+              </div>
             </div>
           </CardContent>
-
         </Card>
       </Card>
     </div>
