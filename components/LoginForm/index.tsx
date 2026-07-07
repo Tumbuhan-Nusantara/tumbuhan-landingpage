@@ -1,25 +1,81 @@
+"use client";
 import {
   Field,
   FieldGroup,
   FieldLabel,
-  FieldDescription
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+  FieldDescription,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { LoginUserDashType } from "@/src/types";
+import { axiosInstance } from "@/lib/axios";
+import { toast } from "sonner";
+import { useRouter } from "@/src/i18n/navigation";
 
 const LoginForm = () => {
+  const [user, setUser] = useState<LoginUserDashType>({
+    email: "",
+    password: "",
+  });
+
+  const router = useRouter();
+
+  const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await axiosInstance.post(`/api/v1/auth/login`, user);
+      const result = response.data;
+      setUser(result);
+
+      if (result.must_change_password) {
+        router.replace("/admin/change-pass");
+      } else {
+        router.replace("/admin/dashboard");
+      }
+
+
+    } catch (error: any) {
+      toast.error(
+        error.response?.data?.message ??
+          error.response?.data?.error ??
+          "Login gagal",
+      );
+      throw error;
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
   return (
-    <form className="flex flex-col gap-6">
+    <form onSubmit={loginUser} action="post" className="flex flex-col gap-6">
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold text-[#2B593A]">Halo, Silahkan Masukkan Akun</h1>
+          <h1 className="text-2xl font-bold text-[#2B593A]">
+            Halo, Silahkan Masukkan Akun
+          </h1>
           <p className="text-sm text-balance text-muted-foreground">
-           Silakan masuk menggunakan email dan kata sandi untuk mengakses dashboard administrasi YTAN.
+            Silakan masuk menggunakan email dan kata sandi untuk mengakses
+            dashboard administrasi YTAN.
           </p>
         </div>
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="ytan@contoh.com" required />
+          <Input
+            id="email"
+            type="email"
+            name="email"
+            value={user?.email ?? ""}
+            placeholder="ytan@contoh.com"
+            onChange={handleChange}
+            required
+          />
         </Field>
         <Field>
           <div className="flex items-center">
@@ -31,10 +87,19 @@ const LoginForm = () => {
                Lupa kata sandi?
             </a> */}
           </div>
-          <Input id="password" type="password" required />
+          <Input
+            id="password"
+            type="password"
+            name="password"
+            value={user?.password ?? ""}
+            onChange={handleChange}
+            required
+          />
         </Field>
         <Field>
-          <Button type="submit" className="bg-[#2B593A]">Masuk</Button>
+          <Button type="submit" className="bg-[#2B593A]">
+            Masuk
+          </Button>
         </Field>
         {/* <FieldSeparator>Or continue with</FieldSeparator> */}
         <Field>
@@ -53,7 +118,7 @@ const LoginForm = () => {
         </Field>
       </FieldGroup>
     </form>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;
