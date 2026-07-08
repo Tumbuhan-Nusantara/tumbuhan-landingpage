@@ -14,6 +14,7 @@ import { toast } from "sonner";
 const EditNews = ({ newsId }: NewsPropsType) => {
   const [news, setNews] = useState<NewsDashType | null>(null);
   const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
+  const [editBerita, setEditBerita] = useState(false);
 
   const router = useRouter();
 
@@ -89,6 +90,7 @@ const EditNews = ({ newsId }: NewsPropsType) => {
     <div className="p-8">
       <Toaster position="top-center" richColors />
       <Card className="p-8">
+        <h1>Edit Berita</h1>
         <div className="space-y-4">
           <div className="grid gap-2">
             <Label>Judul Berita</Label>
