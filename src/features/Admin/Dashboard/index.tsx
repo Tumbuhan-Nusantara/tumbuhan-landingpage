@@ -15,6 +15,7 @@ const DashboardFeat = () => {
   const [users, setUsers] = useState<UserDashType[]>([]);
   const [showAllUsers, setShowAllUsers] = useState<boolean>(false);
   const displayedUsers = showAllUsers ? users : users.slice(0, 3);
+  const [me, setMe] = useState<UserDashType | null>(null);
 
   const getUsers = async () => {
     try {
@@ -27,10 +28,23 @@ const DashboardFeat = () => {
     }
   };
 
+  const getMe = async () => {
+    try {
+      const res = await axiosInstance.get(`/api/v1/auth/me`);
+      const result = res.data.data;
+
+      setMe(result);
+      console.log("halo", result);
+    } catch (error) {
+      throw error;
+    }
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
       getUsers();
+      getMe();
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -45,7 +59,7 @@ const DashboardFeat = () => {
         Halaman Dashboard
       </h1>
       <p className="font-black text-xl text-[#1A4D2E] px-2">
-        Selamat datang, Muty
+        Selamat datang, {me?.first_name} {me?.last_name}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
@@ -91,7 +105,8 @@ const DashboardFeat = () => {
             <Button
               variant="outline"
               onClick={() => setShowAllUsers(true)}
-              className="border-[#1A4D2E] text-[#1A4D2E]" size="sm"
+              className="border-[#1A4D2E] text-[#1A4D2E]"
+              size="sm"
             >
               Tampilkan Lebih Banyak
             </Button>
@@ -101,7 +116,8 @@ const DashboardFeat = () => {
             <Button
               variant="outline"
               onClick={() => setShowAllUsers(false)}
-              className="border-[#1A4D2E] text-[#1A4D2E]" size="sm"
+              className="border-[#1A4D2E] text-[#1A4D2E]"
+              size="sm"
             >
               Tampilkan Lebih Sedikit
             </Button>
