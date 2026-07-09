@@ -58,7 +58,7 @@ const DashOurTeamFeat = () => {
             onClick={() =>
               router.push(`/admin/dashboard/our-team/create`)
             }
-            className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
+            className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer" size="sm"
           >
             <Plus />
             Tambah Anggota Tim YTAN

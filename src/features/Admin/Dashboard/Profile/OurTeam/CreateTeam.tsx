@@ -20,9 +20,9 @@ const CreateTeam = () => {
     phone_number: "",
     role: "user",
   });
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -34,6 +34,7 @@ const CreateTeam = () => {
   };
 
   const createData = async () => {
+    setLoading(true);
     try {
       await axiosInstance.post("/api/v1/auth/register", createTeam);
 
@@ -47,36 +48,62 @@ const CreateTeam = () => {
         phone_number: "",
         role: "user",
       });
-
-      router.push(`/admin/dashboard/our-team`)
+      setLoading(false);
+      router.push(`/admin/dashboard/our-team`);
     } catch (err) {
       console.error(err);
       toast.error("Gagal membuat user");
     }
   };
+
+  const isFormValid =
+    createTeam.username.trim() !== "" &&
+    createTeam.first_name.trim() !== "" &&
+    createTeam.last_name.trim() !== "" &&
+    createTeam.email.trim() !== "" &&
+    createTeam.phone_number.trim() !== "";
   useEffect(() => {
-  const timer = setTimeout(() => {
-    setLoading(false);
-  }, 1000);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-if (loading) {
-  return <CreateEditSkeleton />;
-}
+  if (loading) {
+    return <CreateEditSkeleton />;
+  }
 
   return (
     <div className="p-8">
       <Toaster position="top-center" richColors />
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">
+          Tambah Anggota Tim
+        </h1>
 
-      <Card className="p-8">
-        <div className="space-y-4">
+        <p className="text-muted-foreground mt-1">
+          Tambahkan pengguna dashboard Yayasan Tumbuhan Asli Nusantara.
+        </p>
+      </div>
+
+      <Card className="max-w-3xl p-8 shadow-sm border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="grid gap-2">
             <Label>Username</Label>
             <Input
               name="username"
               value={createTeam.username}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <Label>Email</Label>
+            <Input
+              type="email"
+              name="email"
+              value={createTeam.email}
               onChange={handleChange}
             />
           </div>
@@ -100,16 +127,6 @@ if (loading) {
           </div>
 
           <div className="grid gap-2">
-            <Label>Email</Label>
-            <Input
-              type="email"
-              name="email"
-              value={createTeam.email}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="grid gap-2">
             <Label>No. Handphone</Label>
             <Input
               type="number"
@@ -122,6 +139,7 @@ if (loading) {
 
         <Button
           onClick={createData}
+          disabled={!isFormValid || loading}
           className="bg-[#1A4D2E] hover:bg-[#3f8159] mt-6"
         >
           Tambah User
