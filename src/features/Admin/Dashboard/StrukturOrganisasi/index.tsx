@@ -3,10 +3,20 @@ import { DataTable } from "@/components/Data Table/data-table";
 import { columns } from "@/components/Data Table/strukturcolumns";
 import StructureSkeleton from "@/components/Skeletons/StructureSk";
 import { Card, CardContent } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/sonner";
+import { Button } from "@/components/ui/button";
 import { axiosInstance } from "@/lib/axios";
 import { StrukturDashType } from "@/src/types";
+import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import CreateStruktur from "./CreateStruktur";
 
 const StrukturOrgDash = () => {
   const [struktur, setStruktur] = useState<StrukturDashType[]>([]);
@@ -40,15 +50,40 @@ const StrukturOrgDash = () => {
   }
   return (
     <div className="p-8">
-      <Toaster position="top-center" richColors />
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
         Struktur Organisasi
       </h1>
 
       <Card className="bg-[url('/image.png')] bg-cover">
-        <h1 className=" text-[#1A4D2E] font-semibold mx-6">
-          Kelola informasi Struktur Organisasi
-        </h1>
+        <div className="flex items-center justify-between mx-6">
+          <h1 className=" text-[#1A4D2E] font-semibold ">
+            Kelola informasi Struktur Organisasi
+          </h1>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
+                size="sm"
+              >
+                <Plus />
+                Tambah Kategori Posisi
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="text-gray-500 text-md">
+                  Tambah Kategori Posisi
+                </DialogTitle>
+                <DialogDescription asChild>
+                  <div aria-describedby="Detail Artikel">
+                    <CreateStruktur onSuccess={getData}/>
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        </div>
+
         <Card className="mx-2 my-4 md:mx-4 max-w-4xl">
           <CardContent className="grid gap-6">
             <DataTable columns={columns(getData)} data={struktur} />
