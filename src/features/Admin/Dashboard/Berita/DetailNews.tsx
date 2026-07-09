@@ -1,8 +1,11 @@
+/* eslint-disable react-hooks/static-components */
 "use client";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/axios";
 import {  NewsDashType } from "@/src/types";
 import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
+import { Card } from "@/components/ui/card";
 
 const DetailNews = ({ newsId }: { newsId: number }) => {
   const [news, setNews] = useState<NewsDashType | null>(null)
@@ -19,46 +22,84 @@ const DetailNews = ({ newsId }: { newsId: number }) => {
     };
     getNewsbyId(newsId);
   }, [newsId]);
+
+   const DetailItem = ({
+    label,
+    value,
+  }: {
+    label: string;
+    value?: string | number | null;
+  }) => (
+    <div className="space-y-1">
+      <p className="text-sm font-medium text-[#1A4D2E]">{label}</p>
+      <p className="text-sm text-muted-foreground whitespace-pre-line wrap-break-word">
+        {value || "-"}
+      </p>
+    </div>
+  );
   return (
-    <div className="grid gap-4">
-      <div>
-        <h1 className="text-black">Berita</h1>
-        <p>{news?.news_name}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Deskripsi</h1>
-        <p>{news?.deskripsi}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Tanggal Berita</h1>
-        <p>{news?.tanggal_berita}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Lokasi</h1>
-        <p>{news?.tempat}</p>
-      </div>
-      <div>
-        <h1 className="text-black">File Foto</h1>
-        <>
+    <Card className="p-6 m-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <div>
+          <h2 className="font-semibold text-[#1A4D2E] mb-4">
+            Foto Berita
+          </h2>
+
           {news?.photo_url ? (
             <Image
               src={news.photo_url}
               alt={news.news_name}
-              width={300}
-              height={200}
-              className="w-64 rounded-lg border object-cover"
+              width={700}
+              height={450}
+              className="aspect-video w-full rounded-xl border object-cover"
               unoptimized
             />
           ) : (
-            <>Tidak ada foto</>
+            <div className="aspect-video rounded-xl border border-dashed flex items-center justify-center text-muted-foreground text-sm">
+              Tidak ada gambar
+            </div>
           )}
-        </>
+        </div>
+
+        <div>
+          <h2 className="font-semibold text-[#1A4D2E] mb-4">
+            Informasi Berita
+          </h2>
+
+          <div className="space-y-5">
+
+            <DetailItem
+              label="Judul Berita"
+              value={news?.news_name}
+            />
+
+            <Separator />
+
+            <DetailItem
+              label="Isi Berita"
+              value={news?.deskripsi}
+            />
+
+            <Separator />
+
+            <DetailItem
+              label="Tanggal Publikasi"
+              value={news?.tanggal_berita}
+            />
+
+            <Separator />
+
+            <DetailItem
+              label="Tanggal Publikasi"
+              value={news?.tempat}
+            />
+
+          </div>
+        </div>
+
       </div>
-      <div>
-        <h1 className="text-black">Link Video</h1>
-        <p>{news?.video_link}</p>
-      </div>
-    </div>
+    </Card>
   );
 };
 

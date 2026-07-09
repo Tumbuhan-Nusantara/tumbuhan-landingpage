@@ -1,8 +1,11 @@
+/* eslint-disable react-hooks/static-components */
 "use client";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/axios";
 import {  ActivityDashType } from "@/src/types";
 import Image from "next/image";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 const DetailActivity = ({ actId }: { actId: number }) => {
   const [act, setAct] = useState<ActivityDashType | null>(null)
@@ -19,46 +22,92 @@ const DetailActivity = ({ actId }: { actId: number }) => {
     };
     getActivity(actId);
   }, [actId]);
+
+  const DetailItem = ({
+    label,
+    value,
+  }: {
+    label: string;
+    value?: string | number | null;
+  }) => (
+    <div className="space-y-1">
+      <p className="text-sm font-medium text-[#1A4D2E]">{label}</p>
+      <p className="text-sm text-muted-foreground wrap-break-word">
+        {value || "-"}
+      </p>
+    </div>
+  );
   return (
-    <div className="grid gap-4">
-      <div>
-        <h1 className="text-black">Jenis Kegiatan</h1>
-        <p>{act?.nama_tipe}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Kegiatan</h1>
-        <p>{act?.activity_name}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Deskripsi</h1>
-        <p>{act?.deskripsi}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Tanggal Kegiatan</h1>
-        <p>{act?.tanggal_kegiatan}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Lokasi</h1>
-        <p>{act?.tempat}</p>
-      </div>
-      <div>
-        <h1 className="text-black">File Foto</h1>
-        <>
+    <Card className="m-6 p-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <div>
+          <h2 className="font-semibold text-[#1A4D2E] mb-4">
+            Dokumentasi Kegiatan
+          </h2>
+
           {act?.photo_url ? (
             <Image
               src={act.photo_url}
               alt={act.activity_name}
-              width={300}
-              height={200}
-              className="w-64 rounded-lg border object-cover"
+              width={700}
+              height={450}
               unoptimized
+              className="w-full rounded-xl border object-cover aspect-video"
             />
           ) : (
-            <>Tidak ada foto</>
+            <div className="flex aspect-video items-center justify-center rounded-xl border border-dashed text-sm text-muted-foreground">
+              Tidak ada foto
+            </div>
           )}
-        </>
+        </div>
+
+        <div>
+          <h2 className="font-semibold text-[#1A4D2E] mb-4">
+            Informasi Kegiatan
+          </h2>
+
+          <div className="space-y-5">
+
+            {/* // eslint-disable-next-line react-hooks/static-components */}
+            <DetailItem
+              label="Jenis Kegiatan"
+              value={act?.nama_tipe}
+            />
+
+            <Separator />
+
+            <DetailItem
+              label="Nama Kegiatan"
+              value={act?.activity_name}
+            />
+
+            <Separator />
+
+            <DetailItem
+              label="Deskripsi"
+              value={act?.deskripsi}
+            />
+
+            <Separator />
+
+            <DetailItem
+              label="Tanggal Kegiatan"
+              value={act?.tanggal_kegiatan}
+            />
+
+            <Separator />
+
+            <DetailItem
+              label="Lokasi"
+              value={act?.tempat}
+            />
+
+          </div>
+        </div>
+
       </div>
-    </div>
+    </Card>
   );
 };
 

@@ -1,6 +1,7 @@
 "use client";
 import { DataTable } from "@/components/Data Table/data-table";
 import { columns } from "@/components/Data Table/usercolumns";
+import OurTeamSkeleton from "@/components/Skeletons/OurTeamSk";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Toaster } from "@/components/ui/sonner";
@@ -13,12 +14,16 @@ import { useEffect, useState } from "react";
 
 const DashOurTeamFeat = () => {
   const [users, setUsers] = useState<UserDashType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const getUsers = async () => {
+    setLoading(true);
     try {
       const response = await axiosInstance.get("/api/v1/auth");
 
       setUsers(response.data.data);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
     } catch (err) {
       console.error(err);
     }
@@ -28,8 +33,15 @@ const DashOurTeamFeat = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getUsers();
   }, []);
-
   const router = useRouter()
+
+  if (loading) {
+    return (
+      <div className="p-8">
+        <OurTeamSkeleton />
+      </div>
+    );
+  }
   return (
     <div className="p-8">
       <Toaster />
@@ -46,7 +58,7 @@ const DashOurTeamFeat = () => {
             onClick={() =>
               router.push(`/admin/dashboard/our-team/create`)
             }
-            className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
+            className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer" size="sm"
           >
             <Plus />
             Tambah Anggota Tim YTAN

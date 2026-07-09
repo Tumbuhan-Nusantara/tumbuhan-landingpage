@@ -1,4 +1,5 @@
 "use client";
+import CreateEditSkeleton from "@/components/Skeletons/CreateEditSk";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,9 @@ import { toast } from "sonner";
 
 const EditTeam = ({ teamId }: TeamPropsType) => {
   const [team, setTeam] = useState<UserDashType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [saving, setSaving] = useState(false);
+  const [originalTeam, setOriginalTeam] = useState<UserDashType | null>(null);
 
   const router = useRouter();
 
@@ -23,6 +27,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
         setTeam({
           ...response.data,
         });
+        setOriginalTeam(response.data);
       } catch (error) {
         throw error;
       }
@@ -34,7 +39,6 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
     if (!team) return;
 
     try {
-
       await axiosInstance.patch(`/api/v1/auth/${team.id}`, {
         username: team.username,
         email: team.email,
@@ -43,7 +47,9 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
         phone_number: team.phone_number,
       });
 
-      toast.success("Data Tim berhasil diperbarui");
+      toast.success("Data tim berhasil diperbarui");
+      setSaving(true)
+
       router.push("/admin/dashboard/our-team");
     } catch (err) {
       console.error(err);
@@ -65,11 +71,37 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
     });
   };
 
+  const isChanged =
+    team?.username !== originalTeam?.username ||
+    team?.first_name !== originalTeam?.first_name ||
+    team?.last_name !== originalTeam?.last_name ||
+    team?.email !== originalTeam?.email ||
+    team?.phone_number !== originalTeam?.phone_number;
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <CreateEditSkeleton />;
+  }
+
   return (
     <div className="p-8">
       <Toaster position="top-center" richColors />
-      <Card className="p-8">
-        <div className="space-y-4">
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">Edit Anggota Tim</h1>
+
+        <p className="text-muted-foreground mt-1">
+          Perbarui informasi pengguna dashboard Yayasan Tumbuhan Asli Nusantara.
+        </p>
+      </div>
+      <Card className="max-w-3xl p-8 shadow-sm border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="grid gap-2">
             <Label>Username</Label>
             <Input
@@ -77,6 +109,16 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
               name="username"
               type="text"
               value={team?.username ?? ""}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label>Email</Label>
+            <Input
+              className="text-sm"
+              name="email"
+              type="email"
+              value={team?.email ?? ""}
               onChange={handleChange}
             />
           </div>
@@ -100,16 +142,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
               onChange={handleChange}
             />
           </div>
-          <div className="grid gap-2">
-            <Label>Email</Label>
-            <Input
-              className="text-sm"
-              name="email"
-              type="email"
-              value={team?.email ?? ""}
-              onChange={handleChange}
-            />
-          </div>
+
           <div className="grid gap-2">
             <Label>No. Handphone</Label>
             <Input
@@ -120,14 +153,28 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
               onChange={handleChange}
             />
           </div>
-          </div>
+        </div>
 
-        <Button
-          onClick={handleUpdate}
-          className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer mt-6"
-        >
-          Simpan Perubahan
-        </Button>
+        <div className="flex justify-end gap-3 mt-8">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => router.back()}
+            disabled={saving}
+            className="cursor-pointer"
+          >
+            Batal
+          </Button>
+
+          <Button
+            type="button"
+            onClick={handleUpdate}
+            disabled={!isChanged || saving}
+            className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer min-w-40"
+          >
+            {saving ? "Menyimpan..." : "Simpan Perubahan"}
+          </Button>
+        </div>
       </Card>
     </div>
   );

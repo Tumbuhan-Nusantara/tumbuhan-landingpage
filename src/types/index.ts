@@ -202,3 +202,7 @@ export interface StrukturDashType {
   position: string;
   name: string;
 }
+export interface CreateStrukturDashType {
+  position: string;
+  name: string;
+}

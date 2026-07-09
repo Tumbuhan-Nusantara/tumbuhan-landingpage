@@ -1,6 +1,7 @@
 "use client";
 import { columns } from "@/components/Data Table/activitycolumns";
 import { DataTable } from "@/components/Data Table/data-table";
+import FormSkeleton from "@/components/Skeletons/FormSk";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -29,14 +30,18 @@ const DashKegiatanFeat = () => {
     tipe_kegiatan_id: undefined as number | undefined,
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [loading, setLoading] = useState<boolean>(true)
+
 
   const [activity, setActivity] = useState<ActivityDashType[]>([]);
   const getActivities = async () => {
+    setLoading(true)
     try {
       const response = await axiosInstance.get(`/api/v1/activities`);
       const result = response.data.data;
       setActivity(result);
-      console.log("cek kegiatan", result);
+       await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
     } catch (err) {
       console.error("apa error kegiatan", err);
       throw err;
@@ -49,9 +54,7 @@ const DashKegiatanFeat = () => {
       const response = await axiosInstance.get(`/api/v1/activity-types`);
       const result = response.data.data;
       setTypes(result);
-      console.log("cek tipe kegiatan", result);
     } catch (err) {
-      console.error("apa error aktivitas", err);
       throw err;
     }
   };
@@ -73,7 +76,7 @@ const DashKegiatanFeat = () => {
         data.append("photo_url", formData.photo_url);
       }
 
-      const response = await axiosInstance.post(
+      await axiosInstance.post(
         "/api/v1/activities/create",
         data,
         {
@@ -129,6 +132,14 @@ const DashKegiatanFeat = () => {
     getActivities();
     getTypes();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="p-8">
+        <FormSkeleton />
+      </div>
+    );
+  }
   return (
     <div className="p-8">
       <Toaster position="top-center" richColors />

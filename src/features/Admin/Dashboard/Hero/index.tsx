@@ -1,4 +1,5 @@
 "use client";
+import HeroDashSkeleton from "@/components/Skeletons/HeroSk";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,19 +13,28 @@ import { Toaster } from "@/components/ui/sonner";
 import { Textarea } from "@/components/ui/textarea";
 import { axiosInstance } from "@/lib/axios";
 import { HeroType } from "@/src/types";
+import { Pencil } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const DashHeroFeat = () => {
   const [hero, setHero] = useState<HeroType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [editHero, setEditHero] = useState(false);
+  const [originalHero, setOriginalHero] = useState("");
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true);
       try {
         const res = await axiosInstance.get("/api/v1/hero");
 
         setHero(res.data.data[0]);
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setLoading(false);
+
         console.log("helo hero", res.data.data[0]);
+        setOriginalHero(res.data.data[0].deskripsi);
       } catch (err) {
         console.error(err);
       }
@@ -33,6 +43,15 @@ const DashHeroFeat = () => {
     getData();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="p-8">
+        <Toaster position="top-center" richColors />
+        <HeroDashSkeleton />
+      </div>
+    );
+  }
+
   const handleUpdate = async () => {
     if (!hero) return;
 
@@ -40,14 +59,15 @@ const DashHeroFeat = () => {
       await axiosInstance.patch(`/api/v1/hero/${hero.id}`, {
         deskripsi: hero.deskripsi,
       });
-      toast.success("Berhasil diperbarui")
+      toast.success("Berhasil diperbarui");
     } catch (err) {
       console.error(err);
     }
   };
   return (
     <div className="p-8">
-      <Toaster position="top-center" richColors/>
+        <Toaster position="top-center" richColors />
+
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">Beranda</h1>
       <div>
         <Card className="bg-[url('/image.png')] bg-cover">
@@ -80,18 +100,34 @@ const DashHeroFeat = () => {
                           : null,
                       )
                     }
+                    readOnly={!editHero}
                   />
                 </div>
               </div>
             </CardContent>
 
             <CardFooter className="justify-end">
-              <Button
-                onClick={handleUpdate}
-                className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
-              >
-                Simpan Perubahan
-              </Button>
+              {!editHero ? (
+                <Button
+                  onClick={() => setEditHero(true)}
+                  className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
+                  size="sm"
+                >
+                  <Pencil /> Ubah
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => {
+                    handleUpdate();
+                    setEditHero(false);
+                  }}
+                  disabled={hero?.deskripsi === originalHero}
+                  className="bg-[#1A4D2E] duration-200 hover:bg-[#3f8159] cursor-pointer"
+                  size="sm"
+                >
+                  <Pencil /> Simpan Perubahan
+                </Button>
+              )}
             </CardFooter>
           </Card>
         </Card>
