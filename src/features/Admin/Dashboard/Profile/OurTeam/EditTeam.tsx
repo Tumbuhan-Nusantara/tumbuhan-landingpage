@@ -48,6 +48,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
       });
 
       toast.success("Data tim berhasil diperbarui");
+      setSaving(true)
 
       router.push("/admin/dashboard/our-team");
     } catch (err) {

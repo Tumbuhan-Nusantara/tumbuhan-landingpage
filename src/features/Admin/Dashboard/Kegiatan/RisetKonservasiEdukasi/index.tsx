@@ -54,9 +54,7 @@ const DashKegiatanFeat = () => {
       const response = await axiosInstance.get(`/api/v1/activity-types`);
       const result = response.data.data;
       setTypes(result);
-      console.log("cek tipe kegiatan", result);
     } catch (err) {
-      console.error("apa error aktivitas", err);
       throw err;
     }
   };
@@ -78,7 +76,7 @@ const DashKegiatanFeat = () => {
         data.append("photo_url", formData.photo_url);
       }
 
-      const response = await axiosInstance.post(
+      await axiosInstance.post(
         "/api/v1/activities/create",
         data,
         {

@@ -44,7 +44,7 @@ export const columns = (
       const router = useRouter();
       return (
         <div className="flex justify-center gap-2">
-          <Dialog>
+          {/* <Dialog>
             <DialogTrigger asChild>
               <Button size="icon" variant="outline">
                 <Eye className="h-4 w-4" />
@@ -62,35 +62,23 @@ export const columns = (
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
-          </Dialog>
-
-          {/* <Dialog>
-            <DialogTrigger asChild>
-              <Button size="icon" variant="secondary">
-                <Pencil className="h-4 w-4" />
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle className="text-gray-500 text-md">
-                  Ubah Kegiatan
-                </DialogTitle>
-                <DialogDescription asChild>
-                  <div aria-describedby="Detail Artikel">
-                    <EditActivity activityId={activities.id} onSuccess={onSuccess} />
-                  </div>
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
           </Dialog> */}
+
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() =>
+              router.push(`/admin/dashboard/kegiatan/detail/${row.original.id}`)
+            }
+          >
+            <Eye className="h-4 w-4" />
+          </Button>
 
           <Button
             size="icon"
             variant="secondary"
             onClick={() =>
-              router.push(
-                `/admin/dashboard/kegiatan/edit/${row.original.id}`,
-              )
+              router.push(`/admin/dashboard/kegiatan/edit/${row.original.id}`)
             }
           >
             <Pencil className="h-4 w-4" />

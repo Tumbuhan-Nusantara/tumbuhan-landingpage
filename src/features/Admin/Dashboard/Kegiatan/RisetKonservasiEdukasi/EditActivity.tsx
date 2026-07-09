@@ -26,9 +26,10 @@ import { toast } from "sonner";
 const EditActivity = ({ activityId }: ActivityPropsType) => {
   const [act, setAct] = useState<ActivityDashType | null>(null);
   const [types, setTypes] = useState<TypesDashType[]>([]);
+  const [originalAct, setOriginalAct] = useState<ActivityDashType | null>(null);
 
   const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
 
   const router = useRouter();
 
@@ -45,15 +46,26 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
     console.log(id);
     try {
       const response = await axiosInstance.get(`/api/v1/activities/${id}`);
-      setAct({
+      const activity = {
         ...response.data,
         tanggal_kegiatan: response.data.tanggal_kegiatan.split("T")[0],
-      });
+      };
+      setAct(activity);
+      setOriginalAct(activity);
     } catch (error) {
       throw error;
     }
   };
 
+  const isChanged =
+    act &&
+    originalAct &&
+    (act.activity_name !== originalAct.activity_name ||
+      act.deskripsi !== originalAct.deskripsi ||
+      act.tanggal_kegiatan !== originalAct.tanggal_kegiatan ||
+      act.tempat !== originalAct.tempat ||
+      act.tipe_kegiatan_id !== originalAct.tipe_kegiatan_id ||
+      selectedPhoto !== null);
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getTypes();
@@ -118,21 +130,28 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
   };
 
   useEffect(() => {
-  const timer = setTimeout(() => {
-    setLoading(false);
-  }, 1000);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-if (loading) {
-  return <CreateEditSkeleton />;
-}
+  if (loading) {
+    return <CreateEditSkeleton />;
+  }
   return (
     <div className="p-8">
       <Toaster position="top-center" richColors />
-      <Card className="p-8">
-        <div className="space-y-4">
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">Edit Kegiatan</h1>
+
+        <p className="text-muted-foreground mt-1">
+          Perbarui informasi Kegiatan Yayasan Tumbuhan Asli Nusantara.
+        </p>
+      </div>
+      <Card className="max-w-3xl p-8 shadow-sm border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="grid gap-2">
             <Label>Jenis Kegiatan</Label>
             <Select
@@ -201,42 +220,46 @@ if (loading) {
               onChange={handleChange}
             />
           </div>
-          <Label>Foto Saat Ini</Label>
+          <div className="grid gap-2 md:col-span-2">
+            <Label>Foto Saat Ini</Label>
 
-          {act?.photo_url && (
-            <div className="space-y-2">
-              <Image
-                src={act.photo_url}
-                alt={act.activity_name}
-                width={300}
-                height={200}
-                className="rounded-lg border object-cover"
-                unoptimized
-              />
+            {act?.photo_url && (
+              <div className="space-y-2">
+                <Image
+                  src={act.photo_url}
+                  alt={act.activity_name}
+                  width={350}
+                  height={220}
+                  className="rounded-lg border object-cover"
+                  unoptimized
+                />
 
-              <p className="text-xs text-gray-500">
-                {act.photo_url.split("/").pop()}
-              </p>
-            </div>
-          )}
+                <p className="text-xs text-muted-foreground">
+                  {act.photo_url.split("/").pop()}
+                </p>
+              </div>
+            )}
+          </div>
 
-          <div className="grid gap-2">
-            <Label>Edit Foto Kegiatan</Label>
-            <Input
-              name="photo_url"
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-            />
+          <div className="grid gap-2 md:col-span-2">
+            <Label>Ganti Foto</Label>
+
+            <Input type="file" accept="image/*" onChange={handleFileChange} />
+          </div>
+          <div className="flex gap-3 mt-8">
+            <Button variant="outline" onClick={() => router.back()}>
+              Batal
+            </Button>
+
+            <Button
+              onClick={handleUpdate}
+              disabled={!isChanged}
+              className="bg-[#1A4D2E] hover:bg-[#3f8159] disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Simpan Perubahan
+            </Button>
           </div>
         </div>
-
-        <Button
-          onClick={handleUpdate}
-          className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer mt-6"
-        >
-          Simpan Perubahan
-        </Button>
       </Card>
     </div>
   );

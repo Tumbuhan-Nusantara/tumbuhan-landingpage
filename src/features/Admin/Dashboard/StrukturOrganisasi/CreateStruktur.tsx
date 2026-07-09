@@ -15,7 +15,6 @@ const CreateStruktur = ({ onSuccess }: Props) => {
     position: "",
     name: "",
   });
-  console.log("cek add", add)
 
   const createNew = async () => {
     try {
@@ -41,6 +40,10 @@ const CreateStruktur = ({ onSuccess }: Props) => {
       [name]: value,
     }));
   };
+
+  const isFormValid =
+    add.position.trim() !== "" &&
+    add.name.trim() !== "";
   return (
     <div className="space-y-4">
       <div className="grid gap-2">
@@ -65,6 +68,7 @@ const CreateStruktur = ({ onSuccess }: Props) => {
       </div>
       <Button
         onClick={createNew}
+        disabled={!isFormValid }
         size="sm"
         className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer mt-6"
       >
