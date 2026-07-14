@@ -56,13 +56,13 @@ export default function StrukturPage() {
         {Object.entries(groupedStruktur).map(([position, members]) => (
           <section key={position}>
             <div className="flex items-center gap-4 mb-8">
-              <div className="h-[2px] flex-1 bg-[#d8e8df]" />
+              <div className="h-0.5 not-only:flex-1 bg-[#d8e8df]" />
 
               <h2 className="text-2xl font-bold text-[#1A4D2E] whitespace-nowrap">
                 {position}
               </h2>
 
-              <div className="h-[2px] flex-1 bg-[#d8e8df]" />
+              <div className="h-0.5 flex-1 bg-[#d8e8df]" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
