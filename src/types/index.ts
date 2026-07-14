@@ -222,3 +222,8 @@ export interface NewsLandingPageType{
   photo_url: string;
   video_link: string
 }
+
+export interface VisiLandingPageType{
+  id: number;
+  visi: string
+}
