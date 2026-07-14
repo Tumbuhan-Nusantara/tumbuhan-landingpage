@@ -7,42 +7,55 @@ const FooterFeat = () => {
   const k = useTranslations("navbar");
   useLocale();
   return (
-    <div>
-      <div className="bg-[#2B593A] px-6 md:px-12 lg:px-20 py-12">
-        <div className="flex flex-col md:flex-row lg:flex-row justify-center lg:justify-between">
-          <Image
-            src="/footer/ytan.png"
-            alt="logo ytan"
-            width={300}
-            height={300}
-          />
-          <div className="flex flex-col gap-4">
-            <h1 className="text-white font-semibold"> {k("contact")}</h1>
-            <div className="flex flex-col gap-2">
-              <p className="text-sm text-gray-200">tumbuhanasli@gmail.com</p>
-              <p className="text-sm text-gray-200">
-                BTN Kopri Blok C1 No 96, Kawatuna, Mantikulore, Palu
+    <div className="bg-[#2B593A] text-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          
+          <div className="space-y-5">
+            <Image
+              src="/footer/ytan.png"
+              alt="Logo YTAN"
+              width={220}
+              height={220}
+            />
+
+            <p className="max-w-md text-sm leading-7 text-white/80">
+              Yayasan Tumbuhan Asli Nusantara berkomitmen dalam pelestarian
+              tumbuhan asli Indonesia melalui penelitian, edukasi, dan aksi
+              konservasi bersama masyarakat.
+            </p>
+          </div>
+
+          <div className="space-y-5 lg:justify-self-end">
+            <h3 className="text-lg font-semibold">{k("contact")}</h3>
+
+            <div className="space-y-3 text-sm text-white/80 leading-6">
+              <p>📧 tumbuhanasli@gmail.com</p>
+
+              <p className="max-w-sm">
+                📍 BTN Kopri Blok C1 No.96, Kawatuna, Mantikulore, Kota Palu,
+                Sulawesi Tengah
               </p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap lg:justify-center gap-4 my-8">
+        <div className="flex justify-center gap-4 mt-12">
           {Contacts.map((logo) => (
-            <div
+            <button
               key={logo.id}
-              className="border-[#2B593A] border-2 rounded-full  p-3 md:p-4 bg-white duration-500 transition hover:bg-[#c7f7da] cursor-pointer"
+              className="h-12 w-12 rounded-full bg-white/10 hover:bg-white hover:scale-105 transition-all duration-300 flex items-center justify-center"
             >
-              <Image width={20} height={20} src={logo.icon} alt={logo.alt} />
-            </div>
+              <Image src={logo.icon} alt={logo.alt} width={20} height={20} />
+            </button>
           ))}
         </div>
-        <Separator className="mt-10 bg-white/20" />
-        <div className="flex lg:justify-center items-center">
-          <p className=" font-light  text-xs md:text-sm text-gray-200 mt-6">
-            © 2026 Yayasan Tumbuhan Asli Nusantara • v1.0.0
-          </p>
-        </div>
+
+        <Separator className="my-8 bg-white/20" />
+
+        <p className="text-center text-sm text-white/60">
+          © 2026 Yayasan Tumbuhan Asli Nusantara • All Rights Reserved
+        </p>
       </div>
     </div>
   );

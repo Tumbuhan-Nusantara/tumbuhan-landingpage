@@ -34,6 +34,8 @@ export default function StrukturPage() {
     );
   }, [struktur]);
 
+  const getMembers = (position: string) => groupedStruktur[position] || [];
+
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getStruktur();
@@ -53,53 +55,91 @@ export default function StrukturPage() {
       </div>
 
       <div className="space-y-14">
-        {Object.entries(groupedStruktur).map(([position, members]) => (
-          <section key={position}>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-0.5 not-only:flex-1 bg-[#d8e8df]" />
+        <div className="flex flex-wrap justify-center gap-8">
+          {[...getMembers("Pembina"), ...getMembers("Pengawas")].map(
+            (member) => (
+              <MemberCard key={member.id} member={member} />
+            ),
+          )}
+        </div>
 
-              <h2 className="text-2xl font-bold text-[#1A4D2E] whitespace-nowrap">
-                {position}
-              </h2>
+        <div className="flex justify-center">
+          {getMembers("Advisor").map((member) => (
+            <MemberCard key={member.id} member={member} />
+          ))}
+        </div>
 
-              <div className="h-0.5 flex-1 bg-[#d8e8df]" />
-            </div>
+        {/* Ketua */}
+        <div className="flex justify-center">
+          {getMembers("Ketua").map((member) => (
+            <MemberCard key={member.id} member={member} />
+          ))}
+        </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {members.map((member) => (
-                <Card
-                  key={member.id}
-                  className="group border border-[#dfe9e3] rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-                >
-                  <CardContent className="flex flex-col items-center py-8">
-                    <Avatar className="h-24 w-24 ring-4 ring-[#eef7f1]">
-                      <AvatarImage src="/default-user.png" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* Kolom Sekretaris */}
+          <div className="flex flex-col items-center gap-6">
+            {getMembers("Sekretaris").map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
 
-                      <AvatarFallback className="bg-[#1A4D2E] text-white text-xl">
-                        {member.name
-                          ?.split(" ")
-                          .map((n) => n[0])
-                          .join("") || "?"}
-                      </AvatarFallback>
-                    </Avatar>
+            {getMembers("Personalia").map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
+          </div>
 
-                    <h3 className="mt-5 text-lg font-semibold text-[#1A4D2E] text-center">
-                      {member.name}
-                    </h3>
+          {/* Kolom Manager Program */}
+          <div className="flex flex-col items-center gap-6">
+            {getMembers("Manager Program").map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
 
-                    <Badge
-                      variant="secondary"
-                      className="mt-3 rounded-full bg-[#eef7f1] text-[#1A4D2E]"
-                    >
-                      {member.position}
-                    </Badge>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-        ))}
+            {getMembers("Dep. Sains & Konservasi").map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
+
+            {getMembers("Dep. Komunikasi & Publikasi").map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
+          </div>
+
+          {/* Kolom Bendahara */}
+          <div className="flex flex-col items-center gap-6">
+            {getMembers("Bendahara").map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
+
+            {getMembers("Fundraising").map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
+const MemberCard = ({ member }: { member: StrukturDashType }) => (
+  <Card className="w-full max-w-xs border border-[#dfe9e3] rounded-2xl shadow-sm hover:shadow-lg transition-all">
+    <CardContent className="flex flex-col items-center py-8">
+      <Avatar className="h-24 w-24 ring-4 ring-[#eef7f1]">
+        <AvatarImage src="/default-user.png" />
+
+        <AvatarFallback className="bg-[#1A4D2E] text-white text-xl">
+          {member.name
+            ?.split(" ")
+            .map((n) => n[0])
+            .join("") || "?"}
+        </AvatarFallback>
+      </Avatar>
+
+      <h3 className="mt-5 text-lg font-semibold text-[#1A4D2E] text-center">
+        {member.name}
+      </h3>
+
+      <Badge className="mt-3 bg-[#eef7f1] text-[#1A4D2E]">
+        {member.position}
+      </Badge>
+    </CardContent>
+  </Card>
+);

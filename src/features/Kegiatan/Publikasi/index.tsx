@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import FooterFeat from "@/components/Footer";
 import { Articles } from "@/src/constants";
 import Image from "next/image";
 import { Link } from "@/src/i18n/navigation";
@@ -31,7 +30,7 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2026).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article, index) => (
+              {item.items.slice(0, 1).map((article, index) => (
                 <Card
                   key={article.id}
                   className="mx-14 md:mx-24 lg:mx-30"
@@ -76,7 +75,7 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2025).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article, index) => (
+              {item.items.slice(0, 1).map((article, index) => (
                 <Card
                   key={article.id}
                   className="mx-14 md:mx-24 lg:mx-30"
@@ -121,7 +120,7 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2024).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article, index) => (
+              {item.items.slice(0, 1).map((article, index) => (
                 <Card
                   key={article.id}
                   className="mx-14 md:mx-24 lg:mx-30"
@@ -166,7 +165,7 @@ const PublikasiFeat = () => {
           </h1>
           {Articles.filter((item) => item.year === 2023).map((item) => (
             <div className="grid gap-8" key={item.year}>
-              {item.items.slice(0, 3).map((article, index) => (
+              {item.items.slice(0, 1).map((article, index) => (
                 <Card
                   key={article.id}
                   className="mx-14 md:mx-24 lg:mx-30"
@@ -206,7 +205,6 @@ const PublikasiFeat = () => {
           </div>
         </div>
       </div>
-      <FooterFeat />
     </div>
   );
 };

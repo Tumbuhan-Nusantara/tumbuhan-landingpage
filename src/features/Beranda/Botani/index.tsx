@@ -18,59 +18,109 @@ const BotaniFeat = () => {
     { key: "card3", image: "/botani/Berita.jpg" },
   ];
   return (
-    <div className="container mx-auto">
-      <div className="grid md:grid-cols-1 lg:grid-cols-2 px-8 md:px-12 lg:px-25 py-12 md:py-20 lg:my-18 gap-10 md:gap-20 lg:gap-8">
-          <Image
-            height={600}
-            width={600}
-            src="/botani/botani.jpeg"
-            alt="Botani Untuk Semua"
-            className="rounded-2xl shadow-xl  transition duration-300 hover:shadow-[#b9fad3]"
-            data-aos="fade-right" data-aos-duration="1000"
-          />
+    <div className="overflow-hidden">
+      {/* ================= HERO ================= */}
+      <section className="container mx-auto px-6 md:px-10 lg:px-20 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
+          <div
+            className="relative order-2 lg:order-1"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <Image
+              src="/botani/botani.jpeg"
+              alt="Botani Untuk Semua"
+              width={700}
+              height={700}
+              className="rounded-3xl object-cover shadow-2xl"
+            />
 
-        <div className="flex flex-col gap-12">
-          <h1 className="text-[#2B593A] text-3xl font-semibold">
-            {b("title")}
-          </h1>
-          <div className="flex flex-col gap-6">
-            <p className="text-[#2B593A]">
-              <span className="font-bold text-[#2B593A]">YTAN </span>
-              {b("desc")}
-            </p>
-            <p className="text-[#2B593A]">{b("desc-2")}</p>
+            <div className="absolute -bottom-6 -right-6 h-36 w-36 rounded-full bg-[#CBEAD7]/60 blur-3xl" />
           </div>
-          <div>
-            <Button className="bg-[#1A4D2E] text-white py-6 px-10 rounded-full hover:bg-[#2d6e47] cursor-pointer">
-              {b("button")}
-            </Button>
+
+          <div
+            className="flex flex-col justify-center gap-8 order-1 lg:order-2"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-[#1A4D2E] leading-tight">
+              {b("title")}
+            </h1>
+
+            <div className="space-y-5 text-[#355C46] leading-8">
+              <p>
+                <span className="font-bold text-[#1A4D2E]">YTAN </span>
+                {b("desc")}
+              </p>
+
+              <p>{b("desc-2")}</p>
+            </div>
+
+            <div>
+              <Button className="rounded-full px-10 py-6 bg-[#1A4D2E] hover:bg-[#2F6A46] shadow-lg">
+                {b("button")}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="bg-[#F1F1F1] py-20 flex flex-col gap-12">
-        {dataCarousel.map((item) => (
-          <div
-            key={item.key}
-            className="flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-24"
-          >
-            <div className="bg-white w-full md:w-[45%] h-80 md:h-80 flex justify-center items-center">
-              <Image
-                width={300}
-                height={100}
-                alt={item.key}
-                src={item.image}
-                className="object-contain"
-              />
+      </section>
+
+      {/* ================= PROGRAM ================= */}
+      <section className="relative bg-gradient-to-b from-[#F8FCF9] to-[#EEF7F2] py-20">
+        <div className="container mx-auto space-y-20">
+          {dataCarousel.map((item, index) => (
+            <div
+              key={item.key}
+              className={`grid lg:grid-cols-2 items-center gap-10 px-6 md:px-12 lg:px-20 ${
+                index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
+              }`}
+            >
+              {/* IMAGE */}
+              <div
+                className="relative"
+                data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+              >
+                <div className="rounded-3xl bg-white p-8 shadow-xl">
+                  <Image
+                    src={item.image}
+                    alt={item.key}
+                    width={450}
+                    height={300}
+                    className="mx-auto object-contain"
+                  />
+                </div>
+
+                <div className="absolute -z-10 top-6 left-6 h-full w-full rounded-3xl bg-[#D8F0E1]" />
+              </div>
+
+              {/* CONTENT */}
+              <div
+                className="space-y-5"
+                data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+              >
+                <span className="inline-flex rounded-full bg-[#D8F0E1] px-4 py-1 text-sm font-medium text-[#2B593A]">
+                  Program
+                </span>
+
+                <h2 className="text-3xl md:text-4xl font-bold text-[#1A4D2E]">
+                  {c(`${item.key}.title`)}
+                </h2>
+
+                <p className="text-[#355C46] leading-8">
+                  {c(`${item.key}.desc`)}
+                </p>
+
+                <Button
+                  variant="outline"
+                  className="rounded-full border-[#2B593A] text-[#2B593A] hover:bg-[#2B593A] hover:text-white"
+                >
+                  Pelajari Selengkapnya
+                </Button>
+              </div>
             </div>
-            <div className="bg-white w-full md:w-[50%] mt-6 md:mt-0 md:-ml-12 p-6 md:p-8 shadow-lg text-center md:text-left">
-              <h1 className="text-[#1A4D2E] font-bold text-2xl md:text-3xl">
-                {c(`${item.key}.title`)}
-              </h1>
-              <p className="text-[#1A4D2E] mt-2">{c(`${item.key}.desc`)}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

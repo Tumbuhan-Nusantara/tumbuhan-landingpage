@@ -6,16 +6,13 @@ import {
   Library,
   Mails,
   Newspaper,
-  NotebookPen,
   NotebookText,
-  School,
   UserRoundCog,
   Users,
 } from "lucide-react";
 import {
   ArticleGroup,
   DashMain,
-  DashMisi,
   LandingMenuType,
   LogoContacs,
   SejarahType,
@@ -30,9 +27,9 @@ export const LandingMenu: LandingMenuType[] = [
     title: "profile",
     items: [
       { id: 1, sub: "history", path: "/profile/sejarah" },
-      { id: 2, sub: "team" },
+      { id: 2, sub: "team", path: "/profile/tim-ytan" },
       { id: 3, sub: "visi", path: "/profile/visi-misi" },
-      { id: 4, sub: "structure" },
+      { id: 4, sub: "structure", path: "/profile/struktur-organisasi" },
     ],
   },
   {
@@ -40,7 +37,7 @@ export const LandingMenu: LandingMenuType[] = [
     title: "activity",
     path: "/kegiatan",
   },
-  { id: 5, title: "news" },
+  { id: 5, title: "news", path: "/berita" },
   { id: 6, title: "contact" },
 ];
 

@@ -2,7 +2,6 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import FooterFeat from "@/components/Footer";
 import { useLocale, useTranslations } from "next-intl";
 
 const KegiatanEdukasi = () => {
@@ -41,7 +40,6 @@ const KegiatanEdukasi = () => {
           ))}
         </div>
       </div>
-      <FooterFeat />
     </div>
   );
 };
