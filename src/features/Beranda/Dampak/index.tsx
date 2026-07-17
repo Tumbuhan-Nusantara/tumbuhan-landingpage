@@ -11,22 +11,23 @@ import { DampakLandingPageType } from "@/src/types";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
+import CountUp from "react-countup";
 
 const DampakFeat = () => {
-  const [dampak, setDampak] = useState<DampakLandingPageType[]>([])
-  const getDampak = async() => {
+  const [dampak, setDampak] = useState<DampakLandingPageType[]>([]);
+  const getDampak = async () => {
     try {
-      const response = await axiosInstance.get(`/api/v1/dampak`)
-      setDampak(response.data.data)
+      const response = await axiosInstance.get(`/api/v1/dampak`);
+      setDampak(response.data.data);
     } catch (error) {
-      throw error
+      throw error;
     }
-  }
+  };
 
   useEffect(() => {
     Aos.init();
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    getDampak()
+    getDampak();
   }, []);
   return (
     <div className="bg-linear-to-l from-[#C7FCDC] to-white">
@@ -36,7 +37,10 @@ const DampakFeat = () => {
             Dampak Positif
           </h1>
           <p className="text-center">
-            <span className="font-bold text-[#2B593A]">YTAN</span> telah melakukan kegiatan sesuai visi dan misinya di berbagai tempat di Indonesia, baik berupa kegiatan hingga penyusunan data spesies tumbuhan yang ada di Indonesia.
+            <span className="font-bold text-[#2B593A]">YTAN</span> telah
+            melakukan kegiatan sesuai visi dan misinya di berbagai tempat di
+            Indonesia, baik berupa kegiatan hingga penyusunan data spesies
+            tumbuhan yang ada di Indonesia.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-8 md:px-10 lg:px-24 gap-4 py-12 justify-items-center sm:justify-items-stretch">
@@ -58,7 +62,7 @@ const DampakFeat = () => {
               </CardHeader>
               <CardContent>
                 <h1 className="font-bold text-4xl text-[#2B593A] text-center">
-                  {item.total}
+                  <CountUp end={Number(item.total)} duration={5} />
                 </h1>
               </CardContent>
             </Card>
