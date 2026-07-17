@@ -12,9 +12,9 @@ export default function TeamPage() {
   const [search, setSearch] = useState("");
   const [members, setMembers] = useState<StrukturDashType[]>([]);
 
-  const getStruktur = async () => {
+  const getUsers = async () => {
     try {
-      const res = await axiosInstance.get(`/api/v1/struktur`);
+      const res = await axiosInstance.get(`/api/v1/auth`);
       setMembers(res.data.data);
       console.log("liat struktur", res.data.data);
     } catch (error) {
@@ -31,13 +31,13 @@ export default function TeamPage() {
   useEffect(() => {
     Aos.init();
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    getStruktur();
+    getUsers();
   }, []);
 
   return (
     <div>
       <section>
-        <div
+        <div 
           className=" text-center mb-14"
           data-aos="fade-up"
           data-aos-duration="900"

@@ -1,11 +1,11 @@
 "use client";
 
-import { StrukturDashType } from "@/src/types";
+import { UserDashType } from "@/src/types";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface TeamCardProps {
-  member: StrukturDashType;
+  member: UserDashType;
 }
 
 export default function TeamCard({ member }: TeamCardProps) {
@@ -27,11 +27,10 @@ export default function TeamCard({ member }: TeamCardProps) {
       <div className="p-6">
 
         <h2 className="text-xl font-semibold text-[#1A4D2E]">
-          {member.name}
+          {member.first_name} {member.last_name}
         </h2>
 
         <p className="text-gray-500 mt-1">
-          {member.position}
         </p>
 
         <Link

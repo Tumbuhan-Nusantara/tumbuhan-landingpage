@@ -227,3 +227,10 @@ export interface VisiLandingPageType{
   id: number;
   visi: string
 }
+
+export interface DampakLandingPageType{
+  id: number;
+  keterangan: string;
+  sejak: string;
+  total: string;
+}
