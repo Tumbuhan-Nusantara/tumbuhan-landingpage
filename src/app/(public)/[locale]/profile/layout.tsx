@@ -9,7 +9,7 @@ export default function ProfileWrapper({
   return (
     <div>
       <Nav />
-      <div className="mt-22 py-10 lg:mx-30 flex lg:flex-row md:flex-col flex-col lg:gap-8 md:gap-6 gap-2">
+      <div className="py-22">
         {children}
       </div>
       <FooterFeat />
