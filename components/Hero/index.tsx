@@ -1,6 +1,7 @@
 'use client'
 import { Button } from "@/components/ui/button";
 import { axiosInstance } from "@/lib/axios";
+import { useRouter } from "@/src/i18n/navigation";
 import { HeroLandingPageType } from "@/src/types";
 import Aos from "aos";
 import 'aos/dist/aos.css';
@@ -10,6 +11,8 @@ import { useEffect, useState } from "react";
 const Hero = () => {
   const h = useTranslations("hero")
   useLocale()
+
+  const router = useRouter()
 
   const [hero, setHero] = useState<HeroLandingPageType| null>(null)
   const getHero = async () => {
@@ -46,7 +49,7 @@ const Hero = () => {
             </p>
           </div>
           <div>
-            <Button className="bg-[#2B593A] py-4 px-10 rounded-full" data-aos="fade-left" data-aos-duration="1000">
+            <Button onClick={() => router.push("/profile/sejarah")} className="bg-[#2B593A] py-4 px-10 rounded-full" data-aos="fade-left" data-aos-duration="1000">
               {h('about')}
             </Button>
           </div>

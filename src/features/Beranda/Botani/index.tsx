@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { useRouter } from "@/src/i18n/navigation";
 import { CarouselType } from "@/src/types";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -12,6 +12,8 @@ const BotaniFeat = () => {
   useLocale();
   console.log("LOCALE:", useLocale());
 
+  const router = useRouter();
+
   const dataCarousel: CarouselType[] = [
     { key: "card1", image: "/botani/Penelitian.jpg" },
     { key: "card2", image: "/botani/Konservasi.jpg" },
@@ -19,7 +21,6 @@ const BotaniFeat = () => {
   ];
   return (
     <div className="overflow-hidden">
-      {/* ================= HERO ================= */}
       <section className="container mx-auto px-6 md:px-10 lg:px-20 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
           <div
@@ -57,7 +58,10 @@ const BotaniFeat = () => {
             </div>
 
             <div>
-              <Button className="rounded-full px-10 py-6 bg-[#1A4D2E] hover:bg-[#2F6A46] shadow-lg">
+              <Button
+                onClick={() => router.push("/profile/visi-misi")}
+                className="rounded-full px-10 py-6 bg-[#1A4D2E] hover:bg-[#2F6A46] shadow-lg"
+              >
                 {b("button")}
               </Button>
             </div>
@@ -65,8 +69,7 @@ const BotaniFeat = () => {
         </div>
       </section>
 
-      {/* ================= PROGRAM ================= */}
-      <section className="relative bg-gradient-to-b from-[#F8FCF9] to-[#EEF7F2] py-20">
+      <section className="relative bg-linear-to-b from-[#F8FCF9] to-[#EEF7F2] py-20">
         <div className="container mx-auto space-y-20">
           {dataCarousel.map((item, index) => (
             <div
@@ -75,7 +78,6 @@ const BotaniFeat = () => {
                 index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
-              {/* IMAGE */}
               <div
                 className="relative"
                 data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
@@ -93,7 +95,6 @@ const BotaniFeat = () => {
                 <div className="absolute -z-10 top-6 left-6 h-full w-full rounded-3xl bg-[#D8F0E1]" />
               </div>
 
-              {/* CONTENT */}
               <div
                 className="space-y-5"
                 data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
@@ -111,6 +112,7 @@ const BotaniFeat = () => {
                 </p>
 
                 <Button
+                onClick={()=> router.push(`/kegiatan`)}
                   variant="outline"
                   className="rounded-full border-[#2B593A] text-[#2B593A] hover:bg-[#2B593A] hover:text-white"
                 >

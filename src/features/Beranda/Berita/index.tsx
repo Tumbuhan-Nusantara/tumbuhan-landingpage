@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { axiosInstance } from "@/lib/axios";
 import { formatDateID } from "@/lib/dateHelper";
+import { useRouter } from "@/src/i18n/navigation";
 import { NewsLandingPageType } from "@/src/types";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -17,6 +18,7 @@ import { useEffect, useState } from "react";
 const BeritaFeat = () => {
   const b = useTranslations("berita");
   useLocale();
+  const router = useRouter()
 
   const [news, setNews] = useState<NewsLandingPageType[]>([]);
   const getNews = async () => {
@@ -89,7 +91,7 @@ const BeritaFeat = () => {
             <CarouselNext />
           </Carousel>
           <div>
-            <Button className="bg-[#1A4D2E] text-white py-6 px-10 rounded-full hover:bg-[#2d6e47] cursor-pointer">
+            <Button onClick={() => router.push(`/berita`)} className="bg-[#1A4D2E] text-white py-6 px-10 rounded-full hover:bg-[#2d6e47] cursor-pointer">
               {b("button")}
             </Button>
           </div>

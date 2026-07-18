@@ -7,7 +7,6 @@ import { useEffect, useMemo, useState } from "react";
 
 import { Search, ExternalLink, File } from "lucide-react";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { Input } from "@/components/ui/input";

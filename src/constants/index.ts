@@ -30,6 +30,7 @@ export const LandingMenu: LandingMenuType[] = [
       { id: 2, sub: "team", path: "/profile/tim-ytan" },
       { id: 3, sub: "visi", path: "/profile/visi-misi" },
       { id: 4, sub: "structure", path: "/profile/struktur-organisasi" },
+      { id: 4, sub: "structure", path: "/profile/dokumen" },
     ],
   },
   {
