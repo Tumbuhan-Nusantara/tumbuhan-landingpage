@@ -9,10 +9,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
-import { Toaster } from "@/components/ui/sonner";
-import { axiosInstance } from "@/lib/axios";
+} from "@/src/components/ui/alert-dialog";
+import { Button } from "@/src/components/ui/button";
+import { Toaster } from "@/src/components/ui/sonner";
+import { axiosInstance } from "@/src/lib/axios";
 import { ArticleDashType, PropsType } from "@/src/types";
 import { Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";

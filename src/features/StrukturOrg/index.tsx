@@ -1,11 +1,15 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/src/components/ui/card";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/src/components/ui/avatar";
+import { Badge } from "@/src/components/ui/badge";
 import { useEffect, useMemo, useState } from "react";
 import { StrukturDashType } from "@/src/types";
-import { axiosInstance } from "@/lib/axios";
+import { axiosInstance } from "@/src/lib/axios";
 
 export default function StrukturPage() {
   const [struktur, setStruktur] = useState<StrukturDashType[]>([]);

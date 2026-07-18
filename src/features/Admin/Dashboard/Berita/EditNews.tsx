@@ -1,10 +1,10 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Toaster } from "@/components/ui/sonner";
-import { axiosInstance } from "@/lib/axios";
+import { Button } from "@/src/components/ui/button";
+import { Card } from "@/src/components/ui/card";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
+import { Toaster } from "@/src/components/ui/sonner";
+import { axiosInstance } from "@/src/lib/axios";
 import { useRouter } from "@/src/i18n/navigation";
 import { NewsDashType, NewsPropsType } from "@/src/types";
 import Image from "next/image";

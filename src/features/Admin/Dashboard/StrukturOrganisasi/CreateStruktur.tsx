@@ -1,7 +1,7 @@
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { axiosInstance } from "@/lib/axios";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
+import { Button } from "@/src/components/ui/button";
+import { axiosInstance } from "@/src/lib/axios";
 import { CreateStrukturDashType } from "@/src/types";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -25,7 +25,7 @@ const CreateStruktur = ({ onSuccess }: Props) => {
         position: "",
         name: "",
       });
-      onSuccess()
+      onSuccess();
     } catch (error) {
       console.error(error);
       toast.error("Gagal menambah posisi");
@@ -41,9 +41,7 @@ const CreateStruktur = ({ onSuccess }: Props) => {
     }));
   };
 
-  const isFormValid =
-    add.position.trim() !== "" &&
-    add.name.trim() !== "";
+  const isFormValid = add.position.trim() !== "" && add.name.trim() !== "";
   return (
     <div className="space-y-4">
       <div className="grid gap-2">
@@ -68,7 +66,7 @@ const CreateStruktur = ({ onSuccess }: Props) => {
       </div>
       <Button
         onClick={createNew}
-        disabled={!isFormValid }
+        disabled={!isFormValid}
         size="sm"
         className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer mt-6"
       >

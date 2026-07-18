@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/static-components */
 "use client";
 import { useEffect, useState } from "react";
-import { axiosInstance } from "@/lib/axios";
-import {  ActivityDashType } from "@/src/types";
+import { axiosInstance } from "@/src/lib/axios";
+import { ActivityDashType } from "@/src/types";
 import Image from "next/image";
-import { Card } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card } from "@/src/components/ui/card";
+import { Separator } from "@/src/components/ui/separator";
 
 const DetailActivity = ({ actId }: { actId: number }) => {
-  const [act, setAct] = useState<ActivityDashType | null>(null)
+  const [act, setAct] = useState<ActivityDashType | null>(null);
 
   useEffect(() => {
     const getActivity = async (id: number) => {
@@ -40,7 +40,6 @@ const DetailActivity = ({ actId }: { actId: number }) => {
   return (
     <Card className="m-6 p-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
         <div>
           <h2 className="font-semibold text-[#1A4D2E] mb-4">
             Dokumentasi Kegiatan
@@ -68,26 +67,16 @@ const DetailActivity = ({ actId }: { actId: number }) => {
           </h2>
 
           <div className="space-y-5">
-
             {/* // eslint-disable-next-line react-hooks/static-components */}
-            <DetailItem
-              label="Jenis Kegiatan"
-              value={act?.nama_tipe}
-            />
+            <DetailItem label="Jenis Kegiatan" value={act?.nama_tipe} />
 
             <Separator />
 
-            <DetailItem
-              label="Nama Kegiatan"
-              value={act?.activity_name}
-            />
+            <DetailItem label="Nama Kegiatan" value={act?.activity_name} />
 
             <Separator />
 
-            <DetailItem
-              label="Deskripsi"
-              value={act?.deskripsi}
-            />
+            <DetailItem label="Deskripsi" value={act?.deskripsi} />
 
             <Separator />
 
@@ -98,14 +87,9 @@ const DetailActivity = ({ actId }: { actId: number }) => {
 
             <Separator />
 
-            <DetailItem
-              label="Lokasi"
-              value={act?.tempat}
-            />
-
+            <DetailItem label="Lokasi" value={act?.tempat} />
           </div>
         </div>
-
       </div>
     </Card>
   );

@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { axiosInstance } from "@/lib/axios";
+import { Button } from "@/src/components/ui/button";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
+import { axiosInstance } from "@/src/lib/axios";
 import { PropsType, StrukturDashType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";

@@ -1,14 +1,14 @@
 "use client";
-import { DataTable } from "@/components/Data Table/data-table";
-import { columns } from "@/components/Data Table/newscolumns";
-import FormSkeleton from "@/components/Skeletons/FormSk";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Toaster } from "@/components/ui/sonner";
-import { Textarea } from "@/components/ui/textarea";
-import { axiosInstance } from "@/lib/axios";
+import { DataTable } from "@/src/components/Data Table/data-table";
+import { columns } from "@/src/components/Data Table/newscolumns";
+import FormSkeleton from "@/src/components/Skeletons/FormSk";
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/src/components/ui/card";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
+import { Toaster } from "@/src/components/ui/sonner";
+import { Textarea } from "@/src/components/ui/textarea";
+import { axiosInstance } from "@/src/lib/axios";
 import { CreateNewsDashType, NewsDashType } from "@/src/types";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -16,9 +16,9 @@ import { toast } from "sonner";
 const BeritaDashboard = () => {
   const [news, setNews] = useState<NewsDashType[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
   const getNews = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const resp = await axiosInstance.get(`/api/v1/news`);
       const result = resp.data.data;

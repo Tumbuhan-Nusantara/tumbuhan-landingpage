@@ -1,21 +1,21 @@
 "use client";
-import { columns } from "@/components/Data Table/activitycolumns";
-import { DataTable } from "@/components/Data Table/data-table";
-import FormSkeleton from "@/components/Skeletons/FormSk";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { columns } from "@/src/components/Data Table/activitycolumns";
+import { DataTable } from "@/src/components/Data Table/data-table";
+import FormSkeleton from "@/src/components/Skeletons/FormSk";
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/src/components/ui/card";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Toaster } from "@/components/ui/sonner";
-import { Textarea } from "@/components/ui/textarea";
-import { axiosInstance } from "@/lib/axios";
+} from "@/src/components/ui/select";
+import { Toaster } from "@/src/components/ui/sonner";
+import { Textarea } from "@/src/components/ui/textarea";
+import { axiosInstance } from "@/src/lib/axios";
 import { ActivityDashType, TypesDashType } from "@/src/types";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -30,17 +30,16 @@ const DashKegiatanFeat = () => {
     tipe_kegiatan_id: undefined as number | undefined,
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [loading, setLoading] = useState<boolean>(true)
-
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [activity, setActivity] = useState<ActivityDashType[]>([]);
   const getActivities = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await axiosInstance.get(`/api/v1/activities`);
       const result = response.data.data;
       setActivity(result);
-       await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setLoading(false);
     } catch (err) {
       console.error("apa error kegiatan", err);
@@ -76,15 +75,11 @@ const DashKegiatanFeat = () => {
         data.append("photo_url", formData.photo_url);
       }
 
-      await axiosInstance.post(
-        "/api/v1/activities/create",
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+      await axiosInstance.post("/api/v1/activities/create", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-      );
+      });
       await getActivities();
 
       toast.success("Berhasil ditambahkan");

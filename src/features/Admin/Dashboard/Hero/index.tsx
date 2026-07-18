@@ -1,17 +1,17 @@
 "use client";
-import HeroDashSkeleton from "@/components/Skeletons/HeroSk";
-import { Button } from "@/components/ui/button";
+import HeroDashSkeleton from "@/src/components/Skeletons/HeroSk";
+import { Button } from "@/src/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Toaster } from "@/components/ui/sonner";
-import { Textarea } from "@/components/ui/textarea";
-import { axiosInstance } from "@/lib/axios";
+} from "@/src/components/ui/card";
+import { Label } from "@/src/components/ui/label";
+import { Toaster } from "@/src/components/ui/sonner";
+import { Textarea } from "@/src/components/ui/textarea";
+import { axiosInstance } from "@/src/lib/axios";
 import { HeroType } from "@/src/types";
 import { Pencil } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -66,7 +66,7 @@ const DashHeroFeat = () => {
   };
   return (
     <div className="p-8">
-        <Toaster position="top-center" richColors />
+      <Toaster position="top-center" richColors />
 
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">Beranda</h1>
       <div>

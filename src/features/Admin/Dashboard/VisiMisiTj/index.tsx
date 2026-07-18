@@ -1,14 +1,14 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent } from "@/src/components/ui/card";
+import { Label } from "@/src/components/ui/label";
+import { Textarea } from "@/src/components/ui/textarea";
 import { Pencil, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { MisiDashType, TujuanDashType, VisiDashType } from "@/src/types";
-import { axiosInstance } from "@/lib/axios";
+import { axiosInstance } from "@/src/lib/axios";
 import { toast } from "sonner";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/src/components/ui/sonner";
 import {
   Dialog,
   DialogContent,
@@ -16,11 +16,11 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "@/src/components/ui/dialog";
 import CreateMisi from "./CreateMisi";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/src/components/ui/separator";
 import DeleteMisi from "./DeleteMisi";
-import DashVisiMisiSkeleton from "@/components/Skeletons/DashVisiMisiSk";
+import DashVisiMisiSkeleton from "@/src/components/Skeletons/DashVisiMisiSk";
 
 const DashVisiMisiTjFeat = () => {
   const [visi, setVisi] = useState<VisiDashType | null>(null);

@@ -9,15 +9,14 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
-import { Toaster } from "@/components/ui/sonner";
-import { axiosInstance } from "@/lib/axios";
+} from "@/src/components/ui/alert-dialog";
+import { Button } from "@/src/components/ui/button";
+import { Toaster } from "@/src/components/ui/sonner";
+import { axiosInstance } from "@/src/lib/axios";
 import { MisiDashType, PropsType } from "@/src/types";
 import { Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-
 
 const DeleteMisi = ({ idCode, onSuccess }: PropsType) => {
   const [misi, setMisi] = useState<MisiDashType | null>(null);

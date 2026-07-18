@@ -1,14 +1,14 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { axiosInstance } from "@/lib/axios";
-import { formatDateID } from "@/lib/dateHelper";
+} from "@/src/components/ui/carousel";
+import { axiosInstance } from "@/src/lib/axios";
+import { formatDateID } from "@/src/lib/dateHelper";
 import { useRouter } from "@/src/i18n/navigation";
 import { NewsLandingPageType } from "@/src/types";
 import { useLocale, useTranslations } from "next-intl";
@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 const BeritaFeat = () => {
   const b = useTranslations("berita");
   useLocale();
-  const router = useRouter()
+  const router = useRouter();
 
   const [news, setNews] = useState<NewsLandingPageType[]>([]);
   const getNews = async () => {
@@ -65,7 +65,7 @@ const BeritaFeat = () => {
 
                       <div className="flex min-h-55 flex-col p-5">
                         <p className="text-sm italic text-[#2B593A]">
-                         {formatDateID(item.tanggal_berita)}
+                          {formatDateID(item.tanggal_berita)}
                         </p>
 
                         <h3 className="mt-3 line-clamp-2 text-xl font-semibold text-[#1A4D2E]">
@@ -91,7 +91,10 @@ const BeritaFeat = () => {
             <CarouselNext />
           </Carousel>
           <div>
-            <Button onClick={() => router.push(`/berita`)} className="bg-[#1A4D2E] text-white py-6 px-10 rounded-full hover:bg-[#2d6e47] cursor-pointer">
+            <Button
+              onClick={() => router.push(`/berita`)}
+              className="bg-[#1A4D2E] text-white py-6 px-10 rounded-full hover:bg-[#2d6e47] cursor-pointer"
+            >
               {b("button")}
             </Button>
           </div>

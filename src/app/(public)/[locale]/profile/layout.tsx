@@ -1,5 +1,5 @@
-import FooterFeat from "@/components/Footer";
-import Nav from "@/components/Navbar-2";
+import FooterFeat from "@/src/components/Footer";
+import Nav from "@/src/components/Navbar-2";
 
 export default function ProfileWrapper({
   children,
@@ -9,9 +9,7 @@ export default function ProfileWrapper({
   return (
     <div>
       <Nav />
-      <div className="py-22">
-        {children}
-      </div>
+      <div className="py-22">{children}</div>
       <FooterFeat />
     </div>
   );

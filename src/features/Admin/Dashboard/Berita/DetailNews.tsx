@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/static-components */
 "use client";
 import { useEffect, useState } from "react";
-import { axiosInstance } from "@/lib/axios";
-import {  NewsDashType } from "@/src/types";
+import { axiosInstance } from "@/src/lib/axios";
+import { NewsDashType } from "@/src/types";
 import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
-import { Card } from "@/components/ui/card";
+import { Separator } from "@/src/components/ui/separator";
+import { Card } from "@/src/components/ui/card";
 
 const DetailNews = ({ newsId }: { newsId: number }) => {
-  const [news, setNews] = useState<NewsDashType | null>(null)
+  const [news, setNews] = useState<NewsDashType | null>(null);
 
   useEffect(() => {
     const getNewsbyId = async (id: number) => {
@@ -23,7 +23,7 @@ const DetailNews = ({ newsId }: { newsId: number }) => {
     getNewsbyId(newsId);
   }, [newsId]);
 
-   const DetailItem = ({
+  const DetailItem = ({
     label,
     value,
   }: {
@@ -40,11 +40,8 @@ const DetailNews = ({ newsId }: { newsId: number }) => {
   return (
     <Card className="p-6 m-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
         <div>
-          <h2 className="font-semibold text-[#1A4D2E] mb-4">
-            Foto Berita
-          </h2>
+          <h2 className="font-semibold text-[#1A4D2E] mb-4">Foto Berita</h2>
 
           {news?.photo_url ? (
             <Image
@@ -68,18 +65,11 @@ const DetailNews = ({ newsId }: { newsId: number }) => {
           </h2>
 
           <div className="space-y-5">
-
-            <DetailItem
-              label="Judul Berita"
-              value={news?.news_name}
-            />
+            <DetailItem label="Judul Berita" value={news?.news_name} />
 
             <Separator />
 
-            <DetailItem
-              label="Isi Berita"
-              value={news?.deskripsi}
-            />
+            <DetailItem label="Isi Berita" value={news?.deskripsi} />
 
             <Separator />
 
@@ -90,14 +80,9 @@ const DetailNews = ({ newsId }: { newsId: number }) => {
 
             <Separator />
 
-            <DetailItem
-              label="Tanggal Publikasi"
-              value={news?.tempat}
-            />
-
+            <DetailItem label="Tanggal Publikasi" value={news?.tempat} />
           </div>
         </div>
-
       </div>
     </Card>
   );

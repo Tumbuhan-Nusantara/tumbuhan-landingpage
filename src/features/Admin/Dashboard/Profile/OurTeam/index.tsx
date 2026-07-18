@@ -1,11 +1,11 @@
 "use client";
-import { DataTable } from "@/components/Data Table/data-table";
-import { columns } from "@/components/Data Table/usercolumns";
-import OurTeamSkeleton from "@/components/Skeletons/OurTeamSk";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/sonner";
-import { axiosInstance } from "@/lib/axios";
+import { DataTable } from "@/src/components/Data Table/data-table";
+import { columns } from "@/src/components/Data Table/usercolumns";
+import OurTeamSkeleton from "@/src/components/Skeletons/OurTeamSk";
+import { Button } from "@/src/components/ui/button";
+import { Card } from "@/src/components/ui/card";
+import { Toaster } from "@/src/components/ui/sonner";
+import { axiosInstance } from "@/src/lib/axios";
 import { useRouter } from "@/src/i18n/navigation";
 import { UserDashType } from "@/src/types";
 
@@ -33,7 +33,7 @@ const DashOurTeamFeat = () => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     getUsers();
   }, []);
-  const router = useRouter()
+  const router = useRouter();
 
   if (loading) {
     return (
@@ -55,10 +55,9 @@ const DashOurTeamFeat = () => {
             Pengguna Dashboard YTAN
           </h1>
           <Button
-            onClick={() =>
-              router.push(`/admin/dashboard/our-team/create`)
-            }
-            className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer" size="sm"
+            onClick={() => router.push(`/admin/dashboard/our-team/create`)}
+            className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
+            size="sm"
           >
             <Plus />
             Tambah Anggota Tim YTAN

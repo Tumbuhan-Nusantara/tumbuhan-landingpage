@@ -1,10 +1,15 @@
-import Nav from "@/components/Navbar-2";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Nav from "@/src/components/Navbar-2";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/src/components/ui/tabs";
 import PublikasiFeat from "./Publikasi";
 import KegiatanRiset from "./RisetEksplorasi";
 import KegiatanEdukasi from "./Edukasi";
 import KegiatanKonservasi from "./Konservasi";
-import FooterFeat from "@/components/Footer";
+import FooterFeat from "@/src/components/Footer";
 
 const KegiatanFeat = () => {
   return (

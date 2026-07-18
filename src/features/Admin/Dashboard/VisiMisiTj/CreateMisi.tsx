@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Toaster } from "@/components/ui/sonner";
-import { axiosInstance } from "@/lib/axios";
+import { Button } from "@/src/components/ui/button";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
+import { Toaster } from "@/src/components/ui/sonner";
+import { axiosInstance } from "@/src/lib/axios";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
@@ -14,7 +14,6 @@ const CreateMisi = ({ onSuccess }: Props) => {
   const [misi, setMisi] = useState({
     content: "",
   });
-
 
   const createMisi = async () => {
     if (!misi.content.trim()) {

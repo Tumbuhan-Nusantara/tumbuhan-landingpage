@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { axiosInstance } from "@/lib/axios";
-import {UserDashType } from "@/src/types";
+import { axiosInstance } from "@/src/lib/axios";
+import { UserDashType } from "@/src/types";
 
 const DetailTeam = ({ userId }: { userId: number }) => {
-  const [user, setUser] = useState<UserDashType | null>(null)
+  const [user, setUser] = useState<UserDashType | null>(null);
 
   useEffect(() => {
     const getUser = async (id: number) => {

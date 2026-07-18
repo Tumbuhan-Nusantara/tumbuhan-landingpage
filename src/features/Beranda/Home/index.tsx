@@ -1,5 +1,5 @@
-import Hero from "@/components/Hero";
-import Nav from "@/components/Navbar-2";
+import Hero from "@/src/components/Hero";
+import Nav from "@/src/components/Navbar-2";
 
 const HomeFeat = () => {
   return (

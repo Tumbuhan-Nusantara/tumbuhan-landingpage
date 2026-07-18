@@ -1,6 +1,10 @@
 "use client";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Card } from "@/components/ui/card";
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+} from "@/src/components/ui/avatar";
+import { Card } from "@/src/components/ui/card";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,22 +15,22 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/src/components/ui/alert-dialog";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+} from "@/src/components/ui/select";
+import { Button } from "@/src/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { UserDashType } from "@/src/types";
 import { useEffect, useState } from "react";
-import { axiosInstance } from "@/lib/axios";
+import { axiosInstance } from "@/src/lib/axios";
 import { toast } from "sonner";
-import { Toaster } from "@/components/ui/sonner";
-import DashUserSkeleton from "@/components/Skeletons/DashUserSk";
+import { Toaster } from "@/src/components/ui/sonner";
+import DashUserSkeleton from "@/src/components/Skeletons/DashUserSk";
 
 const DashUserRoleFeat = () => {
   const [users, setUsers] = useState<UserDashType[]>([]);

@@ -1,9 +1,13 @@
 "use client";
-import DashboardSkeleton from "@/components/Skeletons/DashboardSk";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { axiosInstance } from "@/lib/axios";
+import DashboardSkeleton from "@/src/components/Skeletons/DashboardSk";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/src/components/ui/avatar";
+import { Button } from "@/src/components/ui/button";
+import { Card } from "@/src/components/ui/card";
+import { axiosInstance } from "@/src/lib/axios";
 import { DashMainMenu } from "@/src/constants";
 import { UserDashType } from "@/src/types";
 import { useTranslations } from "next-intl";

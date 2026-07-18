@@ -1,13 +1,13 @@
 "use client";
-import { columns } from "@/components/Data Table/articlecolumns";
-import { DataTable } from "@/components/Data Table/data-table";
-import FormSkeleton from "@/components/Skeletons/FormSk";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Toaster } from "@/components/ui/sonner";
-import { axiosInstance } from "@/lib/axios";
+import { columns } from "@/src/components/Data Table/articlecolumns";
+import { DataTable } from "@/src/components/Data Table/data-table";
+import FormSkeleton from "@/src/components/Skeletons/FormSk";
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/src/components/ui/card";
+import { Input } from "@/src/components/ui/input";
+import { Label } from "@/src/components/ui/label";
+import { Toaster } from "@/src/components/ui/sonner";
+import { axiosInstance } from "@/src/lib/axios";
 import { ArticleDashType, CreateArticleDashType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -21,7 +21,7 @@ const DashPublikasiFeat = () => {
     link: "",
   });
   const [articles, setArticles] = useState<ArticleDashType[]>([]);
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
 
   const createArticle = async () => {
     try {
@@ -63,7 +63,7 @@ const DashPublikasiFeat = () => {
   };
 
   const getDataArticle = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await axiosInstance.get(`/api/v1/articles`);
       const data = response.data.data;

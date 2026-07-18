@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { axiosInstance } from "@/lib/axios";
+import { axiosInstance } from "@/src/lib/axios";
 import { CreateArticleDashType } from "@/src/types";
-
 
 const DetailArticle = ({ articleId }: { articleId: number }) => {
   const [article, setArticle] = useState<CreateArticleDashType>({});

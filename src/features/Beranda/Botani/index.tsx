@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 import { useRouter } from "@/src/i18n/navigation";
 import { CarouselType } from "@/src/types";
 import { useLocale, useTranslations } from "next-intl";
@@ -112,7 +112,7 @@ const BotaniFeat = () => {
                 </p>
 
                 <Button
-                onClick={()=> router.push(`/kegiatan`)}
+                  onClick={() => router.push(`/kegiatan`)}
                   variant="outline"
                   className="rounded-full border-[#2B593A] text-[#2B593A] hover:bg-[#2B593A] hover:text-white"
                 >

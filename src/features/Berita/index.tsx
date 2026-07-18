@@ -1,5 +1,5 @@
 "use client";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/src/components/ui/input";
 import {
   Pagination,
   PaginationContent,
@@ -7,18 +7,18 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+} from "@/src/components/ui/pagination";
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent } from "@/src/components/ui/card";
 
-import { axiosInstance } from "@/lib/axios";
-import { formatDateID } from "@/lib/dateHelper";
+import { axiosInstance } from "@/src/lib/axios";
+import { formatDateID } from "@/src/lib/dateHelper";
 import { NewsLandingPageType } from "@/src/types";
 import { ArrowRight, Search } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Nav from "@/components/Navbar-2";
-import FooterFeat from "@/components/Footer";
+import Nav from "@/src/components/Navbar-2";
+import FooterFeat from "@/src/components/Footer";
 
 const BeritaMainFeat = () => {
   const [news, setNews] = useState<NewsLandingPageType[]>([]);
@@ -71,10 +71,13 @@ const BeritaMainFeat = () => {
       <section className="container mx-auto px-6 pb-20">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {news.map((item) => (
-            <Card key={item.id} className="group overflow-hidden border-0 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300">
+            <Card
+              key={item.id}
+              className="group overflow-hidden border-0 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300"
+            >
               <div className="overflow-hidden">
                 <Image
-                fill
+                  fill
                   src={item.photo_url}
                   alt="foto"
                   className="w-full h-60 object-cover transition duration-500 group-hover:scale-110"

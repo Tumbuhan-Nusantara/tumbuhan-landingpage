@@ -5,8 +5,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { axiosInstance } from "@/lib/axios";
+} from "@/src/components/ui/card";
+import { axiosInstance } from "@/src/lib/axios";
 import { DampakLandingPageType } from "@/src/types";
 import Aos from "aos";
 import "aos/dist/aos.css";

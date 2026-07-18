@@ -2,8 +2,8 @@
 import { useRouter } from "@/src/i18n/navigation";
 import DashboardWrapper from "./dashwrapper";
 import { useEffect, useState } from "react";
-import { axiosInstance } from "@/lib/axios";
-import LeafSpinLoading from "@/components/AnimationLeaf/Leaf";
+import { axiosInstance } from "@/src/lib/axios";
+import LeafSpinLoading from "@/src/components/AnimationLeaf/Leaf";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        setLoading(true)
+        setLoading(true);
         await axiosInstance.get("/api/v1/auth/me");
 
         setTimeout(() => {

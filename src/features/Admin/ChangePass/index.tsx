@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { axiosInstance } from "@/lib/axios";
+import { axiosInstance } from "@/src/lib/axios";
 
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Toaster } from "@/components/ui/sonner";
+import { Card } from "@/src/components/ui/card";
+import { Button } from "@/src/components/ui/button";
+import { Label } from "@/src/components/ui/label";
+import { Input } from "@/src/components/ui/input";
+import { Toaster } from "@/src/components/ui/sonner";
 import { toast } from "sonner";
 import { useRouter } from "@/src/i18n/navigation";
 
@@ -18,9 +18,7 @@ const ChangePassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChangePassword = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleChangePassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!password || !confirmPassword) {
@@ -41,15 +39,13 @@ const ChangePassword = () => {
         password,
       });
 
-     await axiosInstance.post("/api/v1/auth/logout");
+      await axiosInstance.post("/api/v1/auth/logout");
 
-    toast.success(
-      "Password berhasil diperbarui. Silakan login kembali."
-    );
+      toast.success("Password berhasil diperbarui. Silakan login kembali.");
 
-    setTimeout(() => {
-      router.replace("/admin/login");
-    }, 1500);
+      setTimeout(() => {
+        router.replace("/admin/login");
+      }, 1500);
     } catch (err) {
       console.error(err);
       toast.error("Gagal mengganti password");
@@ -63,30 +59,22 @@ const ChangePassword = () => {
       <Toaster position="top-center" richColors />
 
       <Card className="w-full max-w-md p-8 space-y-6">
-
         <div>
-          <h1 className="text-2xl font-bold text-[#1A4D2E]">
-            Ganti Password
-          </h1>
+          <h1 className="text-2xl font-bold text-[#1A4D2E]">Ganti Password</h1>
 
           <p className="text-sm text-gray-500 mt-1">
             Demi keamanan akun, silakan ubah password bawaan Anda.
           </p>
         </div>
 
-        <form
-          onSubmit={handleChangePassword}
-          className="space-y-4"
-        >
+        <form onSubmit={handleChangePassword} className="space-y-4">
           <div>
             <Label>Password Baru</Label>
 
             <Input
               type="password"
               value={password}
-              onChange={(e) =>
-                setPassword(e.target.value)
-              }
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
@@ -96,9 +84,7 @@ const ChangePassword = () => {
             <Input
               type="password"
               value={confirmPassword}
-              onChange={(e) =>
-                setConfirmPassword(e.target.value)
-              }
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
 

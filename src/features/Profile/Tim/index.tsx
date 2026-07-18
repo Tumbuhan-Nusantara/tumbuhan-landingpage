@@ -1,8 +1,8 @@
 "use client";
 
-import TeamCard from "@/components/CardPeople";
-import { Input } from "@/components/ui/input";
-import { axiosInstance } from "@/lib/axios";
+import TeamCard from "@/src/components/CardPeople";
+import { Input } from "@/src/components/ui/input";
+import { axiosInstance } from "@/src/lib/axios";
 import { StrukturDashType } from "@/src/types";
 import Aos from "aos";
 import { Search } from "lucide-react";
@@ -37,7 +37,7 @@ export default function TeamPage() {
   return (
     <div>
       <section className="pt-20">
-        <div 
+        <div
           className=" text-center mb-14"
           data-aos="fade-up"
           data-aos-duration="900"

@@ -1,10 +1,10 @@
 "use client";
-import { DataTable } from "@/components/Data Table/data-table";
-import { columns } from "@/components/Data Table/strukturcolumns";
-import StructureSkeleton from "@/components/Skeletons/StructureSk";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { axiosInstance } from "@/lib/axios";
+import { DataTable } from "@/src/components/Data Table/data-table";
+import { columns } from "@/src/components/Data Table/strukturcolumns";
+import StructureSkeleton from "@/src/components/Skeletons/StructureSk";
+import { Card, CardContent } from "@/src/components/ui/card";
+import { Button } from "@/src/components/ui/button";
+import { axiosInstance } from "@/src/lib/axios";
 import { StrukturDashType } from "@/src/types";
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "@/src/components/ui/dialog";
 import CreateStruktur from "./CreateStruktur";
 
 const StrukturOrgDash = () => {
@@ -76,7 +76,7 @@ const StrukturOrgDash = () => {
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">
-                    <CreateStruktur onSuccess={getData}/>
+                    <CreateStruktur onSuccess={getData} />
                   </div>
                 </DialogDescription>
               </DialogHeader>

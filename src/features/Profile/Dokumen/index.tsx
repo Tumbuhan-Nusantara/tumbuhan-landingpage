@@ -1,7 +1,7 @@
 "use client";
 
-import Nav from "@/components/Navbar-2";
-import FooterFeat from "@/components/Footer";
+import Nav from "@/src/components/Navbar-2";
+import FooterFeat from "@/src/components/Footer";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -9,9 +9,9 @@ import { Search, ExternalLink, File } from "lucide-react";
 
 import Link from "next/link";
 
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
+import { Card, CardContent } from "@/src/components/ui/card";
 
 import {
   Table,
@@ -20,24 +20,23 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/src/components/ui/table";
 import { DokumenLandingPageType } from "@/src/types";
-import { axiosInstance } from "@/lib/axios";
-
+import { axiosInstance } from "@/src/lib/axios";
 
 export default function DokumenPage() {
   const [search, setSearch] = useState("");
-  const [doc, setDoc] = useState<DokumenLandingPageType[]>([])
+  const [doc, setDoc] = useState<DokumenLandingPageType[]>([]);
 
-  const getDoc = async() => {
+  const getDoc = async () => {
     try {
-      const response = await axiosInstance.get(`/api/v1/dokumen`)
-      setDoc(response.data.data)
-      console.log(response.data.data, "cek")
+      const response = await axiosInstance.get(`/api/v1/dokumen`);
+      setDoc(response.data.data);
+      console.log(response.data.data, "cek");
     } catch (error) {
-      throw error
+      throw error;
     }
-  }
+  };
 
   const filteredDocuments = useMemo(() => {
     return doc.filter(
@@ -49,24 +48,20 @@ export default function DokumenPage() {
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    getDoc()
-  },[])
+    getDoc();
+  }, []);
 
   return (
     <>
-        <div className="container mx-auto px-6 pt-20 text-center text-white">
-          <div
-            className="text-center"
-            data-aos="fade-up"
-            data-aos-duration="900"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A4D2E]">
-              Dokumen
-            </h1>
+      <div className="container mx-auto px-6 pt-20 text-center text-white">
+        <div className="text-center" data-aos="fade-up" data-aos-duration="900">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1A4D2E]">
+            Dokumen
+          </h1>
 
-            <div className="w-24 h-1 bg-[#2B593A] rounded-full mx-auto mt-4" />
-          </div>
+          <div className="w-24 h-1 bg-[#2B593A] rounded-full mx-auto mt-4" />
         </div>
+      </div>
 
       <section className="container mx-auto px-6 py-14">
         <div className="flex flex-col md:flex-row gap-5 justify-between mb-10">
@@ -96,7 +91,6 @@ export default function DokumenPage() {
 
                 <TableHead>Ringkasan</TableHead>
 
-
                 <TableHead className="text-center w-48">Aksi</TableHead>
               </TableRow>
             </TableHeader>
@@ -122,7 +116,6 @@ export default function DokumenPage() {
                     <TableCell className="text-muted-foreground">
                       {doc.summary}
                     </TableCell>
-
 
                     <TableCell>
                       <div className="flex justify-center">
@@ -161,8 +154,6 @@ export default function DokumenPage() {
                     <p className="text-sm text-muted-foreground mt-2">
                       {doc.summary}
                     </p>
-
-                    
                   </div>
                 </div>
 
