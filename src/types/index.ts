@@ -206,3 +206,37 @@ export interface CreateStrukturDashType {
   position: string;
   name: string;
 }
+
+export interface HeroLandingPageType{
+  id:number;
+  beranda: string;
+  deskripsi: string
+}
+
+export interface NewsLandingPageType{
+  id: number;
+  news_name: string;
+  deskripsi: string;
+  tanggal_berita: string;
+  tempat: string;
+  photo_url: string;
+  video_link: string
+}
+
+export interface VisiLandingPageType{
+  id: number;
+  visi: string
+}
+
+export interface DampakLandingPageType{
+  id: number;
+  keterangan: string;
+  sejak: string;
+  total: string;
+}
+export interface DokumenLandingPageType{
+  id: number;
+  name_doc: string;
+  summary: string;
+  link: string
+}
