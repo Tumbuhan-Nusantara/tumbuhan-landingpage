@@ -3,7 +3,7 @@
 import Nav from "@/components/Navbar-2";
 import FooterFeat from "@/components/Footer";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Search, ExternalLink, File } from "lucide-react";
 
@@ -22,62 +22,36 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { DokumenLandingPageType } from "@/src/types";
+import { axiosInstance } from "@/lib/axios";
 
-import { formatDateID } from "@/lib/dateHelper";
-
-const documents = [
-  {
-    id: 1,
-    document_name: "Laporan Tahunan Yayasan 2025",
-    summary:
-      "Laporan kegiatan, pencapaian, serta perkembangan Yayasan Tumbuhan Asli Nusantara selama tahun 2025.",
-    drive_url: "#",
-    created_at: "2026-01-10",
-  },
-  {
-    id: 2,
-    document_name: "Proposal Konservasi Flora Sulawesi",
-    summary:
-      "Proposal kegiatan konservasi tumbuhan endemik Sulawesi bersama berbagai mitra penelitian.",
-    drive_url: "#",
-    created_at: "2026-02-18",
-  },
-  {
-    id: 3,
-    document_name: "Laporan Ekspedisi Lore Lindu",
-    summary:
-      "Dokumentasi penelitian lapangan dan eksplorasi flora di Taman Nasional Lore Lindu.",
-    drive_url: "#",
-    created_at: "2026-03-08",
-  },
-  {
-    id: 4,
-    document_name: "Panduan Identifikasi Tumbuhan",
-    summary:
-      "Panduan identifikasi tumbuhan asli Indonesia untuk kegiatan edukasi dan penelitian.",
-    drive_url: "#",
-    created_at: "2026-04-21",
-  },
-  {
-    id: 5,
-    document_name: "Laporan Keuangan Semester I",
-    summary:
-      "Laporan keuangan Yayasan Tumbuhan Asli Nusantara Semester I Tahun 2026.",
-    drive_url: "#",
-    created_at: "2026-06-30",
-  },
-];
 
 export default function DokumenPage() {
   const [search, setSearch] = useState("");
+  const [doc, setDoc] = useState<DokumenLandingPageType[]>([])
+
+  const getDoc = async() => {
+    try {
+      const response = await axiosInstance.get(`/api/v1/dokumen`)
+      setDoc(response.data.data)
+      console.log(response.data.data, "cek")
+    } catch (error) {
+      throw error
+    }
+  }
 
   const filteredDocuments = useMemo(() => {
-    return documents.filter(
+    return doc.filter(
       (item) =>
-        item.document_name.toLowerCase().includes(search.toLowerCase()) ||
+        item.name_doc.toLowerCase().includes(search.toLowerCase()) ||
         item.summary.toLowerCase().includes(search.toLowerCase()),
     );
-  }, [search]);
+  }, [doc, search]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    getDoc()
+  },[])
 
   return (
     <>
@@ -123,7 +97,6 @@ export default function DokumenPage() {
 
                 <TableHead>Ringkasan</TableHead>
 
-                <TableHead className="w-40">Tanggal</TableHead>
 
                 <TableHead className="text-center w-48">Aksi</TableHead>
               </TableRow>
@@ -144,14 +117,13 @@ export default function DokumenPage() {
                     </TableCell>
 
                     <TableCell className="font-medium">
-                      {doc.document_name}
+                      {doc.name_doc}
                     </TableCell>
 
                     <TableCell className="text-muted-foreground">
                       {doc.summary}
                     </TableCell>
 
-                    <TableCell>{formatDateID(doc.created_at)}</TableCell>
 
                     <TableCell>
                       <div className="flex justify-center">
@@ -159,7 +131,7 @@ export default function DokumenPage() {
                           asChild
                           className="bg-[#1A4D2E] hover:bg-[#2B593A]"
                         >
-                          <Link href={doc.drive_url} target="_blank">
+                          <Link href={doc.link} target="_blank">
                             <ExternalLink className="mr-2 h-4 w-4" />
                             Buka Dokumen
                           </Link>
@@ -184,16 +156,14 @@ export default function DokumenPage() {
 
                   <div className="flex-1">
                     <h2 className="font-semibold text-[#1A4D2E]">
-                      {doc.document_name}
+                      {doc.name_doc}
                     </h2>
 
                     <p className="text-sm text-muted-foreground mt-2">
                       {doc.summary}
                     </p>
 
-                    <p className="text-xs mt-3 text-gray-500">
-                      {formatDateID(doc.created_at)}
-                    </p>
+                    
                   </div>
                 </div>
 
@@ -201,7 +171,7 @@ export default function DokumenPage() {
                   asChild
                   className="w-full mt-6 bg-[#1A4D2E] hover:bg-[#2B593A]"
                 >
-                  <Link href={doc.drive_url} target="_blank">
+                  <Link href={doc.link} target="_blank">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Buka Dokumen
                   </Link>

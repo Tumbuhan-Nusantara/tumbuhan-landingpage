@@ -234,3 +234,9 @@ export interface DampakLandingPageType{
   sejak: string;
   total: string;
 }
+export interface DokumenLandingPageType{
+  id: number;
+  name_doc: string;
+  summary: string;
+  link: string
+}
