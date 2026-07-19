@@ -232,7 +232,8 @@ export interface VisiLandingPageType{
 
 export interface DampakLandingPageType{
   id: number;
-  keterangan: string;
+  keterangan_id: string;
+  keterangan_en: string;
   sejak: string;
   total: string;
 }
