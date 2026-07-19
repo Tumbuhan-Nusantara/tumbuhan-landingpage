@@ -87,6 +87,22 @@
     "misi4": "Meningkatkan, menyebarluaskan pemahaman dan kecintaan masyarakat pada tumbuhan asli Indonesia",
     "tujuan": "Lembaga ini bertujuan untuk mencatat, mempublikasi, menyebarluaskan keragaman spesies tumbuhan asli Indonesia, serta membantu dalam mengawasi peredaran dan transaksi tumbuhan asli Indonesia yang bekerjasama dengan instansi-instansi otoritas, serta mengupayakan konservasi dan restorasi spesies tumbuhan asli dan hutan secara umum."
   },
+  "sejarah": {
+    "title": "Sejarah",
+    "content1": "Yayasan Tumbuhan Asli Nusantara (YTAN / Indonesian Native Plants Foundation) adalah organisasi non-pemerintah yang didirikan pada Juni 2023 dengan fokus pada pelestarian tumbuhan dan hutan di Indonesia.",
+    "content2": "Terbentuknya Tumbuhan Asli Nusantara berawal dari kelompok kecil yang berkomitmen untuk mempublikasikan data dan informasi dasar keanekaragaman tumbuhan asli Indonesia melalui voluntary project",
+    "content3": "YTAN didirikan untuk meningkatkan pengelolaan sumber daya hutandan keanekaragaman spesies tumbuhan melalui kegiatan penelitian, konservasi, restorasi, dan edukasi.",
+    "content4": "Selama hampir tiga tahun, YTAN telah berkolaborasi dengan pemerintah, sektor swasta, universitas, serta institusi internasional dalam berbagai proyek terkait keanekaragaman tumbuhan asli Indonesia.",
+    "content5": "Melalui berbagai kolaborasi tersebut, YTAN berkomitmen membangun kerja sama dengan berbagai pihak, baik nasional maupun internasional, untuk mengkaji, melestarikan, dan menjaga keberlanjutan tumbuhan asli Indonesia bagi generasi mendatang.",
+    "titlefocusAreas": "Fokus Kegiatan",
+    "focusAreas": {
+    "biodiversity": "Keanekaragaman Hayati",
+    "plantDatabase": "Basis Data Tumbuhan",
+    "newSpecies": "Penemuan Spesies Baru & Publikasi",
+    "bioprospecting": "Studi Bioprospeksi",
+    "exSituConservation": "Konservasi Ex Situ",
+    "redListAssessment": "Penilaian Daftar Merah Tumbuhan"
+  },
   "dash": {
     "beranda": "Beranda",
     "hero": "Hero",
@@ -106,4 +122,4 @@
     "kegiatan": "Total Kegiatan",
     "berita": "Total Berita"
   }
-}
+}}

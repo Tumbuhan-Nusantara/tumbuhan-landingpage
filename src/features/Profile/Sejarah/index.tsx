@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { SejarahFocus } from "@/src/constants";
 
 const SejarahProfileFeat = () => {
+  const s = useTranslations("sejarah");
   useEffect(() => {
     Aos.init();
   }, []);
@@ -17,7 +20,7 @@ const SejarahProfileFeat = () => {
         data-aos-duration="900"
       >
         <h1 className="text-4xl md:text-5xl font-bold text-[#1A4D2E]">
-          Sejarah
+          {s("title")}
         </h1>
 
         <div className="w-24 h-1 bg-[#2B593A] rounded-full mx-auto mt-4" />
@@ -41,16 +44,11 @@ const SejarahProfileFeat = () => {
 
           <div className="p-8 md:p-10 lg:p-12 space-y-6">
             <p className="text-[#486451] leading-8 text-justify">
-              Yayasan Tumbuhan Asli Nusantara (YTAN / Indonesian Native Plants
-              Foundation) adalah organisasi non-pemerintah yang didirikan pada
-              Juni 2023 dengan fokus pada pelestarian tumbuhan dan hutan di
-              Indonesia.
+              {s("content1")}
             </p>
 
             <p className="text-[#486451] leading-8 text-justify">
-              Terbentuknya Tumbuhan Asli Nusantara berawal dari kelompok kecil
-              yang berkomitmen untuk mempublikasikan data dan informasi dasar
-              keanekaragaman tumbuhan asli Indonesia melalui voluntary project
+              <p>{s("content2")}</p>
               <span className="font-semibold">
                 {" "}
                 Digital Flora of Indonesia{" "}
@@ -65,56 +63,33 @@ const SejarahProfileFeat = () => {
             </p>
 
             <p className="text-[#486451] leading-8 text-justify">
-              YTAN didirikan untuk meningkatkan pengelolaan sumber daya hutan
-              dan keanekaragaman spesies tumbuhan melalui kegiatan penelitian,
-              konservasi, restorasi, dan edukasi.
+              {s("content3")}
             </p>
           </div>
         </div>
 
         <div className="border-t bg-[#FAFCFB] p-8 md:p-10 lg:p-12 space-y-6">
           <h2 className="text-2xl font-semibold text-[#1A4D2E]">
-            Fokus Kegiatan
+            {s("titlefocusAreas")}
           </h2>
 
           <p className="text-[#486451] leading-8 text-justify">
-            Selama hampir tiga tahun, YTAN telah berkolaborasi dengan
-            pemerintah, sektor swasta, universitas, serta institusi
-            internasional dalam berbagai proyek terkait keanekaragaman tumbuhan
-            asli Indonesia.
+            {s("content4")}
           </p>
-
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-xl bg-[#F4FBF6] p-5">
-              🌿 Keanekaragaman Hayati
-            </div>
+            {SejarahFocus.map((item) => (
+              <div className="flex items-center gap-2 rounded-xl bg-[#F4FBF6] p-5" key={item.id}>
+                <item.logo className="h-5 w-5 text-[#2B593A]" />
 
-            <div className="rounded-xl bg-[#F4FBF6] p-5">
-              📚 Basis Data Tumbuhan
-            </div>
-
-            <div className="rounded-xl bg-[#F4FBF6] p-5">
-              🔬 Penemuan Spesies Baru & Publikasi
-            </div>
-
-            <div className="rounded-xl bg-[#F4FBF6] p-5">
-              🧬 Studi Bioprospeksi
-            </div>
-
-            <div className="rounded-xl bg-[#F4FBF6] p-5">
-              🌱 Konservasi Ex Situ
-            </div>
-
-            <div className="rounded-xl bg-[#F4FBF6] p-5">
-              📖 Penilaian Daftar Merah Tumbuhan
-            </div>
+                <span className="font-medium">
+                  {s(`focusAreas.${item.title}`)}
+                </span>
+              </div>
+            ))}
           </div>
 
           <p className="text-[#486451] leading-8 text-justify">
-            Melalui berbagai kolaborasi tersebut, YTAN berkomitmen membangun
-            kerja sama dengan berbagai pihak, baik nasional maupun
-            internasional, untuk mengkaji, melestarikan, dan menjaga
-            keberlanjutan tumbuhan asli Indonesia bagi generasi mendatang.
+            {s("content5")}
           </p>
         </div>
       </div>

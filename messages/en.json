@@ -88,6 +88,23 @@
     "misi4": "Increasing and spread the understanding and society's interest to Indonesian native plants",
     "tujuan": "This organization aims to document, publish, and disseminate information on the diversity of Indonesia’s native plant species, as well as to support the monitoring of the distribution and trade of native plants in collaboration with relevant authorities and institutions. In addition, the organization is committed to promoting the conservation and restoration of native plant species and forest ecosystems in general."
   },
+  "sejarah": {
+    "title": "History of YTAN",
+    "content1": "The Indonesian Native Plants Foundation (Yayasan Tumbuhan Asli Nusantara – YTAN) is a non-governmental organization established in June 2023 with a primary focus on the conservation of Indonesia's native plant diversity and forest ecosystems.",
+    "content2": "The foundation originated from a small group of researchers and volunteers committed to documenting and disseminating fundamental data on Indonesia's native plant diversity through the voluntary initiative",
+    "content3": "YTAN was established to strengthen the sustainable management of forest resources and plant biodiversity through scientific research, conservation, ecological restoration, and environmental education.",
+    "content4": "Over the past three years, YTAN has collaborated with government agencies, private-sector partners, universities, and international institutions on a wide range of initiatives related to the study and conservation of Indonesia's native plant diversity.",
+    "content5": "Through these collaborative efforts, YTAN is committed to fostering partnerships at both the national and international levels to advance scientific knowledge, promote the conservation of native plant diversity, and support the long-term sustainability of Indonesia's botanical heritage for future generations.",
+    "titlefocusAreas": "Focus Areas",
+    "focusAreas": {
+      "biodiversity": "Biodiversity",
+      "plantDatabase": "Plant Database",
+      "newSpecies": "New Species Discovery & Scientific Publications",
+      "bioprospecting": "Bioprospecting Studies",
+      "exSituConservation": "Ex Situ Conservation",
+      "redListAssessment": "Plant Red List Assessment"
+    }
+  },
   "dash": {
     "beranda": "Home",
     "hero": "Hero",

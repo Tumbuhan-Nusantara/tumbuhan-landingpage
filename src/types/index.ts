@@ -243,3 +243,9 @@ export interface DokumenLandingPageType{
   summary: string;
   link: string
 }
+
+export interface FocusArea {
+  id: number;
+  title: string;
+  logo: LucideIcon;
+}
