@@ -30,7 +30,7 @@ export const LandingMenu: LandingMenuType[] = [
       { id: 2, sub: "team", path: "/profile/tim-ytan" },
       { id: 3, sub: "visi", path: "/profile/visi-misi" },
       { id: 4, sub: "structure", path: "/profile/struktur-organisasi" },
-      { id: 5, sub: "structure", path: "/profile/dokumen" },
+      { id: 5, sub: "doc", path: "/profile/dokumen" },
     ],
   },
   {
@@ -39,7 +39,6 @@ export const LandingMenu: LandingMenuType[] = [
     path: "/kegiatan",
   },
   { id: 5, title: "news", path: "/berita" },
-  { id: 6, title: "contact" },
 ];
 
 export const Contacts: LogoContacs[] = [
