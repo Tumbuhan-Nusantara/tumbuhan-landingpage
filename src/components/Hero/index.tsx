@@ -7,11 +7,11 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import { getTranslation } from "@/src/lib/translation";
 
 const Hero = () => {
   const h = useTranslations("hero");
-  useLocale();
-
+  const locale = useLocale();
   const router = useRouter();
 
   const [hero, setHero] = useState<HeroLandingPageType | null>(null);
@@ -41,7 +41,7 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-duration="2000"
             >
-              {hero?.beranda}
+              {getTranslation(locale, hero?.beranda_id, hero?.beranda_en)}
             </h1>
           </div>
           <div className="w-full md:w-full lg:w-xl">
@@ -53,7 +53,7 @@ const Hero = () => {
               <span className="font-bold text-[#2B593A]">
                 Yayasan Tumbuhan Asli Nusantara Foundation
               </span>{" "}
-              {hero?.deskripsi}
+              {getTranslation(locale, hero?.deskripsi_id, hero?.deskripsi_en)}
             </p>
           </div>
           <div>

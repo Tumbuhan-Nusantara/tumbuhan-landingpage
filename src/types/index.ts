@@ -209,8 +209,10 @@ export interface CreateStrukturDashType {
 
 export interface HeroLandingPageType{
   id:number;
-  beranda: string;
-  deskripsi: string
+  beranda_id: string;
+  beranda_en: string;
+  deskripsi_id: string
+  deskripsi_en: string
 }
 
 export interface NewsLandingPageType{
