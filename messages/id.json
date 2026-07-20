@@ -102,6 +102,11 @@
     "bioprospecting": "Studi Bioprospeksi",
     "exSituConservation": "Konservasi Ex Situ",
     "redListAssessment": "Penilaian Daftar Merah Tumbuhan"
+  }},
+  "berita2": {
+    "title" : "Berita",
+    "desc": "Ikuti seluruh informasi terbaru mengenai Yayasan Tumbuhan Asli Nusantara.",
+    "detail": "Baca Selengkapnya"
   },
   "dash": {
     "beranda": "Beranda",
@@ -122,4 +127,4 @@
     "kegiatan": "Total Kegiatan",
     "berita": "Total Berita"
   }
-}}
+}

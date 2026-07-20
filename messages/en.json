@@ -105,6 +105,11 @@
       "redListAssessment": "Plant Red List Assessment"
     }
   },
+  "berita2": {
+    "title" : "News",
+    "desc": "Stay informed with the latest news, research activities, conservation initiatives, publications, and institutional updates from the Indonesian Native Plants Foundation (YTAN).",
+    "detail": "View Details"
+  },
   "dash": {
     "beranda": "Home",
     "hero": "Hero",
