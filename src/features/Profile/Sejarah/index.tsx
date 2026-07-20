@@ -48,7 +48,7 @@ const SejarahProfileFeat = () => {
             </p>
 
             <p className="text-[#486451] leading-8 text-justify">
-              <p>{s("content2")}</p>
+              {s("content2")}
               <span className="font-semibold">
                 {" "}
                 Digital Flora of Indonesia{" "}
