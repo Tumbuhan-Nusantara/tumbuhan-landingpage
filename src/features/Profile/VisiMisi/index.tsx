@@ -7,16 +7,18 @@ import "aos/dist/aos.css";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { getTranslation } from "@/src/lib/translation";
 
 const VisiMisiFeat = () => {
   const v = useTranslations("visimisi");
-  useLocale();
+  const locale = useLocale();
 
   const [visi, setVisi] = useState<VisiLandingPageType | null>(null);
   const getVisi = async () => {
     try {
       const response = await axiosInstance.get(`/api/v1/vission`);
       setVisi(response.data.data[0]);
+      console.log(response.data.data[0]);
     } catch (error) {
       throw error;
     }
@@ -68,7 +70,7 @@ const VisiMisiFeat = () => {
           </span>
 
           <p className="mt-6 text-justify leading-8 text-[#486451]">
-            {visi?.visi}
+            {getTranslation(locale, visi?.visi_id, visi?.visi_en)}
           </p>
         </div>
       </section>

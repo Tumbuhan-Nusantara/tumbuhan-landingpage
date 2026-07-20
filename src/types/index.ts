@@ -227,7 +227,8 @@ export interface NewsLandingPageType{
 
 export interface VisiLandingPageType{
   id: number;
-  visi: string
+  visi_id: string
+  visi_en: string
 }
 
 export interface DampakLandingPageType{
