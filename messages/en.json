@@ -77,9 +77,19 @@
       }
     }
   },
-  "edukasi": {
-    "title": "Education",
-    "desc": "YTAN is committed to spreading knowledge about plant biodiversity and its conservation to a wider audience. Through this effort, we hope biodiversity awareness can become an important part of everyday life for the people of Indonesia."
+  "kegiatan":{
+    "title": "Activities",
+    "desc": "The Indonesian Native Plants Foundation (YTAN) conducts research, conservation, education, and scientific publication initiatives to support the preservation of Indonesia's native plant diversity.",
+    "publikasi": "Scientific Publications",
+    "descPublikasi": "Scientific publications produced by members of the Indonesian Native Plants Foundation, contributing to botanical research and biodiversity conservation.",
+    "riset": "Research & Exploration",
+    "descRiset": "Research and botanical exploration activities aimed at documenting, studying, and expanding knowledge of Indonesia's native flora.",
+    "edu": "Education",
+    "descEdu": "Educational programs that promote public understanding of plant biodiversity and the importance of conservation.",
+    "konserv": "Conservation & Restoration",
+    "descK": "Conservation and restoration initiatives focused on protecting native plant species and their habitats to ensure the long-term sustainability of Indonesia's biodiversity.",
+    "descPublikasiDetail": "Scientific publications published by or involving researchers from Yayasan Tumbuhan Asli Nusantara during ",
+    "buttonBack": "Back to Activities Page"
   },
   "visimisi": {
     "misi1": "To increase the number and quality of research on Indonesian native plants",

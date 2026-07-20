@@ -76,9 +76,19 @@
       }
     }
   },
-  "edukasi":{
-    "title": "Edukasi",
-    "desc": "YTAN berkomitmen dalam menyebarluaskan pengetahuan mengenai keanekaragaman hayati tumbuhan dan konservasinya kepada khalayak yang seluas-luasnya. Hal ini kami lakukan agar terjadi keanekaragaman hayati dapat menjadi bagian penting dalam kehidupan sehari-hari masyarakat Indonesia."
+  "kegiatan":{
+    "title": "Kegiatan",
+    "desc": "Yayasan Tumbuhan Asli Nusantara menjalankan berbagai kegiatan di bidang penelitian, konservasi, edukasi, dan publikasi ilmiah untuk mendukung pelestarian keanekaragaman tumbuhan asli Indonesia.",
+    "publikasi": "Publikasi Ilmiah",
+    "descPublikasi": "Publikasi ilmiah yang dihasilkan oleh anggota Yayasan Tumbuhan Asli Nusantara sebagai kontribusi terhadap penelitian tumbuhan dan konservasi keanekaragaman hayati.",
+    "riset": "Riset dan Eksplorasi",
+    "descRiset": "Kegiatan penelitian dan eksplorasi tumbuhan yang bertujuan mendokumentasikan, mengkaji, dan memperluas pengetahuan mengenai flora asli Indonesia.",
+    "edu": "Edukasi",
+    "descEdu": "Program edukasi untuk meningkatkan pemahaman masyarakat mengenai keanekaragaman tumbuhan dan pentingnya upaya konservasi.",
+    "konserv": "Konservasi dan Restorasi",
+    "descK": "Kegiatan konservasi dan restorasi untuk melindungi tumbuhan asli beserta habitatnya demi menjaga keberlanjutan keanekaragaman hayati Indonesia.",
+    "descPublikasiDetail": "Publikasi ilmiah yang diterbitkan maupun melibatkan peneliti Yayasan Tumbuhan Asli Nusantara selama tahun",
+    "buttonBack": "Kembali ke Kegiatan"
   },
   "visimisi": {
     "misi1": "Meningkatkan jumlah dan kualitas penelitian mengenai tumbuhan asli Indonesia",

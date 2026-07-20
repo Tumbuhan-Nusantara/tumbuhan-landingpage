@@ -1,19 +1,12 @@
-import React from "react";
+import { useTranslations } from "next-intl";
 
 const KegiatanRiset = () => {
+  const k = useTranslations("kegiatan");
   return (
     <div>
-      <div className="text-black flex flex-col gap-2  py-2 mx-8">
-        <h1 className="text-2xl font-bold  text-[#1A4D2E]">
-          Riset dan Eksplorasi
-        </h1>
-        <p>
-          Berikut ini merupakan kegiatan penelitian dan eksplorasi flora
-          Indonesia yang sedang berjalan beserta progress dan luaran pada
-          masing-masing kegiatan.
-        </p>
+        <h1 className="text-2xl font-bold  text-[#1A4D2E]">{k("riset")}</h1>
+        <p className="mt-2 leading-8 text-muted-foreground">{k("descRiset")}</p>
       </div>
-    </div>
   );
 };
 
