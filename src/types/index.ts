@@ -230,6 +230,16 @@ export interface VisiLandingPageType{
   visi_id: string
   visi_en: string
 }
+export interface MisiType{
+  id: number;
+  content_id: string
+  content_en: string
+}
+export interface GoalType{
+  id: number;
+  goal_id: string
+  goal_en: string
+}
 
 export interface DampakLandingPageType{
   id: number;

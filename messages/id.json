@@ -91,11 +91,11 @@
     "buttonBack": "Kembali ke Kegiatan"
   },
   "visimisi": {
-    "misi1": "Meningkatkan jumlah dan kualitas penelitian mengenai tumbuhan asli Indonesia",
-    "misi2": "Membangun serta memperkuat jaringan kerjasama sesama pegiat, pecinta, akademisi, dan para ilmuan tumbuhan, pemangku kepentingan dan pemegang kebijakan, baik itu bersama pemerintah maupun lembaga-lembaga non-pemerintahan lainnya.",
-    "misi3": "Turut berupaya melestarikan keanekaragaman spesies tumbuhan asli Indonesia dengan upaya konservasi spesies dan restorasi hutan.",
-    "misi4": "Meningkatkan, menyebarluaskan pemahaman dan kecintaan masyarakat pada tumbuhan asli Indonesia",
-    "tujuan": "Lembaga ini bertujuan untuk mencatat, mempublikasi, menyebarluaskan keragaman spesies tumbuhan asli Indonesia, serta membantu dalam mengawasi peredaran dan transaksi tumbuhan asli Indonesia yang bekerjasama dengan instansi-instansi otoritas, serta mengupayakan konservasi dan restorasi spesies tumbuhan asli dan hutan secara umum."
+    "title": "Visi, Misi & Tujuan",
+    "visi": "VISI KAMI",
+    "misi": "Misi Kami",
+    "misidesc": "Langkah nyata yang kami lakukan untuk mewujudkan visi organisasi.",
+    "tujuan": "Tujuan"
   },
   "sejarah": {
     "title": "Sejarah",

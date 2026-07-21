@@ -91,12 +91,12 @@
     "descPublikasiDetail": "Scientific publications published by or involving researchers from Yayasan Tumbuhan Asli Nusantara during ",
     "buttonBack": "Back to Activities Page"
   },
-  "visimisi": {
-    "misi1": "To increase the number and quality of research on Indonesian native plants",
-    "misi2": "Build and strengthening collaborations among enthusiasts, academicians, plant scientists, and stakeholders with either government or non-government institutions",
-    "misi3": "Preserving the Indonesian native plant through conservation and ecosystem restoration",
-    "misi4": "Increasing and spread the understanding and society's interest to Indonesian native plants",
-    "tujuan": "This organization aims to document, publish, and disseminate information on the diversity of Indonesia’s native plant species, as well as to support the monitoring of the distribution and trade of native plants in collaboration with relevant authorities and institutions. In addition, the organization is committed to promoting the conservation and restoration of native plant species and forest ecosystems in general."
+   "visimisi": {
+    "title": "Vission, Missions & Goal",
+    "visi": "Our Vission",
+    "misi": "Our Missions",
+    "misidesc": "Strategic initiatives undertaken to realize the organization's vision.",
+    "tujuan": "Goal"
   },
   "sejarah": {
     "title": "History of YTAN",
