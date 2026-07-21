@@ -12,7 +12,7 @@ export default async function LocaleLayout(props: {
   console.log("LAYOUT PARAM LOCALE:", locale);
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages} data-scroll-behavior="smooth">
       {props.children}
     </NextIntlClientProvider>
   );

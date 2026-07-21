@@ -1,18 +1,25 @@
 import {
+  BookOpen,
   CirclePile,
+  Database,
+  Dna,
   FileStack,
   House,
   Landmark,
+  Leaf,
   Library,
   Mails,
+  Microscope,
   Newspaper,
   NotebookText,
+  Sprout,
   UserRoundCog,
   Users,
 } from "lucide-react";
 import {
   ArticleGroup,
   DashMain,
+  FocusArea,
   LandingMenuType,
   LogoContacs,
   SejarahType,
@@ -371,3 +378,36 @@ export const DashMainMenu: DashMain[] = [
   {id: 2, title: "kegiatan", logo: Newspaper},
   {id: 3, title: "berita", logo: Mails},
 ]
+
+export const SejarahFocus: FocusArea[] = [
+  {
+    id: 1,
+    title: "biodiversity",
+    logo: Leaf,
+  },
+  {
+    id: 2,
+    title: "plantDatabase",
+    logo: Database,
+  },
+  {
+    id: 3,
+    title: "newSpecies",
+    logo: Microscope,
+  },
+  {
+    id: 4,
+    title: "bioprospecting",
+    logo: Dna,
+  },
+  {
+    id: 5,
+    title: "exSituConservation",
+    logo: Sprout,
+  },
+  {
+    id: 6,
+    title: "redListAssessment",
+    logo: BookOpen,
+  },
+];

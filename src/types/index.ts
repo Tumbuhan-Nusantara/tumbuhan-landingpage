@@ -209,8 +209,10 @@ export interface CreateStrukturDashType {
 
 export interface HeroLandingPageType{
   id:number;
-  beranda: string;
-  deskripsi: string
+  beranda_id: string;
+  beranda_en: string;
+  deskripsi_id: string
+  deskripsi_en: string
 }
 
 export interface NewsLandingPageType{
@@ -225,12 +227,24 @@ export interface NewsLandingPageType{
 
 export interface VisiLandingPageType{
   id: number;
-  visi: string
+  visi_id: string
+  visi_en: string
+}
+export interface MisiType{
+  id: number;
+  content_id: string
+  content_en: string
+}
+export interface GoalType{
+  id: number;
+  goal_id: string
+  goal_en: string
 }
 
 export interface DampakLandingPageType{
   id: number;
-  keterangan: string;
+  keterangan_id: string;
+  keterangan_en: string;
   sejak: string;
   total: string;
 }
@@ -239,4 +253,10 @@ export interface DokumenLandingPageType{
   name_doc: string;
   summary: string;
   link: string
+}
+
+export interface FocusArea {
+  id: number;
+  title: string;
+  logo: LucideIcon;
 }

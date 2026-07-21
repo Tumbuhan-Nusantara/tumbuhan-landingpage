@@ -24,15 +24,7 @@
   },
   "dampak": {
     "title": "Dampak Positif",
-    "desc": "telah melakukan kegiatan sesuai visi dan misinya di berbagai tempat di Indonesia, baik berupa kegiatan hingga penyusunan data spesies tumbuhan yang ada di Indonesia.",
-    "terdata": "Spesies Terdata",
-    "nilaiTerdata": "23,212",
-    "baru": "Spesies Baru",
-    "nilaiBaru": "22",
-    "penelitian": "Penelitian",
-    "nilaiPenelitian": "33",
-    "edukasi": "Edukasi",
-    "nilaiEdukasi": "7"
+    "desc": "telah melakukan kegiatan sesuai visi dan misinya di berbagai tempat di Indonesia, baik berupa kegiatan hingga penyusunan data spesies tumbuhan yang ada di Indonesia."
   },
   "botani": {
     "title": "Botani untuk Semua",
@@ -84,16 +76,47 @@
       }
     }
   },
-  "edukasi":{
-    "title": "Edukasi",
-    "desc": "YTAN berkomitmen dalam menyebarluaskan pengetahuan mengenai keanekaragaman hayati tumbuhan dan konservasinya kepada khalayak yang seluas-luasnya. Hal ini kami lakukan agar terjadi keanekaragaman hayati dapat menjadi bagian penting dalam kehidupan sehari-hari masyarakat Indonesia."
+  "kegiatan":{
+    "title": "Kegiatan",
+    "desc": "Yayasan Tumbuhan Asli Nusantara menjalankan berbagai kegiatan di bidang penelitian, konservasi, edukasi, dan publikasi ilmiah untuk mendukung pelestarian keanekaragaman tumbuhan asli Indonesia.",
+    "publikasi": "Publikasi Ilmiah",
+    "descPublikasi": "Publikasi ilmiah yang dihasilkan oleh anggota Yayasan Tumbuhan Asli Nusantara sebagai kontribusi terhadap penelitian tumbuhan dan konservasi keanekaragaman hayati.",
+    "riset": "Riset dan Eksplorasi",
+    "descRiset": "Kegiatan penelitian dan eksplorasi tumbuhan yang bertujuan mendokumentasikan, mengkaji, dan memperluas pengetahuan mengenai flora asli Indonesia.",
+    "edu": "Edukasi",
+    "descEdu": "Program edukasi untuk meningkatkan pemahaman masyarakat mengenai keanekaragaman tumbuhan dan pentingnya upaya konservasi.",
+    "konserv": "Konservasi dan Restorasi",
+    "descK": "Kegiatan konservasi dan restorasi untuk melindungi tumbuhan asli beserta habitatnya demi menjaga keberlanjutan keanekaragaman hayati Indonesia.",
+    "descPublikasiDetail": "Publikasi ilmiah yang diterbitkan maupun melibatkan peneliti Yayasan Tumbuhan Asli Nusantara selama tahun",
+    "buttonBack": "Kembali ke Kegiatan"
   },
   "visimisi": {
-    "misi1": "Meningkatkan jumlah dan kualitas penelitian mengenai tumbuhan asli Indonesia",
-    "misi2": "Membangun serta memperkuat jaringan kerjasama sesama pegiat, pecinta, akademisi, dan para ilmuan tumbuhan, pemangku kepentingan dan pemegang kebijakan, baik itu bersama pemerintah maupun lembaga-lembaga non-pemerintahan lainnya.",
-    "misi3": "Turut berupaya melestarikan keanekaragaman spesies tumbuhan asli Indonesia dengan upaya konservasi spesies dan restorasi hutan.",
-    "misi4": "Meningkatkan, menyebarluaskan pemahaman dan kecintaan masyarakat pada tumbuhan asli Indonesia",
-    "tujuan": "Lembaga ini bertujuan untuk mencatat, mempublikasi, menyebarluaskan keragaman spesies tumbuhan asli Indonesia, serta membantu dalam mengawasi peredaran dan transaksi tumbuhan asli Indonesia yang bekerjasama dengan instansi-instansi otoritas, serta mengupayakan konservasi dan restorasi spesies tumbuhan asli dan hutan secara umum."
+    "title": "Visi, Misi & Tujuan",
+    "visi": "VISI KAMI",
+    "misi": "Misi Kami",
+    "misidesc": "Langkah nyata yang kami lakukan untuk mewujudkan visi organisasi.",
+    "tujuan": "Tujuan"
+  },
+  "sejarah": {
+    "title": "Sejarah",
+    "content1": "Yayasan Tumbuhan Asli Nusantara (YTAN / Indonesian Native Plants Foundation) adalah organisasi non-pemerintah yang didirikan pada Juni 2023 dengan fokus pada pelestarian tumbuhan dan hutan di Indonesia.",
+    "content2": "Terbentuknya Tumbuhan Asli Nusantara berawal dari kelompok kecil yang berkomitmen untuk mempublikasikan data dan informasi dasar keanekaragaman tumbuhan asli Indonesia melalui voluntary project",
+    "content3": "YTAN didirikan untuk meningkatkan pengelolaan sumber daya hutandan keanekaragaman spesies tumbuhan melalui kegiatan penelitian, konservasi, restorasi, dan edukasi.",
+    "content4": "Selama hampir tiga tahun, YTAN telah berkolaborasi dengan pemerintah, sektor swasta, universitas, serta institusi internasional dalam berbagai proyek terkait keanekaragaman tumbuhan asli Indonesia.",
+    "content5": "Melalui berbagai kolaborasi tersebut, YTAN berkomitmen membangun kerja sama dengan berbagai pihak, baik nasional maupun internasional, untuk mengkaji, melestarikan, dan menjaga keberlanjutan tumbuhan asli Indonesia bagi generasi mendatang.",
+    "titlefocusAreas": "Fokus Kegiatan",
+    "focusAreas": {
+    "biodiversity": "Keanekaragaman Hayati",
+    "plantDatabase": "Basis Data Tumbuhan",
+    "newSpecies": "Penemuan Spesies Baru & Publikasi",
+    "bioprospecting": "Studi Bioprospeksi",
+    "exSituConservation": "Konservasi Ex Situ",
+    "redListAssessment": "Penilaian Daftar Merah Tumbuhan"
+  }},
+  "berita2": {
+    "title" : "Berita",
+    "desc": "Ikuti seluruh informasi terbaru mengenai Yayasan Tumbuhan Asli Nusantara.",
+    "detail": "Baca Selengkapnya"
   },
   "dash": {
     "beranda": "Beranda",
