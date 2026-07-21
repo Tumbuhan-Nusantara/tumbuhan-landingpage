@@ -76,7 +76,7 @@
       }
     }
   },
-  "kegiatan":{
+  "kegiatan": {
     "title": "Kegiatan",
     "desc": "Yayasan Tumbuhan Asli Nusantara menjalankan berbagai kegiatan di bidang penelitian, konservasi, edukasi, dan publikasi ilmiah untuk mendukung pelestarian keanekaragaman tumbuhan asli Indonesia.",
     "publikasi": "Publikasi Ilmiah",
@@ -106,23 +106,31 @@
     "content5": "Melalui berbagai kolaborasi tersebut, YTAN berkomitmen membangun kerja sama dengan berbagai pihak, baik nasional maupun internasional, untuk mengkaji, melestarikan, dan menjaga keberlanjutan tumbuhan asli Indonesia bagi generasi mendatang.",
     "titlefocusAreas": "Fokus Kegiatan",
     "focusAreas": {
-    "biodiversity": "Keanekaragaman Hayati",
-    "plantDatabase": "Basis Data Tumbuhan",
-    "newSpecies": "Penemuan Spesies Baru & Publikasi",
-    "bioprospecting": "Studi Bioprospeksi",
-    "exSituConservation": "Konservasi Ex Situ",
-    "redListAssessment": "Penilaian Daftar Merah Tumbuhan"
-  }},
+      "biodiversity": "Keanekaragaman Hayati",
+      "plantDatabase": "Basis Data Tumbuhan",
+      "newSpecies": "Penemuan Spesies Baru & Publikasi",
+      "bioprospecting": "Studi Bioprospeksi",
+      "exSituConservation": "Konservasi Ex Situ",
+      "redListAssessment": "Penilaian Daftar Merah Tumbuhan"
+    }
+  },
   "berita2": {
-    "title" : "Berita",
+    "title": "Berita",
     "desc": "Ikuti seluruh informasi terbaru mengenai Yayasan Tumbuhan Asli Nusantara.",
     "detail": "Baca Selengkapnya"
   },
   "dash": {
     "beranda": "Beranda",
-     "ket": "Konten ini ditampilkan pada banner utama website.",
+    "ket": "Konten ini ditampilkan pada banner utama website.",
     "keterangan": "Keterangan",
     "hero": "Hero",
+    "profileTitle": "Pengguna Dashboard",
+    "profileDesc": "Kelola akun pengguna yang memiliki akses ke Dashboard YTAN.",
+    "profileButton": "Tambah Pengguna",
+    "createProfile": "Tambah Anggota Tim",
+    "createProfileDesc": "Tambahkan pengguna baru untuk mengakses Dashboard Yayasan Tumbuhan Asli Nusantara.",
+    "createProfileDes1": "Informasi Anggota",
+    "createProfileDes2": "Lengkapi data pengguna yang akan diberikan akses ke dashboard.",
     "user": "Pengguna",
     "role": "Peran Pengguna",
     "profile": "Profil",

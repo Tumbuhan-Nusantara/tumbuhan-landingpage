@@ -1,7 +1,7 @@
 "use client";
 import CreateEditSkeleton from "@/src/components/Skeletons/CreateEditSk";
 import { Button } from "@/src/components/ui/button";
-import { Card } from "@/src/components/ui/card";
+import { Card, CardContent } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import { Toaster } from "@/src/components/ui/sonner";
@@ -75,75 +75,104 @@ const CreateTeam = () => {
   }
 
   return (
-    <div className="p-8">
+    <div className="p-6 space-y-6">
       <Toaster position="top-center" richColors />
-      <div className="mb-6">
+
+      <div>
         <h1 className="text-3xl font-bold text-[#1A4D2E]">
           Tambah Anggota Tim
         </h1>
 
-        <p className="text-muted-foreground mt-1">
-          Tambahkan pengguna dashboard Yayasan Tumbuhan Asli Nusantara.
+        <p className="mt-2 text-muted-foreground">
+          Tambahkan pengguna baru untuk mengakses Dashboard Yayasan Tumbuhan
+          Asli Nusantara.
         </p>
       </div>
 
-      <Card className="max-w-3xl p-8 shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="grid gap-2">
-            <Label>Username</Label>
-            <Input
-              name="username"
-              value={createTeam.username}
-              onChange={handleChange}
-            />
-          </div>
+      <Card className="overflow-hidden border-0 shadow-lg">
+        <div className="bg-linear-to-r from-[#1A4D2E] via-[#2F6B45] to-[#4F8A5B] px-8 py-6">
+          <div className="text-white">
+            <h2 className="text-2xl font-semibold">Informasi Anggota</h2>
 
-          <div className="grid gap-2">
-            <Label>Email</Label>
-            <Input
-              type="email"
-              name="email"
-              value={createTeam.email}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <Label>Nama Depan</Label>
-            <Input
-              name="first_name"
-              value={createTeam.first_name}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <Label>Nama Belakang</Label>
-            <Input
-              name="last_name"
-              value={createTeam.last_name}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <Label>No. Handphone</Label>
-            <Input
-              type="number"
-              name="phone_number"
-              value={createTeam.phone_number}
-              onChange={handleChange}
-            />
+            <p className="mt-2 text-sm text-green-100">
+              Lengkapi data pengguna yang akan diberikan akses ke dashboard.
+            </p>
           </div>
         </div>
 
-        <Button
-          onClick={createData}
-          disabled={!isFormValid || loading}
-          className="bg-[#1A4D2E] hover:bg-[#3f8159] mt-6"
-        >
-          Tambah User
-        </Button>
+        <CardContent className="bg-white p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <Label>Username</Label>
+              <Input
+                name="username"
+                placeholder="Masukkan username"
+                value={createTeam.username}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Email</Label>
+              <Input
+                type="email"
+                name="email"
+                placeholder="contoh@email.com"
+                value={createTeam.email}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Nama Depan</Label>
+              <Input
+                name="first_name"
+                placeholder="Nama depan"
+                value={createTeam.first_name}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Nama Belakang</Label>
+              <Input
+                name="last_name"
+                placeholder="Nama belakang"
+                value={createTeam.last_name}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>Nomor Handphone</Label>
+              <Input
+                type="tel"
+                name="phone_number"
+                placeholder="08xxxxxxxxxx"
+                value={createTeam.phone_number}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="mt-10 flex justify-end gap-3">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => router.back()}
+            >
+              Batal
+            </Button>
+
+            <Button
+              onClick={createData}
+              disabled={!isFormValid || loading}
+              className="bg-[#1A4D2E] hover:bg-[#2B6B45] min-w-40"
+            >
+              {loading ? "Menyimpan..." : "Tambah Anggota"}
+            </Button>
+          </div>
+        </CardContent>
       </Card>
     </div>
   );

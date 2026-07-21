@@ -1,7 +1,7 @@
 "use client";
 import CreateEditSkeleton from "@/src/components/Skeletons/CreateEditSk";
 import { Button } from "@/src/components/ui/button";
-import { Card } from "@/src/components/ui/card";
+import { Card , CardContent} from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import { Toaster } from "@/src/components/ui/sonner";
@@ -91,92 +91,120 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
   }
 
   return (
-    <div className="p-8">
-      <Toaster position="top-center" richColors />
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-[#1A4D2E]">Edit Anggota Tim</h1>
+    <div className="p-6 space-y-6">
+  <Toaster position="top-center" richColors />
 
-        <p className="text-muted-foreground mt-1">
-          Perbarui informasi pengguna dashboard Yayasan Tumbuhan Asli Nusantara.
+  <div>
+    <h1 className="text-3xl font-bold text-[#1A4D2E]">
+      Edit Anggota Tim
+    </h1>
+
+    <p className="mt-2 text-muted-foreground">
+      Perbarui informasi pengguna Dashboard Yayasan Tumbuhan Asli Nusantara.
+    </p>
+  </div>
+
+  <Card className="overflow-hidden border-0 shadow-lg">
+
+    <div className="bg-linear-to-r from-[#1A4D2E] via-[#2F6B45] to-[#4F8A5B] px-8 py-6">
+      <div className="text-white">
+        <h2 className="text-2xl font-semibold">
+          Informasi Anggota
+        </h2>
+
+        <p className="mt-2 text-sm text-green-100">
+          Perbarui informasi pengguna yang memiliki akses ke dashboard.
         </p>
       </div>
-      <Card className="max-w-3xl p-8 shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="grid gap-2">
-            <Label>Username</Label>
-            <Input
-              className="text-sm"
-              name="username"
-              type="text"
-              value={team?.username ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label>Email</Label>
-            <Input
-              className="text-sm"
-              name="email"
-              type="email"
-              value={team?.email ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label>Nama Depan</Label>
-            <Input
-              className="text-sm"
-              name="first_name"
-              type="text"
-              value={team?.first_name ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label>Nama Belakang</Label>
-            <Input
-              className="text-sm"
-              name="last_name"
-              type="text"
-              value={team?.last_name ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <Label>No. Handphone</Label>
-            <Input
-              className="text-sm"
-              name="phone_number"
-              type="number"
-              value={team?.phone_number ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div className="flex justify-end gap-3 mt-8">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => router.back()}
-            disabled={saving}
-            className="cursor-pointer"
-          >
-            Batal
-          </Button>
-
-          <Button
-            type="button"
-            onClick={handleUpdate}
-            disabled={!isChanged || saving}
-            className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer min-w-40"
-          >
-            {saving ? "Menyimpan..." : "Simpan Perubahan"}
-          </Button>
-        </div>
-      </Card>
     </div>
+
+    <CardContent className="bg-white p-8">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div className="space-y-2">
+          <Label>Username</Label>
+          <Input
+            name="username"
+            type="text"
+            className="text-sm"
+            value={team?.username ?? ""}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label>Email</Label>
+          <Input
+            name="email"
+            type="email"
+            className="text-sm"
+            value={team?.email ?? ""}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label>Nama Depan</Label>
+          <Input
+            name="first_name"
+            type="text"
+            className="text-sm"
+            value={team?.first_name ?? ""}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label>Nama Belakang</Label>
+          <Input
+            name="last_name"
+            type="text"
+            className="text-sm"
+            value={team?.last_name ?? ""}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="space-y-2 md:col-span-2">
+          <Label>Nomor Handphone</Label>
+          <Input
+            name="phone_number"
+            type="tel"
+            className="text-sm"
+            value={team?.phone_number ?? ""}
+            onChange={handleChange}
+          />
+        </div>
+
+      </div>
+
+      <div className="flex justify-end gap-3 mt-10">
+
+        <Button
+          type="button"
+          variant="outline"
+          onClick={() => router.back()}
+          disabled={saving}
+          className="cursor-pointer"
+        >
+          Batal
+        </Button>
+
+        <Button
+          type="button"
+          onClick={handleUpdate}
+          disabled={!isChanged || saving}
+          className="bg-[#1A4D2E] hover:bg-[#2B6B45] min-w-44 cursor-pointer"
+        >
+          {saving ? "Menyimpan..." : "Simpan Perubahan"}
+        </Button>
+
+      </div>
+
+    </CardContent>
+  </Card>
+</div>
   );
 };
 
