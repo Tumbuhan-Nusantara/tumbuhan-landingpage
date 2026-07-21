@@ -2,7 +2,7 @@
 import { Button } from "@/src/components/ui/button";
 import { axiosInstance } from "@/src/lib/axios";
 import { useRouter } from "@/src/i18n/navigation";
-import { HeroLandingPageType } from "@/src/types";
+import { HeroType } from "@/src/types";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useLocale, useTranslations } from "next-intl";
@@ -14,7 +14,7 @@ const Hero = () => {
   const locale = useLocale();
   const router = useRouter();
 
-  const [hero, setHero] = useState<HeroLandingPageType | null>(null);
+  const [hero, setHero] = useState<HeroType | null>(null);
   const getHero = async () => {
     try {
       const response = await axiosInstance.get(`/api/v1/hero`);

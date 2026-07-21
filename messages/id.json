@@ -120,6 +120,8 @@
   },
   "dash": {
     "beranda": "Beranda",
+     "ket": "Konten ini ditampilkan pada banner utama website.",
+    "keterangan": "Keterangan",
     "hero": "Hero",
     "user": "Pengguna",
     "role": "Peran Pengguna",

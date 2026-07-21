@@ -74,10 +74,13 @@ export interface DashMisi{
 }
 
 //api
+
 export interface HeroType{
-  id: number;
-  beranda: string;
-  deskripsi: string;
+  id:number;
+  beranda_id: string;
+  beranda_en: string;
+  deskripsi_id: string
+  deskripsi_en: string
 }
 
 export interface CreateArticleDashType{
@@ -207,13 +210,7 @@ export interface CreateStrukturDashType {
   name: string;
 }
 
-export interface HeroLandingPageType{
-  id:number;
-  beranda_id: string;
-  beranda_en: string;
-  deskripsi_id: string
-  deskripsi_en: string
-}
+
 
 export interface NewsLandingPageType{
   id: number;

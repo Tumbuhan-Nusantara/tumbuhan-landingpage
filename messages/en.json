@@ -122,6 +122,8 @@
   },
   "dash": {
     "beranda": "Home",
+    "ket": "Manage the content displayed in the website's hero section.",
+    "keterangan": "Description",
     "hero": "Hero",
     "user": "User",
     "role": "Role",
