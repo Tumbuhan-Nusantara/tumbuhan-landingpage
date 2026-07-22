@@ -39,17 +39,15 @@ export const columns = (
                 <Eye className="h-4 w-4" />
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="sm:max-w-2xl">
               <DialogHeader>
-                <DialogTitle className="text-gray-500 text-md">
-                  Detail Artikel
-                </DialogTitle>
-                <DialogDescription asChild>
-                  <div aria-describedby="Detail Artikel">
-                    <DetailArticle articleId={article.id} />
-                  </div>
+                <DialogTitle>Detail Publikasi Ilmiah</DialogTitle>
+                <DialogDescription>
+                  Informasi lengkap mengenai publikasi ilmiah yang dipilih.
                 </DialogDescription>
               </DialogHeader>
+
+              <DetailArticle articleId={article.id} />
             </DialogContent>
           </Dialog>
 

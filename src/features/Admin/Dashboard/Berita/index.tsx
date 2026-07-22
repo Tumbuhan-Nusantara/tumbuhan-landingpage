@@ -3,7 +3,7 @@ import { DataTable } from "@/src/components/Data Table/data-table";
 import { columns } from "@/src/components/Data Table/newscolumns";
 import FormSkeleton from "@/src/components/Skeletons/FormSk";
 import { Button } from "@/src/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/src/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import { Toaster } from "@/src/components/ui/sonner";
@@ -113,116 +113,125 @@ const BeritaDashboard = () => {
     );
   }
   return (
-    <div className="p-8">
+    <div className="p-6 space-y-6">
       <Toaster position="top-center" richColors />
-      <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">Berita</h1>
-      <div>
-        <Card className="bg-[url('/image.png')] bg-cover">
-          <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-            Tambah Berita Terbaru
-          </h1>
-          <Card className="max-w-4xl mx-4">
-            <CardContent className="flex flex-col gap-6">
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Judul Berita</Label>
-                  <Input
-                    type="text"
-                    name="news_name"
-                    id="news_name"
-                    autoComplete="news_name"
-                    value={formData.news_name}
-                    onChange={handleChange}
-                    placeholder="Judul Berita"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Deskripsi</Label>
-                  <Textarea
-                    name="deskripsi"
-                    id="deskripsi"
-                    autoComplete="deskripsi"
-                    value={formData.deskripsi}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Tanggal Berita</Label>
-                  <Input
-                    type="date"
-                    name="tanggal_berita"
-                    id="tanggal_berita"
-                    value={formData.tanggal_berita ?? ""}
-                    onChange={handleChange}
-                    placeholder="Tanggal Berita"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Lokasi</Label>
-                  <Input
-                    type="text"
-                    name="tempat"
-                    id="tempat"
-                    autoComplete="tempat"
-                    value={formData.tempat}
-                    onChange={handleChange}
-                    placeholder="Lokasi"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Upload Foto Berita</Label>
-                  <Input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Link Video</Label>
-                  <Input
-                    type="text"
-                    name="video_link"
-                    id="video_link"
-                    autoComplete="video_link"
-                    value={formData.video_link}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-            </CardContent>
 
-            <CardFooter className="justify-end">
-              <Button
-                onClick={createNews}
-                className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
-              >
-                Tambah Berita
-              </Button>
-            </CardFooter>
-          </Card>
-          <div className="max-w-4xl my-4">
-            <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-              Kelola Berita Terbaru
-            </h1>
-            <DataTable columns={columns(getNews)} data={news} />
-          </div>
-        </Card>
+      <div>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">Berita</h1>
+
+        <p className="mt-2 text-muted-foreground">
+          Kelola berita terbaru yang akan ditampilkan pada website.
+        </p>
       </div>
+
+      <Card className="overflow-hidden border-0 shadow-lg">
+        <div className="bg-linear-to-r from-[#1A4D2E] via-[#2B6B45] to-[#4F8A5B] px-8 py-6">
+          <h2 className="text-2xl font-semibold text-white">Tambah Berita</h2>
+
+          <p className="mt-2 text-sm text-green-100">
+            Lengkapi informasi berita beserta dokumentasi yang akan
+            dipublikasikan.
+          </p>
+        </div>
+
+        <CardContent className="p-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-2">
+              <Label>Judul Berita</Label>
+
+              <Input
+                name="news_name"
+                value={formData.news_name}
+                onChange={handleChange}
+                placeholder="Masukkan judul berita"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Tanggal Berita</Label>
+
+              <Input
+                type="date"
+                name="tanggal_berita"
+                value={formData.tanggal_berita ?? ""}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Lokasi</Label>
+
+              <Input
+                name="tempat"
+                value={formData.tempat}
+                onChange={handleChange}
+                placeholder="Masukkan lokasi berita"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Link Video (Opsional)</Label>
+
+              <Input
+                name="video_link"
+                value={formData.video_link}
+                onChange={handleChange}
+                placeholder="https://youtube.com/..."
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>Deskripsi</Label>
+
+              <Textarea
+                rows={6}
+                name="deskripsi"
+                value={formData.deskripsi}
+                onChange={handleChange}
+                placeholder="Masukkan isi berita..."
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>Foto Berita</Label>
+
+              <Input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+              />
+
+              <p className="text-xs text-muted-foreground">
+                Format yang didukung: JPG, JPEG, PNG.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+
+        <CardFooter className="justify-end border-t bg-muted/30 px-8 py-4">
+          <Button
+            onClick={createNews}
+            className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
+          >
+            Tambah Berita
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle className="text-[#1A4D2E]">Daftar Berita</CardTitle>
+
+          <CardDescription>
+            Kelola seluruh berita yang telah ditambahkan.
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <DataTable columns={columns(getNews)} data={news} />
+        </CardContent>
+      </Card>
     </div>
   );
 };

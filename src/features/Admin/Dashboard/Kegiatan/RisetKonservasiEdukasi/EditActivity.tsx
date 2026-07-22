@@ -1,7 +1,6 @@
 "use client";
-import CreateEditSkeleton from "@/src/components/Skeletons/CreateEditSk";
 import { Button } from "@/src/components/ui/button";
-import { Card } from "@/src/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import {
@@ -22,6 +21,8 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { Textarea } from "@/src/components/ui/textarea";
+import FormSkeleton from "@/src/components/Skeletons/FormSk";
 
 const EditActivity = ({ activityId }: ActivityPropsType) => {
   const [act, setAct] = useState<ActivityDashType | null>(null);
@@ -102,7 +103,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
       });
 
       toast.success("Kegiatan berhasil diperbarui");
-      router.push("/admin/dashboard/berita");
+      router.push("/admin/dashboard/kegiatan");
     } catch (err) {
       console.error(err);
       toast.error("Gagal memperbarui kegiatan");
@@ -138,128 +139,164 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
   }, []);
 
   if (loading) {
-    return <CreateEditSkeleton />;
+    return <FormSkeleton />;
   }
   return (
-    <div className="p-8">
+    <div className="p-6 space-y-6">
       <Toaster position="top-center" richColors />
-      <div className="mb-6">
+
+      <div>
         <h1 className="text-3xl font-bold text-[#1A4D2E]">Edit Kegiatan</h1>
 
-        <p className="text-muted-foreground mt-1">
-          Perbarui informasi Kegiatan Yayasan Tumbuhan Asli Nusantara.
+        <p className="mt-2 text-muted-foreground">
+          Perbarui informasi kegiatan Yayasan Tumbuhan Asli Nusantara.
         </p>
       </div>
-      <Card className="max-w-3xl p-8 shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="grid gap-2">
-            <Label>Jenis Kegiatan</Label>
-            <Select
-              value={act?.tipe_kegiatan_id?.toString()}
-              onValueChange={(value) =>
-                setAct((prev) =>
-                  prev
-                    ? {
-                        ...prev,
-                        tipe_kegiatan_id: Number(value),
-                      }
-                    : null,
-                )
-              }
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Pilih tipe kegiatan" />
-              </SelectTrigger>
 
-              <SelectContent>
-                {types.map((item) => (
-                  <SelectItem key={item.id} value={item.id.toString()}>
-                    {item.nama_tipe}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="grid gap-2">
-            <Label>Kegiatan</Label>
-            <Input
-              className="text-sm"
-              name="activity_name"
-              type="text"
-              value={act?.activity_name ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label>Deskripsi</Label>
-            <Input
-              className="text-sm"
-              name="deskripsi"
-              type="text"
-              value={act?.deskripsi ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label>Tanggal Kegiatan</Label>
-            <Input
-              type="date"
-              className="text-sm"
-              name="tanggal_kegiatan"
-              value={act?.tanggal_kegiatan ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label>Lokasi</Label>
-            <Input
-              className="text-sm"
-              name="tempat"
-              type="text"
-              value={act?.tempat ?? ""}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid gap-2 md:col-span-2">
-            <Label>Foto Saat Ini</Label>
+      <Card className="max-w-5xl overflow-hidden shadow-lg">
+        <CardHeader className="border-b bg-muted/30">
+          <CardTitle className="text-xl text-[#1A4D2E]">
+            Informasi Kegiatan
+          </CardTitle>
 
-            {act?.photo_url && (
-              <div className="space-y-2">
-                <Image
-                  src={act.photo_url}
-                  alt={act.activity_name}
-                  width={350}
-                  height={220}
-                  className="rounded-lg border object-cover"
-                  unoptimized
-                />
+          <CardDescription>
+            Perbarui informasi kegiatan beserta dokumentasi yang akan
+            ditampilkan pada website.
+          </CardDescription>
+        </CardHeader>
 
-                <p className="text-xs text-muted-foreground">
-                  {act.photo_url.split("/").pop()}
-                </p>
+        <CardContent className="p-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-2">
+              <Label>Jenis Kegiatan</Label>
+
+              <Select
+                value={act?.tipe_kegiatan_id?.toString()}
+                onValueChange={(value) =>
+                  setAct((prev) =>
+                    prev
+                      ? {
+                          ...prev,
+                          tipe_kegiatan_id: Number(value),
+                        }
+                      : null,
+                  )
+                }
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Pilih tipe kegiatan" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  {types.map((item) => (
+                    <SelectItem key={item.id} value={item.id.toString()}>
+                      {item.nama_tipe}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label>Nama Kegiatan</Label>
+
+              <Input
+                name="activity_name"
+                value={act?.activity_name ?? ""}
+                onChange={handleChange}
+                placeholder="Masukkan nama kegiatan"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Tanggal Kegiatan</Label>
+
+              <Input
+                type="date"
+                name="tanggal_kegiatan"
+                value={act?.tanggal_kegiatan ?? ""}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Lokasi</Label>
+
+              <Input
+                name="tempat"
+                value={act?.tempat ?? ""}
+                onChange={handleChange}
+                placeholder="Masukkan lokasi kegiatan"
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>Deskripsi</Label>
+
+              <Textarea
+                name="deskripsi"
+                rows={5}
+                value={act?.deskripsi ?? ""}
+                onChange={handleChange}
+                placeholder="Masukkan deskripsi kegiatan..."
+              />
+            </div>
+
+            <div className="space-y-3 md:col-span-2">
+              <Label>Dokumentasi Saat Ini</Label>
+
+              <div className="rounded-xl border bg-muted/20 p-4">
+                {act?.photo_url ? (
+                  <>
+                    <Image
+                      src={act.photo_url}
+                      alt={act.activity_name}
+                      width={900}
+                      height={600}
+                      className="h-72 w-full rounded-lg object-cover"
+                      unoptimized
+                    />
+
+                    <p className="mt-3 text-xs text-muted-foreground break-all">
+                      {act.photo_url.split("/").pop()}
+                    </p>
+                  </>
+                ) : (
+                  <div className="flex h-52 items-center justify-center rounded-lg border border-dashed">
+                    <p className="text-sm text-muted-foreground">
+                      Belum ada dokumentasi yang diunggah.
+                    </p>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            </div>
 
-          <div className="grid gap-2 md:col-span-2">
-            <Label>Ganti Foto</Label>
+            <div className="space-y-2 md:col-span-2">
+              <Label>Ganti Dokumentasi</Label>
 
-            <Input type="file" accept="image/*" onChange={handleFileChange} />
-          </div>
-          <div className="flex gap-3 mt-8">
-            <Button variant="outline" onClick={() => router.back()}>
-              Batal
-            </Button>
+              <Input type="file" accept="image/*" onChange={handleFileChange} />
 
-            <Button
-              onClick={handleUpdate}
-              disabled={!isChanged}
-              className="bg-[#1A4D2E] hover:bg-[#3f8159] disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Simpan Perubahan
-            </Button>
+              <p className="text-xs text-muted-foreground">
+                Upload foto baru hanya jika ingin mengganti dokumentasi
+                kegiatan. Format yang didukung: JPG, JPEG, PNG.
+              </p>
+            </div>
           </div>
-        </div>
+        </CardContent>
+
+        <CardFooter className="flex justify-end gap-3 border-t bg-muted/30 px-8 py-5">
+          <Button variant="outline" onClick={() => router.back()}>
+            Batal
+          </Button>
+
+          <Button
+            onClick={handleUpdate}
+            disabled={!isChanged}
+            className="bg-[#1A4D2E] hover:bg-[#2B6B45] disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Simpan Perubahan
+          </Button>
+        </CardFooter>
       </Card>
     </div>
   );

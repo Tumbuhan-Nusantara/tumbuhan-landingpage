@@ -10,6 +10,8 @@ import { toast } from "sonner";
 
 const EditArticle = ({ idCode, onSuccess }: PropsType) => {
   const [art, setArt] = useState<ArticleDashType | null>(null);
+  const [originalArt, setOriginalArt] = useState<ArticleDashType | null>(null);
+
   useEffect(() => {
     const getArticle = async (id: number) => {
       console.log(id);
@@ -17,6 +19,7 @@ const EditArticle = ({ idCode, onSuccess }: PropsType) => {
         const response = await axiosInstance.get(`/api/v1/articles/${id}`);
         const article = response.data;
         setArt(article);
+        setOriginalArt(article);
       } catch (error) {
         throw error;
       }
@@ -53,68 +56,86 @@ const EditArticle = ({ idCode, onSuccess }: PropsType) => {
       };
     });
   };
+
+  const isChanged =
+    art &&
+    originalArt &&
+    (art.judul !== originalArt.judul ||
+      art.doi !== originalArt.doi ||
+      art.tahun !== originalArt.tahun ||
+      art.volume !== originalArt.volume ||
+      art.link !== originalArt.link);
   return (
-    <div>
+    <div className="space-y-5">
       <Toaster position="top-center" richColors />
-      <div className="space-y-4">
-        <div className="grid gap-2">
-          <Label>Judul</Label>
+
+      <div className="space-y-2">
+        <Label htmlFor="judul">Judul Artikel</Label>
+        <Input
+          id="judul"
+          name="judul"
+          value={art?.judul ?? ""}
+          onChange={handleChange}
+          placeholder="Masukkan judul artikel"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="doi">Penulis</Label>
+        <Input
+          id="doi"
+          name="doi"
+          value={art?.doi ?? ""}
+          onChange={handleChange}
+          placeholder="Contoh: John Doe, Jane Doe"
+        />
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="tahun">Tahun</Label>
           <Input
-            className="text-sm"
-            name="judul"
-            type="text"
-            value={art?.judul ?? ""}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label>Penulis</Label>
-          <Input
-            className="text-sm"
-            name="doi"
-            type="text"
-            value={art?.doi ?? ""}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label>Tahun</Label>
-          <Input
-            className="text-sm"
+            id="tahun"
             name="tahun"
             type="number"
             value={art?.tahun ?? ""}
             onChange={handleChange}
+            placeholder="2026"
           />
         </div>
-        <div className="grid gap-2">
-          <Label>Volume</Label>
+
+        <div className="space-y-2">
+          <Label htmlFor="volume">Jurnal & Volume</Label>
           <Input
-            className="text-sm"
+            id="volume"
             name="volume"
-            type="text"
             value={art?.volume ?? ""}
             onChange={handleChange}
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label>Link</Label>
-          <Input
-            className="text-sm"
-            name="link"
-            type="text"
-            value={art?.link ?? ""}
-            onChange={handleChange}
+            placeholder="Journal, Vol. 19"
           />
         </div>
       </div>
 
-      <Button
-        onClick={handleUpdate}
-        className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer mt-6"
-      >
-        Simpan Perubahan
-      </Button>
+      <div className="space-y-2">
+        <Label htmlFor="link">DOI / Link Artikel</Label>
+        <Input
+          id="link"
+          name="link"
+          value={art?.link ?? ""}
+          onChange={handleChange}
+          placeholder="https://doi.org/..."
+        />
+      </div>
+
+      <div className="flex justify-end pt-2 border-t">
+        <Button
+          onClick={handleUpdate}
+          disabled={!isChanged}
+          className="bg-[#1A4D2E] hover:bg-[#2B6B45] disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          Simpan Perubahan
+        </Button>
+      </div>
     </div>
   );
 };
