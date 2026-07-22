@@ -185,19 +185,22 @@ export interface TeamPropsType{
   teamId: number;
 }
 
-export interface VisiDashType{
+export interface VisiType{
   id: number;
-  visi: string;
+  visi_id: string;
+  visi_en: string;
 }
 
-export interface MisiDashType{
+export interface MisiType{
   id: number;
-  content: string;
+  content_id: string;
+  content_en: string;
 }
 
-export interface TujuanDashType{
+export interface TujuanType{
   id: number;
-  goal: string;
+  goal_id: string;
+  goal_en: string;
 }
 
 export interface StrukturDashType {

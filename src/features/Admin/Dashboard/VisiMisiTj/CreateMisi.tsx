@@ -12,11 +12,16 @@ interface Props {
 
 const CreateMisi = ({ onSuccess }: Props) => {
   const [misi, setMisi] = useState({
-    content: "",
+    content_id: "",
+    content_en: "",
   });
 
   const createMisi = async () => {
-    if (!misi.content.trim()) {
+    if (!misi.content_id.trim()) {
+      toast.error("Field tidak boleh kosong");
+      return;
+    }
+    if (!misi.content_en.trim()) {
       toast.error("Field tidak boleh kosong");
       return;
     }
@@ -26,7 +31,8 @@ const CreateMisi = ({ onSuccess }: Props) => {
       toast.success("Misi berhasil dibuat");
 
       setMisi({
-        content: "",
+        content_id: "",
+        content_en: "",
       });
       onSuccess();
     } catch (err) {
@@ -44,25 +50,40 @@ const CreateMisi = ({ onSuccess }: Props) => {
     }));
   };
   return (
-    <div>
-      <Toaster position="top-center" richColors />
-      <div className="grid gap-2">
-        <Label>Misi</Label>
+    <div className="space-y-5">
+
+      <div className="space-y-2">
+        <Label htmlFor="content_id">Misi (Bahasa Indonesia)</Label>
         <Input
-          type="text"
-          name="content"
-          id="content"
-          autoComplete="content"
-          value={misi.content}
+          id="content_id"
+          name="content_id"
+          value={misi.content_id}
           onChange={handleChange}
+          placeholder="Masukkan misi dalam Bahasa Indonesia"
+          autoComplete="off"
           required
         />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="content_en">Mission (English)</Label>
+        <Input
+          id="content_en"
+          name="content_en"
+          value={misi.content_en}
+          onChange={handleChange}
+          placeholder="Enter mission in English"
+          autoComplete="off"
+          required
+        />
+      </div>
+
+      <div className="flex justify-end pt-2">
         <Button
           onClick={createMisi}
-          size="sm"
-          className="bg-[#1A4D2E] hover:bg-[#3f8159 cursor-pointer"
+          className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
         >
-          Buat
+          Buat Misi
         </Button>
       </div>
     </div>

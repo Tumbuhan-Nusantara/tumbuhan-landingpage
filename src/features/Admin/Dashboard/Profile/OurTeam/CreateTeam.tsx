@@ -10,6 +10,7 @@ import { useRouter } from "@/src/i18n/navigation";
 import { CreateUserDashType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 const CreateTeam = () => {
   const [createTeam, setCreateTeam] = useState<CreateUserDashType>({
@@ -23,6 +24,7 @@ const CreateTeam = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   const router = useRouter();
+  const c = useTranslations('dash')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -80,22 +82,21 @@ const CreateTeam = () => {
 
       <div>
         <h1 className="text-3xl font-bold text-[#1A4D2E]">
-          Tambah Anggota Tim
+          {c('createProfile')}
         </h1>
 
         <p className="mt-2 text-muted-foreground">
-          Tambahkan pengguna baru untuk mengakses Dashboard Yayasan Tumbuhan
-          Asli Nusantara.
+          {c('createProfileDesc')}
         </p>
       </div>
 
       <Card className="overflow-hidden border-0 shadow-lg">
         <div className="bg-linear-to-r from-[#1A4D2E] via-[#2F6B45] to-[#4F8A5B] px-8 py-6">
           <div className="text-white">
-            <h2 className="text-2xl font-semibold">Informasi Anggota</h2>
+            <h2 className="text-2xl font-semibold">{c('createProfileDesc1')}</h2>
 
             <p className="mt-2 text-sm text-green-100">
-              Lengkapi data pengguna yang akan diberikan akses ke dashboard.
+              {c('createProfileDesc2')}
             </p>
           </div>
         </div>
