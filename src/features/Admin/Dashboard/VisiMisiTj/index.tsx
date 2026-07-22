@@ -19,8 +19,10 @@ import {
 import CreateMisi from "./CreateMisi";
 import DeleteMisi from "./DeleteMisi";
 import DashVisiMisiSkeleton from "@/src/components/Skeletons/DashVisiMisiSk";
+import { useTranslations } from "next-intl";
 
 const DashVisiMisiTjFeat = () => {
+  const v = useTranslations("dash");
   const [visi, setVisi] = useState<VisiType | null>(null);
   const [misi, setMisi] = useState<MisiType[]>([]);
   const [tujuan, setTujuan] = useState<TujuanType | null>(null);
@@ -98,7 +100,6 @@ const DashVisiMisiTjFeat = () => {
       setLoading(true);
 
       await Promise.all([getVission(), getMission(), getTujuan()]);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
     } finally {
       setLoading(false);
     }
@@ -170,24 +171,19 @@ const DashVisiMisiTjFeat = () => {
   return (
     <div className="p-6 space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-[#1A4D2E]">
-          Visi, Misi & Tujuan
-        </h1>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{v("vismis2")}</h1>
 
-        <p className="mt-2 text-muted-foreground">
-          Kelola informasi visi, misi, dan tujuan Yayasan Tumbuhan Asli
-          Nusantara.
-        </p>
+        <p className="mt-2 text-muted-foreground">{v("vismisDesc")}</p>
       </div>
 
       <Card className="overflow-hidden border-0 shadow-lg">
         <div className="bg-linear-to-r from-[#1A4D2E] via-[#2F6B45] to-[#4F8A5B] px-8 py-6">
           <h2 className="text-2xl font-semibold text-white">
-            Informasi Organisasi
+            {v("vismisTitle")}
           </h2>
 
           <p className="mt-2 text-green-100 text-sm">
-            Perbarui visi, misi, dan tujuan yang ditampilkan pada website.
+           {v('vismisTitleDesc')}
           </p>
         </div>
 
@@ -195,10 +191,10 @@ const DashVisiMisiTjFeat = () => {
           <Card className="shadow-sm border">
             <CardHeader className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-[#1A4D2E]">Visi</h3>
+                <h3 className="text-xl font-semibold text-[#1A4D2E]">{v('visi')}</h3>
 
                 <p className="text-sm text-muted-foreground mt-1">
-                  Pernyataan visi organisasi yang ditampilkan pada website.
+                  {v('visiDesc')}
                 </p>
               </div>
 
@@ -228,7 +224,7 @@ const DashVisiMisiTjFeat = () => {
 
             <CardContent className="space-y-6">
               <div className="grid gap-2">
-                <Label>Bahasa Indonesia</Label>
+                <Label>Visi (Bahasa Indonesia)</Label>
 
                 <Textarea
                   value={visi?.visi_id || ""}
@@ -249,7 +245,7 @@ const DashVisiMisiTjFeat = () => {
             </CardContent>
             <CardContent className="space-y-6">
               <div className="grid gap-2">
-                <Label>Bahasa Inggris</Label>
+                <Label>Vission (English)</Label>
 
                 <Textarea
                   value={visi?.visi_en || ""}
@@ -273,10 +269,10 @@ const DashVisiMisiTjFeat = () => {
           <Card className="shadow-sm border">
             <CardHeader className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-[#1A4D2E]">Misi</h3>
+                <h3 className="text-xl font-semibold text-[#1A4D2E]">{v('misi')}</h3>
 
                 <p className="text-sm text-muted-foreground mt-1">
-                  Daftar misi organisasi yang ditampilkan pada website.
+                  {v('misiDesc')}
                 </p>
               </div>
 
@@ -288,7 +284,6 @@ const DashVisiMisiTjFeat = () => {
                   </Button>
                 </DialogTrigger>
 
-               
                 <DialogContent className="sm:max-w-lg">
                   <DialogHeader>
                     <DialogTitle>Tambah Misi</DialogTitle>
@@ -384,10 +379,10 @@ const DashVisiMisiTjFeat = () => {
           <Card className="shadow-sm border">
             <CardHeader className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-[#1A4D2E]">Tujuan</h3>
+                <h3 className="text-xl font-semibold text-[#1A4D2E]">{v('tj')}</h3>
 
                 <p className="text-sm text-muted-foreground mt-1">
-                  Tujuan organisasi yang ditampilkan pada website.
+                 {v('tjDesc')}
                 </p>
               </div>
 

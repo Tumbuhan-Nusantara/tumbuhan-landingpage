@@ -77,7 +77,7 @@
       }
     }
   },
-  "kegiatan":{
+  "kegiatan": {
     "title": "Activities",
     "desc": "The Indonesian Native Plants Foundation (YTAN) conducts research, conservation, education, and scientific publication initiatives to support the preservation of Indonesia's native plant diversity.",
     "publikasi": "Scientific Publications",
@@ -91,7 +91,7 @@
     "descPublikasiDetail": "Scientific publications published by or involving researchers from Yayasan Tumbuhan Asli Nusantara during ",
     "buttonBack": "Back to Activities Page"
   },
-   "visimisi": {
+  "visimisi": {
     "title": "Vission, Missions & Goal",
     "visi": "Our Vission",
     "misi": "Our Missions",
@@ -116,7 +116,7 @@
     }
   },
   "berita2": {
-    "title" : "News",
+    "title": "News",
     "desc": "Stay informed with the latest news, research activities, conservation initiatives, publications, and institutional updates from the Indonesian Native Plants Foundation (YTAN).",
     "detail": "View Details"
   },
@@ -129,14 +129,24 @@
     "profileDesc": "Manage user accounts with access to the YTAN Dashboard.",
     "profileButton": "Add User",
     "createProfile": "Add Team Member",
-  "createProfileDesc": "Create a new dashboard user for the Yayasan Tumbuhan Asli Nusantara.",
-  "createProfileDes1": "Member Information",
-  "createProfileDes2": "Provide the required information to create a new dashboard account.",
+    "createProfileDesc": "Create a new dashboard user for the Yayasan Tumbuhan Asli Nusantara.",
+    "createProfileDes1": "Member Information",
+    "createProfileDes2": "Provide the required information to create a new dashboard account.",
     "user": "User",
     "role": "Role",
     "profile": "Profile",
     "tim": "Our Team",
     "vismis": "Vision & Mission",
+    "vismis2": "Vision, Mission & Goals",
+    "vismisDesc": "Manage the organization's vision, mission, and goals for Yayasan Tumbuhan Asli Nusantara.",
+    "vismisTitle": "Organizational Information",
+    "vismisTitleDesc": "Update the vision, mission, and organizational goals displayed on the website.",
+    "visi": "Vision",
+    "visiDesc": "The organization's vision statement displayed on the website.",
+    "misi": "Mission",
+    "misiDesc": "The list of the organization's mission statements displayed on the website.",
+    "tj": "Goals",
+    "tjDesc": "The organization's goals displayed on the website.",
     "struktur": "Organizational Structure",
     "kegiatan": "Activites",
     "publikasi": "Publications",
