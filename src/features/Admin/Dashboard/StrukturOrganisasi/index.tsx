@@ -17,8 +17,10 @@ import {
   DialogDescription,
 } from "@/src/components/ui/dialog";
 import CreateStruktur from "./CreateStruktur";
+import { useTranslations } from "next-intl";
 
 const StrukturOrgDash = () => {
+  const s = useTranslations("dash");
   const [struktur, setStruktur] = useState<StrukturDashType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -49,46 +51,52 @@ const StrukturOrgDash = () => {
     );
   }
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
-        Struktur Organisasi
-      </h1>
+    <div className="p-6 space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{s("struktur")}</h1>
+        <p className="mt-2 text-muted-foreground">{s("strukturDesc")}</p>
+      </div>
+      <Card className="overflow-hidden border-0 shadow-lg">
+        <div className="bg-linear-to-r from-[#1A4D2E] via-[#2F6B45] to-[#4F8A5B] px-8 py-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-2xl font-semibold text-white">
+                {s("strukturTitle")}
+              </h2>
+              <p className="mt-2 text-sm text-green-100">
+                {s("strukturDesc2")}
+              </p>
+            </div>
 
-      <Card className="bg-[url('/image.png')] bg-cover">
-        <div className="flex items-center justify-between mx-6">
-          <h1 className=" text-[#1A4D2E] font-semibold ">
-            Kelola informasi Struktur Organisasi
-          </h1>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                className="flex items-center bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
-                size="sm"
-              >
-                <Plus />
-                Tambah Kategori Posisi
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle className="text-gray-500 text-md">
-                  Tambah Kategori Posisi
-                </DialogTitle>
-                <DialogDescription asChild>
-                  <div aria-describedby="Detail Artikel">
-                    <CreateStruktur onSuccess={getData} />
-                  </div>
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="bg-white text-[#1A4D2E] hover:bg-green-50">
+                  <Plus className="mr-2 h-4 w-4" />
+                  {s("strukturButton")}
+                </Button>
+              </DialogTrigger>
+      
+              <DialogContent className="sm:max-w-lg">
+                <DialogHeader>
+                  <DialogTitle>{s("strukturButton")}</DialogTitle>
+                  <DialogDescription>
+                    {s("strukturButtonDesc")}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <CreateStruktur onSuccess={getData} />
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
 
-        <Card className="mx-2 my-4 md:mx-4 max-w-4xl">
-          <CardContent className="grid gap-6">
-            <DataTable columns={columns(getData)} data={struktur} />
-          </CardContent>
-        </Card>
+        <CardContent className="p-8">
+          <Card className="shadow-sm border">
+            <CardContent className="p-6">
+              <DataTable columns={columns(getData)} data={struktur} />
+            </CardContent>
+          </Card>
+        </CardContent>
       </Card>
     </div>
   );

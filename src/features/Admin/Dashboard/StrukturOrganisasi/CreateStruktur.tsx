@@ -5,12 +5,14 @@ import { axiosInstance } from "@/src/lib/axios";
 import { CreateStrukturDashType } from "@/src/types";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 interface Props {
   onSuccess: () => void;
 }
 
 const CreateStruktur = ({ onSuccess }: Props) => {
+  const s = useTranslations('dash')
   const [add, setAdd] = useState<CreateStrukturDashType>({
     position: "",
     name: "",
@@ -45,7 +47,7 @@ const CreateStruktur = ({ onSuccess }: Props) => {
   return (
     <div className="space-y-4">
       <div className="grid gap-2">
-        <Label>Posisi</Label>
+        <Label>{s('strukturPosisi')}</Label>
         <Input
           className="text-sm"
           name="position"
@@ -55,7 +57,7 @@ const CreateStruktur = ({ onSuccess }: Props) => {
         />
       </div>
       <div className="grid gap-2">
-        <Label>Nama</Label>
+        <Label>{s('strukturNama')}</Label>
         <Input
           className="text-sm"
           name="name"
