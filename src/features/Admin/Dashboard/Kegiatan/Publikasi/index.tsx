@@ -3,16 +3,24 @@ import { columns } from "@/src/components/Data Table/articlecolumns";
 import { DataTable } from "@/src/components/Data Table/data-table";
 import FormSkeleton from "@/src/components/Skeletons/FormSk";
 import { Button } from "@/src/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/src/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
-import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";
 import { ArticleDashType, CreateArticleDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const DashPublikasiFeat = () => {
+  const p = useTranslations("dash");
   const [formData, setFormData] = useState<CreateArticleDashType>({
     judul: "",
     doi: "",
@@ -89,112 +97,97 @@ const DashPublikasiFeat = () => {
 
   return (
     <div className="p-6 space-y-6">
-  <Toaster position="top-center" richColors />
-
-  <div>
-    <h1 className="text-3xl font-bold text-[#1A4D2E]">
-      Publikasi Ilmiah
-    </h1>
-    <p className="mt-2 text-muted-foreground">
-      Kelola data publikasi ilmiah yang akan ditampilkan pada website.
-    </p>
-  </div>
-
-  <Card className="overflow-hidden border-0 shadow-lg">
-    <div className="bg-linear-to-r from-[#1A4D2E] via-[#2B6B45] to-[#4F8A5B] px-8 py-6">
-      <h2 className="text-2xl font-semibold text-white">
-        Tambah Publikasi Ilmiah
-      </h2>
-      <p className="mt-2 text-sm text-green-100">
-        Lengkapi informasi artikel ilmiah yang akan ditampilkan pada website.
-      </p>
-    </div>
-
-    <CardContent className="p-8">
-      <div className="grid gap-6">
-        <div className="grid gap-2">
-          <Label>Judul Artikel</Label>
-          <Input
-            name="judul"
-            value={formData.judul}
-            onChange={handleChange}
-            placeholder="Masukkan judul artikel"
-          />
-        </div>
-
-        <div className="grid gap-2">
-          <Label>Penulis</Label>
-          <Input
-            name="doi"
-            value={formData.doi}
-            onChange={handleChange}
-            placeholder="Contoh: John Doe, Jane Doe, ..."
-          />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="grid gap-2">
-            <Label>Tahun</Label>
-            <Input
-              type="number"
-              name="tahun"
-              value={formData.tahun ?? ""}
-              onChange={handleChange}
-              placeholder="2026"
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <Label>DOI / Link Artikel</Label>
-            <Input
-              name="link"
-              value={formData.link}
-              onChange={handleChange}
-              placeholder="https://doi.org/..."
-            />
-          </div>
-        </div>
-
-        <div className="grid gap-2">
-          <Label>Nama Jurnal & Volume</Label>
-          <Input
-            name="volume"
-            value={formData.volume}
-            onChange={handleChange}
-            placeholder="Tropical Conservation Science, Vol. 19 (2026)"
-          />
-        </div>
+      <div>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{p("publikasi")}</h1>
+        <p className="mt-2 text-muted-foreground">{p("publikasidesc")}</p>
       </div>
-    </CardContent>
 
-    <CardFooter className="justify-end border-t bg-muted/30 px-8 py-4">
-      <Button
-        onClick={createArticle}
-        className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
-      >
-        Tambah Artikel
-      </Button>
-    </CardFooter>
-  </Card>
+      <Card className="overflow-hidden border-0 shadow-lg">
+        <div className="bg-linear-to-r from-[#1A4D2E] via-[#2B6B45] to-[#4F8A5B] px-8 py-6">
+          <h2 className="text-2xl font-semibold text-white">
+            {p("publikasiForm")}
+          </h2>
+          <p className="mt-2 text-sm text-green-100">
+            {p("publikasiFormDesc")}
+          </p>
+        </div>
+        <CardContent className="p-8">
+          <div className="grid gap-6">
+            <div className="grid gap-2">
+              <Label>{p('publikasiForm1')}</Label>
+              <Input
+                name="judul"
+                value={formData.judul}
+                onChange={handleChange}
+                placeholder="Masukkan judul artikel"
+              />
+            </div>
 
-  <Card className="shadow-lg">
-    <CardHeader>
-      <CardTitle className="text-[#1A4D2E]">
-        Daftar Publikasi Ilmiah
-      </CardTitle>
-      <CardDescription>
-        Kelola artikel ilmiah yang telah ditambahkan.
-      </CardDescription>
-    </CardHeader>
+            <div className="grid gap-2">
+              <Label>{p('publikasiForm2')}</Label>
+              <Input
+                name="doi"
+                value={formData.doi}
+                onChange={handleChange}
+              />
+            </div>
 
-    <CardContent>
-      <DataTable
-        columns={columns(getDataArticle)}
-        data={articles}
-      />
-    </CardContent>
-  </Card>
-</div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid gap-2">
+                <Label>{p('publikasiForm3')}</Label>
+                <Input
+                  type="number"
+                  name="tahun"
+                  value={formData.tahun ?? ""}
+                  onChange={handleChange}
+                  placeholder="2026"
+                />
+              </div>
+
+              <div className="grid gap-2">
+                <Label>DOI / Link Artikel</Label>
+                <Input
+                  name="link"
+                  value={formData.link}
+                  onChange={handleChange}
+                  placeholder="https://doi.org/..."
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-2">
+              <Label>{p('publikasiForm4')}</Label>
+              <Input
+                name="volume"
+                value={formData.volume}
+                onChange={handleChange}
+                placeholder="Tropical Conservation Science, Vol. 19 (2026)"
+              />
+            </div>
+          </div>
+        </CardContent>
+
+        <CardFooter className="justify-end border-t bg-muted/30 px-8 py-4">
+          <Button
+            onClick={createArticle}
+            className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
+          >
+            {p('publikasiButton')}
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle className="text-[#1A4D2E]">{p("publikasiList")}</CardTitle>
+          <CardDescription>{p("publikasiListDesc")}</CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <DataTable columns={columns(getDataArticle, p)} data={articles} />
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 

@@ -15,9 +15,12 @@ import {
 import DetailArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DetailArticle";
 import EditArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/EditArticle";
 import DeleteArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DeleteArticle";
+import { useTranslations } from "next-intl";
+
+type Translator = ReturnType<typeof useTranslations>;
 
 export const columns = (
-  onSuccess: () => void,
+onSuccess: () => void, p: Translator,
 ): ColumnDef<ArticleDashType>[] => [
   {
     accessorKey: "judul",
@@ -41,9 +44,9 @@ export const columns = (
             </DialogTrigger>
             <DialogContent className="sm:max-w-2xl">
               <DialogHeader>
-                <DialogTitle>Detail Publikasi Ilmiah</DialogTitle>
+                <DialogTitle>{p('PublikasiDetail')}</DialogTitle>
                 <DialogDescription>
-                  Informasi lengkap mengenai publikasi ilmiah yang dipilih.
+                  {p('PublikasiDetailDesc')}
                 </DialogDescription>
               </DialogHeader>
 
@@ -60,7 +63,7 @@ export const columns = (
             <DialogContent>
               <DialogHeader>
                 <DialogTitle className="text-gray-500 text-md">
-                  Ubah Artikel
+                  {p('PublikasiEdit')}
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">

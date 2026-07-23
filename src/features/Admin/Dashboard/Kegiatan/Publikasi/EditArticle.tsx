@@ -5,10 +5,12 @@ import { Label } from "@/src/components/ui/label";
 import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";
 import { ArticleDashType, PropsType } from "@/src/types";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const EditArticle = ({ idCode, onSuccess }: PropsType) => {
+  const p = useTranslations("dash");
   const [art, setArt] = useState<ArticleDashType | null>(null);
   const [originalArt, setOriginalArt] = useState<ArticleDashType | null>(null);
 
@@ -67,10 +69,8 @@ const EditArticle = ({ idCode, onSuccess }: PropsType) => {
       art.link !== originalArt.link);
   return (
     <div className="space-y-5">
-      <Toaster position="top-center" richColors />
-
       <div className="space-y-2">
-        <Label htmlFor="judul">Judul Artikel</Label>
+        <Label htmlFor="judul">{p("publikasiForm1")}</Label>
         <Input
           id="judul"
           name="judul"
@@ -81,7 +81,7 @@ const EditArticle = ({ idCode, onSuccess }: PropsType) => {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="doi">Penulis</Label>
+        <Label htmlFor="doi">{p("publikasiForm2")}</Label>
         <Input
           id="doi"
           name="doi"
@@ -93,7 +93,7 @@ const EditArticle = ({ idCode, onSuccess }: PropsType) => {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="tahun">Tahun</Label>
+          <Label htmlFor="tahun">{p("publikasiForm3")}</Label>
           <Input
             id="tahun"
             name="tahun"
@@ -105,7 +105,7 @@ const EditArticle = ({ idCode, onSuccess }: PropsType) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="volume">Jurnal & Volume</Label>
+          <Label htmlFor="volume">{p("publikasiForm4")}</Label>
           <Input
             id="volume"
             name="volume"

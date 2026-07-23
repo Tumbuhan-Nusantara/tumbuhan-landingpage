@@ -13,14 +13,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-import { Toaster } from "@/src/components/ui/sonner";
 import { Textarea } from "@/src/components/ui/textarea";
 import { axiosInstance } from "@/src/lib/axios";
 import { ActivityDashType, TypesDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 const DashKegiatanFeat = () => {
+  const k = useTranslations('dash')
   const [formData, setFormData] = useState({
     activity_name: "",
     deskripsi: "",
@@ -137,27 +138,26 @@ const DashKegiatanFeat = () => {
   }
   return (
     <div className="p-6 space-y-6">
-      <Toaster position="top-center" richColors />
 
       <div>
-        <h1 className="text-3xl font-bold text-[#1A4D2E]">Kegiatan</h1>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{k('kegiatan')}</h1>
         <p className="mt-2 text-muted-foreground">
-          Kelola informasi kegiatan yang akan ditampilkan pada website.
+          {k('kegDesc')}
         </p>
       </div>
 
       <Card className="overflow-hidden border-0 shadow-lg">
         <div className="bg-linear-to-r from-[#1A4D2E] via-[#2B6B45] to-[#4F8A5B] px-8 py-6">
-          <h2 className="text-2xl font-semibold text-white">Tambah Kegiatan</h2>
+          <h2 className="text-2xl font-semibold text-white">{k('kegForm')}</h2>
           <p className="mt-2 text-sm text-green-100">
-            Lengkapi informasi kegiatan beserta dokumentasinya.
+            {k('kegFormDesc')}
           </p>
         </div>
 
         <CardContent className="p-8">
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <Label>Tipe Kegiatan</Label>
+              <Label>{k('kegForm1')}</Label>
               <Select
                 value={formData.tipe_kegiatan_id?.toString()}
                 onValueChange={(value) =>
@@ -180,9 +180,8 @@ const DashKegiatanFeat = () => {
                 </SelectContent>
               </Select>
             </div>
-
             <div className="space-y-2">
-              <Label>Nama Aktivitas</Label>
+              <Label>{k('kegForm2')}</Label>
               <Input
                 name="activity_name"
                 value={formData.activity_name}
@@ -192,7 +191,7 @@ const DashKegiatanFeat = () => {
             </div>
 
             <div className="space-y-2">
-              <Label>Tanggal Kegiatan</Label>
+              <Label>{k('kegForm6')}</Label>
               <Input
                 type="date"
                 name="tanggal_kegiatan"
@@ -202,7 +201,7 @@ const DashKegiatanFeat = () => {
             </div>
 
             <div className="space-y-2">
-              <Label>Tempat</Label>
+              <Label>{k('kegForm3')}</Label>
               <Input
                 name="tempat"
                 value={formData.tempat}
@@ -212,7 +211,7 @@ const DashKegiatanFeat = () => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Deskripsi</Label>
+              <Label>{k('kegForm4')}</Label>
               <Textarea
                 name="deskripsi"
                 value={formData.deskripsi}
@@ -223,7 +222,7 @@ const DashKegiatanFeat = () => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Dokumentasi</Label>
+              <Label>{k('kegForm5')}</Label>
 
               <Input
                 ref={fileInputRef}
@@ -244,16 +243,16 @@ const DashKegiatanFeat = () => {
             onClick={createActivity}
             className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
           >
-            Tambah Kegiatan
+            {k('kegButton')}
           </Button>
         </CardFooter>
       </Card>
 
       <Card className="shadow-lg">
         <CardHeader>
-          <CardTitle className="text-[#1A4D2E]">Daftar Kegiatan</CardTitle>
+          <CardTitle className="text-[#1A4D2E]">{k('kegList')}</CardTitle>
           <CardDescription>
-            Kelola seluruh kegiatan yang telah ditambahkan.
+            {k('kegListDesc')}
           </CardDescription>
         </CardHeader>
 

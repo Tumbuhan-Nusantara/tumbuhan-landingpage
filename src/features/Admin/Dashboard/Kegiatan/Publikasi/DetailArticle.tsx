@@ -2,8 +2,10 @@
 import  { useEffect, useState } from "react";
 import { axiosInstance } from "@/src/lib/axios";
 import { CreateArticleDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 
 const DetailArticle = ({ articleId }: { articleId: number }) => {
+  const d = useTranslations('dash')
   const [article, setArticle] = useState<CreateArticleDashType>({});
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const DetailArticle = ({ articleId }: { articleId: number }) => {
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-lg border bg-muted/30 p-4">
           <p className="text-sm font-medium text-muted-foreground">
-            Judul Artikel
+            {d('publikasiForm1')}
           </p>
           <p className="mt-1 text-base font-semibold text-foreground">
             {article.judul}
@@ -31,20 +33,20 @@ const DetailArticle = ({ articleId }: { articleId: number }) => {
         </div>
 
         <div className="rounded-lg border bg-muted/30 p-4">
-          <p className="text-sm font-medium text-muted-foreground">Penulis</p>
+          <p className="text-sm font-medium text-muted-foreground">{d('publikasiForm2')}</p>
           <p className="mt-1 text-base text-foreground">{article.doi}</p>
         </div>
 
         <div className="rounded-lg border bg-muted/30 p-4">
           <p className="text-sm font-medium text-muted-foreground">
-            Tahun Publikasi
+            {d('publikasiForm3')}
           </p>
           <p className="mt-1 text-base text-foreground">{article.tahun}</p>
         </div>
 
         <div className="rounded-lg border bg-muted/30 p-4">
           <p className="text-sm font-medium text-muted-foreground">
-            Jurnal & Volume
+            {d('publikasiForm4')}
           </p>
           <p className="mt-1 text-base text-foreground">{article.volume}</p>
         </div>
