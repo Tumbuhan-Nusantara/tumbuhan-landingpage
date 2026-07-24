@@ -23,8 +23,10 @@ const SideMain = () => {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Dashboard Admin</SidebarGroupLabel>
-      <SidebarMenu>
+      <SidebarGroupLabel className="text-xs uppercase tracking-widest text-muted-foreground">
+        Dashboard Admin
+      </SidebarGroupLabel>
+      <SidebarMenu className="space-y-1">
         {SidebarItems.map((item) => (
           <Collapsible
             key={item.title}
@@ -33,11 +35,28 @@ const SideMain = () => {
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton>
-                  {item.icon && <item.icon />}
-                  <span>{dash(item.title)} </span>
-
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                <SidebarMenuButton
+                  tooltip={dash(item.title)}
+                  className="
+                          rounded-lg
+                          transition-all
+                          hover:bg-[#1A4D2E]
+                          hover:text-white
+                          data-[active=true]:bg-[#1A4D2E]
+                          data-[active=true]:text-white
+                        "
+                >
+                  {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
+                  {dash(item.title)}
+                  <ChevronRight
+                    className="
+                          ml-auto
+                          h-4
+                          w-4
+                          transition-transform
+                          group-data-[state=open]/collapsible:rotate-90
+                          "
+                  />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
 
@@ -45,7 +64,14 @@ const SideMain = () => {
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.id}>
-                      <SidebarMenuSubButton asChild>
+                      <SidebarMenuSubButton
+                        asChild
+                        className="
+    rounded-md
+    transition-colors
+    hover:bg-sidebar-accent
+  "
+                      >
                         <Link href={subItem.path || "#"}>
                           {subItem.icon && <subItem.icon />}
 

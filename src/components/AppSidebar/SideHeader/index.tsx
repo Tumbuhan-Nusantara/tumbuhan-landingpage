@@ -15,21 +15,29 @@ export function TeamSwitcher() {
       <SidebarMenuItem>
         <SidebarMenuButton
           size="lg"
-          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+          className="
+      h-14
+      rounded-xl
+      transition-all
+      hover:bg-sidebar-accent
+      data-[state=open]:bg-sidebar-accent
+    "
         >
-          <div className="flex aspect-square size-9 items-center justify-center rounded-full bg-sidebar-primary text-sidebar-primary-foreground">
-            <Image
-              src="/logo-ytan.png"
-              alt="Logo YTAN"
-              width={90}
-              height={90}
-            />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-sm">
+            <Image src="/logo-ytan.png" alt="YTAN" width={34} height={34} />
           </div>
-          <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-medium">Tumbuhan Nusantara</span>
-            <span className="truncate text-xs">YTAN</span>
+
+          <div className="flex flex-col overflow-hidden">
+            <span className="truncate font-semibold text-[15px]">
+              Yayasan Tumbuhan
+            </span>
+
+            <span className="truncate text-xs text-muted-foreground">
+              Asli Nusantara
+            </span>
           </div>
-          <ChevronsUpDown className="ml-auto" />
+
+          <ChevronsUpDown className="ml-auto h-4 w-4 opacity-60" />
         </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>

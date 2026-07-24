@@ -18,7 +18,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/src/components/ui/sidebar";
-import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";
 import { useRouter } from "@/src/i18n/navigation";
 import { UserDashType } from "@/src/types";
@@ -61,36 +60,42 @@ const SideUser = () => {
     getMe();
   }, []);
   return (
-    <SidebarMenu>
-      <Toaster />
+    <SidebarMenu className="space-y-1">
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              className="
+rounded-xl
+transition-all
+hover:bg-sidebar-accent
+"
             >
-              <Avatar className="h-8 w-8 rounded-lg">
+              <Avatar className="h-10 w-10 border">
                 <AvatarImage
                   src="https://github.com/shadcn.png"
                   alt="tes user"
                 />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">
+              <div className="grid flex-1 leading-tight">
+                <span className="truncate font-semibold">
                   {me?.first_name} {me?.last_name}
                 </span>
-                <span className="truncate text-xs">{me?.email}</span>
+
+                <span className="truncate text-xs text-muted-foreground">
+                  {me?.email}
+                </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
             align="end"
-            sideOffset={4}
+            sideOffset={8}
+            className="w-64 rounded-xl"
+            side={isMobile ? "bottom" : "right"}
           >
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
@@ -110,7 +115,15 @@ const SideUser = () => {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={logOut}>
+            <DropdownMenuItem
+              className="
+                      cursor-pointer
+                      text-red-600
+                      focus:bg-red-50
+                      focus:text-red-600
+                      "
+              onClick={logOut}
+            >
               <LogOut />
               Log out
             </DropdownMenuItem>
