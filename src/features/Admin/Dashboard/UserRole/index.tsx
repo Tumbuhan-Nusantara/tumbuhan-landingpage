@@ -4,7 +4,7 @@ import {
   AvatarImage,
   AvatarFallback,
 } from "@/src/components/ui/avatar";
-import { Card } from "@/src/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,8 +31,10 @@ import { axiosInstance } from "@/src/lib/axios";
 import { toast } from "sonner";
 import { Toaster } from "@/src/components/ui/sonner";
 import DashUserSkeleton from "@/src/components/Skeletons/DashUserSk";
+import { useTranslations } from "next-intl";
 
 const DashUserRoleFeat = () => {
+  const r = useTranslations('dash')
   const [users, setUsers] = useState<UserDashType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -99,88 +101,132 @@ const DashUserRoleFeat = () => {
     );
   }
   return (
-    <div className="p-8">
-      <Toaster />
-      <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
-        Akses Pengguna Admin YTAN
-      </h1>
+   <div className="p-6 space-y-6">
+  <Toaster position="top-center" richColors />
+{/* "roleTitle": "Manajemen Hak Akses Pengguna",
+  "roleDesc": "Kelola hak akses administrator serta peran pengguna pada Dashboard YTAN.",
+  "roleFormTitle": "Hak Akses Dashboard",
+  "roleFormDesc": "Atur peran pengguna dan kelola akses ke Dashboard YTAN.", */}
+  <div>
+    <h1 className="text-3xl font-bold text-[#1A4D2E]">
+      {r('roleTitle')}
+    </h1>
 
-      <Card className="bg-[url('/image.png')] bg-cover">
-        <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-          Hak Akses Pengguna Dashboard YTAN
-        </h1>
+    <p className="mt-2 text-muted-foreground">
+     {r('roleDesc')}
+    </p>
+  </div>
 
-        <Card className="mx-6">
-          {users.map((user) => (
-            <div
-              key={user.id}
-              className="flex items-center justify-between px-4 py-4"
-            >
-              <div className="flex items-center gap-4">
-                <Avatar className="h-12 w-12">
-                  <AvatarImage src="" />
-                  <AvatarFallback>
-                    {user.first_name?.[0]}
-                    {user.last_name?.[0]}
-                  </AvatarFallback>
-                </Avatar>
+  <Card className="overflow-hidden shadow-sm">
+    <CardHeader className="border-b bg-muted/30">
+      <CardTitle className="text-xl text-[#1A4D2E]">
+        {r('roleFormTitle')}
+      </CardTitle>
 
-                <div>
-                  <p className="font-medium text-[#1A4D2E]">
-                    {user.first_name} {user.last_name}
-                  </p>
+      <CardDescription>
+         {r('roleFormDesc')}
+      </CardDescription>
+    </CardHeader>
 
-                  <p className="text-sm text-muted-foreground">{user.email}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Select
-                  value={user.role}
-                  onValueChange={(value: "admin" | "user") =>
-                    handleRoleChange(user.id, value)
-                  }
-                >
-                  <SelectTrigger className="w-36">
-                    <SelectValue />
-                  </SelectTrigger>
+    <CardContent className="p-0">
+      {users.length === 0 ? (
+        <div className="flex h-40 items-center justify-center text-sm text-muted-foreground">
+          No users found.
+        </div>
+      ) : (
+        users.map((user, index) => (
+          <div
+            key={user.id}
+            className={`flex flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between ${
+              index !== users.length - 1 ? "border-b" : ""
+            }`}
+          >
+            <div className="flex items-center gap-4">
+              <Avatar className="h-12 w-12 border">
+                <AvatarImage src="" />
 
-                  <SelectContent>
-                    <SelectItem value="admin">ADMIN</SelectItem>
-                    <SelectItem value="user">USER</SelectItem>
-                  </SelectContent>
-                </Select>
-                <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button className="bg-red-700 hover:bg-red-500">
-                      <Trash2 />
-                    </Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle className="text-red-700">
-                        Apakah Anda yakin?
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        Tindakan ini tidak dapat dibatalkan.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Batal</AlertDialogCancel>
-                      <AlertDialogAction
-                        onClick={() => handleDelete(user.id)}
-                        className="bg-red-700 hover:bg-red-500"
-                      >
-                        Hapus
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                <AvatarFallback className="bg-[#1A4D2E] text-white">
+                  {user.first_name?.[0]}
+                  {user.last_name?.[0]}
+                </AvatarFallback>
+              </Avatar>
+
+              <div>
+                <h3 className="font-semibold text-[#1A4D2E]">
+                  {user.first_name} {user.last_name}
+                </h3>
+
+                <p className="text-sm text-muted-foreground">
+                  {user.email}
+                </p>
               </div>
             </div>
-          ))}
-        </Card>
-      </Card>
-    </div>
+
+            <div className="flex items-center gap-3">
+              <Select
+                value={user.role}
+                onValueChange={(value: "admin" | "user") =>
+                  handleRoleChange(user.id, value)
+                }
+              >
+                <SelectTrigger className="w-36">
+                  <SelectValue />
+                </SelectTrigger>
+
+                <SelectContent>
+                  <SelectItem value="admin">
+                    Administrator
+                  </SelectItem>
+
+                  <SelectItem value="user">
+                  User
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    variant="destructive"
+                    size="icon"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                </AlertDialogTrigger>
+
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Delete User?
+                    </AlertDialogTitle>
+
+                    <AlertDialogDescription>
+                      This action cannot be undone. The selected user will lose
+                      access to the dashboard.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>
+                      Cancel
+                    </AlertDialogCancel>
+
+                    <AlertDialogAction
+                      onClick={() => handleDelete(user.id)}
+                      className="bg-red-600 hover:bg-red-700"
+                    >
+                      Delete User
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </div>
+          </div>
+        ))
+      )}
+    </CardContent>
+  </Card>
+</div>
   );
 };
 

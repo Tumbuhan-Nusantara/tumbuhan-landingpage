@@ -1,13 +1,5 @@
 import { AppSidebar } from "@/src/components/AppSidebar/Sidebar";
 import Switcher from "@/src/components/Switcher";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/src/components/ui/breadcrumb";
 import { Separator } from "@/src/components/ui/separator";
 import {
   SidebarInset,
@@ -23,39 +15,44 @@ export default function DashboardWrapper({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator
-              orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
-            />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/admin/dashboard">
-                    Dashboard
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/admin/dashboard">
-                    Dashboard
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+
+      <SidebarInset className="flex min-h-screen flex-col bg-muted/20">
+        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-background/80 px-6 backdrop-blur supports-backdrop-filter:bg-background/60">
+          <div className="flex items-center gap-3">
+            <SidebarTrigger className="-ml-2" />
+
+            <Separator orientation="vertical" className="h-5" />
+
             <Switcher />
           </div>
+
+          <div className="hidden items-center gap-3 md:flex">
+            <div className="text-right">
+              <p className="text-sm font-medium text-[#1A4D2E]">
+                Dashboard Admin
+              </p>
+
+              <p className="text-xs text-muted-foreground">
+                Yayasan Tumbuhan Asli Nusantara
+              </p>
+            </div>
+          </div>
         </header>
-        <main>{children}</main>
-        <footer className="text-muted-foreground text-xs p-6 text-center">
-          © 2026 Yayasan Tumbuhan Asli Nusantara • v1.0.0
+
+        <main className="flex-1 overflow-auto">
+          <div className="mx-auto w-full max-w-7xl p-6">{children}</div>
+        </main>
+
+        <footer className="border-t bg-background px-6 py-4">
+          <div className="flex flex-col items-center justify-between gap-2 text-center text-xs text-muted-foreground md:flex-row">
+            <p>
+              © 2026{" "}
+              <span className="font-medium">
+                Yayasan Tumbuhan Asli Nusantara
+              </span>
+              . All rights reserved. v1.0.0
+            </p>  
+          </div>
         </footer>
       </SidebarInset>
     </SidebarProvider>
