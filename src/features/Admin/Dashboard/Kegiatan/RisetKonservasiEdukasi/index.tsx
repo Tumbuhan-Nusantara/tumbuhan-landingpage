@@ -3,7 +3,7 @@ import { columns } from "@/src/components/Data Table/activitycolumns";
 import { DataTable } from "@/src/components/Data Table/data-table";
 import FormSkeleton from "@/src/components/Skeletons/FormSk";
 import { Button } from "@/src/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/src/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import {
@@ -13,14 +13,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-import { Toaster } from "@/src/components/ui/sonner";
 import { Textarea } from "@/src/components/ui/textarea";
 import { axiosInstance } from "@/src/lib/axios";
 import { ActivityDashType, TypesDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 const DashKegiatanFeat = () => {
+  const k = useTranslations('dash')
   const [formData, setFormData] = useState({
     activity_name: "",
     deskripsi: "",
@@ -136,125 +137,129 @@ const DashKegiatanFeat = () => {
     );
   }
   return (
-    <div className="p-8">
-      <Toaster position="top-center" richColors />
-      <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">Kegiatan</h1>
+    <div className="p-6 space-y-6">
+
       <div>
-        <Card className="bg-[url('/image.png')] bg-cover">
-          <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-            Tambah Kegiatan Terbaru
-          </h1>
-          <Card className="max-w-4xl mx-4">
-            <CardContent className="flex flex-col gap-6">
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Tipe Kegiatan</Label>
-                  <Select
-                    value={formData.tipe_kegiatan_id?.toString()}
-                    onValueChange={(value) =>
-                      setFormData((prev) => ({
-                        ...prev,
-                        tipe_kegiatan_id: Number(value),
-                      }))
-                    }
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Pilih tipe kegiatan" />
-                    </SelectTrigger>
-
-                    <SelectContent>
-                      {types.map((item) => (
-                        <SelectItem key={item.id} value={item.id.toString()}>
-                          {item.nama_tipe}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Nama Aktivitas</Label>
-                  <Input
-                    type="text"
-                    name="activity_name"
-                    id="activity_name"
-                    autoComplete="activity_name"
-                    value={formData.activity_name}
-                    onChange={handleChange}
-                    placeholder="Nama Aktivitas"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Deskripsi</Label>
-                  <Textarea
-                    name="deskripsi"
-                    id="deskripsi"
-                    autoComplete="deskripsi"
-                    value={formData.deskripsi}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Tanggal Kegiatan</Label>
-                  <Input
-                    type="date"
-                    name="tanggal_kegiatan"
-                    id="tanggal_kegiatan"
-                    value={formData.tanggal_kegiatan ?? ""}
-                    onChange={handleChange}
-                    placeholder="Tahun"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Tempat</Label>
-                  <Input
-                    name="tempat"
-                    value={formData.tempat}
-                    onChange={handleChange}
-                    placeholder="Tempat kegiatan"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Upload Dokumentasi (1 Foto)</Label>
-                  <Input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                  />
-                </div>
-              </div>
-            </CardContent>
-
-            <CardFooter className="justify-end">
-              <Button
-                onClick={createActivity}
-                className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
-              >
-                Tambah Kegiatan
-              </Button>
-            </CardFooter>
-          </Card>
-          <div className="max-w-4xl my-4">
-            <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-              Kelola Kegiatan YTAN Terbaru
-            </h1>
-            <DataTable columns={columns(getActivities)} data={activity} />
-          </div>
-        </Card>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{k('kegiatan')}</h1>
+        <p className="mt-2 text-muted-foreground">
+          {k('kegDesc')}
+        </p>
       </div>
+
+      <Card className="overflow-hidden border-0 shadow-lg">
+        <div className="bg-linear-to-r from-[#1A4D2E] via-[#2B6B45] to-[#4F8A5B] px-8 py-6">
+          <h2 className="text-2xl font-semibold text-white">{k('kegForm')}</h2>
+          <p className="mt-2 text-sm text-green-100">
+            {k('kegFormDesc')}
+          </p>
+        </div>
+
+        <CardContent className="p-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-2">
+              <Label>{k('kegForm1')}</Label>
+              <Select
+                value={formData.tipe_kegiatan_id?.toString()}
+                onValueChange={(value) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    tipe_kegiatan_id: Number(value),
+                  }))
+                }
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Pilih tipe kegiatan" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  {types.map((item) => (
+                    <SelectItem key={item.id} value={item.id.toString()}>
+                      {item.nama_tipe}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label>{k('kegForm2')}</Label>
+              <Input
+                name="activity_name"
+                value={formData.activity_name}
+                onChange={handleChange}
+                placeholder="Masukkan nama kegiatan"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>{k('kegForm6')}</Label>
+              <Input
+                type="date"
+                name="tanggal_kegiatan"
+                value={formData.tanggal_kegiatan ?? ""}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>{k('kegForm3')}</Label>
+              <Input
+                name="tempat"
+                value={formData.tempat}
+                onChange={handleChange}
+                placeholder="Masukkan lokasi kegiatan"
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>{k('kegForm4')}</Label>
+              <Textarea
+                name="deskripsi"
+                value={formData.deskripsi}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Masukkan deskripsi kegiatan..."
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>{k('kegForm5')}</Label>
+
+              <Input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+              />
+
+              <p className="text-xs text-muted-foreground">
+                Format: JPG, JPEG, PNG. Maksimal 1 foto.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+
+        <CardFooter className="justify-end border-t bg-muted/30 px-8 py-4">
+          <Button
+            onClick={createActivity}
+            className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
+          >
+            {k('kegButton')}
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle className="text-[#1A4D2E]">{k('kegList')}</CardTitle>
+          <CardDescription>
+            {k('kegListDesc')}
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <DataTable columns={columns(getActivities)} data={activity} />
+        </CardContent>
+      </Card>
     </div>
   );
 };

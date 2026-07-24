@@ -74,10 +74,13 @@ export interface DashMisi{
 }
 
 //api
+
 export interface HeroType{
-  id: number;
-  beranda: string;
-  deskripsi: string;
+  id:number;
+  beranda_id: string;
+  beranda_en: string;
+  deskripsi_id: string
+  deskripsi_en: string
 }
 
 export interface CreateArticleDashType{
@@ -182,19 +185,22 @@ export interface TeamPropsType{
   teamId: number;
 }
 
-export interface VisiDashType{
+export interface VisiType{
   id: number;
-  visi: string;
+  visi_id: string;
+  visi_en: string;
 }
 
-export interface MisiDashType{
+export interface MisiType{
   id: number;
-  content: string;
+  content_id: string;
+  content_en: string;
 }
 
-export interface TujuanDashType{
+export interface TujuanType{
   id: number;
-  goal: string;
+  goal_id: string;
+  goal_en: string;
 }
 
 export interface StrukturDashType {
@@ -207,13 +213,7 @@ export interface CreateStrukturDashType {
   name: string;
 }
 
-export interface HeroLandingPageType{
-  id:number;
-  beranda_id: string;
-  beranda_en: string;
-  deskripsi_id: string
-  deskripsi_en: string
-}
+
 
 export interface NewsLandingPageType{
   id: number;

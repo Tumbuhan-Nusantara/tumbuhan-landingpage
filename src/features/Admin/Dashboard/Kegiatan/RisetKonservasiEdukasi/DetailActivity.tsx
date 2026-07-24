@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { axiosInstance } from "@/src/lib/axios";
 import { ActivityDashType } from "@/src/types";
 import Image from "next/image";
-import { Card } from "@/src/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { Separator } from "@/src/components/ui/separator";
+import { formatDateID } from "@/src/lib/dateHelper";
+import { useTranslations } from "next-intl";
 
 const DetailActivity = ({ actId }: { actId: number }) => {
+  const d = useTranslations('dash')
   const [act, setAct] = useState<ActivityDashType | null>(null);
 
   useEffect(() => {
@@ -38,59 +41,84 @@ const DetailActivity = ({ actId }: { actId: number }) => {
     </div>
   );
   return (
-    <Card className="m-6 p-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <h2 className="font-semibold text-[#1A4D2E] mb-4">
-            Dokumentasi Kegiatan
-          </h2>
+    <Card className="overflow-hidden shadow-lg mx-12">
+      <CardHeader className="border-b bg-muted/30">
+        <CardTitle className="text-xl text-[#1A4D2E]">
+         {d('kegDetail')}
+        </CardTitle>
 
-          {act?.photo_url ? (
-            <Image
-              src={act.photo_url}
-              alt={act.activity_name}
-              width={700}
-              height={450}
-              unoptimized
-              className="w-full rounded-xl border object-cover aspect-video"
-            />
-          ) : (
-            <div className="flex aspect-video items-center justify-center rounded-xl border border-dashed text-sm text-muted-foreground">
-              Tidak ada foto
+        <CardDescription>
+          {d('kegDetailDesc')}
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent className="p-8">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-[#1A4D2E]">{d('kegForm5')}</h3>
+
+            <div className="overflow-hidden rounded-xl border bg-muted/20">
+              {act?.photo_url ? (
+                <Image
+                  src={act.photo_url}
+                  alt={act.activity_name}
+                  width={900}
+                  height={600}
+                  unoptimized
+                  className="h-80 w-full object-cover"
+                />
+              ) : (
+                <div className="flex h-80 items-center justify-center border border-dashed">
+                  <p className="text-sm text-muted-foreground">
+                    {d('noKeg')}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </div>
 
-        <div>
-          <h2 className="font-semibold text-[#1A4D2E] mb-4">
-            Informasi Kegiatan
-          </h2>
+          <div className="space-y-6">
+            <h3 className="font-semibold text-[#1A4D2E]">{d('additionalKeg')}</h3>
 
-          <div className="space-y-5">
-            {/* // eslint-disable-next-line react-hooks/static-components */}
-            <DetailItem label="Jenis Kegiatan" value={act?.nama_tipe} />
+            <div className="grid gap-5">
+              <DetailItem label={d('kegForm1')} value={act?.nama_tipe} />
 
-            <Separator />
+              <Separator />
 
-            <DetailItem label="Nama Kegiatan" value={act?.activity_name} />
+              <DetailItem label={d('kegForm2')} value={act?.activity_name} />
 
-            <Separator />
+              <Separator />
 
-            <DetailItem label="Deskripsi" value={act?.deskripsi} />
+              <DetailItem
+                label={d('kegForm6')}
+                value={
+                  act?.tanggal_kegiatan
+                    ? formatDateID(act.tanggal_kegiatan)
+                    : "-"
+                }
+              />
 
-            <Separator />
+              <Separator />
 
-            <DetailItem
-              label="Tanggal Kegiatan"
-              value={act?.tanggal_kegiatan}
-            />
+              <DetailItem label={d('kegForm3')} value={act?.tempat} />
 
-            <Separator />
+              <Separator />
 
-            <DetailItem label="Lokasi" value={act?.tempat} />
+              <div className="space-y-2">
+                <h4 className="text-sm font-semibold text-[#1A4D2E]">
+                  {d('kegForm4')}
+                </h4>
+
+                <div className="rounded-lg bg-muted/30 p-4">
+                  <p className="whitespace-pre-wrap text-sm leading-7 text-muted-foreground">
+                    {act?.deskripsi || "-"}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </CardContent>
     </Card>
   );
 };

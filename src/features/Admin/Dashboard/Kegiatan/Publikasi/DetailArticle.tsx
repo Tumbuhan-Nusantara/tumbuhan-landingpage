@@ -1,9 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { axiosInstance } from "@/src/lib/axios";
 import { CreateArticleDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 
 const DetailArticle = ({ articleId }: { articleId: number }) => {
+  const d = useTranslations('dash')
   const [article, setArticle] = useState<CreateArticleDashType>({});
 
   useEffect(() => {
@@ -19,26 +21,50 @@ const DetailArticle = ({ articleId }: { articleId: number }) => {
     getArticle(articleId);
   }, [articleId]);
   return (
-    <div className="grid gap-4">
-      <div>
-        <h1 className="text-black">Judul</h1>
-        <p>{article.judul}</p>
+    <div className="space-y-5">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-lg border bg-muted/30 p-4">
+          <p className="text-sm font-medium text-muted-foreground">
+            {d('publikasiForm1')}
+          </p>
+          <p className="mt-1 text-base font-semibold text-foreground">
+            {article.judul}
+          </p>
+        </div>
+
+        <div className="rounded-lg border bg-muted/30 p-4">
+          <p className="text-sm font-medium text-muted-foreground">{d('publikasiForm2')}</p>
+          <p className="mt-1 text-base text-foreground">{article.doi}</p>
+        </div>
+
+        <div className="rounded-lg border bg-muted/30 p-4">
+          <p className="text-sm font-medium text-muted-foreground">
+            {d('publikasiForm3')}
+          </p>
+          <p className="mt-1 text-base text-foreground">{article.tahun}</p>
+        </div>
+
+        <div className="rounded-lg border bg-muted/30 p-4">
+          <p className="text-sm font-medium text-muted-foreground">
+            {d('publikasiForm4')}
+          </p>
+          <p className="mt-1 text-base text-foreground">{article.volume}</p>
+        </div>
       </div>
-      <div>
-        <h1 className="text-black">Penulis</h1>
-        <p>{article.doi}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Tahun</h1>
-        <p>{article.tahun}</p>
-      </div>
-      <div>
-        <h1 className="text-black">Volume</h1>
-        <p>{article.volume}</p>
-      </div>
-      <div>
-        <h1 className="text-black">DOI/ Link Artikel</h1>
-        <p>{article.link}</p>
+
+      <div className="rounded-lg border bg-muted/30 p-4">
+        <p className="text-sm font-medium text-muted-foreground">
+          DOI / Link Artikel
+        </p>
+
+        <a
+          href={article.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 block break-all text-[#1A4D2E] hover:underline"
+        >
+          {article.link}
+        </a>
       </div>
     </div>
   );

@@ -15,9 +15,12 @@ import {
 import DetailArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DetailArticle";
 import EditArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/EditArticle";
 import DeleteArticle from "@/src/features/Admin/Dashboard/Kegiatan/Publikasi/DeleteArticle";
+import { useTranslations } from "next-intl";
+
+type Translator = ReturnType<typeof useTranslations>;
 
 export const columns = (
-  onSuccess: () => void,
+onSuccess: () => void, p: Translator,
 ): ColumnDef<ArticleDashType>[] => [
   {
     accessorKey: "judul",
@@ -39,17 +42,15 @@ export const columns = (
                 <Eye className="h-4 w-4" />
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="sm:max-w-2xl">
               <DialogHeader>
-                <DialogTitle className="text-gray-500 text-md">
-                  Detail Artikel
-                </DialogTitle>
-                <DialogDescription asChild>
-                  <div aria-describedby="Detail Artikel">
-                    <DetailArticle articleId={article.id} />
-                  </div>
+                <DialogTitle>{p('PublikasiDetail')}</DialogTitle>
+                <DialogDescription>
+                  {p('PublikasiDetailDesc')}
                 </DialogDescription>
               </DialogHeader>
+
+              <DetailArticle articleId={article.id} />
             </DialogContent>
           </Dialog>
 
@@ -62,7 +63,7 @@ export const columns = (
             <DialogContent>
               <DialogHeader>
                 <DialogTitle className="text-gray-500 text-md">
-                  Ubah Artikel
+                  {p('PublikasiEdit')}
                 </DialogTitle>
                 <DialogDescription asChild>
                   <div aria-describedby="Detail Artikel">

@@ -3,16 +3,24 @@ import { columns } from "@/src/components/Data Table/articlecolumns";
 import { DataTable } from "@/src/components/Data Table/data-table";
 import FormSkeleton from "@/src/components/Skeletons/FormSk";
 import { Button } from "@/src/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/src/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
-import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";
 import { ArticleDashType, CreateArticleDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const DashPublikasiFeat = () => {
+  const p = useTranslations("dash");
   const [formData, setFormData] = useState<CreateArticleDashType>({
     judul: "",
     doi: "",
@@ -88,113 +96,97 @@ const DashPublikasiFeat = () => {
   }
 
   return (
-    <div className="p-8">
-      <Toaster position="top-center" richColors />
-      <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
-        Publikasi Ilmiah
-      </h1>
+    <div className="p-6 space-y-6">
       <div>
-        <Card className="bg-[url('/image.png')] bg-cover">
-          <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-            Tambah Publikasi Ilmiah Terbaru
-          </h1>
-          <Card className="max-w-4xl mx-4">
-            <CardContent className="flex flex-col gap-6">
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Judul Artikel</Label>
-                  <Input
-                    type="text"
-                    name="judul"
-                    id="judul"
-                    autoComplete="judul"
-                    value={formData.judul}
-                    onChange={handleChange}
-                    placeholder="Judul Artikel"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Penulis</Label>
-                  <Input
-                    type="text"
-                    name="doi"
-                    id="doi"
-                    autoComplete="doi"
-                    value={formData.doi}
-                    onChange={handleChange}
-                    placeholder="*)Contoh penulisan (Nama, Nama, Nama, dst)"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Tahun</Label>
-                  <Input
-                    type="number"
-                    name="tahun"
-                    id="tahun"
-                    value={formData.tahun ?? ""}
-                    onChange={handleChange}
-                    placeholder="Tahun"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>DOI/ Link Artikel</Label>
-                  <Input
-                    type="text"
-                    name="link"
-                    id="link"
-                    autoComplete="link"
-                    value={formData.link}
-                    onChange={handleChange}
-                    placeholder="DOI/ Link Artikel"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="grid gap-2">
-                  <Label>Nama Jurnal dan Volume</Label>
-                  <Input
-                    type="text"
-                    name="volume"
-                    id="volume"
-                    autoComplete="volume"
-                    value={formData.volume}
-                    onChange={handleChange}
-                    placeholder="*)Contoh penulisan (Tropical Conservation Science. 2026:
-                      art. 19)"
-                    required
-                  />
-                </div>
-              </div>
-            </CardContent>
-
-            <CardFooter className="justify-end">
-              <Button
-                onClick={createArticle}
-                className="bg-[#1A4D2E] hover:bg-[#3f8159] cursor-pointer"
-              >
-                Tambah Artikel
-              </Button>
-            </CardFooter>
-          </Card>
-          <div className="max-w-4xl my-4">
-            <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-              Kelola Publikasi Ilmiah Terbaru
-            </h1>
-            <DataTable columns={columns(getDataArticle)} data={articles} />
-          </div>
-        </Card>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{p("publikasi")}</h1>
+        <p className="mt-2 text-muted-foreground">{p("publikasidesc")}</p>
       </div>
+
+      <Card className="overflow-hidden border-0 shadow-lg">
+        <div className="bg-linear-to-r from-[#1A4D2E] via-[#2B6B45] to-[#4F8A5B] px-8 py-6">
+          <h2 className="text-2xl font-semibold text-white">
+            {p("publikasiForm")}
+          </h2>
+          <p className="mt-2 text-sm text-green-100">
+            {p("publikasiFormDesc")}
+          </p>
+        </div>
+        <CardContent className="p-8">
+          <div className="grid gap-6">
+            <div className="grid gap-2">
+              <Label>{p('publikasiForm1')}</Label>
+              <Input
+                name="judul"
+                value={formData.judul}
+                onChange={handleChange}
+                placeholder="Masukkan judul artikel"
+              />
+            </div>
+
+            <div className="grid gap-2">
+              <Label>{p('publikasiForm2')}</Label>
+              <Input
+                name="doi"
+                value={formData.doi}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid gap-2">
+                <Label>{p('publikasiForm3')}</Label>
+                <Input
+                  type="number"
+                  name="tahun"
+                  value={formData.tahun ?? ""}
+                  onChange={handleChange}
+                  placeholder="2026"
+                />
+              </div>
+
+              <div className="grid gap-2">
+                <Label>DOI / Link Artikel</Label>
+                <Input
+                  name="link"
+                  value={formData.link}
+                  onChange={handleChange}
+                  placeholder="https://doi.org/..."
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-2">
+              <Label>{p('publikasiForm4')}</Label>
+              <Input
+                name="volume"
+                value={formData.volume}
+                onChange={handleChange}
+                placeholder="Tropical Conservation Science, Vol. 19 (2026)"
+              />
+            </div>
+          </div>
+        </CardContent>
+
+        <CardFooter className="justify-end border-t bg-muted/30 px-8 py-4">
+          <Button
+            onClick={createArticle}
+            className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
+          >
+            {p('publikasiButton')}
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle className="text-[#1A4D2E]">{p("publikasiList")}</CardTitle>
+          <CardDescription>{p("publikasiListDesc")}</CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <DataTable columns={columns(getDataArticle, p)} data={articles} />
+        </CardContent>
+      </Card>
     </div>
   );
 };
