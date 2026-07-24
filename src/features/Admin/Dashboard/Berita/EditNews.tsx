@@ -10,7 +10,6 @@ import {
 } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
-import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";
 import { useRouter } from "@/src/i18n/navigation";
 import { NewsDashType, NewsPropsType } from "@/src/types";
@@ -18,11 +17,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Textarea } from "@/src/components/ui/textarea";
+import { useTranslations } from "next-intl";
 
 const EditNews = ({ newsId }: NewsPropsType) => {
+  const b = useTranslations('dash')
   const [news, setNews] = useState<NewsDashType | null>(null);
   const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
-  const [editBerita, setEditBerita] = useState(false);
   const [originalNews, setOriginalNews] = useState<NewsDashType | null>(null);
 
   const router = useRouter();
@@ -112,31 +112,29 @@ const EditNews = ({ newsId }: NewsPropsType) => {
 
   return (
     <div className="p-6 space-y-6">
-      <Toaster position="top-center" richColors />
-
       <div>
-        <h1 className="text-3xl font-bold text-[#1A4D2E]">Edit Berita</h1>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{b('berEdit')}</h1>
 
         <p className="mt-2 text-muted-foreground">
-          Perbarui informasi berita yang ditampilkan pada website.
+         {b('berEditDesc')}
         </p>
       </div>
 
       <Card className="max-w-5xl overflow-hidden shadow-lg">
         <CardHeader className="border-b bg-muted/30">
           <CardTitle className="text-xl text-[#1A4D2E]">
-            Informasi Berita
+            {b('berEditForm')}
           </CardTitle>
 
           <CardDescription>
-            Ubah informasi berita beserta dokumentasi yang akan dipublikasikan.
+            {b('berEditFormDesc')}
           </CardDescription>
         </CardHeader>
 
         <CardContent className="p-8">
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <Label>Judul Berita</Label>
+              <Label>{b('berForm1')}</Label>
 
               <Input
                 name="news_name"
@@ -147,7 +145,7 @@ const EditNews = ({ newsId }: NewsPropsType) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Tanggal Berita</Label>
+              <Label>{b('berForm2')}</Label>
 
               <Input
                 type="date"
@@ -158,7 +156,7 @@ const EditNews = ({ newsId }: NewsPropsType) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Lokasi</Label>
+              <Label>{b('berForm3')}</Label>
 
               <Input
                 name="tempat"
@@ -169,7 +167,7 @@ const EditNews = ({ newsId }: NewsPropsType) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Link Video</Label>
+              <Label>{b('berForm4')}</Label>
 
               <Input
                 name="video_link"
@@ -180,7 +178,7 @@ const EditNews = ({ newsId }: NewsPropsType) => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Deskripsi</Label>
+              <Label>{b('berForm5')}</Label>
 
               <Textarea
                 rows={6}
@@ -190,9 +188,8 @@ const EditNews = ({ newsId }: NewsPropsType) => {
                 placeholder="Masukkan isi berita..."
               />
             </div>
-
             <div className="space-y-3 md:col-span-2">
-              <Label>Foto Saat Ini</Label>
+              <Label>{b('berForm7')}</Label>
 
               <div className="rounded-xl border bg-muted/20 p-4">
                 {news?.photo_url ? (
@@ -221,13 +218,12 @@ const EditNews = ({ newsId }: NewsPropsType) => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Ganti Foto Berita</Label>
+              <Label>{b('berForm8')}</Label>
 
               <Input type="file" accept="image/*" onChange={handleFileChange} />
 
               <p className="text-xs text-muted-foreground">
-                Upload foto baru hanya jika ingin mengganti foto yang saat ini
-                digunakan. Format yang didukung: JPG, JPEG, PNG.
+                {b('berForm8Desc')}
               </p>
             </div>
           </div>
@@ -235,7 +231,7 @@ const EditNews = ({ newsId }: NewsPropsType) => {
 
         <CardFooter className="flex justify-end gap-3 border-t bg-muted/30 px-8 py-5">
           <Button variant="outline" onClick={() => router.back()}>
-            Batal
+            {b('buttonNo')}
           </Button>
 
           <Button
@@ -243,7 +239,7 @@ const EditNews = ({ newsId }: NewsPropsType) => {
             disabled={!isChanged}
             className="bg-[#1A4D2E] hover:bg-[#2B6B45] disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Simpan Perubahan
+            {b('buttonYes')}
           </Button>
         </CardFooter>
       </Card>

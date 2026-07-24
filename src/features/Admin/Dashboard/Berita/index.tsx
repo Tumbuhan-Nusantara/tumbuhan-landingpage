@@ -6,14 +6,15 @@ import { Button } from "@/src/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
-import { Toaster } from "@/src/components/ui/sonner";
 import { Textarea } from "@/src/components/ui/textarea";
 import { axiosInstance } from "@/src/lib/axios";
 import { CreateNewsDashType, NewsDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 const BeritaDashboard = () => {
+  const b = useTranslations('dash')
   const [news, setNews] = useState<NewsDashType[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -114,30 +115,28 @@ const BeritaDashboard = () => {
   }
   return (
     <div className="p-6 space-y-6">
-      <Toaster position="top-center" richColors />
 
       <div>
-        <h1 className="text-3xl font-bold text-[#1A4D2E]">Berita</h1>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{b('berita')}</h1>
 
         <p className="mt-2 text-muted-foreground">
-          Kelola berita terbaru yang akan ditampilkan pada website.
+         {b('beritaDesc')}
         </p>
       </div>
 
       <Card className="overflow-hidden border-0 shadow-lg">
         <div className="bg-linear-to-r from-[#1A4D2E] via-[#2B6B45] to-[#4F8A5B] px-8 py-6">
-          <h2 className="text-2xl font-semibold text-white">Tambah Berita</h2>
+          <h2 className="text-2xl font-semibold text-white">{b('beritaForm')}</h2>
 
           <p className="mt-2 text-sm text-green-100">
-            Lengkapi informasi berita beserta dokumentasi yang akan
-            dipublikasikan.
+            {b('beritaFormTitle')}
           </p>
         </div>
 
         <CardContent className="p-8">
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <Label>Judul Berita</Label>
+              <Label>{b('berForm1')}</Label>
 
               <Input
                 name="news_name"
@@ -148,7 +147,7 @@ const BeritaDashboard = () => {
             </div>
 
             <div className="space-y-2">
-              <Label>Tanggal Berita</Label>
+              <Label>{b('berForm2')}</Label>
 
               <Input
                 type="date"
@@ -159,7 +158,7 @@ const BeritaDashboard = () => {
             </div>
 
             <div className="space-y-2">
-              <Label>Lokasi</Label>
+              <Label>{b('berForm3')}</Label>
 
               <Input
                 name="tempat"
@@ -170,7 +169,7 @@ const BeritaDashboard = () => {
             </div>
 
             <div className="space-y-2">
-              <Label>Link Video (Opsional)</Label>
+              <Label>{b('berForm4')})</Label>
 
               <Input
                 name="video_link"
@@ -181,7 +180,7 @@ const BeritaDashboard = () => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Deskripsi</Label>
+              <Label>{b('berForm5')}</Label>
 
               <Textarea
                 rows={6}
@@ -193,7 +192,7 @@ const BeritaDashboard = () => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Foto Berita</Label>
+              <Label>{b('berForm6')}</Label>
 
               <Input
                 ref={fileInputRef}
@@ -214,17 +213,17 @@ const BeritaDashboard = () => {
             onClick={createNews}
             className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
           >
-            Tambah Berita
+            {b('beritaButton')}
           </Button>
         </CardFooter>
       </Card>
 
       <Card className="shadow-lg">
         <CardHeader>
-          <CardTitle className="text-[#1A4D2E]">Daftar Berita</CardTitle>
+          <CardTitle className="text-[#1A4D2E]">{b('beritaList')}</CardTitle>
 
           <CardDescription>
-            Kelola seluruh berita yang telah ditambahkan.
+            {b('beritaListDesc')}
           </CardDescription>
         </CardHeader>
 
