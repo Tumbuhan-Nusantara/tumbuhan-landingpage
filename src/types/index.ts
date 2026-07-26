@@ -4,13 +4,13 @@ export interface LandingMenuType {
   id: number;
   title: string;
   items?: SubMenuType[];
-  path?: string
+  path?: string;
 }
 
 export interface SubMenuType {
   id: number;
   sub: string;
-  path? : string;
+  path?: string;
 }
 
 export interface CarouselType {
@@ -28,31 +28,32 @@ export interface ArticleType {
   id: number;
   title: string;
   desc: string;
-  src: string;}
+  src: string;
+}
 export interface ArticleGroup {
   year: number;
   items: ArticleType[];
 }
 
-export interface SejarahType{
-  id: number
-  title: string
-  src: LucideIcon
-}
-
-export  interface VisiMisiType{
+export interface SejarahType {
   id: number;
-  desc: string
-  src: string
+  title: string;
+  src: LucideIcon;
 }
 
-export interface SidebarType{
+export interface VisiMisiType {
+  id: number;
+  desc: string;
+  src: string;
+}
+
+export interface SidebarType {
   id: number;
   title: string;
   isActive?: boolean;
-  icon: LucideIcon
+  icon: LucideIcon;
   items?: SideMenuType[];
-  path?: string
+  path?: string;
 }
 
 export interface SideMenuType {
@@ -62,35 +63,35 @@ export interface SideMenuType {
   path?: string;
 }
 
-export interface DashMain{
+export interface DashMain {
   id: number;
   title: string;
   logo: LucideIcon;
 }
 
-export interface DashMisi{
+export interface DashMisi {
   id: number;
-  misi: string
+  misi: string;
 }
 
 //api
 
-export interface HeroType{
-  id:number;
+export interface HeroType {
+  id: number;
   beranda_id: string;
   beranda_en: string;
-  deskripsi_id: string
-  deskripsi_en: string
+  deskripsi_id: string;
+  deskripsi_en: string;
 }
 
-export interface CreateArticleDashType{
+export interface CreateArticleDashType {
   judul: string;
   doi: string;
   tahun: number | null;
   volume: string;
   link: string;
 }
-export interface ArticleDashType{
+export interface ArticleDashType {
   id: number;
   judul: string;
   doi: string;
@@ -98,31 +99,31 @@ export interface ArticleDashType{
   volume: string;
   link: string;
 }
-export interface PropsType{
+export interface PropsType {
   idCode: number;
   onSuccess: () => void;
 }
 
-export interface NewsDashType{
+export interface NewsDashType {
   id: number;
   news_name: string;
   deskripsi: string;
   tanggal_berita: string;
   tempat: string;
   photo_url: string;
-  video_link: string
+  video_link: string;
 }
 
-export interface CreateNewsDashType{
+export interface CreateNewsDashType {
   news_name: string;
   deskripsi: string;
   tanggal_berita: string;
   tempat: string;
   photo_url: File | null;
-  video_link: string
+  video_link: string;
 }
 
-export interface NewsPropsType{
+export interface NewsPropsType {
   newsId: number;
 }
 
@@ -142,15 +143,15 @@ export interface ActivityDashType {
   tempat: string;
   photo_url: string;
   tipe_kegiatan_id: number | null;
-  nama_tipe: string
+  nama_tipe: string;
 }
 
-export interface TypesDashType{
+export interface TypesDashType {
   id: number;
   nama_tipe: string;
 }
 
-export interface ActivityPropsType{
+export interface ActivityPropsType {
   activityId: number;
 }
 
@@ -173,31 +174,31 @@ export interface CreateUserDashType {
   role: "admin" | "user";
 }
 
-export interface LoginUserDashType{
+export interface LoginUserDashType {
   email: string;
-  password: string
+  password: string;
 }
 
 export interface ChangePasswordType {
   password: string;
 }
-export interface TeamPropsType{
+export interface TeamPropsType {
   teamId: number;
 }
 
-export interface VisiType{
+export interface VisiType {
   id: number;
   visi_id: string;
   visi_en: string;
 }
 
-export interface MisiType{
+export interface MisiType {
   id: number;
   content_id: string;
   content_en: string;
 }
 
-export interface TujuanType{
+export interface TujuanType {
   id: number;
   goal_id: string;
   goal_en: string;
@@ -207,52 +208,52 @@ export interface StrukturDashType {
   id: number;
   position: string;
   name: string;
+  photo: string;
 }
 export interface CreateStrukturDashType {
   position: string;
   name: string;
+  photo: File | null;
 }
 
-
-
-export interface NewsLandingPageType{
+export interface NewsLandingPageType {
   id: number;
   news_name: string;
   deskripsi: string;
   tanggal_berita: string;
   tempat: string;
   photo_url: string;
-  video_link: string
+  video_link: string;
 }
 
-export interface VisiLandingPageType{
+export interface VisiLandingPageType {
   id: number;
-  visi_id: string
-  visi_en: string
+  visi_id: string;
+  visi_en: string;
 }
-export interface MisiType{
+export interface MisiType {
   id: number;
-  content_id: string
-  content_en: string
+  content_id: string;
+  content_en: string;
 }
-export interface GoalType{
+export interface GoalType {
   id: number;
-  goal_id: string
-  goal_en: string
+  goal_id: string;
+  goal_en: string;
 }
 
-export interface DampakLandingPageType{
+export interface DampakLandingPageType {
   id: number;
   keterangan_id: string;
   keterangan_en: string;
   sejak: string;
   total: string;
 }
-export interface DokumenLandingPageType{
+export interface DokumenLandingPageType {
   id: number;
   name_doc: string;
   summary: string;
-  link: string
+  link: string;
 }
 
 export interface FocusArea {

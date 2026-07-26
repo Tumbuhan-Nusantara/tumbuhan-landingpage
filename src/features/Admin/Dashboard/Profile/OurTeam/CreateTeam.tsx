@@ -1,5 +1,4 @@
 "use client";
-import CreateEditSkeleton from "@/src/components/Skeletons/CreateEditSk";
 import { Button } from "@/src/components/ui/button";
 import { Card, CardContent } from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
@@ -11,6 +10,7 @@ import { CreateUserDashType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
+import FormSkeleton from "@/src/components/Skeletons/FormSk";
 
 const CreateTeam = () => {
   const [createTeam, setCreateTeam] = useState<CreateUserDashType>({
@@ -73,7 +73,7 @@ const CreateTeam = () => {
   }, []);
 
   if (loading) {
-    return <CreateEditSkeleton />;
+    return <FormSkeleton />;
   }
 
   return (
@@ -93,10 +93,10 @@ const CreateTeam = () => {
       <Card className="overflow-hidden border-0 shadow-lg">
         <div className="bg-linear-to-r from-[#1A4D2E] via-[#2F6B45] to-[#4F8A5B] px-8 py-6">
           <div className="text-white">
-            <h2 className="text-2xl font-semibold">{c('createProfileDesc1')}</h2>
+            <h2 className="text-2xl font-semibold">{c('createProfileDes1')}</h2>
 
             <p className="mt-2 text-sm text-green-100">
-              {c('createProfileDesc2')}
+              {c('createProfileDes2')}
             </p>
           </div>
         </div>
