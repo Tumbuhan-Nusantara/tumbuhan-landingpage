@@ -61,7 +61,11 @@ export interface SideMenuType {
   sub: string;
   icon: LucideIcon;
   path?: string;
+  roles: UserRole[];
 }
+
+export type UserRole = "admin" | "user";
+
 
 export interface DashMain {
   id: number;

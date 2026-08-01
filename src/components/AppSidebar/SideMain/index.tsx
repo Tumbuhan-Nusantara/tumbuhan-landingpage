@@ -18,73 +18,91 @@ import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/navigation";
 
-const SideMain = () => {
-  const dash = useTranslations("dash");
+type SideMainProps = {
+  role: "admin" | "user";
+};
 
+
+const SideMain = ({ role }: SideMainProps) => {
+  const dash = useTranslations("dash");
+  console.log("ROLE =", role);
   return (
     <SidebarGroup>
       <SidebarGroupLabel className="text-xs uppercase tracking-widest text-muted-foreground">
         Dashboard Admin
       </SidebarGroupLabel>
+
       <SidebarMenu className="space-y-1">
-        {SidebarItems.map((item) => (
-          <Collapsible
-            key={item.title}
-            defaultOpen={item.isActive}
-            className="group/collapsible"
-          >
-            <SidebarMenuItem>
-              <CollapsibleTrigger asChild>
-                <SidebarMenuButton
-                  tooltip={dash(item.title)}
-                  className="
-                          rounded-lg
-                          transition-all
-                          hover:bg-[#1A4D2E]
-                          hover:text-white
-                          data-[active=true]:bg-[#1A4D2E]
-                          data-[active=true]:text-white
-                        "
-                >
-                  {item.icon && <item.icon className="h-4 w-4 shrink-0" />}
-                  {dash(item.title)}
-                  <ChevronRight
+        {SidebarItems.map((menu) => {
+          const visibleItems =
+            menu.items?.filter((subItem) => subItem.roles.includes(role)) ?? [];
+
+          // sembunyikan parent jika semua submenu tidak boleh diakses
+          if (visibleItems.length === 0) return null;
+
+          return (
+            <Collapsible
+              key={menu.id}
+              defaultOpen={menu.isActive}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton
+                    tooltip={dash(menu.title)}
                     className="
-                          ml-auto
-                          h-4
-                          w-4
-                          transition-transform
-                          group-data-[state=open]/collapsible:rotate-90
-                          "
-                  />
-                </SidebarMenuButton>
-              </CollapsibleTrigger>
+                  rounded-lg
+                  transition-all
+                  hover:bg-[#1A4D2E]
+                  hover:text-white
+                  data-[active=true]:bg-[#1A4D2E]
+                  data-[active=true]:text-white
+                "
+                  >
+                    <menu.icon className="h-4 w-4 shrink-0" />
 
-              <CollapsibleContent>
-                <SidebarMenuSub>
-                  {item.items?.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.id}>
-                      <SidebarMenuSubButton
-                        asChild
-                        className="
-    rounded-md
-    transition-colors
-    hover:bg-sidebar-accent
-  "
-                      >
-                        <Link href={subItem.path || "#"}>
-                          {subItem.icon && <subItem.icon />}
+                    <span>{dash(menu.title)}</span>
 
-                          <span>{dash(subItem.sub)}</span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  ))}
-                </SidebarMenuSub>
-              </CollapsibleContent>
-            </SidebarMenuItem>
-          </Collapsible>
-        ))}
+                    <ChevronRight
+                      className="
+                    ml-auto
+                    h-4
+                    w-4
+                    transition-transform
+                    group-data-[state=open]/collapsible:rotate-90
+                  "
+                    />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    {visibleItems.map((subItem) => (
+                      <SidebarMenuSubItem key={subItem.id}>
+                        <SidebarMenuSubButton
+                          asChild
+                          className="
+                        rounded-md
+                        transition-all
+                        hover:bg-[#EAF5EE]
+                        hover:text-[#1A4D2E]
+                        data-[active=true]:bg-[#1A4D2E]
+                        data-[active=true]:text-white
+                      "
+                        >
+                          <Link href={subItem.path || "#"}>
+                            <subItem.icon className="h-4 w-4" />
+                            <span>{dash(subItem.sub)}</span>
+                          </Link>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    ))}
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
+          );
+        })}
       </SidebarMenu>
     </SidebarGroup>
   );

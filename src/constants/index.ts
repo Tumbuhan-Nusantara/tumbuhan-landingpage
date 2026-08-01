@@ -334,14 +334,14 @@ export const SidebarItems: SidebarType[] = [
     title: "beranda",
     icon: House,
     isActive: true,
-    items: [{ id: 1, sub: "hero", icon: House, path: "/admin/dashboard/hero" }],
+    items: [{ id: 1, sub: "hero", icon: House, path: "/admin/dashboard/hero" , roles: ["admin", "user"]}],
   },
   {
     id: 2,
     title: "user",
     icon: UserRoundCog,
     isActive: true,
-    items: [{ id: 1, sub: "role", icon: UserRoundCog, path: "/admin/dashboard/user" }],
+    items: [{ id: 1, sub: "role", icon: UserRoundCog, path: "/admin/dashboard/user" , roles: ["admin"] }],
   },
   {
     id: 3,
@@ -349,9 +349,9 @@ export const SidebarItems: SidebarType[] = [
     isActive: true,
     icon: Users,
     items: [
-      { id: 1, sub: "tim", icon: Users, path: "/admin/dashboard/our-team" },
-      { id: 2, sub: "vismis", icon: FileStack, path: "/admin/dashboard/visi-misi" },
-      { id: 3, sub: "struktur", icon: Landmark, path: "/admin/dashboard/struktur-org " },
+      { id: 1, sub: "tim", icon: Users, path: "/admin/dashboard/our-team"  , roles: ["admin", "user"]},
+      { id: 2, sub: "vismis", icon: FileStack, path: "/admin/dashboard/visi-misi" , roles: ["admin", "user"] },
+      { id: 3, sub: "struktur", icon: Landmark, path: "/admin/dashboard/struktur-org" , roles: ["admin", "user"] },
     ],
   },
   {
@@ -360,8 +360,8 @@ export const SidebarItems: SidebarType[] = [
     isActive: true,
     icon: Newspaper,
     items: [
-      { id: 1, sub: "publikasi", icon: Newspaper, path: "/admin/dashboard/publikasi" },
-      { id: 2, sub: "kegiatans", icon: Library, path: "/admin/dashboard/kegiatan" },
+      { id: 1, sub: "publikasi", icon: Newspaper, path: "/admin/dashboard/publikasi" , roles: ["admin", "user"] },
+      { id: 2, sub: "kegiatans", icon: Library, path: "/admin/dashboard/kegiatan" , roles: ["admin", "user"] },
     ],
   },
    {
@@ -369,7 +369,7 @@ export const SidebarItems: SidebarType[] = [
     title: "berita",
     icon: Mails,
     isActive: true,
-    items:  [{ id: 1, sub: "berita", icon: Mails, path: "/admin/dashboard/berita" }]
+    items:  [{ id: 1, sub: "berita", icon: Mails, path: "/admin/dashboard/berita" , roles: ["admin", "user"] }]
   },
 ];
 

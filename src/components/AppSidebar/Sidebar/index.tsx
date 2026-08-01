@@ -1,4 +1,5 @@
 "use client";
+
 import * as React from "react";
 import {
   Sidebar,
@@ -7,13 +8,20 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/src/components/ui/sidebar";
+
 import SideUser from "../SideUser";
 import SideMain from "../SideMain";
-
 import { TeamSwitcher } from "../SideHeader";
 import { TooltipProvider } from "../../ui/tooltip";
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
+  role: "admin" | "user";
+};
+
+export function AppSidebar({
+  role,
+  ...props
+}: AppSidebarProps) {
   return (
     <TooltipProvider delayDuration={0}>
       <Sidebar collapsible="icon" {...props}>
@@ -22,7 +30,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarHeader>
 
         <SidebarContent>
-          <SideMain />
+          <SideMain role={role} />
         </SidebarContent>
 
         <SidebarFooter>
