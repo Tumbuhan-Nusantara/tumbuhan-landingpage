@@ -13,6 +13,7 @@ import {
   Newspaper,
   NotebookText,
   Sprout,
+  SquareChartGantt,
   UserRoundCog,
   Users,
 } from "lucide-react";
@@ -345,6 +346,13 @@ export const SidebarItems: SidebarType[] = [
   },
   {
     id: 3,
+    title: "dampak",
+    icon: SquareChartGantt,
+    isActive: true,
+    items: [{ id: 1, sub: "dampak", icon: SquareChartGantt, path: "/admin/dashboard/dampak" , roles: ["admin", "user"] }],
+  },
+  {
+    id: 4,
     title: "profile",
     isActive: true,
     icon: Users,
@@ -355,7 +363,7 @@ export const SidebarItems: SidebarType[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "kegiatan",
     isActive: true,
     icon: Newspaper,
@@ -365,7 +373,7 @@ export const SidebarItems: SidebarType[] = [
     ],
   },
    {
-    id: 5,
+    id: 6,
     title: "berita",
     icon: Mails,
     isActive: true,

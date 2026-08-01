@@ -265,3 +265,8 @@ export interface FocusArea {
   title: string;
   logo: LucideIcon;
 }
+
+
+export interface DampakPropsType {
+  dampakId: number;
+}

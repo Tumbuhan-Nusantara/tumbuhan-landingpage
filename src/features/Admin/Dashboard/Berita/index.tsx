@@ -26,7 +26,7 @@ const BeritaDashboard = () => {
 
       setNews(result);
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      setLoading(false);
+      setLoading(false); 
     } catch (error) {
       throw error;
     }
