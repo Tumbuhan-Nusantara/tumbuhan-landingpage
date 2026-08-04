@@ -29,6 +29,7 @@ export interface ArticleType {
   title: string;
   desc: string;
   src: string;
+  link: string
 }
 export interface ArticleGroup {
   year: number;
@@ -142,7 +143,8 @@ export interface CreateActivityDashType {
 export interface ActivityDashType {
   id: number;
   activity_name: string;
-  deskripsi: string;
+  deskripsi_id: string;
+  deskripsi_en: string;
   tanggal_kegiatan: string;
   tempat: string;
   photo_url: string;
