@@ -246,7 +246,25 @@
     "berEditForm": "Informasi Berita",
     "berEditFormDesc": "Ubah informasi berita beserta dokumentasi yang akan dipublikasikan.",
     "buttonYes": "Simpan Perubahan",
-    "buttonNo": "Batal"
+    "buttonNo": "Batal",
+
+    "backToTeam": "Kembali ke Tim",
+    "backToTeamPage": "Kembali ke Halaman Tim",
+    "about": "Tentang",
+    "expertise": "Bidang Keahlian",
+    "bioEx": "Belum ada informasi bidang keahlian.",
+    "bio": "Belum ada informasi biografi.",
+    "information": "Informasi Anggota",
+    "university": "Universitas",
+    "openProfile": "Buka Profil",
+    "joined": "Bergabung Sejak",
+    "position": "Posisi",
+    "institution": "Institusi",
+    "noData": "Data tidak tersedia",
+    "loading": "Memuat data...",
+    "notFound": "Anggota tim tidak ditemukan",
+    "titleTeam": "Anggota YTAN",
+    "descriptionTeam": "Bertemu dengan tim Yayasan Tumbuhan Asli Nusantara yang berkontribusi dalam penelitian, konservasi, restorasi, dan edukasi tumbuhan asli Indonesia."
   },
   "dashmain": {
     "user": "Total Pengguna",

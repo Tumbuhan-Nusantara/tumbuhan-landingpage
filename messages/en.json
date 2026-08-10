@@ -247,7 +247,25 @@
     "berEditForm": "News Information",
     "berEditFormDesc": "Modify the news information and supporting documentation to be published on the website.",
     "buttonYes": "Save Changes",
-    "buttonNo": "Cancel"
+    "buttonNo": "Cancel",
+
+    "backToTeam": "Back to Team",
+    "backToTeamPage": "Back to Team Page",
+    "about": "About",
+    "expertise": "Areas of Expertise",
+    "bioEx": "BNo expertise information available.",
+    "bio": "No biography information available.",
+    "information": "Member Information",
+    "university": "University",
+    "openProfile": "Open Profile",
+    "joined": "Joined",
+    "position": "Position",
+    "institution": "Institution",
+    "noData": "No data available",
+    "loading": "Loading...",
+    "notFound": "Team member not found",
+     "titleTeam": "YTAN Members",
+    "descriptionTeam": "Meet the team of the Yayasan Tumbuhan Asli Nusantara, contributing to research, conservation, restoration, and education on Indonesia’s native plants."
   },
   "dashmain": {
     "user": "Total Users",
