@@ -141,6 +141,14 @@
     "roleFormTitle": "Hak Akses Dashboard",
     "roleFormDesc": "Atur peran pengguna dan kelola akses ke Dashboard YTAN.",
 
+    "emailExisted": "Email sudah terdaftar",
+    "emailExistedDescription": "Silakan gunakan email lain.",
+    "usernameExisted": "Username sudah terdaftar",
+    "usernameExistedDescription": "Silakan gunakan username lain.",
+    "emailNotValid": "Email tidak valid",
+    "emailNotValidDescription": "Silakan masukkan alamat email yang benar.",
+    "createFailed": "Gagal membuat user",
+
     "dampak": "Dampak",
     "titleDampak": "Dampak Yayasan",
     "descriptionDampak": "Kelola data statistik dampak yang ditampilkan pada halaman utama website.",
@@ -264,7 +272,9 @@
     "loading": "Memuat data...",
     "notFound": "Anggota tim tidak ditemukan",
     "titleTeam": "Anggota YTAN",
-    "descriptionTeam": "Bertemu dengan tim Yayasan Tumbuhan Asli Nusantara yang berkontribusi dalam penelitian, konservasi, restorasi, dan edukasi tumbuhan asli Indonesia."
+    "descriptionTeam": "Bertemu dengan tim Yayasan Tumbuhan Asli Nusantara yang berkontribusi dalam penelitian, konservasi, restorasi, dan edukasi tumbuhan asli Indonesia.",
+    "notFoundDescription": "Coba gunakan kata kunci lain.",
+    "search": "Cari Anggota Tim..."
   },
   "dashmain": {
     "user": "Total Pengguna",

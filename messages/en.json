@@ -142,6 +142,14 @@
     "roleFormTitle": "Dashboard User Access",
     "roleFormDesc": "Update user roles or remove dashboard access.",
 
+    "emailExisted": "Email is already registered",
+    "emailExistedDescription": "Please use another email address.",
+    "usernameExisted": "Username is already registered",
+    "usernameExistedDescription": "Please use another username.",
+    "emailNotValid": "Invalid email",
+    "emailNotValidDescription": "Please enter a valid email address.",
+    "createFailed": "Failed to create user",
+
     "dampak": "Impact",
     "titleDampak": "Foundation Impact",
     "descriptionDampak": "Manage impact statistics displayed on the website homepage.",
@@ -265,7 +273,9 @@
     "loading": "Loading...",
     "notFound": "Team member not found",
      "titleTeam": "YTAN Members",
-    "descriptionTeam": "Meet the team of the Yayasan Tumbuhan Asli Nusantara, contributing to research, conservation, restoration, and education on Indonesia’s native plants."
+    "descriptionTeam": "Meet the team of the Yayasan Tumbuhan Asli Nusantara, contributing to research, conservation, restoration, and education on Indonesia’s native plants.",
+    "notFoundDescription": "Try using a different keyword.",
+    "search": "Search team members..."
   },
   "dashmain": {
     "user": "Total Users",
