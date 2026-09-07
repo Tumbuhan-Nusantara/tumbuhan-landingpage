@@ -23,6 +23,7 @@ import {
   AccordionTrigger,
 } from "@/src/components/ui/accordion";
 import { Link } from "@/src/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 type TeamMember = {
   id: number;
@@ -45,6 +46,7 @@ type TeamMember = {
 
 export default function DetailBerandaFeat() {
   const { id } = useParams();
+  const t = useTranslations("dash");
 
   const [member, setMember] = useState<TeamMember | null>(null);
   const [loading, setLoading] = useState(true);
@@ -69,31 +71,18 @@ export default function DetailBerandaFeat() {
 
     getMember();
   }, [id]);
-
-  // if (loading) {
-  //   return (
-  //     <main className="flex min-h-screen items-center justify-center bg-[#FAFCFB]">
-  //       <p className="text-muted-foreground">
-  //         Loading...
-  //       </p>
-  //     </main>
-  //   );
-  // }
-
   if (!member) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#FAFCFB]">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-[#1A4D2E]">
-            Anggota tidak ditemukan
-          </h1>
+          <h1 className="text-2xl font-bold text-[#1A4D2E]">{t("notFound")}</h1>
 
           <Link
             href="/profile/our-team"
             className="mt-4 inline-flex items-center gap-2 text-[#1A4D2E] hover:underline"
           >
             <ArrowLeft className="h-4 w-4" />
-            Kembali ke Tim
+            {t("backToTeam")}
           </Link>
         </div>
       </main>
@@ -115,27 +104,27 @@ export default function DetailBerandaFeat() {
             className="inline-flex items-center gap-2 text-sm font-medium text-[#1A4D2E] hover:underline"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Team
+            {t("backToTeamPage")}
           </Link>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[330px_1fr]">
             <div>
-                <div className="relative mx-auto h-80 w-80 overflow-hidden rounded-full bg-[#F4FBF6]">
-                  {member.photo_url ? (
-                    <Image
-                      src={member.photo_url}
-                      alt={member.full_name}
-                      fill
-                      className="rounded-full object-cover"
-                      sizes="320px"
-                      unoptimized
-                    />
-                  ) : (
-                    <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                      No Image
-                    </div>
-                  )}
-                </div>
+              <div className="relative mx-auto h-80 w-80 overflow-hidden rounded-full bg-[#F4FBF6]">
+                {member.photo_url ? (
+                  <Image
+                    src={member.photo_url}
+                    alt={member.full_name}
+                    fill
+                    className="rounded-full object-cover"
+                    sizes="320px"
+                    unoptimized
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
+                    No Image
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="flex flex-col justify-center">
@@ -144,17 +133,16 @@ export default function DetailBerandaFeat() {
               </p>
 
               <h1 className="mt-3 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
-                {member.degree && `${member.degree} `}
                 {member.full_name}
               </h1>
 
               <p className="mt-4 text-xl text-muted-foreground">
-                {member.position_id}
+                posisi {member.position_id}
               </p>
 
               {member.short_desc_id && (
                 <p className="mt-7 max-w-3xl text-base leading-8 text-muted-foreground">
-                  {member.short_desc_id}
+                  short desc {member.short_desc_id}
                 </p>
               )}
 
@@ -183,7 +171,7 @@ export default function DetailBerandaFeat() {
                     <GraduationCap className="mt-1 h-5 w-5 shrink-0 text-[#1A4D2E]" />
 
                     <div>
-                      <p className="text-sm font-semibold">University</p>
+                      <p className="text-sm font-semibold">{t("university")}</p>
 
                       <p className="text-sm text-muted-foreground">
                         {member.university}
@@ -205,26 +193,7 @@ export default function DetailBerandaFeat() {
                         rel="noopener noreferrer"
                         className="text-sm text-muted-foreground hover:text-[#1A4D2E] hover:underline"
                       >
-                        Open Profile
-                      </a>
-                    </div>
-                  </div>
-                )}
-
-                {member.orcid && (
-                  <div className="flex gap-3">
-                    <BookOpen className="mt-1 h-5 w-5 shrink-0 text-[#1A4D2E]" />
-
-                    <div>
-                      <p className="text-sm font-semibold">ORCID</p>
-
-                      <a
-                        href={member.orcid}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-muted-foreground hover:text-[#1A4D2E] hover:underline"
-                      >
-                        View ORCID
+                        {t("openProfile")}
                       </a>
                     </div>
                   </div>
@@ -237,7 +206,6 @@ export default function DetailBerandaFeat() {
 
       <section className="container mx-auto max-w-5xl px-6 py-12 pb-20">
         <Accordion type="single" collapsible className="space-y-4">
-
           <AccordionItem
             value="biography"
             className=" border bg-white px-6 shadow-sm"
@@ -245,7 +213,7 @@ export default function DetailBerandaFeat() {
             <AccordionTrigger className="py-6 text-xl font-semibold text-[#1A4D2E] hover:no-underline">
               <div className="flex items-center gap-3">
                 <BookOpen className="h-5 w-5" />
-                About Researcher
+                {t("about")}
               </div>
             </AccordionTrigger>
 
@@ -256,12 +224,11 @@ export default function DetailBerandaFeat() {
                 </p>
               ) : (
                 <p className="text-muted-foreground">
-                  Belum ada informasi biografi.
+                  {t('bio')}
                 </p>
               )}
             </AccordionContent>
           </AccordionItem>
-
 
           <AccordionItem
             value="expertise"
@@ -270,7 +237,7 @@ export default function DetailBerandaFeat() {
             <AccordionTrigger className="py-6 text-xl font-semibold text-[#1A4D2E] hover:no-underline">
               <div className="flex items-center gap-3">
                 <GitBranchPlus className="h-5 w-5" />
-                Expertise
+                {t("expertise")}
               </div>
             </AccordionTrigger>
 
@@ -288,12 +255,11 @@ export default function DetailBerandaFeat() {
                 </div>
               ) : (
                 <p className="text-muted-foreground">
-                  Belum ada informasi bidang keahlian.
+                  {t('bioEx')}
                 </p>
               )}
             </AccordionContent>
           </AccordionItem>
-
 
           <AccordionItem
             value="information"
@@ -302,14 +268,16 @@ export default function DetailBerandaFeat() {
             <AccordionTrigger className="py-6 text-xl font-semibold text-[#1A4D2E] hover:no-underline">
               <div className="flex items-center gap-3">
                 <Calendar className="h-5 w-5" />
-                Information
+                {t("information")}
               </div>
             </AccordionTrigger>
 
             <AccordionContent className="pb-7">
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <p className="text-sm text-muted-foreground">Position</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("position")}
+                  </p>
 
                   <p className="mt-1 font-semibold text-gray-900">
                     {member.position_id || "-"}
@@ -317,7 +285,9 @@ export default function DetailBerandaFeat() {
                 </div>
 
                 <div>
-                  <p className="text-sm text-muted-foreground">Institution</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("institution")}
+                  </p>
 
                   <p className="mt-1 font-semibold text-gray-900">
                     Yayasan Tumbuhan Asli Nusantara
@@ -325,7 +295,9 @@ export default function DetailBerandaFeat() {
                 </div>
 
                 <div>
-                  <p className="text-sm text-muted-foreground">University</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("university")}
+                  </p>
 
                   <p className="mt-1 font-semibold text-gray-900">
                     {member.university || "-"}
@@ -333,7 +305,7 @@ export default function DetailBerandaFeat() {
                 </div>
 
                 <div>
-                  <p className="text-sm text-muted-foreground">Joined</p>
+                  <p className="text-sm text-muted-foreground">{t("joined")}</p>
 
                   <p className="mt-1 font-semibold text-gray-900">
                     {member.joined_year || "-"}

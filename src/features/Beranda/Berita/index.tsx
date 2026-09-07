@@ -61,6 +61,7 @@ const BeritaFeat = () => {
                         width={500}
                         height={300}
                         className="h-56 w-full object-cover"
+                        unoptimized
                       />
 
                       <div className="flex min-h-55 flex-col p-5">

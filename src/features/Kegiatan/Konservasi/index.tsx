@@ -87,10 +87,10 @@ const KegiatanKonservasi = () => {
           ) : (
             <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
               <h3 className="text-xl font-semibold text-[#1A4D2E]">
-                Belum ada data
+                {k("titleNotification")}
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Data kegiatan belum tersedia.
+                {k("description")}
               </p>
             </div>
           )}

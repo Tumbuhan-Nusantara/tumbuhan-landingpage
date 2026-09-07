@@ -14,11 +14,9 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
-const edukasiItems = ["ed1", "ed2", "ed3"];
 
 const KegiatanEdukasi = () => {
   const e = useTranslations("kegiatan");
-  const k = useTranslations("kedukasi.items");
   const locale = useLocale();
   const [act, setAct] = useState<ActivityDashType[]>([]);
 
@@ -88,10 +86,10 @@ const KegiatanEdukasi = () => {
           ) : (
             <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
               <h3 className="text-xl font-semibold text-[#1A4D2E]">
-                Belum ada data
+                {e("titleNotification")}
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Data kegiatan belum tersedia.
+                {e("description")}
               </p>
             </div>
           )}

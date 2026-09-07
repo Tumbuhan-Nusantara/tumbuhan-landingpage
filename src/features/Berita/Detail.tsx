@@ -14,8 +14,8 @@ import { formatDateID } from "@/src/lib/dateHelper";
 import { NewsLandingPageType } from "@/src/types";
 import NewsLpSkeleton from "@/src/components/Skeletons/DetailNewsLpSk";
 const DetailNewsLandingPage = () => {
-   const { id } = useParams();
-   console.log(id)
+  const { id } = useParams();
+  console.log(id);
 
   const [news, setNews] = useState<NewsLandingPageType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -24,10 +24,8 @@ const DetailNewsLandingPage = () => {
     try {
       setLoading(true);
 
-      const response = await axiosInstance.get(
-        `/api/v1/news/${id}`
-      );
-      console.log(response.data)
+      const response = await axiosInstance.get(`/api/v1/news/${id}`);
+      console.log(response.data);
       setNews(response.data);
     } catch (error) {
       console.error(error);
@@ -44,37 +42,26 @@ const DetailNewsLandingPage = () => {
   }, [id]);
 
   if (loading) {
-    return (
-      <NewsLpSkeleton/>
-    );
+    return <NewsLpSkeleton />;
   }
 
   if (!news) {
     return (
       <>
-
         <section className="container mx-auto py-32 text-center">
-          <h1 className="text-3xl font-bold">
-            Berita tidak ditemukan
-          </h1>
+          <h1 className="text-3xl font-bold">Berita tidak ditemukan</h1>
 
-          <Link
-            href="/berita"
-            className="mt-6 inline-block text-[#1A4D2E]"
-          >
+          <Link href="/berita" className="mt-6 inline-block text-[#1A4D2E]">
             ← Kembali ke Berita
           </Link>
         </section>
-
       </>
     );
   }
 
   return (
     <>
-
       <section className="container mx-auto max-w-5xl px-6 py-16">
-
         <Link
           href="/berita"
           className="mb-8 inline-flex items-center gap-2 text-[#1A4D2E] hover:underline"
@@ -100,17 +87,26 @@ const DetailNewsLandingPage = () => {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
         </div>
 
-        <article className="prose prose-lg mt-12 max-w-none leading-9 text-justify">
+        <article
+          className=" prose
+    prose-lg
+    mt-12
+    max-w-none
+    leading-9
+    text-justify
+    whitespace-pre-wrap
+    break-all
+    overflow-hidden"
+        >
           {news.deskripsi}
         </article>
-
       </section>
-
     </>
   );
-}
+};
 
-export default DetailNewsLandingPage
+export default DetailNewsLandingPage;

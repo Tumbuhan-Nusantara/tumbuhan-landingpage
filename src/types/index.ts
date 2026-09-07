@@ -272,3 +272,22 @@ export interface FocusArea {
 export interface DampakPropsType {
   dampakId: number;
 }
+
+export interface TeamMember {
+  id: number;
+  full_name: string;
+  degree?: string;
+  position_id?: string;
+  position_en?: string;
+  short_desc_id?: string;
+  short_desc_en?: string;
+  biography_id?: string;
+  biography_en?: string;
+  university?: string;
+  email?: string;
+  linkedin?: string;
+  orcid?: string;
+  expertise?: string;
+  joined_year?: number;
+  photo_url?: string;
+};

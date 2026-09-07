@@ -88,7 +88,9 @@
     "konserv": "Konservasi dan Restorasi",
     "descK": "Kegiatan konservasi dan restorasi untuk melindungi tumbuhan asli beserta habitatnya demi menjaga keberlanjutan keanekaragaman hayati Indonesia.",
     "descPublikasiDetail": "Publikasi ilmiah yang diterbitkan maupun melibatkan peneliti Yayasan Tumbuhan Asli Nusantara selama tahun",
-    "buttonBack": "Kembali ke Kegiatan"
+    "buttonBack": "Kembali ke Kegiatan",
+    "titleNotification": "Belum ada data",
+    "description": "Data kegiatan belum tersedia."
   },
   "visimisi": {
     "title": "Visi, Misi & Tujuan",
@@ -209,6 +211,7 @@
     "kegForm6": "Tanggal Kegiatan",
     "kegDetail": "Detail Kegiatan",
     "kegDetailDesc": "Informasi lengkap mengenai kegiatan yang dipilih.",
+    
 
     "noKeg": "Belum ada dokumentasi kegiatan.",
     "additionalKeg": "Informasi Kegiatan",

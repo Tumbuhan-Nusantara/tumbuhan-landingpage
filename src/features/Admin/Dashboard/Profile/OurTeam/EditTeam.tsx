@@ -1,5 +1,4 @@
 "use client";
-import CreateEditSkeleton from "@/src/components/Skeletons/CreateEditSk";
 import { Button } from "@/src/components/ui/button";
 import { Card , CardContent} from "@/src/components/ui/card";
 import { Input } from "@/src/components/ui/input";
@@ -10,6 +9,7 @@ import { useRouter } from "@/src/i18n/navigation";
 import { TeamPropsType, UserDashType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import FormSkeleton from "@/src/components/Skeletons/FormSk";
 
 const EditTeam = ({ teamId }: TeamPropsType) => {
   const [team, setTeam] = useState<UserDashType | null>(null);
@@ -87,7 +87,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
   }, []);
 
   if (loading) {
-    return <CreateEditSkeleton />;
+    return <FormSkeleton />;
   }
 
   return (

@@ -11,7 +11,7 @@ const StickyNavigation = () => {
       </a>
 
       <a
-        href="#riset"
+        href="#riset"  
         className="rounded-full border px-5 py-2 text-sm font-medium transition hover:bg-[#1A4D2E] hover:text-white"
       >
         Riset

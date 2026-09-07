@@ -89,7 +89,9 @@
     "konserv": "Conservation & Restoration",
     "descK": "Conservation and restoration initiatives focused on protecting native plant species and their habitats to ensure the long-term sustainability of Indonesia's biodiversity.",
     "descPublikasiDetail": "Scientific publications published by or involving researchers from Yayasan Tumbuhan Asli Nusantara during ",
-    "buttonBack": "Back to Activities Page"
+    "buttonBack": "Back to Activities Page",
+    "titleNotification": "No Data Yet",
+    "description": "Activity data is not available yet."
   },
   "visimisi": {
     "title": "Vission, Missions & Goal",
