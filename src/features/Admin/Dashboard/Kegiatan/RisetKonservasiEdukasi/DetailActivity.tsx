@@ -18,6 +18,7 @@ const DetailActivity = ({ actId }: { actId: number }) => {
       try {
         const response = await axiosInstance.get(`/api/v1/activities/${id}`);
         const activity = response.data;
+        console.log("cek data", activity)
         setAct(activity);
       } catch (error) {
         throw error;
@@ -111,7 +112,10 @@ const DetailActivity = ({ actId }: { actId: number }) => {
 
                 <div className="rounded-lg bg-muted/30 p-4">
                   <p className="whitespace-pre-wrap text-sm leading-7 text-muted-foreground">
-                    {act?.deskripsi || "-"}
+                    {act?.deskripsi_id || "-"}
+                  </p>
+                  <p className="whitespace-pre-wrap text-sm leading-7 text-muted-foreground">
+                    {act?.deskripsi_en || "-"}
                   </p>
                 </div>
               </div>

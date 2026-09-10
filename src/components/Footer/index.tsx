@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 const FooterFeat = () => {
-  const k = useTranslations("navbar");
+  const f = useTranslations("footer");
   useLocale();
   return (
     <div className="bg-[#2B593A] text-white">
@@ -19,21 +19,18 @@ const FooterFeat = () => {
             />
 
             <p className="max-w-md text-sm leading-7 text-white/80">
-              Yayasan Tumbuhan Asli Nusantara berkomitmen dalam pelestarian
-              tumbuhan asli Indonesia melalui penelitian, edukasi, dan aksi
-              konservasi bersama masyarakat.
+              {f('description')}fhehfieohol
             </p>
           </div>
 
           <div className="space-y-5 lg:justify-self-end">
-            <h3 className="text-lg font-semibold">{k("contact")}</h3>
+            <h3 className="text-lg font-semibold">{f("contactUs")}</h3>
 
             <div className="space-y-3 text-sm text-white/80 leading-6">
               <p>📧 tumbuhanasli@gmail.com</p>
 
               <p className="max-w-sm">
-                📍 BTN Kopri Blok C1 No.96, Kawatuna, Mantikulore, Kota Palu,
-                Sulawesi Tengah
+                📍 {f("address")}
               </p>
             </div>
           </div>
@@ -53,7 +50,7 @@ const FooterFeat = () => {
         <Separator className="my-8 bg-white/20" />
 
         <p className="text-center text-sm text-white/60">
-          © 2026 Yayasan Tumbuhan Asli Nusantara • All Rights Reserved
+          {f('copyright')}
         </p>
       </div>
     </div>

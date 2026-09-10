@@ -89,7 +89,9 @@
     "konserv": "Conservation & Restoration",
     "descK": "Conservation and restoration initiatives focused on protecting native plant species and their habitats to ensure the long-term sustainability of Indonesia's biodiversity.",
     "descPublikasiDetail": "Scientific publications published by or involving researchers from Yayasan Tumbuhan Asli Nusantara during ",
-    "buttonBack": "Back to Activities Page"
+    "buttonBack": "Back to Activities Page",
+    "titleNotification": "No Data Yet",
+    "description": "Activity data is not available yet."
   },
   "visimisi": {
     "title": "Vission, Missions & Goal",
@@ -124,7 +126,9 @@
     "beranda": "Home",
     "ket": "Manage the content displayed in the website's hero section.",
     "keterangan": "Description",
+
     "hero": "Hero",
+
     "profileTitle": "Dashboard Users",
     "profileDesc": "Manage user accounts with access to the YTAN Dashboard.",
     "profileButton": "Add User",
@@ -132,12 +136,44 @@
     "createProfileDesc": "Create a new dashboard user for the Yayasan Tumbuhan Asli Nusantara.",
     "createProfileDes1": "Member Information",
     "createProfileDes2": "Provide the required information to create a new dashboard account.",
+
     "user": "User",
     "role": "Role",
     "roleTitle": "Admin User Management",
     "roleDesc": "Manage administrator access and user permissions for the YTAN dashboard.",
     "roleFormTitle": "Dashboard User Access",
     "roleFormDesc": "Update user roles or remove dashboard access.",
+
+    "emailExisted": "Email is already registered",
+    "emailExistedDescription": "Please use another email address.",
+    "usernameExisted": "Username is already registered",
+    "usernameExistedDescription": "Please use another username.",
+    "emailNotValid": "Invalid email",
+    "emailNotValidDescription": "Please enter a valid email address.",
+    "createFailed": "Failed to create user",
+
+    "dampak": "Impact",
+    "titleDampak": "Foundation Impact",
+    "descriptionDampak": "Manage impact statistics displayed on the website homepage.",
+    "cardTitleDampak": "Manage Impact Data",
+    "cardDescriptionDampak": "These statistics are displayed in the Impact section of the landing page.",
+    "buttonDampak": "Add Impact",
+    "createImpact": "Create Impact",
+    "createImpactDesc": "Add impact statistics for Yayasan Tumbuhan Asli Nusantara.",
+    "createImpactCard": "Impact Information",
+    "createImpactCardDesc": "Complete the information displayed on the website homepage.",
+    "impactIndonesia": "Description (Indonesian)",
+    "impactEnglish": "Description (English)",
+    "total": "Total",
+    "since": "Since",
+    "saveImpact": "Save Impact",
+    "cancel": "Cancel",
+    "editImpact": "Edit Impact",
+    "editImpactDesc": "Update impact statistics.",
+    "editImpactCard": "Impact Information",
+    "editImpactCardDesc": "Update impact information displayed on the landing page.",
+    "saveChanges": "Save Changes",
+
     "profile": "Profile",
     "tim": "Our Team",
     "vismis": "Vision & Mission",
@@ -151,6 +187,7 @@
     "misiDesc": "The list of the organization's mission statements displayed on the website.",
     "tj": "Goals",
     "tjDesc": "The organization's goals displayed on the website.",
+
     "struktur": "Organizational Structure",
     "strukturDesc": "Manage the position categories and organizational structure presented on the website.",
     "strukturTitle": "Organizational Structure",
@@ -159,6 +196,7 @@
     "strukturButtonDesc": "Add a new position category to the organizational structure.",
     "strukturPosisi": "Position",
     "strukturNama": "Name",
+
     "kegiatan": "Activites",
     "kegDesc": "Manage activity records published on the website.",
     "kegForm": "Add Activity Record",
@@ -174,8 +212,10 @@
     "kegForm6": "Activity Date",
     "kegDetail": "Activity Details",
     "kegDetailDesc": "Detailed information about the selected activity.",
+
     "noKeg": "No activity documentation available.",
     "additionalKeg": "Activity Information",
+
     "publikasi": "Scientific Publications",
     "publikasidesc": "Manage the collection of scientific publications presented on the website.",
     "publikasiForm": "Add a Scientific Publication",
@@ -191,6 +231,7 @@
     "PublikasiDetailDesc": "Comprehensive information about the selected scientific publication.",
     "PublikasiEdit": "Edit Scientific Publication",
     "kegiatans": "Other Activities",
+
     "berita": "News",
     "beritaDesc": "Manage the latest news displayed on the website.",
     "beritaForm": "Add News",
@@ -202,8 +243,8 @@
     "berForm5": "Description",
     "berForm6": "News Image",
     "berForm7": "Current Image",
-  "berForm8": "Replace News Image",
-  "berForm8Desc": "Upload a new image only if you want to replace the current one. Supported formats: JPG, JPEG, PNG.",
+    "berForm8": "Replace News Image",
+    "berForm8Desc": "Upload a new image only if you want to replace the current one. Supported formats: JPG, JPEG, PNG.",
     "beritaButton": "Add News",
     "beritaList": "News List",
     "beritaListDesc": "Manage all published news entries.",
@@ -216,11 +257,37 @@
     "berEditForm": "News Information",
     "berEditFormDesc": "Modify the news information and supporting documentation to be published on the website.",
     "buttonYes": "Save Changes",
-    "buttonNo": "Cancel"
+    "buttonNo": "Cancel",
+
+    "backToTeam": "Back to Team",
+    "backToTeamPage": "Back to Team Page",
+    "about": "About",
+    "expertise": "Areas of Expertise",
+    "bioEx": "BNo expertise information available.",
+    "bio": "No biography information available.",
+    "information": "Member Information",
+    "university": "University",
+    "openProfile": "Open Profile",
+    "joined": "Joined",
+    "position": "Position",
+    "institution": "Institution",
+    "noData": "No data available",
+    "loading": "Loading...",
+    "notFound": "Team member not found",
+     "titleTeam": "YTAN Members",
+    "descriptionTeam": "Meet the team of the Yayasan Tumbuhan Asli Nusantara, contributing to research, conservation, restoration, and education on Indonesia’s native plants.",
+    "notFoundDescription": "Try using a different keyword.",
+    "search": "Search team members..."
   },
   "dashmain": {
     "user": "Total Users",
     "kegiatan": "Total Activities",
     "berita": "Total News"
+  },
+  "footer": {
+    "description": "Yayasan Tumbuhan Asli Nusantara is committed to preserving Indonesia's native plants through research, education, and conservation efforts in collaboration with communities.",
+    "contactUs": "Contact Us",
+    "address": "BTN Kopri Blok C1 No.96, Kawatuna, Mantikulore, Palu City, Central Sulawesi",
+    "copyright": "© 2026 Yayasan Tumbuhan Asli Nusantara • All Rights Reserved"
   }
 }

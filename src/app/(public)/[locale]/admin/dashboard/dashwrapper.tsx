@@ -7,14 +7,18 @@ import {
   SidebarTrigger,
 } from "@/src/components/ui/sidebar";
 
+type DashboardWrapperProps = {
+  children?: React.ReactNode;
+  role: "admin" | "user";
+};
+
 export default function DashboardWrapper({
   children,
-}: Readonly<{
-  children?: React.ReactNode;
-}>) {
+  role,
+}: DashboardWrapperProps) {
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar role={role} />
 
       <SidebarInset className="flex min-h-screen flex-col bg-muted/20">
         <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-background/80 px-6 backdrop-blur supports-backdrop-filter:bg-background/60">
@@ -51,7 +55,7 @@ export default function DashboardWrapper({
                 Yayasan Tumbuhan Asli Nusantara
               </span>
               . All rights reserved. v1.0.0
-            </p>  
+            </p>
           </div>
         </footer>
       </SidebarInset>

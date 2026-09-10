@@ -13,33 +13,33 @@ import {
 import { Button } from "@/src/components/ui/button";
 import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";
-import { PropsType, StrukturDashType } from "@/src/types";
+import {  DampakLandingPageType, PropsType } from "@/src/types";
 import { Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-const DeleteStruktur = ({ idCode, onSuccess }: PropsType) => {
-  const [struktur, setStruktur] = useState<StrukturDashType | null>(null);
+const DeleteDampak = ({ idCode, onSuccess }: PropsType) => {
+  const [dam, setDam] = useState<DampakLandingPageType | null>(null);
   useEffect(() => {
-    const getStruktur = async (id: number) => {
+    const getDampak = async (id: number) => {
       console.log(id);
       try {
-        const response = await axiosInstance.get(`/api/v1/struktur/${id}`);
-        const person = response.data;
-        setStruktur(person);
+        const response = await axiosInstance.get(`/api/v1/dampak/${id}`);
+        const dampak = response.data;
+        setDam(dampak);
       } catch (error) {
         throw error;
       }
     };
-    getStruktur(idCode);
+    getDampak(idCode);
   }, [idCode]);
 
   const handleDelete = async () => {
-    if (!struktur) return;
+    if (!dam) return;
     try {
-      await axiosInstance.delete(`/api/v1/struktur/${struktur.id}`);
+      await axiosInstance.delete(`/api/v1/dampak/${dam.id}`);
 
-      toast.warning("Struktur berhasil dihapus");
+      toast.warning("Data berhasil dihapus");
 
       onSuccess();
     } catch (error) {
@@ -80,4 +80,4 @@ const DeleteStruktur = ({ idCode, onSuccess }: PropsType) => {
   );
 };
 
-export default DeleteStruktur;
+export default DeleteDampak;

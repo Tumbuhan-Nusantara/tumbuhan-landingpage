@@ -119,6 +119,7 @@ const BeritaMainFeat = () => {
                     src={item.photo_url}
                     alt={item.news_name}
                     className="object-cover transition duration-500 group-hover:scale-105"
+                    unoptimized
                   />
                 </div>
 

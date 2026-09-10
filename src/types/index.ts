@@ -29,6 +29,7 @@ export interface ArticleType {
   title: string;
   desc: string;
   src: string;
+  link: string
 }
 export interface ArticleGroup {
   year: number;
@@ -61,7 +62,11 @@ export interface SideMenuType {
   sub: string;
   icon: LucideIcon;
   path?: string;
+  roles: UserRole[];
 }
+
+export type UserRole = "admin" | "user";
+
 
 export interface DashMain {
   id: number;
@@ -138,7 +143,8 @@ export interface CreateActivityDashType {
 export interface ActivityDashType {
   id: number;
   activity_name: string;
-  deskripsi: string;
+  deskripsi_id: string;
+  deskripsi_en: string;
   tanggal_kegiatan: string;
   tempat: string;
   photo_url: string;
@@ -261,3 +267,27 @@ export interface FocusArea {
   title: string;
   logo: LucideIcon;
 }
+
+
+export interface DampakPropsType {
+  dampakId: number;
+}
+
+export interface TeamMember {
+  id: number;
+  full_name: string;
+  degree?: string;
+  position_id?: string;
+  position_en?: string;
+  short_desc_id?: string;
+  short_desc_en?: string;
+  biography_id?: string;
+  biography_en?: string;
+  university?: string;
+  email?: string;
+  linkedin?: string;
+  orcid?: string;
+  expertise?: string;
+  joined_year?: number;
+  photo_url?: string;
+};

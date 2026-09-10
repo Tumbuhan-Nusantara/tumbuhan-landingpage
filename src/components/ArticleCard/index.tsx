@@ -8,6 +8,7 @@ type ArticleCardProps = {
     title: string;
     desc: string;
     src: string;
+    link: string;
   };
 };
 
@@ -33,7 +34,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
         </p>
 
         <Link
-          href={article.src}
+          href={article.link}
           target="_blank"
           className="font-medium text-[#1A4D2E] hover:underline"
         >
