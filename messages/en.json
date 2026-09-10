@@ -283,5 +283,11 @@
     "user": "Total Users",
     "kegiatan": "Total Activities",
     "berita": "Total News"
+  },
+  "footer": {
+    "description": "Yayasan Tumbuhan Asli Nusantara is committed to preserving Indonesia's native plants through research, education, and conservation efforts in collaboration with communities.",
+    "contactUs": "Contact Us",
+    "address": "BTN Kopri Blok C1 No.96, Kawatuna, Mantikulore, Palu City, Central Sulawesi",
+    "copyright": "© 2026 Yayasan Tumbuhan Asli Nusantara • All Rights Reserved"
   }
 }

@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/src/components/ui/dropdown-menu";
 import { useLocale, useTranslations } from "use-intl";
+import { Link } from "@/src/i18n/navigation";
 
 const Nav = () => {
   const t = useTranslations("navbar");
@@ -50,7 +51,9 @@ const Nav = () => {
                         key={sub.id}
                         className="transition duration-300 cursor-pointer"
                       >
+                        <Link href={sub.path ?? "#"}>
                         {t(sub.sub)}
+                        </Link>
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuGroup>

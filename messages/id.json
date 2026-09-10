@@ -283,5 +283,11 @@
     "user": "Total Pengguna",
     "kegiatan": "Total Kegiatan",
     "berita": "Total Berita"
+  },
+  "footer": {
+    "description": "Yayasan Tumbuhan Asli Nusantara berkomitmen dalam pelestarian tumbuhan asli Indonesia melalui penelitian, edukasi, dan aksi konservasi bersama masyarakat.",
+    "address": "BTN Kopri Blok C1 No.96, Kawatuna, Mantikulore, Kota Palu, Sulawesi Tengah",
+    "copyright": "© 2026 Yayasan Tumbuhan Asli Nusantara • Hak Cipta Dilindungi",
+    "contactUs": "Kontak Kami"
   }
 }
