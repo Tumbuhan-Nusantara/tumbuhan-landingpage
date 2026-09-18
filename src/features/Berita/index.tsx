@@ -4,9 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Search } from "lucide-react";
 
-import Nav from "@/src/components/Navbar-2";
-import FooterFeat from "@/src/components/Footer";
-
 import { axiosInstance } from "@/src/lib/axios";
 import { formatDateID } from "@/src/lib/dateHelper";
 import { NewsLandingPageType } from "@/src/types";

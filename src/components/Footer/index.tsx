@@ -1,11 +1,10 @@
 import { Separator } from "@/src/components/ui/separator";
 import { Contacts } from "@/src/constants";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const FooterFeat = () => {
   const f = useTranslations("footer");
-  useLocale();
   return (
     <div className="bg-[#2B593A] text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-14">
