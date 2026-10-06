@@ -4,12 +4,8 @@ import { Button } from "@/src/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
 } from "@/src/components/ui/card";
 import { Label } from "@/src/components/ui/label";
-import { Toaster } from "@/src/components/ui/sonner";
 import { Textarea } from "@/src/components/ui/textarea";
 import { axiosInstance } from "@/src/lib/axios";
 import { HeroType } from "@/src/types";
