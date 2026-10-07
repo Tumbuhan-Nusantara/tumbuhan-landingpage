@@ -204,6 +204,7 @@
     "kegList": "Activity Records",
     "kegListDesc": "View, update, and manage all recorded activities.",
     "kegButton": "Add Activity",
+    "kegButtonEdit": "Edit Activity",
     "kegForm1": "Activity Type",
     "kegForm2": "Activity Name",
     "kegForm3": "Location",

@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Textarea } from "@/src/components/ui/textarea";
 import FormSkeleton from "@/src/components/Skeletons/FormSk";
+import { useTranslations } from "next-intl";
 
 const EditActivity = ({ activityId }: ActivityPropsType) => {
   const [act, setAct] = useState<ActivityDashType | null>(null);
@@ -31,6 +32,9 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
 
   const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const k = useTranslations('dash')
+  
 
   const router = useRouter();
 
@@ -62,7 +66,8 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
     act &&
     originalAct &&
     (act.activity_name !== originalAct.activity_name ||
-      act.deskripsi !== originalAct.deskripsi ||
+      act.deskripsi_id !== originalAct.deskripsi_id ||
+      act.deskripsi_en !== originalAct.deskripsi_en ||
       act.tanggal_kegiatan !== originalAct.tanggal_kegiatan ||
       act.tempat !== originalAct.tempat ||
       act.tipe_kegiatan_id !== originalAct.tipe_kegiatan_id ||
@@ -81,7 +86,8 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
       const formData = new FormData();
 
       formData.append("activity_name", act.activity_name);
-      formData.append("deskripsi", act.deskripsi);
+      formData.append("deskripsi_id", act.deskripsi_id);
+      formData.append("deskripsi_en", act.deskripsi_en);
       formData.append("tanggal_kegiatan", act.tanggal_kegiatan);
       formData.append("tempat", act.tempat);
 
@@ -146,7 +152,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
       <Toaster position="top-center" richColors />
 
       <div>
-        <h1 className="text-3xl font-bold text-[#1A4D2E]">Edit Kegiatan</h1>
+        <h1 className="text-3xl font-bold text-[#1A4D2E]">{k("kegButtonEdit")}</h1>
 
         <p className="mt-2 text-muted-foreground">
           Perbarui informasi kegiatan Yayasan Tumbuhan Asli Nusantara.
@@ -156,7 +162,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
       <Card className="max-w-5xl overflow-hidden shadow-lg">
         <CardHeader className="border-b bg-muted/30">
           <CardTitle className="text-xl text-[#1A4D2E]">
-            Informasi Kegiatan
+            {k('additionalKeg')}
           </CardTitle>
 
           <CardDescription>
@@ -198,7 +204,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Nama Kegiatan</Label>
+              <Label>{k('kegForm2')}</Label>
 
               <Input
                 name="activity_name"
@@ -209,7 +215,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Tanggal Kegiatan</Label>
+              <Label>{k('kegForm6')}</Label>
 
               <Input
                 type="date"
@@ -220,7 +226,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
             </div>
 
             <div className="space-y-2">
-              <Label>Lokasi</Label>
+              <Label>{k('kegForm3')}</Label>
 
               <Input
                 name="tempat"
@@ -231,12 +237,23 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Deskripsi</Label>
+              <Label>{k('kegForm4')}</Label>
 
               <Textarea
-                name="deskripsi"
+                name="deskripsi_id"
                 rows={5}
-                value={act?.deskripsi ?? ""}
+                value={act?.deskripsi_id ?? ""}
+                onChange={handleChange}
+                placeholder="Masukkan deskripsi kegiatan..."
+              />
+            </div>
+            <div className="space-y-2 md:col-span-2">
+              <Label>{k('kegForm4en')}</Label>
+
+              <Textarea
+                name="deskripsi_en"
+                rows={5}
+                value={act?.deskripsi_en ?? ""}
                 onChange={handleChange}
                 placeholder="Masukkan deskripsi kegiatan..."
               />

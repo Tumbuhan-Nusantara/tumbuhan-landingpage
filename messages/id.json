@@ -203,6 +203,7 @@
     "kegList": "Daftar Kegiatan",
     "kegListDesc": "Kelola seluruh kegiatan yang telah ditambahkan.",
     "kegButton": "Tambah Kegiatan",
+    "kegButtonEdit": "Ubah Kegiatan",
     "kegForm1": "Tipe Kegiatan",
     "kegForm2": "Nama Kegiatan",
     "kegForm3": "Lokasi",
