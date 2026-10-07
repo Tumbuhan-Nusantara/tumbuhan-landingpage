@@ -24,7 +24,8 @@ const DashKegiatanFeat = () => {
   const k = useTranslations('dash')
   const [formData, setFormData] = useState({
     activity_name: "",
-    deskripsi: "",
+    deskripsi_id: "",
+    deskripsi_en : "",
     tanggal_kegiatan: "",
     tempat: "",
     photo_url: null as File | null,
@@ -64,7 +65,8 @@ const DashKegiatanFeat = () => {
       const data = new FormData();
 
       data.append("activity_name", formData.activity_name);
-      data.append("deskripsi", formData.deskripsi);
+      data.append("deskripsi_id", formData.deskripsi_id);
+      data.append("deskripsi_en", formData.deskripsi_en);
       data.append("tanggal_kegiatan", formData.tanggal_kegiatan);
       data.append("tempat", formData.tempat);
       data.append(
@@ -87,7 +89,8 @@ const DashKegiatanFeat = () => {
 
       setFormData({
         activity_name: "",
-        deskripsi: "",
+        deskripsi_id: "",
+        deskripsi_en: "",
         tanggal_kegiatan: "",
         tempat: "",
         photo_url: null,
@@ -213,8 +216,19 @@ const DashKegiatanFeat = () => {
             <div className="space-y-2 md:col-span-2">
               <Label>{k('kegForm4')}</Label>
               <Textarea
-                name="deskripsi"
-                value={formData.deskripsi}
+                name="deskripsi_id"
+                value={formData.deskripsi_id}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Masukkan deskripsi kegiatan..."
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>{k('kegForm4en')}</Label>
+              <Textarea
+                name="deskripsi_en"
+                value={formData.deskripsi_en}
                 onChange={handleChange}
                 rows={5}
                 placeholder="Masukkan deskripsi kegiatan..."
