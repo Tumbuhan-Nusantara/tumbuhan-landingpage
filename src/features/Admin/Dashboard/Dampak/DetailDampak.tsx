@@ -6,6 +6,7 @@ import { DampakLandingPageType, DampakPropsType } from "@/src/types";
 import { Label } from "@/src/components/ui/label";
 import { Separator } from "@/src/components/ui/separator";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function DetailDampak({
   dampakId,
@@ -14,6 +15,8 @@ export default function DetailDampak({
 
   const [impact, setImpact] =
     useState<DampakLandingPageType | null>(null);
+
+  const d = useTranslations('dash')
 
   useEffect(() => {
     const getDetail = async () => {
@@ -47,7 +50,7 @@ export default function DetailDampak({
   if (!impact) {
     return (
       <div className="py-10 text-center">
-        Data tidak ditemukan.
+        {d('noData')}
       </div>
     );
   }
@@ -56,7 +59,7 @@ export default function DetailDampak({
     <div className="space-y-5">
 
       <div>
-        <Label>Keterangan (Indonesia)</Label>
+        <Label>{d('impactIndonesia')}</Label>
 
         <p className="mt-2 rounded-md border p-3">
           {impact.keterangan_id}
@@ -64,7 +67,7 @@ export default function DetailDampak({
       </div>
 
       <div>
-        <Label>Keterangan (English)</Label>
+        <Label>{d('impactEnglish')}</Label>
 
         <p className="mt-2 rounded-md border p-3">
           {impact.keterangan_en}
@@ -76,7 +79,7 @@ export default function DetailDampak({
       <div className="grid grid-cols-2 gap-5">
 
         <div>
-          <Label>Total</Label>
+          <Label>{d('total')}</Label>
 
           <p className="mt-2 rounded-md border p-3">
             {impact.total}
@@ -84,7 +87,7 @@ export default function DetailDampak({
         </div>
 
         <div>
-          <Label>Sejak</Label>
+          <Label>{d('since')}</Label>
 
           <p className="mt-2 rounded-md border p-3">
             {impact.sejak}
