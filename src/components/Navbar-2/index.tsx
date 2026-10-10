@@ -51,14 +51,20 @@ const Nav = () => {
                         key={sub.id}
                         className="transition duration-300 cursor-pointer"
                       >
-                        <Link href={sub.path ?? "#"}>
-                        {t(sub.sub)}
-                        </Link>
+                        <Link href={sub.path ?? "#"}>{t(sub.sub)}</Link>
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuGroup>
                 ) : (
-                  <DropdownMenuItem>{t(item.title)}</DropdownMenuItem>
+                  <DropdownMenuItem
+                    key={item.id}
+                    asChild
+                    className="cursor-pointer rounded-md focus:bg-[#dcf4e4]"
+                  >
+                    <Link href={item.path ?? "#"} className="w-full px-3 py-2">
+                      {t(item.title)}
+                    </Link>
+                  </DropdownMenuItem>
                 )}
 
                 <DropdownMenuSeparator />

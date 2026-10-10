@@ -67,7 +67,7 @@ const PublikasiFeat = () => {
             <h3 className="text-2xl font-bold text-[#1A4D2E]">{group.year}</h3>
 
             <Button asChild variant="outline">
-              <Link href={`/publikasi/${group.year}`}>Semua Artikel</Link>
+              <Link href={`/publikasi/${group.year}`}>{k('allArticles')}</Link>
             </Button>
           </div>
 

@@ -3,7 +3,7 @@ import BotaniFeat from "@/src/features/Beranda/Botani";
 import DampakFeat from "@/src/features/Beranda/Dampak";
 import FooterFeat from "@/src/components/Footer";
 import HomeFeat from "@/src/features/Beranda/Home";
-import KontakFeat from "@/src/features/Beranda/Kontak";
+// import KontakFeat from "@/src/features/Beranda/Kontak";
 
 const page = () => {
   return (
@@ -12,7 +12,7 @@ const page = () => {
       <DampakFeat />
       <BotaniFeat />
       <BeritaFeat />
-      <KontakFeat />
+      {/* <KontakFeat /> */}
       <FooterFeat />
     </>
   );

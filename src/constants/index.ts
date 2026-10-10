@@ -34,9 +34,9 @@ export const LandingMenu: LandingMenuType[] = [
     title: "profile",
     items: [
       { id: 1, sub: "history", path: "/profile/sejarah" },
-      { id: 2, sub: "team", path: "/profile/tim-ytan" },
+      // { id: 2, sub: "team", path: "/profile/tim-ytan" },
       { id: 3, sub: "visi", path: "/profile/visi-misi" },
-      { id: 4, sub: "doc", path: "/profile/dokumen" },
+      // { id: 4, sub: "doc", path: "/profile/dokumen" },
     ],
   },
   {
