@@ -16,6 +16,8 @@ import { getTranslation } from "@/src/lib/translation";
 const KegiatanKonservasi = () => {
   const k = useTranslations("kegiatan");
   const locale = useLocale();
+
+
   const [act, setAct] = useState<ActivityDashType[]>([]);
 
   const getActs = async () => {

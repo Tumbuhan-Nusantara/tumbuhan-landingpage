@@ -49,7 +49,9 @@
   },
   "berita": {
     "title": "News and Recent Activities",
-    "button": "View All News"
+    "button": "View All News",
+    "noData": "No News Yet",
+    "noDataDesc": "There are no news or updates available at the moment."
   },
   "contact": {
     "title": "Have ideas, suggestions, or feedback for YTAN?",
@@ -276,7 +278,7 @@
     "noData": "No data available",
     "loading": "Loading...",
     "notFound": "Team member not found",
-     "titleTeam": "YTAN Members",
+    "titleTeam": "YTAN Members",
     "descriptionTeam": "Meet the team of the Yayasan Tumbuhan Asli Nusantara, contributing to research, conservation, restoration, and education on Indonesia’s native plants.",
     "notFoundDescription": "Try using a different keyword.",
     "search": "Search team members..."

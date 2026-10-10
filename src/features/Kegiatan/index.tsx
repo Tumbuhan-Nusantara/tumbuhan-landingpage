@@ -7,10 +7,15 @@ import KegiatanEdukasi from "./Edukasi";
 import KegiatanKonservasi from "./Konservasi";
 
 import StickyNavigation from "@/src/components/StickyNavKegiatan/StickyNavigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const KegiatanFeat = () => {
   const k = useTranslations("kegiatan");
+const locale = useLocale();
+
+console.log("KegiatanFeat locale:", locale);
+  console.log("KegiatanFeat title:", k("title"));
+  console.log("KegiatanFeat desc:", k("desc"));
   return (
     <>
       <Nav />

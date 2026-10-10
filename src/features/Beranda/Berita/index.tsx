@@ -47,47 +47,75 @@ const BeritaFeat = () => {
             }}
             className="w-full sm:max-w-xs md:max-w-5xl my-8 py-12 sm:basis-1/2 md:basis-1/3"
           >
-            <CarouselContent>
-              {news.map((item) => (
-                <CarouselItem
-                  key={item.id}
-                  className="basis-full sm:basis-1/2 lg:basis-1/3"
+              {news.length > 0 ? (
+                <Carousel
+                  opts={{
+                    align: "start",
+                  }}
+                  className="my-8 w-full py-12 sm:max-w-xs sm:basis-1/2 md:max-w-5xl md:basis-1/3"
                 >
-                  <div className="p-2">
-                    <div className="overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                      <Image
-                        src={item.photo_url}
-                        alt={item.news_name}
-                        width={500}
-                        height={300}
-                        className="h-56 w-full object-cover"
-                        unoptimized
-                      />
+                  <CarouselContent>
+                    {news.map((item) => (
+                      <CarouselItem
+                        key={item.id}
+                        className="basis-full sm:basis-1/2 lg:basis-1/3"
+                      >
+                        <div className="p-2">
+                          <div className="overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                            <Image
+                              src={item.photo_url}
+                              alt={item.news_name}
+                              width={500}
+                              height={300}
+                              className="h-56 w-full object-cover"
+                              unoptimized
+                            />
 
-                      <div className="flex min-h-55 flex-col p-5">
-                        <p className="text-sm italic text-[#2B593A]">
-                          {formatDateID(item.tanggal_berita)}
-                        </p>
+                            <div className="flex min-h-55 flex-col p-5">
+                              <p className="text-sm italic text-[#2B593A]">
+                                {formatDateID(item.tanggal_berita)}
+                              </p>
 
-                        <h3 className="mt-3 line-clamp-2 text-xl font-semibold text-[#1A4D2E]">
-                          {item.news_name}
-                        </h3>
+                              <h3 className="mt-3 line-clamp-2 text-xl font-semibold text-[#1A4D2E]">
+                                {item.news_name}
+                              </h3>
 
-                        <p className="mt-4 line-clamp-3 text-sm leading-6 text-gray-600">
-                          {item.deskripsi}
-                        </p>
+                              <p className="mt-4 line-clamp-3 text-sm leading-6 text-gray-600">
+                                {item.deskripsi}
+                              </p>
 
-                        <div className="mt-auto pt-6">
-                          <p className="text-sm text-gray-500">
-                            Nama Publisher
-                          </p>
+                              <div className="mt-auto pt-6">
+                                <p className="text-sm text-gray-500">
+                                  Nama Publisher
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              ) : (
+                <div className="my-8 flex min-h-72 w-full items-center justify-center rounded-2xl border border-dashed border-[#2B593A]/20 bg-white/70 px-6">
+                  <div className="text-center">
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#2B593A]/10">
+                      <span className="text-2xl">📰</span>
                     </div>
+
+                    <h3 className="text-lg font-semibold text-[#1A4D2E]">
+                      {b('noData')}
+                    </h3>
+
+                    <p className="mt-2 text-sm text-gray-500">
+                      {b('noDataDesc')}
+                    </p>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
+                </div>
+              )}
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>

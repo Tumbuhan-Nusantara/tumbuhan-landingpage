@@ -37,7 +37,7 @@ const DampakFeat = () => {
   return (
     <div className="bg-linear-to-l from-[#C7FCDC] to-white">
       <div className="container mx-auto">
-        <div className="flex flex-col items-center px-8 md:px-6 lg:px-96 gap-2">
+        <div className="flex flex-col items-center py-12 px-8 md:px-6 lg:px-96 gap-2">
           <h1 className="text-[#2B593A] text-4xl font-semibold text-center">
             {d("title")}
           </h1>

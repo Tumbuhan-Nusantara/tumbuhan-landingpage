@@ -49,7 +49,8 @@ const KegiatanRiset = () => {
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {researchActivities.map((item, index) => (
+          {researchActivities.length > 0 ? (
+          researchActivities.map((item, index) => (
             <Card
               key={item.id}
               data-aos="fade-up"
@@ -81,7 +82,17 @@ const KegiatanRiset = () => {
                 </p>
               </CardContent>
             </Card>
-          ))}
+          ))
+          ) : (
+             <div className="col-span-full flex flex-col items-center justify-center py-16 text-center">
+              <h3 className="text-xl font-semibold text-[#1A4D2E]">
+                {k("titleNotification")}
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                {k("description")}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

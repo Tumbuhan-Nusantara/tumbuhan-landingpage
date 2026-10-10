@@ -48,7 +48,9 @@
   },
   "berita": {
     "title": "Berita dan Aktivitas Terbaru",
-    "button": "Lihat Semua Berita"
+    "button": "Lihat Semua Berita",
+    "noData": "Belum Ada Berita",
+    "noDataDesc": "Belum ada berita atau informasi terbaru yang tersedia."
   },
   "contact": {
     "title": "Ingin sampaikan ide atau saran dan masukan untuk kami?",

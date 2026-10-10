@@ -16,7 +16,7 @@ const BotaniFeat = () => {
 
   const dataCarousel: CarouselType[] = [
     { key: "card1", image: "/botani/Penelitian.jpg" },
-    { key: "card2", image: "/botani/Konservasi.jpg" },
+    { key: "card2", image: "/botani/KonservasiPhoto.jpg" },
     { key: "card3", image: "/botani/Berita.jpg" },
   ];
   return (
