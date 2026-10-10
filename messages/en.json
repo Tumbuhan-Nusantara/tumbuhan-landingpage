@@ -295,6 +295,10 @@
     "berEditDesc": "Update the news information displayed on the website.",
     "berEditForm": "News Information",
     "berEditFormDesc": "Modify the news information and supporting documentation to be published on the website.",
+    "enterNewsTitle": "Enter news title",
+    "enterNewsLocation": "Enter news location",
+    "enterNewsContent": "Enter news content...",
+    "supportedImageFormats": "Supported formats: JPG, JPEG, PNG.",
     "buttonYes": "Save Changes",
     "buttonNo": "Cancel",
 

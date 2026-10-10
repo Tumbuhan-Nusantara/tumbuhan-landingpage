@@ -296,6 +296,10 @@
     "berEditDesc": "Perbarui informasi berita yang ditampilkan pada website.",
     "berEditForm": "Informasi Berita",
     "berEditFormDesc": "Ubah informasi berita beserta dokumentasi yang akan dipublikasikan.",
+    "enterNewsTitle": "Masukkan judul berita",
+    "enterNewsLocation": "Masukkan lokasi berita",
+    "enterNewsContent": "Masukkan isi berita...",
+    "supportedImageFormats": "Format yang didukung: JPG, JPEG, PNG.",
     "buttonYes": "Simpan Perubahan",
     "buttonNo": "Batal",
 

@@ -142,7 +142,7 @@ const BeritaDashboard = () => {
                 name="news_name"
                 value={formData.news_name}
                 onChange={handleChange}
-                placeholder="Masukkan judul berita"
+                placeholder={b('enterNewsTitle')}
               />
             </div>
 
@@ -164,7 +164,7 @@ const BeritaDashboard = () => {
                 name="tempat"
                 value={formData.tempat}
                 onChange={handleChange}
-                placeholder="Masukkan lokasi berita"
+                placeholder={b('enterNewsLocation')}
               />
             </div>
 
@@ -187,7 +187,7 @@ const BeritaDashboard = () => {
                 name="deskripsi"
                 value={formData.deskripsi}
                 onChange={handleChange}
-                placeholder="Masukkan isi berita..."
+                placeholder={b('enterNewsContent')}
               />
             </div>
 
@@ -202,7 +202,7 @@ const BeritaDashboard = () => {
               />
 
               <p className="text-xs text-muted-foreground">
-                Format yang didukung: JPG, JPEG, PNG.
+                {b('supportedImageFormats')}
               </p>
             </div>
           </div>
