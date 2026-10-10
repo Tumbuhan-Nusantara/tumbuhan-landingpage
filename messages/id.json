@@ -152,6 +152,9 @@
     "roleDesc": "Kelola hak akses administrator serta peran pengguna pada Dashboard YTAN.",
     "roleFormTitle": "Hak Akses Dashboard",
     "roleFormDesc": "Atur peran pengguna dan kelola akses ke Dashboard YTAN.",
+    "deleteUserTitle": "Hapus Pengguna?",
+    "deleteUserDescription": "Tindakan ini tidak dapat dibatalkan. Pengguna yang dipilih akan kehilangan akses ke dashboard.",
+    "deleteUser": "Hapus Pengguna",
 
     "emailExisted": "Email sudah terdaftar",
     "emailExistedDescription": "Silakan gunakan email lain.",

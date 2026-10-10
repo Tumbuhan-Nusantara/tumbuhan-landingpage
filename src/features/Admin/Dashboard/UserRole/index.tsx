@@ -197,25 +197,24 @@ const DashUserRoleFeat = () => {
                 <AlertDialogContent>
                   <AlertDialogHeader>
                     <AlertDialogTitle>
-                      Delete User?
+                     {r('deleteUserTitle')}
                     </AlertDialogTitle>
 
                     <AlertDialogDescription>
-                      This action cannot be undone. The selected user will lose
-                      access to the dashboard.
+                      {r('deleteUserDescription')}
                     </AlertDialogDescription>
                   </AlertDialogHeader>
 
                   <AlertDialogFooter>
                     <AlertDialogCancel>
-                      Cancel
+                      {r('cancel')}
                     </AlertDialogCancel>
 
                     <AlertDialogAction
                       onClick={() => handleDelete(user.id)}
                       className="bg-red-600 hover:bg-red-700"
                     >
-                      Delete User
+                      {r('deleteUser')}
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
