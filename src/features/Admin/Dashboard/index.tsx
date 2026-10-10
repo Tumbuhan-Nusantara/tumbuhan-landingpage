@@ -21,6 +21,28 @@ const DashboardFeat = () => {
   const displayedUsers = showAllUsers ? users : users.slice(0, 3);
   const [me, setMe] = useState<UserDashType | null>(null);
 
+  const [totalNews, setTotalNews] = useState(0);
+  const [totalActivities, setTotalActivities] = useState(0);
+  const [totalUsers, setTotalUsers] = useState(0);
+  const getTotalData = async () => {
+    try {
+      const [newsRes, activityRes, usersRes] = await Promise.all([
+        axiosInstance.get("/api/v1/news"),
+        axiosInstance.get("/api/v1/activities"),
+        axiosInstance.get("/api/v1/auth"),
+      ]);
+
+      setTotalNews(newsRes.data.data.length);
+      console.log(newsRes.data.data.length);
+      setTotalActivities(activityRes.data.data.length);
+      console.log(activityRes.data.data.length);
+      setTotalUsers(usersRes.data.data.length);
+      console.log(usersRes.data.data.length);
+    } catch (error) {
+      console.error("Gagal mengambil total data:", error);
+    }
+  };
+
   const getUsers = async () => {
     try {
       const response = await axiosInstance.get(`/api/v1/auth/`);
@@ -49,6 +71,7 @@ const DashboardFeat = () => {
       setLoading(false);
       getUsers();
       getMe();
+      getTotalData();
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -60,27 +83,43 @@ const DashboardFeat = () => {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
-        {dash('dashboardTitle')}
+        {dash("dashboardTitle")}
       </h1>
       <p className="font-black text-xl text-[#1A4D2E] px-2">
-        {dash('welcome')} {me?.first_name} {me?.last_name}
+        {dash("welcome")} {me?.first_name} {me?.last_name}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
         {DashMainMenu.map((item) => (
-          <Card key={item.id} className="h-30 bg-[url('/image.png')] bg-cover">
-            <div className="flex justify-between mx-6">
-              <h1 className="text-[#1A4D2E]">{dash(item.title)}</h1>
-              <div className="p-1 bg-[#dcf4e4] rounded-lg">
-                <item.logo className="text-[#1A4D2E]" />
+          <Card
+            key={item.id}
+            className="min-h-32 bg-[url('/image.png')] bg-cover bg-center p-5"
+          >
+            <div className="flex h-full flex-col justify-between gap-4">
+              <div className="flex items-center justify-between gap-3">
+                <h1 className="text-sm font-medium text-[#1A4D2E]">
+                  {dash(item.title)}
+                </h1>
+
+                <div className="shrink-0 rounded-lg bg-[#dcf4e4] p-2">
+                  <item.logo className="h-5 w-5 text-[#1A4D2E]" />
+                </div>
               </div>
+
+              <p className="text-3xl font-bold text-[#1A4D2E]">
+                {item.id === 1
+                  ? totalUsers
+                  : item.id === 2
+                    ? totalActivities
+                    : totalNews}
+              </p>
             </div>
           </Card>
         ))}
       </div>
       <Card className="bg-[url('/image.png')] bg-cover">
         <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-          {dash('userListTitle')}
+          {dash("userListTitle")}
         </h1>
         {displayedUsers.map((user) => (
           <Card key={user.id} className="mx-6">
@@ -112,7 +151,7 @@ const DashboardFeat = () => {
               className="border-[#1A4D2E] text-[#1A4D2E]"
               size="sm"
             >
-              {dash('showMore')}
+              {dash("showMore")}
             </Button>
           </div>
         ) : (
@@ -123,7 +162,7 @@ const DashboardFeat = () => {
               className="border-[#1A4D2E] text-[#1A4D2E]"
               size="sm"
             >
-              {dash('showLess')}
+              {dash("showLess")}
             </Button>
           </div>
         )}
