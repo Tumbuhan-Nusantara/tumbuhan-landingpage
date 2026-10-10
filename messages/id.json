@@ -137,6 +137,14 @@
     "createProfileDesc": "Tambahkan pengguna baru untuk mengakses Dashboard Yayasan Tumbuhan Asli Nusantara.",
     "createProfileDes1": "Informasi Anggota",
     "createProfileDes2": "Lengkapi data pengguna yang akan diberikan akses ke dashboard.",
+    "ProfileFName": "Nama Depan",
+    "ProfileLName": "Nama Belakang",
+    "ProfileAccess": "Hak Akses",
+    "ProfilePhoneNum": "No. Handphone",
+    "titleEdit": "Edit Anggota Tim",
+    "descriptionEdit": "Perbarui informasi pengguna Dashboard Yayasan Tumbuhan Asli Nusantara.",
+    "sectionTitleEdit": "Informasi Anggota",
+    "sectionDescriptionEdit": "Perbarui informasi pengguna yang memiliki akses ke dashboard.",
 
     "user": "Pengguna",
     "role": "Peran Pengguna",
@@ -174,6 +182,7 @@
     "editImpactCard": "Informasi Dampak",
     "editImpactCardDesc": "Perbarui informasi dampak yang ditampilkan pada landing page.",
     "saveChanges": "Simpan Perubahan",
+    "saving": "Menyimpan...",
 
     "profile": "Profil",
     "tim": "Tim YTAN",
@@ -215,7 +224,6 @@
     "kegForm6": "Tanggal Kegiatan",
     "kegDetail": "Detail Kegiatan",
     "kegDetailDesc": "Informasi lengkap mengenai kegiatan yang dipilih.",
-    
 
     "noKeg": "Belum ada dokumentasi kegiatan.",
     "additionalKeg": "Informasi Kegiatan",
@@ -281,7 +289,11 @@
     "titleTeam": "Anggota YTAN",
     "descriptionTeam": "Bertemu dengan tim Yayasan Tumbuhan Asli Nusantara yang berkontribusi dalam penelitian, konservasi, restorasi, dan edukasi tumbuhan asli Indonesia.",
     "notFoundDescription": "Coba gunakan kata kunci lain.",
-    "search": "Cari Anggota Tim..."
+    "search": "Cari Anggota Tim...",
+
+    "confirmDelete": "Apakah Anda yakin?",
+    "deleteWarning": "Tindakan ini tidak dapat dibatalkan.",
+    "delete": "Hapus"
   },
   "dashmain": {
     "user": "Total Pengguna",

@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import { axiosInstance } from "@/src/lib/axios";
 import { UserDashType } from "@/src/types";
+import { useTranslations } from "next-intl";
 
 const DetailTeam = ({ userId }: { userId: number }) => {
   const [user, setUser] = useState<UserDashType | null>(null);
+  const d = useTranslations('dash')
 
   useEffect(() => {
     const getUser = async (id: number) => {
@@ -22,11 +24,11 @@ const DetailTeam = ({ userId }: { userId: number }) => {
     <div className="grid gap-4">
       <h1>@{user?.username}</h1>
       <div>
-        <h1 className="text-black">Nama Depan</h1>
+        <h1 className="text-black">{d('ProfileFName')}</h1>
         <p>{user?.first_name}</p>
       </div>
       <div>
-        <h1 className="text-black">Nama Belakang</h1>
+        <h1 className="text-black">{d('ProfileLName')}</h1>
         <p>{user?.last_name}</p>
       </div>
       <div>
@@ -34,11 +36,11 @@ const DetailTeam = ({ userId }: { userId: number }) => {
         <p>{user?.email}</p>
       </div>
       <div>
-        <h1 className="text-black">No. Handphone</h1>
+        <h1 className="text-black">{d('ProfilePhoneNum')}</h1>
         <p>{user?.phone_number}</p>
       </div>
       <div>
-        <h1 className="text-black">Hak Akses</h1>
+        <h1 className="text-black">{d('ProfileAccess')}</h1>
         <p>{user?.role}</p>
       </div>
     </div>

@@ -6,9 +6,6 @@ import { Button } from "@/src/components/ui/button";
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardDescription,
-  CardTitle,
 } from "@/src/components/ui/card";
 import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";

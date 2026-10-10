@@ -10,12 +10,15 @@ import { TeamPropsType, UserDashType } from "@/src/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import FormSkeleton from "@/src/components/Skeletons/FormSk";
+import { useTranslations } from "next-intl";
 
 const EditTeam = ({ teamId }: TeamPropsType) => {
   const [team, setTeam] = useState<UserDashType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [saving, setSaving] = useState(false);
   const [originalTeam, setOriginalTeam] = useState<UserDashType | null>(null);
+
+  const d = useTranslations('dash')
 
   const router = useRouter();
 
@@ -96,11 +99,11 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
 
   <div>
     <h1 className="text-3xl font-bold text-[#1A4D2E]">
-      Edit Anggota Tim
+      {d('titleEdit')}
     </h1>
 
     <p className="mt-2 text-muted-foreground">
-      Perbarui informasi pengguna Dashboard Yayasan Tumbuhan Asli Nusantara.
+      {d('descriptionEdit')}
     </p>
   </div>
 
@@ -109,11 +112,11 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
     <div className="bg-linear-to-r from-[#1A4D2E] via-[#2F6B45] to-[#4F8A5B] px-8 py-6">
       <div className="text-white">
         <h2 className="text-2xl font-semibold">
-          Informasi Anggota
+          {d('sectionTitleEdit')}
         </h2>
 
         <p className="mt-2 text-sm text-green-100">
-          Perbarui informasi pengguna yang memiliki akses ke dashboard.
+          {d('sectionDescriptionEdit')}
         </p>
       </div>
     </div>
@@ -145,7 +148,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
         </div>
 
         <div className="space-y-2">
-          <Label>Nama Depan</Label>
+          <Label>{d('ProfileFName')}</Label>
           <Input
             name="first_name"
             type="text"
@@ -156,7 +159,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
         </div>
 
         <div className="space-y-2">
-          <Label>Nama Belakang</Label>
+          <Label>{d('ProfileLName')}</Label>
           <Input
             name="last_name"
             type="text"
@@ -167,7 +170,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
         </div>
 
         <div className="space-y-2 md:col-span-2">
-          <Label>Nomor Handphone</Label>
+          <Label>{d('ProfilePhoneNum')}</Label>
           <Input
             name="phone_number"
             type="tel"
@@ -188,7 +191,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
           disabled={saving}
           className="cursor-pointer"
         >
-          Batal
+          {d('cancel')}
         </Button>
 
         <Button
@@ -197,7 +200,7 @@ const EditTeam = ({ teamId }: TeamPropsType) => {
           disabled={!isChanged || saving}
           className="bg-[#1A4D2E] hover:bg-[#2B6B45] min-w-44 cursor-pointer"
         >
-          {saving ? "Menyimpan..." : "Simpan Perubahan"}
+          {saving ? d("saving") : d("saveChanges")}
         </Button>
 
       </div>

@@ -143,7 +143,6 @@ const CreateTeam = () => {
                   <Label>Username</Label>
                   <Input
                     name="username"
-                    placeholder="Masukkan username"
                     value={createTeam.username}
                     onChange={handleChange}
                   />
@@ -161,27 +160,27 @@ const CreateTeam = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Nama Depan</Label>
+                  <Label>{c('ProfileFName')}</Label>
                   <Input
                     name="first_name"
-                    placeholder="Nama depan"
+                    placeholder={c('ProfileFName')}
                     value={createTeam.first_name}
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Nama Belakang</Label>
+                  <Label>{c('ProfileLName')}</Label>
                   <Input
                     name="last_name"
-                    placeholder="Nama belakang"
+                    placeholder={c('ProfileLName')}
                     value={createTeam.last_name}
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="space-y-2 md:col-span-2">
-                  <Label>Nomor Handphone</Label>
+                  <Label>{c('ProfilePhoneNum')}</Label>
                   <Input
                     type="tel"
                     name="phone_number"
@@ -198,7 +197,7 @@ const CreateTeam = () => {
                   variant="outline"
                   onClick={() => router.back()}
                 >
-                  Batal
+                  {c('cancel')}
                 </Button>
 
                 <Button
@@ -206,7 +205,8 @@ const CreateTeam = () => {
                   disabled={!isFormValid || loading}
                   className="bg-[#1A4D2E] hover:bg-[#2B6B45] min-w-40"
                 >
-                  {loading ? "Menyimpan..." : "Tambah Anggota"}
+              {loading ? c("saving") : c("profileButton")}
+
                 </Button>
               </div>
             </CardContent>

@@ -138,6 +138,14 @@
     "createProfileDesc": "Create a new dashboard user for the Yayasan Tumbuhan Asli Nusantara.",
     "createProfileDes1": "Member Information",
     "createProfileDes2": "Provide the required information to create a new dashboard account.",
+    "ProfileFName": "First Name",
+    "ProfileLName": "Last Name",
+    "ProfileAccess": "Access Rights",
+    "ProfilePhoneNum": "Phone Number",
+    "titleEdit": "Edit Team Member",
+    "descriptionEdit": "Update user information for the Indonesian Native Plants Foundation Dashboard.",
+    "sectionTitleEdit": "Member Information",
+    "sectionDescriptionEdit": "Update information for users who have access to the dashboard.",
 
     "user": "User",
     "role": "Role",
@@ -175,6 +183,7 @@
     "editImpactCard": "Impact Information",
     "editImpactCardDesc": "Update impact information displayed on the landing page.",
     "saveChanges": "Save Changes",
+    "saving": "Saving",
 
     "profile": "Profile",
     "tim": "Our Team",
@@ -281,7 +290,11 @@
     "titleTeam": "YTAN Members",
     "descriptionTeam": "Meet the team of the Yayasan Tumbuhan Asli Nusantara, contributing to research, conservation, restoration, and education on Indonesia’s native plants.",
     "notFoundDescription": "Try using a different keyword.",
-    "search": "Search team members..."
+    "search": "Search team members...",
+
+    "confirmDelete": "Are you sure?",
+    "deleteWarning": "This action cannot be undone.",
+    "delete": "Delete"
   },
   "dashmain": {
     "user": "Total Users",
