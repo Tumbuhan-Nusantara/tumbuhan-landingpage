@@ -2,6 +2,7 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import { axiosInstance } from "@/src/lib/axios";
+import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const CreateMisi = ({ onSuccess }: Props) => {
+  const d = useTranslations('dash')
 
   const [misi, setMisi] = useState({
     content_id: "",
@@ -83,7 +85,7 @@ const CreateMisi = ({ onSuccess }: Props) => {
           onClick={createMisi}
           className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
         >
-          Buat Misi
+          {d('createMission')}
         </Button>
       </div>
     </div>

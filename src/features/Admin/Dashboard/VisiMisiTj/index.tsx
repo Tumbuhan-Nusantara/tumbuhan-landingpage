@@ -205,7 +205,7 @@ const DashVisiMisiTjFeat = () => {
                   className="border-[#1A4D2E] text-[#1A4D2E] hover:bg-[#1A4D2E] hover:text-white"
                 >
                   <Pencil className="mr-2 h-4 w-4" />
-                  Ubah Visi
+                  {v('editVisi')}
                 </Button>
               ) : (
                 <Button
@@ -217,7 +217,7 @@ const DashVisiMisiTjFeat = () => {
                   className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
                 >
                   <Pencil className="mr-2 h-4 w-4" />
-                  Simpan Perubahan
+                  {v('buttonYes')}
                 </Button>
               )}
             </CardHeader>
@@ -280,16 +280,15 @@ const DashVisiMisiTjFeat = () => {
                 <DialogTrigger asChild>
                   <Button className="bg-[#1A4D2E] hover:bg-[#2B6B45]">
                     <Plus className="mr-2 h-4 w-4" />
-                    Tambah Misi
+                    {v('addMission')}
                   </Button>
                 </DialogTrigger>
 
                 <DialogContent className="sm:max-w-lg">
                   <DialogHeader>
-                    <DialogTitle>Tambah Misi</DialogTitle>
+                    <DialogTitle>{v('addMission')}</DialogTitle>
                     <DialogDescription>
-                      Tambahkan misi organisasi dalam Bahasa Indonesia dan
-                      Bahasa Inggris.
+                      {v('addMissionDescription')}
                     </DialogDescription>
                   </DialogHeader>
                   <CreateMisi
@@ -307,7 +306,7 @@ const DashVisiMisiTjFeat = () => {
                   <CardContent className="pt-6">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <Label className="font-semibold">Misi</Label>
+                        <Label className="font-semibold">{v('mission')}</Label>
 
                         <div className="flex gap-2">
                           {edit !== misi.id ? (
@@ -331,7 +330,7 @@ const DashVisiMisiTjFeat = () => {
                               className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
                               onClick={() => handleUpdateMisi(misi.id)}
                             >
-                              Simpan
+                              {v('save')}
                             </Button>
                           )}
 
@@ -393,7 +392,7 @@ const DashVisiMisiTjFeat = () => {
                   className="border-[#1A4D2E] text-[#1A4D2E] hover:bg-[#1A4D2E] hover:text-white"
                 >
                   <Pencil className="mr-2 h-4 w-4" />
-                  Ubah Tujuan
+                  {v('editGoal')}
                 </Button>
               ) : (
                 <Button
@@ -405,7 +404,7 @@ const DashVisiMisiTjFeat = () => {
                   className="bg-[#1A4D2E] hover:bg-[#2B6B45]"
                 >
                   <Pencil className="mr-2 h-4 w-4" />
-                  Simpan Perubahan
+                  {v('buttonYes')}
                 </Button>
               )}
             </CardHeader>
