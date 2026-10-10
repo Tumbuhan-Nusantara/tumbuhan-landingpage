@@ -329,7 +329,12 @@
   "dashmain": {
     "user": "Total Users",
     "kegiatan": "Total Activities",
-    "berita": "Total News"
+    "berita": "Total News",
+    "dashboardTitle": "Dashboard",
+    "welcome": "Welcome,",
+    "userListTitle": "YTAN Dashboard Users",
+    "showMore": "Show More",
+    "showLess": "Show Less"
   },
   "footer": {
     "description": "Yayasan Tumbuhan Asli Nusantara is committed to preserving Indonesia's native plants through research, education, and conservation efforts in collaboration with communities.",

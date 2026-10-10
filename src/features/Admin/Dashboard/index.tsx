@@ -60,10 +60,10 @@ const DashboardFeat = () => {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-[#1A4D2E] mb-6 px-2">
-        Halaman Dashboard
+        {dash('dashboardTitle')}
       </h1>
       <p className="font-black text-xl text-[#1A4D2E] px-2">
-        Selamat datang, {me?.first_name} {me?.last_name}
+        {dash('welcome')} {me?.first_name} {me?.last_name}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
@@ -80,7 +80,7 @@ const DashboardFeat = () => {
       </div>
       <Card className="bg-[url('/image.png')] bg-cover">
         <h1 className="mx-6 text-[#1A4D2E] font-semibold">
-          Daftar Pengguna Dashboard YTAN
+          {dash('userListTitle')}
         </h1>
         {displayedUsers.map((user) => (
           <Card key={user.id} className="mx-6">
@@ -112,7 +112,7 @@ const DashboardFeat = () => {
               className="border-[#1A4D2E] text-[#1A4D2E]"
               size="sm"
             >
-              Tampilkan Lebih Banyak
+              {dash('showMore')}
             </Button>
           </div>
         ) : (
@@ -123,7 +123,7 @@ const DashboardFeat = () => {
               className="border-[#1A4D2E] text-[#1A4D2E]"
               size="sm"
             >
-              Tampilkan Lebih Sedikit
+              {dash('showLess')}
             </Button>
           </div>
         )}

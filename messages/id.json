@@ -330,7 +330,12 @@
   "dashmain": {
     "user": "Total Pengguna",
     "kegiatan": "Total Kegiatan",
-    "berita": "Total Berita"
+    "berita": "Total Berita",
+    "dashboardTitle": "Halaman Dashboard",
+    "welcome": "Selamat datang,",
+    "userListTitle": "Daftar Pengguna Dashboard YTAN",
+    "showMore": "Tampilkan Lebih Banyak",
+    "showLess": "Tampilkan Lebih Sedikit"
   },
   "footer": {
     "description": "Yayasan Tumbuhan Asli Nusantara berkomitmen dalam pelestarian tumbuhan asli Indonesia melalui penelitian, edukasi, dan aksi konservasi bersama masyarakat.",
