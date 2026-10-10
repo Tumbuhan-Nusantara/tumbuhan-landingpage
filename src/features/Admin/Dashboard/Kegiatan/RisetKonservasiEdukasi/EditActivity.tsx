@@ -155,7 +155,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
         <h1 className="text-3xl font-bold text-[#1A4D2E]">{k("kegButtonEdit")}</h1>
 
         <p className="mt-2 text-muted-foreground">
-          Perbarui informasi kegiatan Yayasan Tumbuhan Asli Nusantara.
+          {k('editActivityDescription')}
         </p>
       </div>
 
@@ -166,15 +166,14 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
           </CardTitle>
 
           <CardDescription>
-            Perbarui informasi kegiatan beserta dokumentasi yang akan
-            ditampilkan pada website.
+            {k('updateActivityInfoDescription')}
           </CardDescription>
         </CardHeader>
 
         <CardContent className="p-8">
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <Label>Jenis Kegiatan</Label>
+              <Label>{k('activityType')}</Label>
 
               <Select
                 value={act?.tipe_kegiatan_id?.toString()}
@@ -190,7 +189,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
                 }
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Pilih tipe kegiatan" />
+                  <SelectValue placeholder={k('selectActivityType')} />
                 </SelectTrigger>
 
                 <SelectContent>
@@ -210,7 +209,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
                 name="activity_name"
                 value={act?.activity_name ?? ""}
                 onChange={handleChange}
-                placeholder="Masukkan nama kegiatan"
+                placeholder={k('enterActivityName')}
               />
             </div>
 
@@ -232,7 +231,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
                 name="tempat"
                 value={act?.tempat ?? ""}
                 onChange={handleChange}
-                placeholder="Masukkan lokasi kegiatan"
+                placeholder={k('enterActivityLocation')}
               />
             </div>
 
@@ -244,7 +243,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
                 rows={5}
                 value={act?.deskripsi_id ?? ""}
                 onChange={handleChange}
-                placeholder="Masukkan deskripsi kegiatan..."
+                placeholder={k('enterActivityDescription')}
               />
             </div>
             <div className="space-y-2 md:col-span-2">
@@ -255,12 +254,12 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
                 rows={5}
                 value={act?.deskripsi_en ?? ""}
                 onChange={handleChange}
-                placeholder="Masukkan deskripsi kegiatan..."
+                placeholder={k('enterActivityDescription')}
               />
             </div>
 
             <div className="space-y-3 md:col-span-2">
-              <Label>Dokumentasi Saat Ini</Label>
+              <Label>{k('currentDocumentation')}</Label>
 
               <div className="rounded-xl border bg-muted/20 p-4">
                 {act?.photo_url ? (
@@ -281,7 +280,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
                 ) : (
                   <div className="flex h-52 items-center justify-center rounded-lg border border-dashed">
                     <p className="text-sm text-muted-foreground">
-                      Belum ada dokumentasi yang diunggah.
+                      {k('noDocumentation')}
                     </p>
                   </div>
                 )}
@@ -289,13 +288,12 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
             </div>
 
             <div className="space-y-2 md:col-span-2">
-              <Label>Ganti Dokumentasi</Label>
+              <Label>{k('changeDocumentation')}</Label>
 
               <Input type="file" accept="image/*" onChange={handleFileChange} />
 
               <p className="text-xs text-muted-foreground">
-                Upload foto baru hanya jika ingin mengganti dokumentasi
-                kegiatan. Format yang didukung: JPG, JPEG, PNG.
+                {k('berForm8Desc')}
               </p>
             </div>
           </div>
@@ -303,7 +301,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
 
         <CardFooter className="flex justify-end gap-3 border-t bg-muted/30 px-8 py-5">
           <Button variant="outline" onClick={() => router.back()}>
-            Batal
+            {k('cancel')}
           </Button>
 
           <Button
@@ -311,7 +309,7 @@ const EditActivity = ({ activityId }: ActivityPropsType) => {
             disabled={!isChanged}
             className="bg-[#1A4D2E] hover:bg-[#2B6B45] disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Simpan Perubahan
+            {k('buttonYes')}
           </Button>
         </CardFooter>
       </Card>

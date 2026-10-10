@@ -189,7 +189,7 @@ const DashKegiatanFeat = () => {
                 name="activity_name"
                 value={formData.activity_name}
                 onChange={handleChange}
-                placeholder="Masukkan nama kegiatan"
+                placeholder={k('enterActivityName')}
               />
             </div>
 
@@ -209,7 +209,7 @@ const DashKegiatanFeat = () => {
                 name="tempat"
                 value={formData.tempat}
                 onChange={handleChange}
-                placeholder="Masukkan lokasi kegiatan"
+                placeholder={k('enterActivityLocation')}
               />
             </div>
 
@@ -220,7 +220,7 @@ const DashKegiatanFeat = () => {
                 value={formData.deskripsi_id}
                 onChange={handleChange}
                 rows={5}
-                placeholder="Masukkan deskripsi kegiatan..."
+                placeholder={k('enterActivityDescription')}
               />
             </div>
 
@@ -231,7 +231,7 @@ const DashKegiatanFeat = () => {
                 value={formData.deskripsi_en}
                 onChange={handleChange}
                 rows={5}
-                placeholder="Masukkan deskripsi kegiatan..."
+                placeholder={k('enterActivityDescription')}
               />
             </div>
 

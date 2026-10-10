@@ -15,11 +15,13 @@ import { Toaster } from "@/src/components/ui/sonner";
 import { axiosInstance } from "@/src/lib/axios";
 import { ArticleDashType, PropsType } from "@/src/types";
 import { Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const DeleteArticle = ({ idCode, onSuccess }: PropsType) => {
   const [art, setArt] = useState<ArticleDashType | null>(null);
+  const d = useTranslations('dash')
   useEffect(() => {
     const getArticle = async (id: number) => {
       console.log(id);
@@ -59,19 +61,19 @@ const DeleteArticle = ({ idCode, onSuccess }: PropsType) => {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle className="text-red-700">
-              Apakah Anda yakin?
+              {d('confirmDelete')}
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Tindakan ini tidak dapat dibatalkan.
+              {d('deleteWarning')}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Batal</AlertDialogCancel>
+            <AlertDialogCancel>{d('cancel')}</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDelete}
               className="bg-red-700 hover:bg-red-500"
             >
-              Hapus
+              {d('delete')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
