@@ -1,3 +1,4 @@
+'use client'
 import Nav from "@/src/components/Navbar-2";
 import FooterFeat from "@/src/components/Footer";
 

@@ -1,3 +1,4 @@
+'use client'
 import { Separator } from "@/src/components/ui/separator";
 import { Contacts } from "@/src/constants";
 import { useTranslations } from "next-intl";
@@ -18,7 +19,7 @@ const FooterFeat = () => {
             />
 
             <p className="max-w-md text-sm leading-7 text-white/80">
-              {f('description')}fhehfieohol
+              {f('description')}
             </p>
           </div>
 

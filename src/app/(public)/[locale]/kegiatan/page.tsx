@@ -1,13 +1,7 @@
-import KegiatanFeat from '@/src/features/Kegiatan'
-import { useLocale } from 'next-intl';
+import KegiatanFeat from "@/src/features/Kegiatan";
 
 const KegiatanPage = () => {
-  const locale = useLocale();
+  return <KegiatanFeat />;
+};
 
-  console.log("KegiatanPage locale:", locale);
-  return (
-    <KegiatanFeat/>
-  )
-}
-
-export default KegiatanPage
+export default KegiatanPage;

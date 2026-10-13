@@ -12,7 +12,7 @@ import { getTranslation } from "@/src/lib/translation";
 import { ActivityDashType } from "@/src/types";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 
 const KegiatanEdukasi = () => {
@@ -35,6 +35,11 @@ const KegiatanEdukasi = () => {
   const researchActivities = useMemo(() => {
     return act.filter((item) => item.tipe_kegiatan_id === 2);
   }, [act]);
+
+   useEffect(() => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      getActs();
+    }, []);
   return (
     <section className="py-12">
       <div className="container mx-auto max-w-7xl px-4">
