@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Nav from "@/src/components/Navbar-2";
 import FooterFeat from "@/src/components/Footer";
 
@@ -8,20 +8,15 @@ import KegiatanEdukasi from "./Edukasi";
 import KegiatanKonservasi from "./Konservasi";
 
 import StickyNavigation from "@/src/components/StickyNavKegiatan/StickyNavigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 const KegiatanFeat = () => {
   const k = useTranslations("kegiatan");
-const locale = useLocale();
-
-console.log("KegiatanFeat locale:", locale);
-  console.log("KegiatanFeat title:", k("title"));
-  console.log("KegiatanFeat desc:", k("desc"));
   return (
     <>
       <Nav />
-      <section className="relative mt-22 overflow-hidden bg-linear-to-br from-[#1A4D2E] via-[#2B593A] to-[#356E4B]">
-        <div className="absolute inset-0 bg-[url('/image.png')] bg-cover opacity-10" />
+      <section className="relative mt-22 overflow-hidden bg-[url('/Konservasi.jpg')] bg-cover bg-center bg-no-repeat ">
+        <div className="absolute inset-0 bg-[#1A4D2E]/50" />
 
         <div className="relative container mx-auto px-6 py-24">
           <div className="mx-auto max-w-3xl text-center text-white">
@@ -36,7 +31,7 @@ console.log("KegiatanFeat locale:", locale);
             <p className="mt-6 leading-8 text-white/80">{k("desc")}</p>
           </div>
         </div>
-      </section> 
+      </section>
       <StickyNavigation />
 
       <main className="overflow-x-hidden">

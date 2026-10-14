@@ -51,13 +51,10 @@ const BeritaMainFeat = () => {
     );
   }, [news, search]);
 
-
-
   return (
-    <div className="overflow-x-hidden">
-
-      <section className="relative mt-22 overflow-hidden bg-linear-to-br from-[#1A4D2E] via-[#2B593A] to-[#356E4B]">
-        <div className="absolute inset-0 bg-[url('/image.png')] bg-cover opacity-10" />
+    <div>
+      <section className="relative mt-22 overflow-hidden bg-[url('/backgrounds.jpg')] bg-cover bg-center bg-no-repeat ">
+        <div className="absolute inset-0 bg-[#1A4D2E]/50" />
 
         <div className="relative container mx-auto px-6 py-24">
           <div className="mx-auto max-w-3xl text-center text-white">
@@ -89,7 +86,7 @@ const BeritaMainFeat = () => {
 
       <section className="container mx-auto px-6 pb-20">
         {loading ? (
-          <NewsSkeleton count={3}/>
+          <NewsSkeleton count={3} />
         ) : filteredNews.length === 0 ? (
           <div className="py-24 text-center">
             <h2 className="text-2xl font-semibold text-[#1A4D2E]">
@@ -149,7 +146,6 @@ const BeritaMainFeat = () => {
           </div>
         )}
       </section>
-
     </div>
   );
 };
