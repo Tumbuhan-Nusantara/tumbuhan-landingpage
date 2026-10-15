@@ -21,7 +21,6 @@ const Hero = () => {
       const Hero = response.data.data[0];
 
       setHero(Hero);
-      console.log("cek hero", Hero);
     } catch (error) {
       throw error;
     }
