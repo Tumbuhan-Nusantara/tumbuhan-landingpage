@@ -1,24 +1,36 @@
 "use client";
 import { Button } from "@/src/components/ui/button";
 import { useRouter } from "@/src/i18n/navigation";
-import { CarouselType } from "@/src/types";
+import { axiosInstance } from "@/src/lib/axios";
+import { getTranslation } from "@/src/lib/translation";
+import { BotaniType } from "@/src/types";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const BotaniFeat = () => {
+  const [botani, setBotani] = useState<BotaniType[]>([])
   const b = useTranslations("botani");
-  const c = useTranslations("cards");
+  const locale = useLocale();
 
-  useLocale();
-  console.log("LOCALE:", useLocale());
+  const getBotaniData = async () => {
+    try {
+      const response = await axiosInstance.get('/api/v1/thumbnail')
+      const result = response.data.data
+      setBotani(result)
+      console.log(result)
+    } catch (error) {
+      throw error
+    }
+  }
+
 
   const router = useRouter();
 
-  const dataCarousel: CarouselType[] = [
-    { key: "card1", image: "/botani/Penelitian.jpg" },
-    { key: "card2", image: "/botani/KonservasiPhoto.jpg" },
-    { key: "card3", image: "/botani/Berita.jpg" },
-  ];
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    getBotaniData()
+  }, [])
   return (
     <div className="overflow-hidden">
       <section className="container mx-auto px-6 md:px-10 lg:px-20 py-16 lg:py-24">
@@ -71,9 +83,9 @@ const BotaniFeat = () => {
 
       <section className="relative bg-linear-to-b from-[#F8FCF9] to-[#EEF7F2] py-20">
         <div className="container mx-auto space-y-20">
-          {dataCarousel.map((item, index) => (
+          {botani.map((item, index) => (
             <div
-              key={item.key}
+              key={item.id}
               className={`grid lg:grid-cols-2 items-center gap-10 px-6 md:px-12 lg:px-20 ${
                 index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
@@ -84,11 +96,12 @@ const BotaniFeat = () => {
               >
                 <div className="rounded-3xl bg-white p-8 shadow-xl">
                   <Image
-                    src={item.image}
-                    alt={item.key}
+                    src={item.photo_url}
+                    alt={getTranslation(locale, item?.title_in , item?.title_en)}
                     width={450}
                     height={300}
                     className="mx-auto object-contain"
+                    unoptimized
                   />
                 </div>
 
@@ -104,11 +117,11 @@ const BotaniFeat = () => {
                 </span>
 
                 <h2 className="text-3xl md:text-4xl font-bold text-[#1A4D2E]">
-                  {c(`${item.key}.title`)}
+                  {getTranslation(locale, item?.title_in , item?.title_en)}
                 </h2>
 
                 <p className="text-[#355C46] leading-8">
-                  {c(`${item.key}.desc`)}
+                  {getTranslation(locale, item?.descript_in , item?.descript_en)}
                 </p>
 
                 <Button
