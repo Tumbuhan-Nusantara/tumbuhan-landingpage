@@ -132,6 +132,10 @@ export interface NewsPropsType {
   newsId: number;
 }
 
+export interface BotaniPropsType {
+  botaniId : number;
+}
+
 export interface CreateActivityDashType {
   activity_name: string;
   deskripsi: string;
@@ -230,6 +234,22 @@ export interface NewsLandingPageType {
   tempat: string;
   photo_url: string;
   video_link: string;
+}
+
+export interface BotaniType {
+  id: number;
+  title_in: string;
+  title_en: string;
+  descript_in: string;
+  descript_en: string;
+  photo_url: string;
+}
+export interface CreateBotaniType {
+  title_in: string;
+  title_en: string;
+  descript_in: string;
+  descript_en: string;
+  photo_url: File | null;
 }
 
 export interface VisiLandingPageType {

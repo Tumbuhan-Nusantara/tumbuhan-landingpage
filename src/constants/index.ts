@@ -76,7 +76,10 @@ export const SidebarItems: SidebarType[] = [
     title: "beranda",
     icon: House,
     isActive: true,
-    items: [{ id: 1, sub: "hero", icon: House, path: "/admin/dashboard/hero" , roles: ["admin", "user"]}],
+    items: [
+      { id: 1, sub: "hero", icon: House, path: "/admin/dashboard/hero" , roles: ["admin", "user"]},
+      { id: 2, sub: "botani", icon: SquareChartGantt, path: "/admin/dashboard/botani" , roles: ["admin", "user"]}
+  ],
   },
   {
     id: 2,
