@@ -16,6 +16,7 @@ import {
   SquareChartGantt,
   UserRoundCog,
   Users,
+  Star
 } from "lucide-react";
 import {
   DashMain,
@@ -78,7 +79,8 @@ export const SidebarItems: SidebarType[] = [
     isActive: true,
     items: [
       { id: 1, sub: "hero", icon: House, path: "/admin/dashboard/hero" , roles: ["admin", "user"]},
-      { id: 2, sub: "botani", icon: SquareChartGantt, path: "/admin/dashboard/botani" , roles: ["admin", "user"]}
+      { id: 2, sub: "botani", icon: SquareChartGantt, path: "/admin/dashboard/botani" , roles: ["admin", "user"]},
+      { id: 3, sub: "socmedTitle", icon: Star, path: "/admin/dashboard/socmed" , roles: ["admin", "user"]}
   ],
   },
   {
@@ -161,4 +163,4 @@ export const SejarahFocus: FocusArea[] = [
     title: "redListAssessment",
     logo: BookOpen,
   },
-];
+]; 

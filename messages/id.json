@@ -352,6 +352,13 @@
     "notFoundDescription": "Coba gunakan kata kunci lain.",
     "search": "Cari Anggota Tim...",
 
+    "socmedTitle": "Media Sosial",
+    "socmedDescription": "Kelola media sosial yang akan ditampilkan pada website.",
+    "socmedListTitle": "Daftar Media Sosial",
+    "socmedListDescription": "Kelola seluruh media sosial yang telah ditambahkan.",
+    "socmedForm1": "Nama Media Sosial",
+    "socmedForm2": "URL Media Sosial",
+
     "confirmDelete": "Apakah Anda yakin?",
     "deleteWarning": "Tindakan ini tidak dapat dibatalkan.",
     "delete": "Hapus"

@@ -351,6 +351,13 @@
     "notFoundDescription": "Try using a different keyword.",
     "search": "Search team members...",
 
+    "socmedTitle": "Social Media",
+  "socmedDescription": "Manage the social media links displayed on the website.",
+  "socmedListTitle": "Social Media List",
+  "socmedListDescription": "Manage all social media links that have been added.",
+  "socmedForm1": "Social Media Name",
+  "socmedForm2": "Social Media URL",
+
     "confirmDelete": "Are you sure?",
     "deleteWarning": "This action cannot be undone.",
     "delete": "Delete"

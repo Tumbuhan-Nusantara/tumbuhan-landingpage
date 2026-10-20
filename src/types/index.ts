@@ -29,7 +29,7 @@ export interface ArticleType {
   title: string;
   desc: string;
   src: string;
-  link: string
+  link: string;
 }
 export interface ArticleGroup {
   year: number;
@@ -66,7 +66,6 @@ export interface SideMenuType {
 }
 
 export type UserRole = "admin" | "user";
-
 
 export interface DashMain {
   id: number;
@@ -133,7 +132,7 @@ export interface NewsPropsType {
 }
 
 export interface BotaniPropsType {
-  botaniId : number;
+  botaniId: number;
 }
 
 export interface CreateActivityDashType {
@@ -154,6 +153,12 @@ export interface ActivityDashType {
   photo_url: string;
   tipe_kegiatan_id: number | null;
   nama_tipe: string;
+}
+
+export interface SocmedType {
+  id: number;
+  name: string
+  url: string
 }
 
 export interface TypesDashType {
@@ -288,7 +293,6 @@ export interface FocusArea {
   logo: LucideIcon;
 }
 
-
 export interface DampakPropsType {
   dampakId: number;
 }
@@ -310,4 +314,4 @@ export interface TeamMember {
   expertise?: string;
   joined_year?: number;
   photo_url?: string;
-};
+}

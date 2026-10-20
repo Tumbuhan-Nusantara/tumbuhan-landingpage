@@ -133,7 +133,7 @@ const EditArticle = ({ idCode, onSuccess }: PropsType) => {
           disabled={!isChanged}
           className="bg-[#1A4D2E] hover:bg-[#2B6B45] disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Simpan Perubahan
+          {p('saveChanges')}
         </Button>
       </div>
     </div>
