@@ -20,7 +20,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "YTAN",
+  title: "Yayasan Tumbuhan Asli Nusantara",
   description: "Tumbuhan Asli Nusantara",
 };
 
