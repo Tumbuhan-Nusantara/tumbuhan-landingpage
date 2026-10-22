@@ -41,7 +41,7 @@ const BotaniFeat = () => {
             data-aos-duration="1000"
           >
             <Image
-              src="/botani/botani.jpeg"
+              src="/botani/Botani.jpeg"
               alt="Botani Untuk Semua"
               width={700}
               height={700}
