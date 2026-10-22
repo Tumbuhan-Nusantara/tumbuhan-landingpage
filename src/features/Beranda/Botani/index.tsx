@@ -46,6 +46,7 @@ const BotaniFeat = () => {
               width={700}
               height={700}
               className="rounded-3xl object-cover shadow-2xl"
+              unoptimized
             />
 
             <div className="absolute -bottom-6 -right-6 h-36 w-36 rounded-full bg-[#CBEAD7]/60 blur-3xl" />
