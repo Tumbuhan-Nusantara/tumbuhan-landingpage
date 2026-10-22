@@ -1,0 +1,117 @@
+{
+  "navbar": {
+    "home": "Home",
+    "profile": "Profile",
+    "history": "History",
+    "team": "Our Team",
+    "visi": "Vision, Mission and Goals",
+    "structure": "Organizational Structure",
+    "publication": "Publication",
+    "article": "Articles",
+    "digitalFlora": "Digital Flora of Indonesia",
+    "activity": "Activities",
+    "research": "Research and Exploration",
+    "education": "Education",
+    "restoration": "Restoration and Monitoring",
+    "news": "News",
+    "contact": "Contact Us"
+  },
+
+  "hero": {
+    "title": "Recognize and preserve our plants!",
+    "desc": "aims to become one of the leading institutions in studying and conserving plant biodiversity in Indonesia.",
+    "about": "About Us"
+  },
+  "dampak": {
+    "title": "Positive Impact",
+    "desc": "has carried out activities in line with its vision and mission across various regions in Indonesia, including field activities and the compilation of plant species data found in Indonesia.",
+    "terdata": "Recorded Species",
+    "nilaiTerdata": "23,212",
+    "baru": "New Species",
+    "nilaiBaru": "22",
+    "penelitian": "Research",
+    "nilaiPenelitian": "33",
+    "edukasi": "Education",
+    "nilaiEdukasi": "7"
+  },
+  "botani": {
+    "title": "Botany for Everyone",
+    "desc": "aims to encourage Indonesian botany enthusiasts to actively contribute to the advancement of plant research and conservation.",
+    "desc-2": " Various initiatives have been carried out to enhance the capacity of local botanists beyond academic and research circles, enabling them to recognize and maximize their local potential.",
+    "button": "Learn More"
+  },
+  "cards": {
+    "card1": {
+      "title": "Research",
+      "desc": "Research is one of YTAN’s main objectives, with a primary focus on studying the diversity of flora in Indonesia."
+    },
+    "card2": {
+      "title": "Conversation",
+      "desc": "Conservation serves as a means to preserve plant species in Indonesia, particularly those that are rare and endangered."
+    },
+    "card3": {
+      "title": "Education",
+      "desc": "YTAN is committed to providing and widely disseminating information about the diversity of plant species in Indonesia."
+    }
+  },
+  "berita": {
+    "title": "News and Recent Activities",
+    "button": "View All News"
+  },
+  "contact": {
+    "title": "Have ideas, suggestions, or feedback for YTAN?",
+    "desc": "We’d love to hear your thoughts and grow together in preserving Indonesia’s plant diversity.",
+    "button": "Contact Us"
+  },
+  "kedukasi": {
+    "items": {
+      "ed1": {
+        "title": "Instagram",
+        "desc": "YTAN regularly shares a variety of information through its social media platforms, including interesting facts, infographics, statistics on Indonesian flora, and other relevant insights.",
+        "cat": "Media Sosial",
+        "link": "Follow us on Instagram"
+      },
+      "ed2": {
+        "title": "Botanical Education",
+        "desc": "To support plant awareness and conservation efforts, the YTAN team regularly participates in various training programs, webinars, and other educational events.",
+        "cat": "Pelatihan"
+      },
+
+      "ed3": {
+        "title": "Plants Community",
+        "desc": "Indonesia has a growing community of flora enthusiasts. However, one of the main challenges in studying plants is the complexity of identification information. Therefore, YTAN actively contributes to facilitating plant identification discussions and forums through social media platforms. ",
+        "cat": "Forum Identifikasi"
+      }
+    }
+  },
+  "edukasi": {
+    "title": "Education",
+    "desc": "YTAN is committed to spreading knowledge about plant biodiversity and its conservation to a wider audience. Through this effort, we hope biodiversity awareness can become an important part of everyday life for the people of Indonesia."
+  },
+  "visimisi": {
+    "misi1": "To increase the number and quality of research on Indonesian native plants",
+    "misi2": "Build and strengthening collaborations among enthusiasts, academicians, plant scientists, and stakeholders with either government or non-government institutions",
+    "misi3": "Preserving the Indonesian native plant through conservation and ecosystem restoration",
+    "misi4": "Increasing and spread the understanding and society's interest to Indonesian native plants",
+    "tujuan": "This organization aims to document, publish, and disseminate information on the diversity of Indonesia’s native plant species, as well as to support the monitoring of the distribution and trade of native plants in collaboration with relevant authorities and institutions. In addition, the organization is committed to promoting the conservation and restoration of native plant species and forest ecosystems in general."
+  },
+  "dash": {
+    "beranda": "Home",
+    "hero": "Hero",
+    "user": "User",
+    "role": "Role",
+    "profile": "Profile",
+    "tim": "Our Team",
+    "vismis": "Vision & Mission",
+    "struktur": "Organizational Structure",
+    "kegiatan": "Activites",
+    "publikasi": "Publications",
+    "kegiatans": "Other Activities",
+    "berita": "News"
+  },
+  "dashmain": {
+    "user": "Total Users",
+    "kegiatan": "Total Activities",
+    "berita": "Total News"
+  }
+}

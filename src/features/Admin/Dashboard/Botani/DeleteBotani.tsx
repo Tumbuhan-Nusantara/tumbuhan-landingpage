@@ -1,0 +1,84 @@
+"use client";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/src/components/ui/alert-dialog";
+import { Button } from "@/src/components/ui/button";
+import { Toaster } from "@/src/components/ui/sonner";
+import { axiosInstance } from "@/src/lib/axios";
+import { BotaniType, PropsType } from "@/src/types";
+import { Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+
+const DeleteBotani = ({ idCode, onSuccess }: PropsType) => {
+  const [botani, setBotani] = useState<BotaniType | null>(null);
+  const d = useTranslations('dash')
+  useEffect(() => {
+    const getBotaniData = async (id: number) => {
+      console.log(id);
+      try {
+        const response = await axiosInstance.get(`/api/v1/thumbnail/${id}`);
+        const tani = response.data;
+        setBotani(tani);
+      } catch (error) {
+        throw error;
+      }
+    };
+    getBotaniData(idCode);
+  }, [idCode]);
+
+  const handleDelete = async () => {
+    if (!botani) return;
+    try {
+      await axiosInstance.delete(`/api/v1/thumbnail/${botani.id}`);
+
+      toast.warning("Data berhasil dihapus");
+      onSuccess();
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  return (
+    <div>
+      <Toaster position="top-center" richColors />
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button size="icon" variant="destructive">
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-red-700">
+              {d('confirmDelete')}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {d('deleteWarning')}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{d('cancel')}</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDelete}
+              className="bg-red-700 hover:bg-red-500"
+            >
+              {d('delete')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </div>
+  );
+};
+
+export default DeleteBotani;
