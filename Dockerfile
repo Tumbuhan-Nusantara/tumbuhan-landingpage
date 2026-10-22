@@ -11,7 +11,7 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ARG NEXT_PUBLIC_BASE_URL=https://api.nusantaraplants.org/api/v1
+ARG NEXT_PUBLIC_BASE_URL=https://api.nusantaraplants.org
 ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 ENV NEXT_TELEMETRY_DISABLED=1
 
