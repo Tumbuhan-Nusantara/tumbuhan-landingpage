@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
-
 import { ArrowLeft, Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Link } from "@/src/i18n/navigation";
 import Nav from "@/src/components/Navbar-2";
@@ -11,76 +11,81 @@ import FooterFeat from "@/src/components/Footer";
 import { Input } from "@/src/components/ui/input";
 import { ArticleCard } from "@/src/components/ArticleCard";
 import { axiosInstance } from "@/src/lib/axios";
-import { ArticleGroup } from "@/src/types";
-import { useTranslations } from "next-intl";
+import { ArticleGroup, ArticleType } from "@/src/types";
+
+interface ApiArticle {
+  id: number;
+  judul: string;
+  doi: string;
+  tahun: number;
+  link: string;
+}
 
 const DetailPublikasiLpFeat = () => {
   const k = useTranslations("kegiatan");
-
-  const { year } = useParams();
+  const { year } = useParams<{ year: string }>();
 
   const [search, setSearch] = useState("");
-
   const [publication, setPublication] =
     useState<ArticleGroup | null>(null);
-
   const [loading, setLoading] = useState(true);
 
-  const getArticles = async () => {
-    try {
-      const response = await axiosInstance.get("/api/v1/articles");
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        const response = await axiosInstance.get("/api/v1/articles");
+        const data: ApiArticle[] = response.data.data;
 
-      const data = response.data.data;
+        const grouped = data.reduce<ArticleGroup[]>((acc, item) => {
+          const existing = acc.find(
+            (group) => group.year === item.tahun
+          );
 
-      const grouped = data.reduce((acc: ArticleGroup[], item: any) => {
-        const existing = acc.find(
-          (group) => group.year === item.tahun
+          const article: ArticleType = {
+            id: item.id,
+            title: item.judul,
+            desc: item.doi,
+            src: "/artikel/newspaper.png",
+            link: item.link,
+          };
+
+          if (existing) {
+            existing.items.push(article);
+          } else {
+            acc.push({
+              year: item.tahun,
+              items: [article],
+            });
+          }
+
+          return acc;
+        }, []);
+
+        const currentYear = grouped.find(
+          (group) => group.year === Number(year)
         );
 
-        const article = {
-          id: item.id,
-          title: item.judul,
-          desc: item.doi,
-          src: "/artikel/newspaper.png",
-          link: item.link,
-        };
+        setPublication(currentYear ?? null);
+      } catch (err) {
+        console.error("Gagal mengambil publikasi:", err);
+        setPublication(null);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        if (existing) {
-          existing.items.push(article);
-        } else {
-          acc.push({
-            year: item.tahun,
-            items: [article],
-          });
-        }
-
-        return acc;
-      }, []);
-
-      const currentYear = grouped.find(
-        (g) => g.year === Number(year)
-      );
-
-      setPublication(currentYear ?? null);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getArticles();
-  }, []);
+  }, [year]);
 
   const filteredArticles = useMemo(() => {
     if (!publication) return [];
 
+    const keyword = search.toLowerCase();
+
     return publication.items.filter(
       (item) =>
-        item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.desc.toLowerCase().includes(search.toLowerCase())
+        item.title.toLowerCase().includes(keyword) ||
+        item.desc.toLowerCase().includes(keyword)
     );
   }, [publication, search]);
 
@@ -135,9 +140,7 @@ const DetailPublikasiLpFeat = () => {
           </div>
 
           {loading ? (
-            <div className="py-20 text-center">
-              Loading...
-            </div>
+            <div className="py-20 text-center">Loading...</div>
           ) : !publication ? (
             <div className="rounded-2xl border bg-white py-20 text-center">
               <h2 className="text-2xl font-semibold text-[#1A4D2E]">
