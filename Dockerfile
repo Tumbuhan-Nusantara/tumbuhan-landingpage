@@ -10,7 +10,11 @@ RUN npm ci
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+ARG NEXT_PUBLIC_BASE_URL=https://api.nusantaraplants.org/api/v1
+ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 ENV NEXT_TELEMETRY_DISABLED=1
+
 RUN npm run build
 
 FROM base AS runner
