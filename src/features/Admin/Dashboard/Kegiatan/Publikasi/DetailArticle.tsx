@@ -6,7 +6,13 @@ import { useTranslations } from "next-intl";
 
 const DetailArticle = ({ articleId }: { articleId: number }) => {
   const d = useTranslations('dash')
-  const [article, setArticle] = useState<CreateArticleDashType>({});
+  const [article, setArticle] = useState<CreateArticleDashType>({
+  judul: "",
+  doi: "",
+  tahun: null,
+  volume: "",
+  link: "",
+});
 
   useEffect(() => {
     const getArticle = async (id: number) => {
