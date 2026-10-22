@@ -2,7 +2,6 @@
 
 import { ArticleCard } from "@/src/components/ArticleCard";
 import { Button } from "@/src/components/ui/button";
-import { Articles } from "@/src/constants";
 import { Link } from "@/src/i18n/navigation";
 import { axiosInstance } from "@/src/lib/axios";
 import { ArticleGroup } from "@/src/types";
