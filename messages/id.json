@@ -122,7 +122,10 @@
   "berita2": {
     "title": "Berita",
     "desc": "Ikuti seluruh informasi terbaru mengenai Yayasan Tumbuhan Asli Nusantara.",
-    "detail": "Baca Selengkapnya"
+    "detail": "Baca Selengkapnya",
+    "noNewsFound": "Berita tidak ditemukan",
+    "noNewsFoundDesc": "Coba gunakan kata kunci lain.",
+    "searchNews": "Cari berita..."
   },
   "dash": {
     "beranda": "Beranda",
@@ -303,6 +306,7 @@
     "supportedImageFormats": "Format yang didukung: JPG, JPEG, PNG.",
     "buttonYes": "Simpan Perubahan",
     "buttonNo": "Batal",
+    
 
     "botani": "Botani",
     "titleBotani": "Jenis Kegiatan",

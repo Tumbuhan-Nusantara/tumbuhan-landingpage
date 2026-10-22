@@ -78,7 +78,7 @@ const BeritaMainFeat = () => {
           <Input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Cari berita..."
+            placeholder={b('searchNews')}
             className="h-12 rounded-full pl-11"
           />
         </div>
@@ -90,12 +90,10 @@ const BeritaMainFeat = () => {
         ) : filteredNews.length === 0 ? (
           <div className="py-24 text-center">
             <h2 className="text-2xl font-semibold text-[#1A4D2E]">
-              Berita tidak ditemukan
+              {b("noNewsFound")}
             </h2>
 
-            <p className="mt-3 text-muted-foreground">
-              Coba gunakan kata kunci lain.
-            </p>
+            <p className="mt-3 text-muted-foreground">{b("noNewsFoundDesc")}</p>
           </div>
         ) : (
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

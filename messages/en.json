@@ -123,7 +123,10 @@
   "berita2": {
     "title": "News",
     "desc": "Stay informed with the latest news, research activities, conservation initiatives, publications, and institutional updates from the Indonesian Native Plants Foundation (YTAN).",
-    "detail": "View Details"
+    "detail": "View Details",
+    "noNewsFound": "No news found",
+    "noNewsFoundDesc": "Try using a different keyword.",
+    "searchNews": "Search news..."
   },
   "dash": {
     "beranda": "Home",
@@ -302,6 +305,7 @@
     "supportedImageFormats": "Supported formats: JPG, JPEG, PNG.",
     "buttonYes": "Save Changes",
     "buttonNo": "Cancel",
+    
 
     "botani": "Botani",
     "titleBotani": "Activity Types",
@@ -352,11 +356,11 @@
     "search": "Search team members...",
 
     "socmedTitle": "Social Media",
-  "socmedDescription": "Manage the social media links displayed on the website.",
-  "socmedListTitle": "Social Media List",
-  "socmedListDescription": "Manage all social media links that have been added.",
-  "socmedForm1": "Social Media Name",
-  "socmedForm2": "Social Media URL",
+    "socmedDescription": "Manage the social media links displayed on the website.",
+    "socmedListTitle": "Social Media List",
+    "socmedListDescription": "Manage all social media links that have been added.",
+    "socmedForm1": "Social Media Name",
+    "socmedForm2": "Social Media URL",
 
     "confirmDelete": "Are you sure?",
     "deleteWarning": "This action cannot be undone.",
