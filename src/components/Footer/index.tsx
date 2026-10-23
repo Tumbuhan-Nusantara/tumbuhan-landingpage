@@ -1,6 +1,5 @@
 "use client";
 import { Separator } from "@/src/components/ui/separator";
-import { Contacts } from "@/src/constants";
 import { axiosInstance } from "@/src/lib/axios";
 import { SocmedType } from "@/src/types";
 import { useTranslations } from "next-intl";
@@ -14,7 +13,6 @@ const FooterFeat = () => {
     try {
       const resp = await axiosInstance.get(`/api/v1/socmed`);
       const result = resp.data.data;
-      console.log("tes", result);
       setSocmed(result);
     } catch (error) {
       throw error;
