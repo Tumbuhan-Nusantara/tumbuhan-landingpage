@@ -22,6 +22,15 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Yayasan Tumbuhan Asli Nusantara",
   description: "Tumbuhan Asli Nusantara",
+  openGraph: {
+    title: "Yayasan Tumbuhan Asli Nusantara (YTAN)",
+    description:
+      "Mengenal dan melestarikan tumbuhan asli Nusantara melalui konservasi, penelitian, dan edukasi.",
+    url: "https://nusantaraplants.org",
+    siteName: "Yayasan Tumbuhan Asli Nusantara",
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
