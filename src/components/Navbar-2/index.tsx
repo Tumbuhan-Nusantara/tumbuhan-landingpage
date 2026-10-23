@@ -21,16 +21,17 @@ const Nav = () => {
   useLocale();
 
   return (
-    <div className="flex items-center justify-between px-8 md:px-12 lg:px-30 py-2 fixed top-0 left-0 w-full z-50 bg-linear-to-l from-[#C7FCDC] to-white border-b-[#D9D9D9] border border-solid">
-      <div className="flex items-center gap-4">
+    <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-30 py-2 fixed top-0 left-0 w-full z-50 bg-linear-to-l from-[#C7FCDC] to-white border-b border-solid border-[#D9D9D9]">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
         <Image
           src="/logo-ytan.png"
           width={70}
           height={70}
           alt="Logo of YTAN"
           loading="eager"
+          className="w-10 h-10 sm:w-12 sm:h-12 md:w-17.5 md:h-17.5 shrink-0"
         />
-        <h1 className="font-light text-[#2B593A] tracking-widest">
+        <h1 className="text-xs sm:text-sm md:text-base font-light text-[#2B593A] tracking-wide sm:tracking-widest">
           Tumbuhan Asli Nusantara
         </h1>
       </div>
